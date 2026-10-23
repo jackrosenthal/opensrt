@@ -588,24 +588,50 @@ impl Ui {
     fn credits_screen(&mut self, art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas) {
         scene(art, ui, cv);
         art.background(ui, assets, cv, CREDITS, art::credits::BACKGROUND);
-        // The credit roll scrolls up through the window.
+        // The credit roll scrolls up through the window: the text of the
+        // original's 506×1900 roll picture, drawn line by line where the
+        // picture had it.  "# " starts a company name, and *stars* mark
+        // names in bold.
+        use super::classic::{CREDITS_COMPANY, CREDITS_NAME, CREDITS_ROLE};
+        const ROLL: &str = include_str!("credits.txt");
+        const ROLL_HEIGHT: f32 = 1900.0;
+        const CENTER_X: f32 = 253.0;
+        const FIRST_BASELINE: f32 = 25.0;
+        const LINE: f32 = 24.0;
+        const COMPANY_LINE: f32 = 34.0;
         let dt = ui.input(|i| i.stable_dt).min(0.1);
         self.credits_t += dt;
-        let roll = art.group_element(assets, CREDITS, art::credits::CREDITS_LIST, 0).and_then(|(s, _)| s);
-        let height = roll
-            .and_then(|i| art.screen(assets, CREDITS).and_then(|s| s.sprites.get(i)))
-            .and_then(|sp| sp.image.as_ref().map(|im| im.height as f32))
-            .unwrap_or(0.0);
-        if let Some(sprite) = roll {
-            let mut y = 480.0 - self.credits_t * 30.0;
-            if y < -height {
-                self.credits_t = 0.0;
-                y = 480.0;
+        let mut y = 480.0 - self.credits_t * 30.0;
+        if y < -ROLL_HEIGHT {
+            self.credits_t = 0.0;
+            y = 480.0;
+        }
+        let clip = cv.rect_xywh(0.0, 80.0, 640.0, 340.0);
+        let mut child = ui.new_child(egui::UiBuilder::new().max_rect(clip));
+        child.set_clip_rect(clip);
+        let mut baseline = y + FIRST_BASELINE - COMPANY_LINE;
+        for line in ROLL.lines() {
+            let runs: Vec<_> = match line.strip_prefix("# ") {
+                Some(company) => {
+                    baseline += COMPANY_LINE;
+                    vec![(CREDITS_COMPANY, company)]
+                }
+                None => {
+                    baseline += LINE;
+                    let styles = [CREDITS_ROLE, CREDITS_NAME];
+                    line.split('*').enumerate().filter(|(_, t)| !t.is_empty()).map(|(i, t)| (styles[i % 2], t)).collect()
+                }
+            };
+            // Skip the lines outside the window.
+            if !(60.0..=450.0).contains(&baseline) {
+                continue;
             }
-            let clip = cv.rect_xywh(0.0, 80.0, 640.0, 340.0);
-            let mut child = ui.new_child(egui::UiBuilder::new().max_rect(clip));
-            child.set_clip_rect(clip);
-            art.sprite_at(&child, assets, cv, CREDITS, sprite, 0.0, y);
+            let metrics: Vec<_> = runs.iter().map(|&(style, t)| art.text_metrics(&child, cv, style, t)).collect();
+            let mut x = CENTER_X - metrics.iter().map(|m| m.0).sum::<f32>() / 2.0;
+            for (&(style, t), &(width, ascent)) in runs.iter().zip(&metrics) {
+                art.text(&child, cv, style, x, baseline - ascent, t);
+                x += width;
+            }
         }
         if art.button(ui, assets, cv, CREDITS, art::credits::OK_BUTTON, (0.0, 0.0)) {
             self.screen = Screen::MainMenu;

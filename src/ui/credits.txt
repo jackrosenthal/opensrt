@@ -1,0 +1,63 @@
+# Deck13 Interactive
+
+Creative Director
+*Jan Klose*
+
+Technical Director
+*Armin Burger*
+
+Executive Director
+*Florian Stadlbauer*
+
+Art
+*Jan Klose*
+*Gregor Weiß*
+
+Music
+*Dynamedion*
+
+QA Team
+*TBA*
+
+Special Thanks
+*TBA*
+
+
+# Cat Daddy Games
+
+Patrick Wilkinson
+Kevin "Vertigo" Steffa
+Brad "BenChoppen" Denkmann
+John "KickFlip" Simons
+Michael "The Mongoose" Vargas
+Ryan "WellaWarm" Wellman
+Harley Howe
+Stefan Schwartz
+Deane Marston
+Dane Egenes
+Gayle Yvois
+Dan Kircher
+Mac Congrove
+Mike Sarff
+Dave Cleeton
+Baul Brandl
+Kyle Blondin
+
+
+# Activision Value
+
+President - *Danny Hammett*
+Senior V.P. of Operations - *Chad Koehler*
+V.P. of Studios - *Patrick Kelly*
+V.P. of Marketing and Creative Sevices -
+*Mark Meadows*
+Producer - *Brian Kirkvold*
+Assistant Producer - *Chris Owen*
+Quality Assurance Lead - *Allen Weeks*
+
+QA Team
+*Sean Dunnigan, Emmett McCarthy, Chris Knox,*
+*Josh Miedema*
+
+Compatibility
+*Neil Barizo, Jason Kim*

@@ -34,6 +34,25 @@ pub const LIST: TextStyle = TextStyle {
     bold: true,
     color: Color32::from_rgb(0x00, 0x00, 0x99),
 };
+/// The credit roll's company names: black, the size of the roll's
+/// Century Gothic capitals.
+pub const CREDITS_COMPANY: TextStyle = TextStyle {
+    size: 29.0,
+    bold: true,
+    color: Color32::BLACK,
+};
+/// The credit roll's job titles and Cat Daddy's names.
+pub const CREDITS_ROLE: TextStyle = TextStyle {
+    size: 21.0,
+    bold: false,
+    color: Color32::BLACK,
+};
+/// The credit roll's other names, a size down to keep the roll's widths.
+pub const CREDITS_NAME: TextStyle = TextStyle {
+    size: 20.0,
+    bold: true,
+    color: Color32::BLACK,
+};
 
 /// Maps the 640×480 canvas onto the screen, letterboxed.
 #[derive(Clone, Copy)]
@@ -433,6 +452,15 @@ impl Art {
             FontId::new(style.size * cv.scale, family),
             style.color,
         );
+    }
+
+    /// The width of Arial text and the height of its baseline below its
+    /// top, in canvas pixels.
+    pub fn text_metrics(&self, ui: &egui::Ui, cv: Canvas, style: TextStyle, text: &str) -> (f32, f32) {
+        let family = FontFamily::Name(if style.bold { ARIAL_BOLD } else { ARIAL }.into());
+        let galley = ui.painter().layout_no_wrap(text.to_string(), FontId::new(style.size * cv.scale, family), style.color);
+        let ascent = galley.rows.first().and_then(|r| r.row.glyphs.first()).map_or(0.0, |g| g.pos.y);
+        (galley.size().x / cv.scale, ascent / cv.scale)
     }
 
     /// Word-wrapped Arial text inside a canvas box (x, y, width, height).
