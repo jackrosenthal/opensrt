@@ -11,9 +11,11 @@
 //! The windows' picture tabs are pictures over `widgets::ICON_TAB`: a
 //! tab's `..._Depress` group is the tab behind (`depress`, its picture
 //! dimmed) and its `..._Normal` (`_ani`) group the tab in front
-//! (`normal`). The graph bar's only sprite and the guests and
-//! attractions windows' other tabs are drawn by the object windows.
+//! (`normal`). The guests and attractions windows' other tabs share
+//! their pictures with the object windows, and the graph bar is mapped
+//! there.
 
+use super::object_windows::{BUILDINGS, GUEST_GROUP, GUEST_HISTORY, GUEST_STATS_TAB, JUMPS, RUNS};
 use super::widgets::{ICON_TAB, ROUND};
 use super::{Drawing, Svg, button, shown, still};
 use crate::ui::art::{self, ArtFile, Group};
@@ -83,6 +85,9 @@ fn guests_stats(group: Group, index: usize) -> Option<Drawing> {
         BACKGROUND => still(svg!("stat_windows/guest_list")),
         THOUGHT => button(svg!("stat_windows/thoughts" on ROUND), index),
         ACTION => button(svg!("stat_windows/actions" on ROUND), index),
+        AVE | AVE_ANI => tab(GUEST_STATS_TAB, group == AVE_ANI),
+        INDIVIDUAL | INDIVIDUAL_ANI => tab(GUEST_HISTORY, group == INDIVIDUAL_ANI),
+        GROUP | GROUP_ANI => tab(GUEST_GROUP, group == GROUP_ANI),
         _ => None,
     }
 }
@@ -91,6 +96,9 @@ fn attractions(group: Group) -> Option<Drawing> {
     use art::attractions::*;
     match group {
         TAB_LIFT | TAB_LIFT_ANI => tab(svg!("stat_windows/tabs/lifts" on ICON_TAB), group == TAB_LIFT_ANI),
+        TAB_STRUCTURE | TAB_STRUCTURE_ANI => tab(BUILDINGS, group == TAB_STRUCTURE_ANI),
+        TAB_RUN | TAB_RUN_ANI => tab(RUNS, group == TAB_RUN_ANI),
+        TAB_JUMP | TAB_JUMP_ANI => tab(JUMPS, group == TAB_JUMP_ANI),
         _ => None,
     }
 }
