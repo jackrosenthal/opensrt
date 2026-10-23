@@ -42,8 +42,8 @@ const SETTINGS_OK: Svg = svg!("front_end/settings_ok");
 const LOGO: Svg = svg!("front_end/logo");
 
 /// The main menu's buttons: a picture and label each over the shared
-/// ring and pill.
-const MAIN_BUTTON: Svg = svg!("front_end/main_button");
+/// ring and pill, which the escape menu's buttons share too.
+pub(super) const MAIN_BUTTON: Svg = svg!("front_end/main_button");
 const INSTANT_ACTION_BUTTON: Svg = svg!("front_end/main_instant_action" on MAIN_BUTTON);
 const CHALLENGES_BUTTON: Svg = svg!("front_end/main_challenges" on MAIN_BUTTON);
 const LOAD_GAME_BUTTON: Svg = svg!("front_end/main_load" on MAIN_BUTTON);

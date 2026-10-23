@@ -169,15 +169,16 @@ fn mini_map(group: Group, index: usize) -> Option<Drawing> {
     }
 }
 
-/// The escape menu's buttons. Its background, the mountain scene, stays
-/// the original painting; the menu covers the buttons painted into it
-/// with the same part of the credits screen's scene.
+/// The escape menu's buttons, drawn as the main menu's are: a picture and
+/// label over its ring and pill. Its background is the front end's
+/// mountain scene.
 fn escape(group: Group, index: usize) -> Option<Drawing> {
     use art::escape::*;
+    use super::front_end::MAIN_BUTTON;
     match group {
-        SAVE_GAME => button(svg!("pickers/escape_save"), index),
-        ABORT_GAME => button(svg!("pickers/escape_abort"), index),
-        RESUME_GAME => button(svg!("pickers/escape_resume"), index),
+        SAVE_GAME => button(svg!("pickers/escape_save" on MAIN_BUTTON), index),
+        ABORT_GAME => button(svg!("pickers/escape_abort" on MAIN_BUTTON), index),
+        RESUME_GAME => button(svg!("pickers/escape_resume" on MAIN_BUTTON), index),
         _ => None,
     }
 }
