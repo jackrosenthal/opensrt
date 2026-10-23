@@ -29,8 +29,8 @@ impl Game {
         }
         let ortho = self.eye.is_none();
         if ortho && !self.camera.ortho {
-            // Back from the skier's view to the overview's zoom step.
-            self.camera.show_step();
+            // Back from the skier's view to the overview's zoom.
+            self.camera.show_zoom();
         }
         self.camera.ortho = ortho;
         if let Some((_, t)) = &mut self.last_error {

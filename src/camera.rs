@@ -11,6 +11,11 @@ pub const OVERVIEW_PITCH: f32 = 0.447_5;
 /// between them, with no zoom in between (0x433be0, 0x433c50).
 pub const ZOOM_WIDTHS: [f32; 3] = [90.0, 300.0, 1100.0];
 pub const OPENING_STEP: usize = 1;
+/// How much one wheel notch narrows or widens the view.  The wheel zooms
+/// smoothly between the steps' extremes rather than stepping.
+const WHEEL_FACTOR: f32 = 1.2;
+/// How quickly the shown width eases toward the wheel's goal, per second.
+const ZOOM_RATE: f32 = 14.0;
 const ORTHO_ASPECT: f32 = 4.0 / 3.0;
 
 #[derive(Debug, Clone)]
@@ -31,10 +36,13 @@ pub struct Camera {
     pub aspect: f32,
     /// Remaining angle of an animated quarter turn.
     pub turning: f32,
-    /// Which of `ZOOM_WIDTHS` the overview shows.
+    /// Which of `ZOOM_WIDTHS` the overview shows, or is nearest to it
+    /// after wheel zooming.
     pub step: usize,
-    /// Mouse wheel movement not yet taken as a zoom step.
-    wheel: f32,
+    /// The overview's width across the screen, in world units.
+    width: f32,
+    /// The width `width` eases toward.
+    goal: f32,
 }
 
 impl Camera {
@@ -43,7 +51,8 @@ impl Camera {
         let mut c = Camera {
             turning: 0.0,
             step: OPENING_STEP,
-            wheel: 0.0,
+            width: ZOOM_WIDTHS[OPENING_STEP],
+            goal: ZOOM_WIDTHS[OPENING_STEP],
             target,
             yaw: -2.2,
             pitch: OVERVIEW_PITCH,
@@ -126,17 +135,28 @@ impl Camera {
 
     /// Sets the view to the current zoom step's width.
     pub fn show_step(&mut self) {
-        self.set_view_width(ZOOM_WIDTHS[self.step]);
+        self.width = ZOOM_WIDTHS[self.step];
+        self.goal = self.width;
+        self.set_view_width(self.width);
     }
 
-    /// Zooms a step for each whole notch the wheel has turned.
+    /// Sets the view to the overview's last width, as after the skier's
+    /// view.
+    pub fn show_zoom(&mut self) {
+        self.width = self.goal;
+        self.set_view_width(self.width);
+    }
+
+    /// Zooms smoothly by the notches the wheel has turned; `animate` eases
+    /// the view there.
     pub fn wheel(&mut self, notches: f32) {
-        self.wheel += notches;
-        while self.wheel.abs() >= 1.0 {
-            let dir = self.wheel.signum();
-            self.zoom(dir as i32);
-            self.wheel -= dir;
-        }
+        let (near, far) = (ZOOM_WIDTHS[0], ZOOM_WIDTHS[ZOOM_WIDTHS.len() - 1]);
+        self.goal = (self.goal * WHEEL_FACTOR.powf(-notches)).clamp(near, far);
+        // The step nearest on a log scale, for the zoom buttons and sound.
+        let ln = self.goal.ln();
+        self.step = (0..ZOOM_WIDTHS.len())
+            .min_by(|&a, &b| (ZOOM_WIDTHS[a].ln() - ln).abs().total_cmp(&(ZOOM_WIDTHS[b].ln() - ln).abs()))
+            .unwrap_or(self.step);
     }
 
     /// Starts an animated 90° turn about the view center, as the original's
@@ -147,8 +167,17 @@ impl Camera {
         }
     }
 
-    /// Advances a quarter turn: the original steps π/100 per tick.
+    /// Advances a quarter turn, and eases the width toward the wheel's
+    /// goal.
     pub fn animate(&mut self, dt: f32) {
+        if self.width != self.goal {
+            // Eased on a log scale, so zooming in and out feel alike.
+            let t = 1.0 - (-ZOOM_RATE * dt).exp();
+            let ln = self.width.ln() + (self.goal.ln() - self.width.ln()) * t;
+            self.width = if (ln - self.goal.ln()).abs() < 1e-3 { self.goal } else { ln.exp() };
+            self.set_view_width(self.width);
+        }
+        // The original steps a quarter turn π/100 per tick.
         if self.turning == 0.0 {
             return;
         }
