@@ -38,6 +38,21 @@ const DELETE: Svg = svg!("front_end/delete");
 const QUIT: Svg = svg!("front_end/quit");
 const SETTINGS_OK: Svg = svg!("front_end/settings_ok");
 
+/// The Instant Action and Challenges screens' level pictures, in the
+/// order of their `mountain` group: each resort's over the shared frame,
+/// and the words for a level with none (element 1), which have no frame.
+const PREVIEW: Svg = svg!("front_end/preview");
+const PREVIEWS: [Svg; 7] = [
+    svg!("front_end/preview_aspen" on PREVIEW),
+    svg!("front_end/preview_none"),
+    svg!("front_end/preview_whistler" on PREVIEW),
+    svg!("front_end/preview_vail" on PREVIEW),
+    svg!("front_end/preview_jasper" on PREVIEW),
+    svg!("front_end/preview_st_moritz" on PREVIEW),
+    svg!("front_end/preview_kitzbuehel" on PREVIEW),
+];
+
+
 /// The main menu's logo, laid out on the scene's grid.
 const LOGO: Svg = svg!("front_end/logo");
 
@@ -88,16 +103,18 @@ fn instant_action(group: Group, index: usize) -> Option<Drawing> {
         BACKGROUND => still(INSTANT_ACTION),
         INSTANT_START => button(START, index),
         INSTANT_CANCEL => button(CANCEL, index),
+        MOUNTAIN => PREVIEWS.get(index).and_then(|&svg| still(svg)),
         _ => None,
     }
 }
 
 fn challenge_select(group: Group, index: usize) -> Option<Drawing> {
-    use art::challenge_select::{BACKGROUND, CANCEL as CANCEL_GROUP, START as START_GROUP};
+    use art::challenge_select::{BACKGROUND, CANCEL as CANCEL_GROUP, MOUNTAIN, START as START_GROUP};
     match group {
         BACKGROUND => still(CHALLENGE_SELECT),
         START_GROUP => button(START, index),
         CANCEL_GROUP => button(CANCEL, index),
+        MOUNTAIN => PREVIEWS.get(index).and_then(|&svg| still(svg)),
         _ => None,
     }
 }
