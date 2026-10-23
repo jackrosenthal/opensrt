@@ -675,8 +675,10 @@ impl Hud {
             Nav::Main => events.push(HudEvent::MainMenu),
             Nav::ZoomIn => g.camera.zoom(1),
             Nav::ZoomOut => g.camera.zoom(-1),
-            Nav::RotateCw => g.camera.quarter_turn(-1.0),
-            Nav::RotateCcw => g.camera.quarter_turn(1.0),
+            // Each turns the view the way its arrow points; the original's
+            // turned it the other way.
+            Nav::RotateCw => g.camera.quarter_turn(1.0),
+            Nav::RotateCcw => g.camera.quarter_turn(-1.0),
             Nav::Pause => g.paused = !g.paused,
             Nav::MapView => events.push(HudEvent::ToggleMinimap),
             Nav::Survey => {

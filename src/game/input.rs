@@ -207,8 +207,9 @@ impl Game {
                 KeyCode::Space | KeyCode::KeyP if !self.world.editor => self.paused = !self.paused,
                 KeyCode::Equal | KeyCode::NumpadAdd => self.camera.zoom(1),
                 KeyCode::Minus | KeyCode::NumpadSubtract => self.camera.zoom(-1),
-                KeyCode::Comma => self.camera.quarter_turn(1.0),
-                KeyCode::Period => self.camera.quarter_turn(-1.0),
+                // As the rotate buttons: < counterclockwise, > clockwise.
+                KeyCode::Comma => self.camera.quarter_turn(-1.0),
+                KeyCode::Period => self.camera.quarter_turn(1.0),
                 KeyCode::Digit1 => self.speed = 1.0,
                 KeyCode::Digit2 => self.speed = 2.0,
                 KeyCode::Digit3 => self.speed = 4.0,
