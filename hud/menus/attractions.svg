@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Attractions menu log: vector remake of the original Ski Resort
+       Tycoon sprites LogAttraction_Normal/_Rollover/_Depress.  It has
+       no tray, so no open state.  One group per state; the game shows
+       one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+    <!-- The attractions: a snowy mountain with a chairlift climbing it
+         and pine trees at its foot. -->
+    <!-- The front snow mound: white, graying toward its shaded right. -->
+    <linearGradient id="moundShade" x1="17" y1="38" x2="25" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.35" stop-color="#F2F2EE"/>
+      <stop offset="1" stop-color="#8B8B87"/>
+    </linearGradient>
+    <linearGradient id="patchShade" x1="28" y1="29" x2="33" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D8D8D4"/>
+    </linearGradient>
+    <linearGradient id="shoulderShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B4B8B4"/>
+      <stop offset="1" stop-color="#7B7B77"/>
+    </linearGradient>
+    <!-- A pine's needles: lit on the left half, in shadow on the right. -->
+    <linearGradient id="pineFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3CB050"/>
+      <stop offset="0.5" stop-color="#2A9440"/>
+      <stop offset="0.5" stop-color="#0C5A22"/>
+      <stop offset="1" stop-color="#062A10"/>
+    </linearGradient>
+    <linearGradient id="chairFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#40A8F0"/>
+      <stop offset="1" stop-color="#0A4C84"/>
+    </linearGradient>
+    <!-- One pine, tip at the origin, 1 wide by 1 tall before scaling. -->
+    <path id="pine" d="M0,0 L0.3,0.32 L0.18,0.32 L0.42,0.64 L0.3,0.64 L0.5,0.94 L-0.5,0.94 L-0.3,0.64 L-0.42,0.64 L-0.18,0.32 L-0.3,0.32 Z"/>
+    <g id="icon">
+      <!-- The mountain, drawn in gray lines over the face, with white
+           where the snow catches the light. -->
+      <!-- Lit snow: by the peak, behind the right pines, and the front mound. -->
+      <path d="M17,26.2 Q17.6,23.8 20.2,22.4 L20.6,26.4 Z M22.6,21.6 L24.8,22 L24.4,23.8 L22.4,23.6 Z" fill="#FFFFFF"/>
+      <path d="M28,28.6 L29.6,28.4 L33.6,32.4 L33,35.8 L28,35.6 Z" fill="url(#patchShade)"/>
+      <path d="M14.6,36.4 Q17,35.4 20.6,35.6 Q23.8,35.8 24.8,38.6 Q25.4,42 24.4,44.8 L14.6,44.8 Z" fill="url(#moundShade)"/>
+      <path d="M22.4,36 Q24.6,37.4 24.8,39.6 Q25.2,42.4 24.2,44.8" fill="none" stroke="#7B7B77" stroke-width="0.6" stroke-linecap="round"/>
+      <!-- The peak's left slope, and the shaded underside of a shoulder
+           below it. -->
+      <path d="M20.4,20.8 Q17.4,22.4 15.6,24.2 Q14.8,25.6 15.2,27.6" fill="none" stroke="#737373" stroke-width="0.8" stroke-linecap="round"/>
+      <path d="M15.4,26.2 Q19,27 22.8,26.8 L22.6,28.6 Q18.6,28.2 15.4,28.4 Z" fill="url(#shoulderShade)" opacity="0.8"/>
+      <path d="M15.6,28.2 Q19,27.9 22.6,28.4" fill="none" stroke="#5A5A5A" stroke-width="0.7" stroke-linecap="round"/>
+      <!-- The right slope, running down to the right pines. -->
+      <path d="M29.2,25.8 Q29,27.6 29.6,28.6 L34.2,32.4" fill="none" stroke="#8B8378" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- The front mound's outline: its top edge, and its left and
+           bottom sides darkening to its foot. -->
+      <path d="M13,36.4 Q16,35.2 20.6,35.4 Q24.4,35.4 27.6,35" fill="none" stroke="#8B8B85" stroke-width="0.7" stroke-linecap="round"/>
+      <path d="M16,35.4 Q12.6,36.2 11,37.8 Q10.2,40 10.5,42.8 Q11.4,44.4 14,45 Q18,45.6 22,45.2" fill="none" stroke="#6A6A66" stroke-width="0.9" stroke-linecap="round"/>
+      <!-- Bare ground showing at the mountain's foot. -->
+      <circle cx="9.6" cy="36.4" r="0.8" fill="#B48362"/>
+      <circle cx="9.4" cy="42.2" r="0.7" fill="#D59C7B"/>
+      <circle cx="24.6" cy="41.6" r="0.6" fill="#D5AC83"/>
+
+      <!-- The lift's return loop, off the top tower to the right. -->
+      <path d="M23,20.1 L30.4,20.2 Q31.8,20.8 30.6,21.8 L25,22.2" fill="none" stroke="#737370" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- The lift's cables, sagging from tower to tower. -->
+      <path d="M22.8,19.9 Q26.4,22.6 29.8,24.3 M26.2,25 Q21.8,28.4 17.6,29.8" fill="none" stroke="#2A2A2A" stroke-width="0.6"/>
+      <!-- The chairs' hangers. -->
+      <path d="M19.8,20.2 L19.8,23.2 M25.6,22.2 L25.6,25 M23.2,27.6 L23.2,29.2 M19.4,29.4 L19.4,32.8" fill="none" stroke="#3C3C40" stroke-width="0.45"/>
+      <!-- The lift's three towers: black posts under brown crossbars. -->
+      <rect x="20.6" y="19.2" width="1.2" height="7" fill="#101018"/>
+      <rect x="26.6" y="24.4" width="1.2" height="10.4" fill="#101018"/>
+      <rect x="14.6" y="30" width="1.2" height="13.8" fill="#101010"/>
+      <rect x="18.6" y="18.6" width="4.4" height="1.6" fill="#8B735A"/>
+      <rect x="18.6" y="18.6" width="4.4" height="0.6" fill="#B4946A"/>
+      <rect x="25.6" y="23.8" width="4.4" height="1.4" fill="#4A4131"/>
+      <rect x="25.6" y="23.8" width="4.4" height="0.5" fill="#836A52"/>
+      <rect x="11.6" y="29" width="6.2" height="1.8" fill="#3A2A20"/>
+      <rect x="12.4" y="29.4" width="4.4" height="0.8" fill="#947B5A"/>
+      <!-- The chairs. -->
+      <rect x="19" y="23" width="1.8" height="1.8" rx="0.4" fill="url(#chairFill)"/>
+      <rect x="24.6" y="25" width="2" height="1.6" rx="0.4" fill="url(#chairFill)"/>
+      <rect x="22" y="29.1" width="2.6" height="2.3" rx="0.5" fill="url(#chairFill)"/>
+      <rect x="18" y="32.8" width="2.8" height="1.9" rx="0.5" fill="url(#chairFill)"/>
+
+      <!-- The pines: two on the left behind the lower tower, two on the
+           right at the foot of the slope. -->
+      <use href="#pine" transform="translate(10,27.4) scale(3.4,9.2)" fill="url(#pineFill)"/>
+      <use href="#pine" transform="translate(12.6,21) scale(3.2,8.4)" fill="url(#pineFill)"/>
+      <use href="#pine" transform="translate(33,32) scale(5,10.4)" fill="url(#pineFill)"/>
+      <use href="#pine" transform="translate(28.6,32.2) scale(5.4,13)" fill="url(#pineFill)"/>
+      <!-- The pines' trunks. -->
+      <rect x="9.4" y="36" width="1" height="1" fill="#5A4A30"/>
+      <rect x="28.2" y="44.2" width="1" height="0.8" fill="#6A5241"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Objects menu log: vector remake of the original Ski Resort Tycoon
+       sprites LogLandscaping_Normal/_Rollover/_Depress, and LogLandscaping_Special
+       (state open: drawn over the log while its tray is open). One
+       group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+    <!-- Open: pressed in, and joined on its right to its tray's strip. -->
+    <clipPath id="stripInside"><rect x="23" y="15" width="22" height="36"/></clipPath>
+    <g id="openLook">
+      <circle cx="23" cy="33" r="21" fill="#000000"/>
+      <rect x="23" y="12" width="22" height="42" fill="#000000"/>
+      <g clip-path="url(#stripInside)">
+        <rect x="23" y="15" width="22" height="36" fill="#FFFFFF"/>
+        <rect x="23" y="15" width="22" height="3" fill="#F6EEF6"/>
+        <rect x="23" y="48" width="22" height="3" fill="#C5C5C5"/>
+      </g>
+      <use href="#faceDepress"/>
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+    </g>
+    <!-- The icon: two snow-laden pines on either side of a dirt path that
+         runs away between them. -->
+    <!-- The path's dirt: pale where it meets the snow far off, then in
+         soft bands of tone, darker toward the viewer. -->
+    <linearGradient id="pathDepth" x1="0" y1="27.4" x2="0" y2="42.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D2C2A0"/>
+      <stop offset="0.1" stop-color="#9E8050"/>
+      <stop offset="0.24" stop-color="#8A6C40"/>
+      <stop offset="0.36" stop-color="#735830"/>
+      <stop offset="0.48" stop-color="#8A6E44"/>
+      <stop offset="0.62" stop-color="#65502E"/>
+      <stop offset="0.74" stop-color="#76603C"/>
+      <stop offset="0.88" stop-color="#5E482A"/>
+      <stop offset="1" stop-color="#5A4628"/>
+    </linearGradient>
+    <!-- The near end of the dirt fades softly into the snow. -->
+    <linearGradient id="pathFadeRamp" x1="0" y1="40.4" x2="0" y2="42.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <mask id="pathFade" maskUnits="userSpaceOnUse" x="10" y="25" width="25" height="20">
+      <rect x="10" y="25" width="25" height="20" fill="url(#pathFadeRamp)"/>
+    </mask>
+    <!-- The path's near end, which spreads in front of the trees' feet:
+         it fades in softly above and out into the snow below. -->
+    <linearGradient id="pathFrontRamp" x1="0" y1="38.6" x2="0" y2="42.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000000"/>
+      <stop offset="0.2" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <mask id="pathFront" maskUnits="userSpaceOnUse" x="10" y="25" width="25" height="20">
+      <rect x="10" y="25" width="25" height="20" fill="url(#pathFrontRamp)"/>
+    </mask>
+    <!-- Across the path: its left bank in shadow, the right side a
+         little darker. -->
+    <linearGradient id="pathSide" x1="15.5" y1="0" x2="29.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E1006" stop-opacity="0.7"/>
+      <stop offset="0.22" stop-color="#1E1006" stop-opacity="0"/>
+      <stop offset="0.7" stop-color="#1E1006" stop-opacity="0"/>
+      <stop offset="1" stop-color="#1E1006" stop-opacity="0.3"/>
+    </linearGradient>
+    <!-- The shadowed left bank, fading out into the distance. -->
+    <linearGradient id="bank" x1="0" y1="27.6" x2="0" y2="42.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A0C02" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#1A0C02"/>
+      <stop offset="1" stop-color="#1A0C02"/>
+    </linearGradient>
+    <!-- A pine's boughs, lit on the left and in deep shade on the right. -->
+    <linearGradient id="bough" x1="-4.6" y1="0" x2="4.6" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3FA766"/>
+      <stop offset="0.3" stop-color="#05873A"/>
+      <stop offset="0.55" stop-color="#005A22"/>
+      <stop offset="1" stop-color="#00230C"/>
+    </linearGradient>
+    <!-- The brown boughs at the top of a pine, bare of needles. -->
+    <linearGradient id="bark" x1="-4.4" y1="0" x2="4.4" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A48A6A"/>
+      <stop offset="0.35" stop-color="#5E4429"/>
+      <stop offset="1" stop-color="#2A1A0E"/>
+    </linearGradient>
+    <!-- Snow, white in the light and gray where it turns away. -->
+    <linearGradient id="snow" x1="-4.6" y1="0" x2="4.6" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#EEEEEA"/>
+      <stop offset="1" stop-color="#B4B8B0"/>
+    </linearGradient>
+    <linearGradient id="snowShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C2C6BE"/>
+      <stop offset="1" stop-color="#7E827A"/>
+    </linearGradient>
+    <!-- A pine, centered on x=0: a snowy tip, a ring of bare brown
+         boughs, three tiers of green boughs under snow, each wider than
+         the one above, its trunk, and a drift of snow around its foot. -->
+    <g id="pine">
+      <!-- the trunk, showing below the lowest tier -->
+      <path d="M-0.7 39 L0.7 39 L0.9 41.8 L-0.9 41.8 Z" fill="#3A2614"/>
+      <path d="M-0.7 39 L-0.1 39 L-0.2 41.8 L-0.9 41.8 Z" fill="#7A5A3A"/>
+      <!-- the drift around its foot -->
+      <path d="M-4.8 41.6 Q-4.2 40.3 -2.2 40.4 Q0 41 2.2 40.4 Q4.2 40.3 4.8 41.6 Q0 42.4 -4.8 41.6Z" fill="url(#snow)"/>
+      <path d="M-4.8 41.6 Q0 42.4 4.8 41.6 Q0 42.9 -4.8 41.6Z" fill="#8E9088"/>
+      <!-- the lowest tier, its snow on the lit side and gray snow in shade -->
+      <path d="M-2.6 34.4 C-3 37.1 -4.1 39.3 -4.8 40.4 Q-3.2 39.5 -1.6 40.4 Q0 39.5 1.6 40.4 Q3.2 39.5 4.8 40.4 C4.1 39.3 3 37.1 2.6 34.4 Q0 33.7 -2.6 34.4Z" fill="url(#bough)"/>
+      <path d="M-1.8 35.8 Q-1.4 38.6 -1.3 40.1" fill="none" stroke="#004A1A" stroke-width="0.5" stroke-opacity="0.8"/>
+      <path d="M0.5 36 Q1.4 38.6 1.6 40.2" fill="none" stroke="#001806" stroke-width="0.5" stroke-opacity="0.7"/>
+      <path d="M2.8 34.5 C3.1 37.1 4.2 39.3 4.9 40.5 L3.6 40.1 C2.9 39.1 2.1 38 2 35Z" fill="url(#snowShade)"/>
+      <path d="M-2.8 34.5 Q0 33.5 2.8 34.5 Q1 34.9 -0.3 35.3 Q-2.4 35.5 -2.3 36.5 C-2.2 38 -2.8 39.1 -3.5 40 L-4.9 40.5 C-4.6 39.5 -3.3 37.1 -2.8 34.5Z" fill="url(#snow)"/>
+      <!-- the middle tier, its snow on the lit side and gray snow in shade -->
+      <path d="M-2 30.6 C-2.4 32.9 -3.4 34.7 -4.1 35.8 Q-2.7 34.9 -1.4 35.8 Q0 34.9 1.4 35.8 Q2.7 34.9 4.1 35.8 C3.4 34.7 2.4 32.9 2 30.6 Q0 29.9 -2 30.6Z" fill="url(#bough)"/>
+      <path d="M-1.2 32 Q-1.2 34.2 -1.1 35.5" fill="none" stroke="#004A1A" stroke-width="0.5" stroke-opacity="0.8"/>
+      <path d="M0.4 32.2 Q1.2 34.2 1.4 35.6" fill="none" stroke="#001806" stroke-width="0.5" stroke-opacity="0.7"/>
+      <path d="M2.2 30.7 C2.5 32.9 3.5 34.7 4.2 35.9 L2.9 35.5 C2.2 34.5 1.5 33.7 1.4 31.2Z" fill="url(#snowShade)"/>
+      <path d="M-2.2 30.7 Q0 29.7 2.2 30.7 Q0.8 31.1 -0.2 31.5 Q-1.8 31.7 -1.7 32.4 C-1.6 33.7 -2.1 34.5 -2.8 35.4 L-4.2 35.9 C-3.9 34.9 -2.7 32.9 -2.2 30.7Z" fill="url(#snow)"/>
+      <!-- the top tier, its snow on the lit side and gray snow in shade -->
+      <path d="M-1.4 27.4 C-1.8 29.4 -2.7 30.7 -3.4 31.8 Q-2.3 30.9 -1.1 31.8 Q0 30.9 1.1 31.8 Q2.3 30.9 3.4 31.8 C2.7 30.7 1.8 29.4 1.4 27.4 Q0 26.7 -1.4 27.4Z" fill="url(#bough)"/>
+      <path d="M-0.6 28.8 Q-1 30.5 -0.8 31.5" fill="none" stroke="#004A1A" stroke-width="0.5" stroke-opacity="0.8"/>
+      <path d="M0.3 29 Q1 30.5 1.1 31.6" fill="none" stroke="#001806" stroke-width="0.5" stroke-opacity="0.7"/>
+      <path d="M1.6 27.5 C1.9 29.4 2.8 30.7 3.5 31.9 L2.2 31.5 C1.5 30.5 0.9 30 0.8 28Z" fill="url(#snowShade)"/>
+      <path d="M-1.6 27.5 Q0 26.5 1.6 27.5 Q0.6 27.9 -0.1 28.3 Q-1.2 28.5 -1.1 28.9 C-1 30 -1.4 30.5 -2.1 31.4 L-3.5 31.9 C-3.2 30.9 -2.1 29.4 -1.6 27.5Z" fill="url(#snow)"/>
+      <!-- the bare brown boughs, drooping either side, dusted with snow -->
+      <path d="M-0.9 24.8 C-1.3 26.4 -2.2 27.3 -2.9 28.4 Q-1.9 27.5 -1 28.4 Q0 27.5 1 28.4 Q1.9 27.5 2.9 28.4 C2.2 27.3 1.3 26.4 0.9 24.8 Q0 24.1 -0.9 24.8Z" fill="url(#bark)"/>
+      <path d="M-2 28 L-0.9 25.9 M0.3 28 L0.2 25.7 M2 28 L1 25.9" fill="none" stroke="#24160A" stroke-width="0.4" stroke-opacity="0.8"/>
+      <path d="M-1.1 24.9 Q0 23.9 1.1 24.9 Q0.4 25.3 -0.1 25.7 Q-0.7 25.9 -0.6 26.1 C-0.5 27 -0.9 27.1 -1.6 28 L-3 28.5 C-2.7 27.5 -1.6 26.4 -1.1 24.9Z" fill="#EAE2D6"/>
+      <!-- the snowy tip -->
+      <path d="M-0.2 20.9 C0.4 22.4 1.3 24.6 1.7 25.8 Q0 25.1 -1.7 25.8 C-1.2 24.4 -0.7 22.3 -0.2 20.9Z" fill="url(#snow)"/>
+      <path d="M-0.2 20.9 C0.3 22.3 1.4 24.8 1.7 25.8 Q1.1 25.5 0.5 25.4 C0.6 24 0.3 22.3 -0.2 20.9Z" fill="#9EA298"/>
+    </g>
+    <!-- The path: a strip of dirt widening toward the viewer, its far
+         end blunt between the treetops and its sides tucked behind the
+         trees. -->
+    <g id="pathStrip">
+      <path d="M20.6 27.6 Q22.6 27 24.6 27.6 L29.4 42.4 L15.8 42.4 Z" fill="url(#pathDepth)"/>
+      <path d="M20.6 27.6 Q22.6 27 24.6 27.6 L29.4 42.4 L15.8 42.4 Z" fill="url(#pathSide)"/>
+      <!-- its shadowed left bank -->
+      <path d="M20.7 27.8 L16 42.4" fill="none" stroke="url(#bank)" stroke-width="0.6"/>
+    </g>
+    <g id="icon">
+      <!-- the path, behind the trees, fading into the snow at its near
+           end -->
+      <use href="#pathStrip" mask="url(#pathFade)"/>
+      <!-- the left pine, and the right one, a little higher and farther off -->
+      <use href="#pine" transform="translate(16.1,0)"/>
+      <use href="#pine" transform="translate(28.2,-0.2)"/>
+      <!-- the path's near end again, spreading in front of the trees' feet -->
+      <use href="#pathStrip" mask="url(#pathFront)"/>
+      <!-- a little snow at the trees' feet, where the path ends -->
+      <path d="M17.6 42.4 Q18.4 41.2 20.4 41.4 Q22.6 41.9 24.8 41.3 Q26.8 41.1 27.8 42.4 Q22.6 42.9 17.6 42.4Z" fill="#EEEEE8" opacity="0.9"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+  <g id="open" class="state" display="none">
+    <use href="#openLook"/>
+    <use href="#icon"/>
+  </g>
+</svg>

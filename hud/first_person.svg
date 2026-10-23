@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 55" width="45" height="55">
+  <!-- First person button: vector remake of the original Ski Resort Tycoon
+       sprites Log3DSKI_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The skier: a crouched skier in a yellow jacket and red trousers,
+         heading down to the lower left with a pole trailing behind. -->
+    <linearGradient id="jacketFill" x1="17" y1="24" x2="29" y2="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFDE3A"/>
+      <stop offset="0.5" stop-color="#EEC510"/>
+      <stop offset="1" stop-color="#C8A010"/>
+    </linearGradient>
+    <linearGradient id="legLeftFill" x1="18" y1="0" x2="23.4" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C82020"/>
+      <stop offset="0.45" stop-color="#8B0810"/>
+      <stop offset="1" stop-color="#380000"/>
+    </linearGradient>
+    <linearGradient id="legRightFill" x1="22.6" y1="0" x2="28" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7A2020"/>
+      <stop offset="0.35" stop-color="#C01820"/>
+      <stop offset="0.7" stop-color="#8B0810"/>
+      <stop offset="1" stop-color="#380000"/>
+    </linearGradient>
+    <g id="icon">
+      <!-- The skis, each a dark plank with a lit upper edge. -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30.2,37.4 L12.4,42.6 Q10.6,43.1 10.2,41.9" stroke="#A48B68" stroke-width="1.6"/>
+        <path d="M30.2,37.8 L12.4,43 Q10.6,43.5 10.2,42.3" stroke="#413929" stroke-width="0.9"/>
+        <path d="M36.4,37.7 L17.4,44.6 Q16.1,45 15.9,44.2" stroke="#A48B68" stroke-width="1.6"/>
+        <path d="M36.4,38.1 L17.4,45 Q16.1,45.4 15.9,44.6" stroke="#413929" stroke-width="0.9"/>
+        <!-- The right pole, trailing up behind to the glove. -->
+        <path d="M28.6,32.2 L35.6,38.2" stroke="#AC946A" stroke-width="1.6"/>
+        <path d="M29,32.2 L35.8,38" stroke="#201810" stroke-width="0.8"/>
+      </g>
+      <!-- The skin-toned gap between the legs. -->
+      <path d="M22.4,34.4 L25,35.4 L25.8,40.2 L23.4,40.4 L22.2,36.4 Z" fill="#C8946A" fill-opacity="0.75"/>
+      <!-- The trousers, lit on the left of each leg. -->
+      <path d="M19,30.8 L23.2,30.6 L23.4,33.6 L22.8,35.4 L23.8,38.8 L21,39.2 L19.8,36.6 L18,33.4 Z" fill="url(#legLeftFill)"/>
+      <path d="M20.8,30 L25.8,30 L26.4,32.6 L27.4,35 L28,38.2 L27.6,40.4 L25.8,40.4 L25.4,37.4 L24,35 L22.8,34 L23.2,30.6 Z" fill="url(#legRightFill)"/>
+      <path d="M18.3,32.6 L18.4,34.2 L19.6,36.4" fill="none" stroke="#E0946A" stroke-width="0.7" stroke-linecap="round"/>
+      <!-- The boots. -->
+      <path d="M20.6,39 L23.2,38.8 L23,40.8 L20.4,40.8 Z" fill="#2A40B0"/>
+      <path d="M22.2,39 L23.2,38.8 L23,40.8 L22,40.8 Z" fill="#101852"/>
+      <path d="M25.8,40 L28,40 L28.2,42.4 L25.6,42.4 Z" fill="#1838A8"/>
+      <path d="M27.2,40 L28,40 L28.2,42.4 L27.2,42.4 Z" fill="#002090"/>
+      <!-- The jacket, with the left arm reaching down and out. -->
+      <path d="M20.2,24 L22,23 L25,23 L27.2,24.4 L28.8,26.4 L29.8,29.6 L29.4,31 L26,31 L25.6,30.2 L21.2,30.4 L21.4,28.4 L20.4,28.6 L18.6,31 L15.8,31 L16.2,29.2 L17.4,27 L18.8,25 Z" fill="url(#jacketFill)"/>
+      <path d="M18.6,25.4 L17.2,27.6 L16.4,29.6" fill="none" stroke="#FFE66A" stroke-width="0.8" stroke-linecap="round"/>
+      <!-- Folds in the jacket. -->
+      <path d="M24.6,25.8 L25.8,26.6 L25.4,28.6 L24.6,27.4 Z" fill="#5A4A08"/>
+      <path d="M20.6,26.8 L19.2,28.4" fill="none" stroke="#857020" stroke-width="0.9" stroke-linecap="round"/>
+      <path d="M22.2,23.2 L24.8,23.2" fill="none" stroke="#A49020" stroke-width="0.8" stroke-linecap="round"/>
+      <!-- The gloves. -->
+      <rect x="15.8" y="30.8" width="2.8" height="2" rx="0.8" fill="#3A5290"/>
+      <rect x="25.9" y="30.8" width="2.8" height="2" rx="0.8" fill="#2444B8"/>
+      <!-- The face and the blue hat. -->
+      <path d="M19.1,22.4 L22,22.4 Q22,23.8 20.6,23.8 Q19.2,23.8 19.1,22.4 Z" fill="#D88C6A"/>
+      <path d="M20,22.8 L21,22.8 L21,23.6 L20,23.6 Z" fill="#BD6A52"/>
+      <path d="M21.6,20.2 L22.6,20.6 L22.6,22.8 L21.6,22.8 Z" fill="#CDB48B"/>
+      <path d="M19.2,20 Q19.4,18.9 20.4,18.9 Q21.6,19.1 21.6,20.4 L21.6,22.6 L19.1,22.6 Z" fill="#14206A"/>
+      <path d="M19.5,19.6 Q20.2,19 21.1,19.4 L21,20.2 L19.6,20.2 Z" fill="#4A5288"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Resort Finances menu log: vector remake of the original Ski Resort
+       Tycoon sprites LogResortFinance_Normal/_Rollover/_Depress.  One
+       group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+
+    <!-- The banknote's face, bright green at the top, darker below. -->
+    <linearGradient id="billGreen" x1="0" y1="26.6" x2="0" y2="38.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00B800"/>
+      <stop offset="0.55" stop-color="#00A800"/>
+      <stop offset="1" stop-color="#006A08"/>
+    </linearGradient>
+    <!-- The dark engraved panel inside the bill's frame. -->
+    <linearGradient id="billPanel" x1="0" y1="27.8" x2="0" y2="37.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#003A00"/>
+      <stop offset="0.5" stop-color="#0C5A10"/>
+      <stop offset="1" stop-color="#003200"/>
+    </linearGradient>
+    <!-- The pale portrait in each oval, lit at the upper left. -->
+    <radialGradient id="billOval" cx="0.42" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#CDF6CD"/>
+      <stop offset="1" stop-color="#52A452"/>
+    </radialGradient>
+    <!-- The gold of the dollar sign, bright at the upper left. -->
+    <linearGradient id="gold" x1="16" y1="25" x2="29" y2="41" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF65A"/>
+      <stop offset="0.35" stop-color="#FFE600"/>
+      <stop offset="0.7" stop-color="#FFD000"/>
+      <stop offset="1" stop-color="#E69C00"/>
+    </linearGradient>
+    <!-- The bar's gold, lit on its left and shaded on its right. -->
+    <linearGradient id="barGold" x1="21.7" y1="0" x2="24.1" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF65A"/>
+      <stop offset="0.4" stop-color="#FFE000"/>
+      <stop offset="1" stop-color="#B47800"/>
+    </linearGradient>
+    <!-- The S: a filled outline with a thick diagonal spine, thinner
+         arcs at the top and bottom, and flared, angled terminals. -->
+    <path id="ess" d="M29.7,27.3 C28.5,25.6 26,24.8 22.8,24.8 C18.7,24.8 15.6,26.7 15.6,29.6 C15.6,32.7 18.4,33.6 21.5,34.4 C24.6,35.2 26.8,35.6 26.8,36.7 C26.8,37.8 25.1,38.4 22.6,38.4 C19.8,38.4 17.6,37.1 16.6,34.6 L15.2,37.8 C16.4,39.8 19.2,40.8 22.6,40.8 C27,40.8 29.8,38.8 29.8,35.8 C29.8,32.6 27,31.6 23.8,30.8 C20.6,30 18.6,29.7 18.6,28.7 C18.6,27.7 20.2,27.2 22.8,27.2 C25.3,27.2 27.4,28.2 28.6,30.2 Z"/>
+    <clipPath id="essClip"><use href="#ess"/></clipPath>
+    <!-- The bar, a little rounded at each end. -->
+    <path id="bar" d="M21.9,22 C22.5,21.8 23.4,21.8 24,22 L23.9,43.7 C23.3,43.9 22.4,43.9 21.8,43.7 Z"/>
+
+    <g id="icon">
+      <!-- The bill's purple shadow along its bottom edge. -->
+      <rect x="10.8" y="38.8" width="25" height="1.1" fill="#311031"/>
+      <!-- The banknote: a dark green border around a green face. -->
+      <rect x="10" y="26" width="26" height="13" rx="0.5" fill="#164A16"/>
+      <rect x="10.6" y="26.6" width="24.8" height="11.8" rx="0.2" fill="url(#billGreen)"/>
+      <path d="M10.7,26.7 L35.3,26.7" stroke="#5AC55A" stroke-width="0.4" opacity="0.8"/>
+      <!-- The dark engraved panel, with a fine light frame line. -->
+      <rect x="11.8" y="27.7" width="22.4" height="9.6" rx="0.4" fill="url(#billPanel)" stroke="#2C8C2C" stroke-width="0.4"/>
+      <!-- An oval medallion at each end: a light green ring around a
+           pale portrait. -->
+      <ellipse cx="14.1" cy="32.5" rx="2" ry="3.9" fill="#0A3A0A" stroke="#6ABD6A" stroke-width="0.4"/>
+      <ellipse cx="14.1" cy="32.5" rx="1.3" ry="2.2" fill="url(#billOval)"/>
+      <ellipse cx="31.9" cy="32.5" rx="2" ry="3.9" fill="#0A3A0A" stroke="#6ABD6A" stroke-width="0.4"/>
+      <ellipse cx="31.9" cy="32.5" rx="1.3" ry="2.2" fill="url(#billOval)"/>
+      <!-- Small corner rosettes in the frame. -->
+      <circle cx="12.6" cy="28.5" r="0.4" fill="#7BCD7B"/>
+      <circle cx="33.4" cy="28.5" r="0.4" fill="#7BCD7B"/>
+      <circle cx="12.6" cy="36.5" r="0.4" fill="#4A9C4A"/>
+      <circle cx="33.4" cy="36.5" r="0.4" fill="#4A9C4A"/>
+
+      <!-- The dollar sign's bar: a dark shadow, then gold, with a
+           highlight down its left side. -->
+      <use href="#bar" fill="#201800" transform="translate(0.7,0.5)"/>
+      <use href="#bar" fill="url(#barGold)" stroke="#5A3A00" stroke-width="0.3"/>
+      <path d="M22.3,22.4 L22.2,43.3" stroke="#FFFFC0" stroke-width="0.45" stroke-linecap="round" opacity="0.8"/>
+      <!-- The S: a dark drop shadow to the lower right, then a bevel,
+           dark orange along its lower-right edges and gold above. -->
+      <use href="#ess" fill="#201800" transform="translate(0.7,0.6)"/>
+      <use href="#ess" fill="#A86A00"/>
+      <g clip-path="url(#essClip)">
+        <use href="#ess" fill="url(#gold)" transform="translate(-0.45,-0.45)"/>
+      </g>
+      <use href="#ess" fill="none" stroke="#6A4200" stroke-width="0.3" stroke-linejoin="round"/>
+      <!-- Highlights along the S's upper-left edges: the top arc, the
+           upper bowl, and the lower bowl. -->
+      <path d="M27.2,26 C25.9,25.4 24.5,25.3 22.8,25.3 C19.3,25.3 16.6,26.8 16.2,29.2" fill="none" stroke="#FFFFC8" stroke-width="0.5" stroke-linecap="round" opacity="0.9"/>
+      <path d="M19.6,30.9 C21.2,31.5 23,31.9 25.2,32.5" fill="none" stroke="#FFFFC8" stroke-width="0.45" stroke-linecap="round" opacity="0.55"/>
+      <path d="M16.2,38.2 C17.4,39.6 19.6,40.2 21.8,40.3" fill="none" stroke="#FFFFC8" stroke-width="0.4" stroke-linecap="round" opacity="0.5"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Lodging tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Hotel_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The hotel: a red brick block in 2:1 isometric view, its lit
+         front wall facing down-left and its shaded side wall facing
+         down-right, under a shingled hip roof with two chimneys.  Each
+         wall and roof face is drawn flat in its own coordinates and
+         placed with a matrix, so its bricks, windows, and shingles
+         follow its perspective. -->
+    <!-- the lit front brick, brightest at the upper left -->
+    <linearGradient id="frontBrick" x1="0" y1="0" x2="16.2" y2="11.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B4474A"/>
+      <stop offset="0.55" stop-color="#982F34"/>
+      <stop offset="1" stop-color="#7A2226"/>
+    </linearGradient>
+    <!-- the side brick, in shade -->
+    <linearGradient id="sideBrick" x1="0" y1="0" x2="8.2" y2="11.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A45E3A"/>
+      <stop offset="1" stop-color="#6C3A22"/>
+    </linearGradient>
+    <!-- the shadow the eaves cast on the top of a wall -->
+    <linearGradient id="eaveShade" x1="0" y1="1.7" x2="0" y2="3.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A0806" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1A0806" stop-opacity="0"/>
+    </linearGradient>
+    <!-- the window glass, catching the sky at the top -->
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5A6E74"/>
+      <stop offset="1" stop-color="#26343A"/>
+    </linearGradient>
+    <linearGradient id="sideGlass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3E5466"/>
+      <stop offset="1" stop-color="#1C2A36"/>
+    </linearGradient>
+    <!-- the front roof slope: pale up by the ridge, darker at the eaves -->
+    <linearGradient id="frontRoof" x1="3" y1="10" x2="13" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B8A898"/>
+      <stop offset="0.6" stop-color="#96846F"/>
+      <stop offset="1" stop-color="#76644F"/>
+    </linearGradient>
+    <!-- the hip at the right end of the roof -->
+    <linearGradient id="hipRoof" x1="5" y1="10" x2="6" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C4B4A4"/>
+      <stop offset="1" stop-color="#94826F"/>
+    </linearGradient>
+    <!-- a chimney's lit face -->
+    <linearGradient id="chimLit" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#DE5A70"/>
+      <stop offset="1" stop-color="#B43A50"/>
+    </linearGradient>
+    <!-- the outlines of the roof faces, in their own coordinates -->
+    <clipPath id="frontRoofClip">
+      <path d="M0,0 L18,0 L14.5,10 L3.5,10 Z"/>
+    </clipPath>
+    <clipPath id="hipRoofClip">
+      <path d="M0,0 L10,0 L5,10 Z"/>
+    </clipPath>
+
+    <g id="icon">
+      <!-- The front wall, lit, drawn flat and sheared onto the building. -->
+      <g transform="matrix(1,0.5,0,1,8.4,28.2)">
+        <rect x="0" y="0" width="16.2" height="11.2" fill="url(#frontBrick)"/>
+        <!-- brick courses, and the staggered joints between bricks -->
+        <path fill="none" stroke="#4A1012" stroke-width="0.14" stroke-opacity="0.45" d="M0,1.8 H16.2 M0,2.7 H16.2 M0,3.6 H16.2 M0,4.5 H16.2 M0,5.4 H16.2 M0,6.3 H16.2 M0,7.2 H16.2 M0,8.1 H16.2 M0,9 H16.2 M0,9.9 H16.2"/>
+        <path fill="none" stroke="#4A1012" stroke-width="0.9" stroke-opacity="0.3" stroke-dasharray="0.12 1.5" d="M0,2.2 H16.2 M0,4 H16.2 M0,5.9 H16.2 M0,7.7 H16.2 M0,9.5 H16.2"/>
+        <path fill="none" stroke="#4A1012" stroke-width="0.9" stroke-opacity="0.3" stroke-dasharray="0.12 1.5" stroke-dashoffset="0.8" d="M0,3.2 H16.2 M0,5 H16.2 M0,6.8 H16.2 M0,8.6 H16.2"/>
+        <!-- a pale string course between the floors, and the stone base -->
+        <rect x="0" y="5.6" width="16.2" height="0.4" fill="#D88A80"/>
+        <rect x="0" y="10.2" width="16.2" height="1" fill="#5E1A1E"/>
+        <rect x="0" y="10.2" width="16.2" height="0.25" fill="#C9786E"/>
+        <!-- the windows, two rows of five, in cream frames -->
+        <g>
+          <rect x="1.4" y="2.5" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="1.4" y="6.4" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="4.3" y="2.5" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="4.3" y="6.4" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="7.2" y="2.5" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="7.2" y="6.4" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="10.1" y="2.5" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="13" y="2.5" width="1.8" height="2.5" fill="#D8BC94"/>
+          <rect x="13" y="6.4" width="1.8" height="2.5" fill="#D8BC94"/>
+        </g>
+        <g fill="url(#glass)">
+          <rect x="1.7" y="2.8" width="1.2" height="1.9"/>
+          <rect x="1.7" y="6.7" width="1.2" height="1.9"/>
+          <rect x="4.6" y="2.8" width="1.2" height="1.9"/>
+          <rect x="4.6" y="6.7" width="1.2" height="1.9"/>
+          <rect x="7.5" y="2.8" width="1.2" height="1.9"/>
+          <rect x="7.5" y="6.7" width="1.2" height="1.9"/>
+          <rect x="10.4" y="2.8" width="1.2" height="1.9"/>
+          <rect x="13.3" y="2.8" width="1.2" height="1.9"/>
+          <rect x="13.3" y="6.7" width="1.2" height="1.9"/>
+        </g>
+        <path fill="#8CA4A8" d="M1.7,2.8 h0.6 v0.9 Z M1.7,6.7 h0.6 v0.9 Z M4.6,2.8 h0.6 v0.9 Z M4.6,6.7 h0.6 v0.9 Z M7.5,2.8 h0.6 v0.9 Z M7.5,6.7 h0.6 v0.9 Z M10.4,2.8 h0.6 v0.9 Z M13.3,2.8 h0.6 v0.9 Z M13.3,6.7 h0.6 v0.9 Z"/>
+        <path fill="none" stroke="#C8AC86" stroke-width="0.16" d="M2.3,2.8 V4.7 M1.7,3.8 H2.9 M2.3,6.7 V8.6 M1.7,7.7 H2.9 M5.2,2.8 V4.7 M4.6,3.8 H5.8 M5.2,6.7 V8.6 M4.6,7.7 H5.8 M8.1,2.8 V4.7 M7.5,3.8 H8.7 M8.1,6.7 V8.6 M7.5,7.7 H8.7 M11,2.8 V4.7 M10.4,3.8 H11.6 M13.9,2.8 V4.7 M13.3,3.8 H14.5 M13.9,6.7 V8.6 M13.3,7.7 H14.5"/>
+        <path fill="none" stroke="#F2DCB4" stroke-width="0.35" d="M1.2,5.2 H3.4 M1.2,9.1 H3.4 M4.1,5.2 H6.3 M4.1,9.1 H6.3 M7,5.2 H9.2 M7,9.1 H9.2 M9.9,5.2 H12.1 M12.8,5.2 H15 M12.8,9.1 H15"/>
+        <!-- the front door, under a pink stone surround -->
+        <rect x="9.8" y="6.0" width="2.4" height="4.2" fill="#E6707E"/>
+        <rect x="10.2" y="6.4" width="1.6" height="3.8" fill="#3A1C14"/>
+        <rect x="10.2" y="6.4" width="0.5" height="3.8" fill="#6A3A28"/>
+        <rect x="9.6" y="5.6" width="2.8" height="0.5" fill="#F6A0A6"/>
+        <!-- tan stone quoins up the two corners -->
+        <path fill="#E2BE86" d="M0,1.7 h1 v0.8 h-1 Z M16.2,1.7 h-1 v0.8 h1 Z M0,2.6 h0.7 v0.8 h-0.7 Z M16.2,2.6 h-0.7 v0.8 h0.7 Z M0,3.5 h1 v0.8 h-1 Z M16.2,3.5 h-1 v0.8 h1 Z M0,4.4 h0.7 v0.8 h-0.7 Z M16.2,4.4 h-0.7 v0.8 h0.7 Z M0,5.3 h1 v0.8 h-1 Z M16.2,5.3 h-1 v0.8 h1 Z M0,6.2 h0.7 v0.8 h-0.7 Z M16.2,6.2 h-0.7 v0.8 h0.7 Z M0,7.1 h1 v0.8 h-1 Z M16.2,7.1 h-1 v0.8 h1 Z M0,8 h0.7 v0.8 h-0.7 Z M16.2,8 h-0.7 v0.8 h0.7 Z M0,8.9 h1 v0.8 h-1 Z M16.2,8.9 h-1 v0.8 h1 Z"/>
+        <rect x="0" y="0" width="0.35" height="10.2" fill="#F6DCA6"/>
+        <!-- the eaves' shadow -->
+        <rect x="0" y="0" width="16.2" height="3.4" fill="url(#eaveShade)"/>
+      </g>
+
+      <!-- The side wall, in shade, sheared the other way. -->
+      <g transform="matrix(1,-0.5,0,1,24.6,36.3)">
+        <rect x="0" y="0" width="8.2" height="11.2" fill="url(#sideBrick)"/>
+        <path fill="none" stroke="#3A1C10" stroke-width="0.14" stroke-opacity="0.45" d="M0,1.8 H8.2 M0,2.7 H8.2 M0,3.6 H8.2 M0,4.5 H8.2 M0,5.4 H8.2 M0,6.3 H8.2 M0,7.2 H8.2 M0,8.1 H8.2 M0,9 H8.2 M0,9.9 H8.2"/>
+        <path fill="none" stroke="#3A1C10" stroke-width="0.9" stroke-opacity="0.3" stroke-dasharray="0.12 1.5" d="M0,2.2 H8.2 M0,4 H8.2 M0,5.9 H8.2 M0,7.7 H8.2 M0,9.5 H8.2"/>
+        <path fill="none" stroke="#3A1C10" stroke-width="0.9" stroke-opacity="0.3" stroke-dasharray="0.12 1.5" stroke-dashoffset="0.8" d="M0,3.2 H8.2 M0,5 H8.2 M0,6.8 H8.2 M0,8.6 H8.2"/>
+        <rect x="0" y="5.6" width="8.2" height="0.4" fill="#94584A"/>
+        <rect x="0" y="10.2" width="8.2" height="1" fill="#3E2214"/>
+        <rect x="0" y="10.2" width="8.2" height="0.25" fill="#9A6048"/>
+        <!-- blue windows, two rows of three, in shaded frames -->
+        <g>
+          <rect x="1.1" y="2.5" width="1.5" height="2.5" fill="#946E4C"/>
+          <rect x="1.1" y="6.4" width="1.5" height="2.5" fill="#946E4C"/>
+          <rect x="3.3" y="2.5" width="1.5" height="2.5" fill="#946E4C"/>
+          <rect x="3.3" y="6.4" width="1.5" height="2.5" fill="#946E4C"/>
+          <rect x="5.7" y="2.5" width="1.5" height="2.5" fill="#946E4C"/>
+          <rect x="5.7" y="6.4" width="1.5" height="2.5" fill="#946E4C"/>
+        </g>
+        <g fill="url(#sideGlass)">
+          <rect x="1.4" y="2.8" width="0.9" height="1.9"/>
+          <rect x="1.4" y="6.7" width="0.9" height="1.9"/>
+          <rect x="3.6" y="2.8" width="0.9" height="1.9"/>
+          <rect x="3.6" y="6.7" width="0.9" height="1.9"/>
+          <rect x="6" y="2.8" width="0.9" height="1.9"/>
+          <rect x="6" y="6.7" width="0.9" height="1.9"/>
+        </g>
+        <path fill="#5E7A8C" d="M1.4,2.8 h0.6 v0.9 Z M1.4,6.7 h0.6 v0.9 Z M3.6,2.8 h0.6 v0.9 Z M3.6,6.7 h0.6 v0.9 Z M6,2.8 h0.6 v0.9 Z M6,6.7 h0.6 v0.9 Z"/>
+        <path fill="none" stroke="#7A5A40" stroke-width="0.16" d="M1.8,2.8 V4.7 M1.4,3.8 H2.2 M1.8,6.7 V8.6 M1.4,7.7 H2.2 M4.1,2.8 V4.7 M3.6,3.8 H4.5 M4.1,6.7 V8.6 M3.6,7.7 H4.5 M6.4,2.8 V4.7 M6,3.8 H6.9 M6.4,6.7 V8.6 M6,7.7 H6.9"/>
+        <path fill="none" stroke="#B08C64" stroke-width="0.35" d="M0.9,5.2 H2.8 M0.9,9.1 H2.8 M3.1,5.2 H5 M3.1,9.1 H5 M5.5,5.2 H7.4 M5.5,9.1 H7.4"/>
+        <path fill="#92703F" d="M0,1.7 h0.7 v0.8 h-0.7 Z M0,2.6 h1 v0.8 h-1 Z M0,3.5 h0.7 v0.8 h-0.7 Z M0,4.4 h1 v0.8 h-1 Z M0,5.3 h0.7 v0.8 h-0.7 Z M0,6.2 h1 v0.8 h-1 Z M0,7.1 h0.7 v0.8 h-0.7 Z M0,8 h1 v0.8 h-1 Z M0,8.9 h0.7 v0.8 h-0.7 Z"/>
+        <rect x="0" y="0" width="8.2" height="3.4" fill="url(#eaveShade)"/>
+      </g>
+      <!-- the front corner, where light meets shade -->
+      <path fill="none" stroke="#3A1810" stroke-width="0.3" d="M24.6,37.9 V47.5"/>
+
+      <!-- The roof.  The front slope, drawn flat, with rows of shingles. -->
+      <g transform="matrix(1,0.5,0.5,-0.9,6.6,28.2)">
+        <path fill="url(#frontRoof)" d="M0,0 L18,0 L14.5,10 L3.5,10 Z"/>
+        <g clip-path="url(#frontRoofClip)">
+          <!-- the joints between shingles, staggered row to row -->
+          <path fill="none" stroke="#4E3E30" stroke-width="1.25" stroke-opacity="0.28" stroke-dasharray="0.16 1.5" d="M0,0.6 H18 M0,3.1 H18 M0,5.6 H18 M0,8.1 H18"/>
+          <path fill="none" stroke="#4E3E30" stroke-width="1.25" stroke-opacity="0.28" stroke-dasharray="0.16 1.5" stroke-dashoffset="0.83" d="M0,1.9 H18 M0,4.4 H18 M0,6.9 H18 M0,9.4 H18"/>
+          <!-- each row's shadowed lower edge and pale upper lip -->
+          <path fill="none" stroke="#4A3A2C" stroke-width="0.22" stroke-opacity="0.6" d="M0,1.2 H18 M0,2.5 H18 M0,3.8 H18 M0,5 H18 M0,6.2 H18 M0,7.5 H18 M0,8.8 H18"/>
+          <path fill="none" stroke="#D6C8B8" stroke-width="0.16" stroke-opacity="0.4" d="M0,0.2 H18 M0,1.5 H18 M0,2.8 H18 M0,4 H18 M0,5.2 H18 M0,6.5 H18 M0,7.8 H18 M0,9 H18"/>
+        </g>
+      </g>
+      <!-- The hip at the right end, its shingles running the other way. -->
+      <g transform="matrix(1,-0.5,-0.35,-0.825,24.6,37.2)">
+        <path fill="url(#hipRoof)" d="M0,0 L10,0 L5,10 Z"/>
+        <g clip-path="url(#hipRoofClip)">
+          <path fill="none" stroke="#5A4A3A" stroke-width="1.25" stroke-opacity="0.22" stroke-dasharray="0.16 1.5" d="M0,0.6 H10 M0,3.1 H10 M0,5.6 H10 M0,8.1 H10"/>
+          <path fill="none" stroke="#5A4A3A" stroke-width="1.25" stroke-opacity="0.22" stroke-dasharray="0.16 1.5" stroke-dashoffset="0.83" d="M0,1.9 H10 M0,4.4 H10 M0,6.9 H10 M0,9.4 H10"/>
+          <path fill="none" stroke="#5A4A3A" stroke-width="0.22" stroke-opacity="0.5" d="M0,1.2 H10 M0,2.5 H10 M0,3.8 H10 M0,5 H10 M0,6.2 H10 M0,7.5 H10 M0,8.8 H10"/>
+          <path fill="none" stroke="#E2D6C8" stroke-width="0.16" stroke-opacity="0.4" d="M0,0.2 H10 M0,1.5 H10 M0,2.8 H10 M0,4 H10 M0,5.2 H10 M0,6.5 H10 M0,7.8 H10 M0,9 H10"/>
+        </g>
+      </g>
+      <!-- the fascia boards under the eaves, lit in front, shaded at the side -->
+      <path fill="#7A5A44" d="M6.6,28.2 L24.6,37.2 L24.6,38 L6.6,29 Z"/>
+      <path fill="#4A3426" d="M24.6,37.2 L34.6,32.2 L34.6,33 L24.6,38 Z"/>
+      <!-- the pale ridge cap and hip, and the light along the front eave -->
+      <path fill="none" stroke="#E4D8C8" stroke-width="0.55" stroke-linecap="round" d="M15.1,20.9 L26.1,26.4 L24.6,37.2"/>
+      <path fill="none" stroke="#D8C8B4" stroke-width="0.3" d="M7,28.2 L24.6,37.2"/>
+
+      <!-- The chimney at the left end of the ridge. -->
+      <path fill="url(#chimLit)" d="M12.9,20 L14.7,20.9 L14.7,24.3 L12.9,23.4 Z"/>
+      <path fill="#8A1A2E" d="M14.7,20.9 L16.5,20 L16.5,21.1 L14.7,24.3 Z"/>
+      <path fill="none" stroke="#6A1020" stroke-width="0.2" stroke-opacity="0.6" d="M12.9,22.1 L14.7,23 M14.7,22.7 L16.5,20.9"/>
+      <path fill="#E27A8A" d="M12.6,19.7 L14.7,20.7 L14.7,21.4 L12.6,20.4 Z"/>
+      <path fill="#9E2A3E" d="M14.7,20.7 L16.8,19.7 L16.8,20.4 L14.7,21.4 Z"/>
+      <path fill="#F2A6B0" d="M12.6,19.7 L14.7,18.7 L16.8,19.7 L14.7,20.7 Z"/>
+      <path fill="#3A0612" d="M13.6,19.7 L14.7,19.1 L15.8,19.7 L14.7,20.2 Z"/>
+      <path fill="none" stroke="#2A0C10" stroke-width="0.35" stroke-linejoin="round" d="M12.6,19.7 L14.7,18.7 L16.8,19.7 L16.8,20.4 L16.5,21.1 L14.7,24.3 L12.9,23.4 L12.6,20.4 Z"/>
+      <path fill="none" stroke="#5A0A18" stroke-width="0.2" stroke-opacity="0.6" d="M14.7,21.4 L14.7,24.3" />
+      <!-- The chimney by the right end of the ridge. -->
+      <path fill="url(#chimLit)" d="M22.2,26.8 L24,27.7 L24,30.6 L22.2,29.7 Z"/>
+      <path fill="#8A1A2E" d="M24,27.7 L25.8,26.8 L25.8,27.4 L24,30.6 Z"/>
+      <path fill="none" stroke="#6A1020" stroke-width="0.2" stroke-opacity="0.6" d="M22.2,28.7 L24,29.6 M24,29.3 L25.8,27.5"/>
+      <path fill="#E27A8A" d="M21.9,26.5 L24,27.5 L24,28.2 L21.9,27.2 Z"/>
+      <path fill="#9E2A3E" d="M24,27.5 L26.1,26.5 L26.1,27.2 L24,28.2 Z"/>
+      <path fill="#F2A6B0" d="M21.9,26.5 L24,25.5 L26.1,26.5 L24,27.5 Z"/>
+      <path fill="#3A0612" d="M22.9,26.5 L24,25.9 L25.1,26.5 L24,27.1 Z"/>
+      <path fill="none" stroke="#2A0C10" stroke-width="0.35" stroke-linejoin="round" d="M21.9,26.5 L24,25.5 L26.1,26.5 L26.1,27.2 L25.8,27.4 L24,30.6 L22.2,29.7 L21.9,27.2 Z"/>
+      <path fill="none" stroke="#5A0A18" stroke-width="0.2" stroke-opacity="0.6" d="M24,28.2 L24,30.6" />
+
+      <!-- a crisp dark outline around the whole building -->
+      <path fill="none" stroke="#2A1410" stroke-width="0.5" stroke-linejoin="round" d="M6.6,28.2 L15.1,20.9 L26.1,26.4 L34.6,32.2 L34.6,33 L32.8,33.9 L32.8,43.4 L24.6,47.5 L8.4,39.4 L8.4,29.9 L6.6,29 Z"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

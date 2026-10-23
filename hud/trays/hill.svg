@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Hill tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_SlopeSmooth_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The hill's silver fill: near white at the upper left, darkening
+         to slate grey at the lower right. -->
+    <linearGradient id="hillSilver" x1="14" y1="37" x2="30" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6FFFF"/>
+      <stop offset="0.25" stop-color="#E6F6F6"/>
+      <stop offset="0.6" stop-color="#94A4A4"/>
+      <stop offset="1" stop-color="#4A5252"/>
+    </linearGradient>
+    <!-- The arrow's red: lit on the left, dark on the right. -->
+    <linearGradient id="arrowRed" x1="17" y1="0" x2="25" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F64A4A"/>
+      <stop offset="0.5" stop-color="#F61010"/>
+      <stop offset="1" stop-color="#B40808"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The rounded hill, outlined in blue, on a flat base. -->
+      <path d="M9.5,45.5 C9.5,39.5 13.5,35 20.5,35 C27.5,35 31.5,39.5 31.5,45.5 Z"
+            fill="url(#hillSilver)" stroke="#626AE6" stroke-width="1" stroke-linejoin="round"/>
+      <!-- The base line along the bottom. -->
+      <rect x="9" y="45" width="23" height="1" fill="#7373D5"/>
+      <!-- The red arrow pointing up from the hill's top: a narrow head
+           over a short shaft. -->
+      <path d="M20.8,22 L24.6,31 L22.4,31 L22.4,35.6 L17.4,35.6 L17.4,31 L16.8,31 Z"
+            fill="url(#arrowRed)"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

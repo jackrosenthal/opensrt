@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Make Snow tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_MakeSnow_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- Each flake is drawn around its own bright spot at (0,0), lit
+         from the upper left. -->
+    <!-- The arms' ice: tan where the light catches the upper left, pale
+         blue across the middle, and deep blue toward the lower right. -->
+    <linearGradient id="arm" x1="-3" y1="-3" x2="4" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#CDBD9C"/>
+      <stop offset="0.35" stop-color="#C5D5E6"/>
+      <stop offset="0.6" stop-color="#83ACD5"/>
+      <stop offset="1" stop-color="#3173B4"/>
+    </linearGradient>
+    <!-- A flake's glowing heart: white at the bright spot, fading out
+         through pale blue so the arms show around it. -->
+    <radialGradient id="glow" cx="0.3" cy="0.3" r="2.6" fx="0" fy="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.4" stop-color="#F6FAFF"/>
+      <stop offset="0.75" stop-color="#C5DAEE" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#C5DAEE" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- A flake's frosty body behind the arms, pale and a little bluer
+         toward the lower right. -->
+    <radialGradient id="frost" cx="0" cy="0" r="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EEF4FA"/>
+      <stop offset="0.7" stop-color="#C5D8EA"/>
+      <stop offset="1" stop-color="#A4BED6"/>
+    </radialGradient>
+
+    <!-- A big flake: four dark blue arms crossing, four icy diagonals
+         between them, and a white heart. -->
+    <g id="bigFlake">
+      <circle cx="0.8" cy="0.8" r="3.1" fill="url(#frost)" opacity="0.85"/>
+      <path d="M-1.8,-1.8L3.8,3.8M3.6,-1.6L-1.6,3.6" stroke="url(#arm)" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M1,-2.6V4.6M-2.6,1H4.6" stroke="#3173B8" stroke-width="1" stroke-linecap="round"/>
+      <path d="M1,-1.6V3.6M-1.6,1H3.6" stroke="#A4C0DA" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="0.4" cy="0.4" r="2.6" fill="url(#glow)"/>
+    </g>
+    <!-- A middle flake: eight short icy arms, darkest down and to the
+         right, around a white heart. -->
+    <g id="midFlake">
+      <circle cx="0.5" cy="0.5" r="2.9" fill="url(#frost)" opacity="0.85"/>
+      <path d="M0.5,-3V4M-3,0.5H4M-2,-2L3.2,3.2M3,-2L-2,3" stroke="url(#arm)" stroke-width="1.1" stroke-linecap="round"/>
+      <circle cx="0.3" cy="0.3" r="2.6" fill="url(#glow)"/>
+    </g>
+    <!-- A small flake: the middle one in miniature. -->
+    <g id="smallFlake">
+      <circle cx="0.4" cy="0.4" r="2.1" fill="url(#frost)" opacity="0.85"/>
+      <path d="M0.5,-1.9V3M-1.9,0.5H3M-1.4,-1.4L2.4,2.4M2.4,-1.4L-1.4,2.4" stroke="url(#arm)" stroke-width="1.1" stroke-linecap="round"/>
+      <circle cx="0.2" cy="0.2" r="2" fill="url(#glow)"/>
+    </g>
+
+    <!-- Seven flakes scattered across the face, two big, three middle,
+         and two small. -->
+    <g id="icon">
+      <use href="#bigFlake" transform="translate(12.5,25.5)"/>
+      <use href="#midFlake" transform="translate(25.5,25.5)"/>
+      <use href="#midFlake" transform="translate(18.5,32.5)"/>
+      <use href="#midFlake" transform="translate(30.5,34.5)"/>
+      <use href="#smallFlake" transform="translate(11.5,38.5)"/>
+      <use href="#bigFlake" transform="translate(19.5,42.5)"/>
+      <use href="#smallFlake" transform="translate(28.5,44.5)"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

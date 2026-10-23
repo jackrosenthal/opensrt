@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Utilities tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Utilities_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The big pole's round wood: a soft highlight a third of the way in
+         from the left, rolling off into deep shade on the right. -->
+    <linearGradient id="bigPole" x1="13" y1="0" x2="17" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7A5A34"/>
+      <stop offset="0.14" stop-color="#94733F"/>
+      <stop offset="0.36" stop-color="#CDA86A"/>
+      <stop offset="0.52" stop-color="#9C7A48"/>
+      <stop offset="0.64" stop-color="#4E3B22"/>
+      <stop offset="0.88" stop-color="#3E3019"/>
+      <stop offset="1" stop-color="#2C2214"/>
+    </linearGradient>
+    <!-- The small pole's wood, the same but narrower. -->
+    <linearGradient id="smallPole" x1="26.9" y1="0" x2="29" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9C7C4C"/>
+      <stop offset="0.3" stop-color="#C9A670"/>
+      <stop offset="0.5" stop-color="#8C6E44"/>
+      <stop offset="0.62" stop-color="#4A3820"/>
+      <stop offset="1" stop-color="#2E2414"/>
+    </linearGradient>
+    <!-- A pole's sawn top, lit from the upper left. -->
+    <linearGradient id="poleTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2C894"/>
+      <stop offset="1" stop-color="#8E7046"/>
+    </linearGradient>
+    <!-- The shadow a crossarm casts on its pole, fading downward. -->
+    <linearGradient id="armShadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140C04" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#140C04" stop-opacity="0"/>
+    </linearGradient>
+    <!-- A crossarm's front face, a little lighter under its top edge. -->
+    <linearGradient id="armFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6E5838"/>
+      <stop offset="0.5" stop-color="#4C3B24"/>
+      <stop offset="1" stop-color="#2E2416"/>
+    </linearGradient>
+    <!-- A crossarm's sunlit top face, brightest at the left. -->
+    <linearGradient id="armTop" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#CCAC74"/>
+      <stop offset="1" stop-color="#9C7E52"/>
+    </linearGradient>
+    <!-- An insulator's glass, pale blue-white at the upper left and
+         clouding to grey at the lower right. -->
+    <linearGradient id="glass" x1="-0.6" y1="-1.4" x2="0.7" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4FCFF"/>
+      <stop offset="0.5" stop-color="#C2D0D8"/>
+      <stop offset="1" stop-color="#7C8790"/>
+    </linearGradient>
+
+    <!-- One glass insulator, its skirt resting on the arm at (0,0): a
+         rounded bell with a flared skirt, a dark rim at the base, and a
+         white glint at the upper left. -->
+    <g id="insulator">
+      <path d="M-0.7,0 L-0.55,-0.45 C-0.55,-1.3 -0.3,-1.5 0,-1.5 C0.3,-1.5 0.55,-1.3 0.55,-0.45 L0.7,0 Z" fill="url(#glass)" stroke="#4E565C" stroke-width="0.15" stroke-linejoin="round"/>
+      <path d="M-0.62,-0.2 L0.62,-0.2" stroke="#6A747C" stroke-width="0.25"/>
+      <ellipse cx="-0.22" cy="-1" rx="0.15" ry="0.3" fill="#FFFFFF"/>
+    </g>
+
+    <g id="icon">
+      <!-- The wires that hang behind the poles and arms.  Each one sags
+           in a catenary between its two insulators. -->
+      <g fill="none" stroke="#5E5444" stroke-width="0.45" stroke-linecap="round">
+        <!-- From the big pole's lower left insulator, dipping behind the
+             big pole and across to the small pole's top left insulator. -->
+        <path d="M9.6,28.3 C13.9,34.8 18.9,35.4 22.9,32.6"/>
+        <!-- From behind the big pole across to the small pole's lower
+             left insulator. -->
+        <path d="M14.6,37.9 C17.9,39 21.1,38.8 24,37.7"/>
+        <!-- From the end of the big pole's lower arm down to the small
+             pole's top arm. -->
+        <path d="M23.2,29.3 C24,30.8 24.9,32.3 25.9,33.2"/>
+        <!-- A slack drop from the big pole's lower right insulator to the
+             small pole's top left insulator. -->
+        <path d="M20.9,28.4 C20.9,30.4 21.5,31.9 22.9,32.6"/>
+        <!-- Drops between each pair of arms, bowing out a little at each
+             end. -->
+        <path d="M8.8,22.6 C8.5,24.6 8.8,26.4 9.6,27.6"/>
+        <path d="M21.9,22.6 C22.2,24.6 21.8,26.4 20.9,27.6"/>
+        <path d="M23,32.7 C22.7,34.8 23.2,36.4 24,37.7"/>
+      </g>
+
+      <!-- The small pole, standing farther back to the right. -->
+      <rect x="26.9" y="32.3" width="2.1" height="16.7" fill="url(#smallPole)"/>
+      <ellipse cx="27.95" cy="32.3" rx="1.05" ry="0.4" fill="url(#poleTop)"/>
+      <!-- Its grain: a few fine streaks running down the wood. -->
+      <g fill="none" stroke-width="0.12" stroke-linecap="round">
+        <path d="M27.3,36 C27.25,39 27.4,42 27.3,46.5" stroke="#7A5E36" opacity="0.7"/>
+        <path d="M28.1,35.4 C28.2,38.5 28.05,42.5 28.15,48" stroke="#2A1E10" opacity="0.6"/>
+        <path d="M28.6,41.4 C28.65,43.5 28.55,45.5 28.6,47.6" stroke="#5E4A2C" opacity="0.6"/>
+      </g>
+      <!-- Shadows the small pole's arms cast on it. -->
+      <rect x="26.9" y="34.4" width="2.1" height="0.9" fill="url(#armShadow)"/>
+      <rect x="26.9" y="39.4" width="2.1" height="0.9" fill="url(#armShadow)"/>
+      <!-- Its braces, slanting from under each arm in to the pole. -->
+      <g fill="none" stroke-linecap="round">
+        <path d="M25.7,34.5 L26.9,35.6 M30.3,34.5 L29,35.6 M25.7,39.5 L26.9,40.6 M30.3,39.5 L29,40.6" stroke="#3E3120" stroke-width="0.55"/>
+        <path d="M25.8,34.4 L26.9,35.4 M25.8,39.4 L26.9,40.4" stroke="#B89666" stroke-width="0.18"/>
+      </g>
+      <!-- Its two crossarms. -->
+      <path d="M21.8,32.9 L22.3,32.4 L34.3,32.4 L33.8,32.9 Z" fill="url(#armTop)"/>
+      <rect x="21.8" y="32.9" width="12" height="1.5" fill="url(#armFront)" stroke="#241A10" stroke-width="0.15"/>
+      <path d="M21.9,37.9 L22.4,37.4 L33.3,37.4 L32.8,37.9 Z" fill="url(#armTop)"/>
+      <rect x="21.9" y="37.9" width="10.9" height="1.5" fill="url(#armFront)" stroke="#241A10" stroke-width="0.15"/>
+      <!-- Fine grain along the arms' front faces. -->
+      <path d="M22.4,33.6 L33.2,33.55 M22.5,38.6 L32.3,38.55" stroke="#6E5838" stroke-width="0.14" opacity="0.7"/>
+
+      <!-- The big pole, standing in front. -->
+      <rect x="13" y="21.3" width="4" height="27.7" fill="url(#bigPole)"/>
+      <ellipse cx="15" cy="21.3" rx="2" ry="0.55" fill="url(#poleTop)"/>
+      <!-- Its grain: long, gently wavering streaks, darker on the lit side
+           and paler on the shaded side, and a small knot. -->
+      <g fill="none" stroke-linecap="round">
+        <path d="M13.7,25 C13.6,30 13.85,36 13.7,47.5" stroke="#6E5230" stroke-width="0.15" opacity="0.8"/>
+        <path d="M14.5,30.5 C14.6,35 14.4,40 14.55,46" stroke="#8A6A3C" stroke-width="0.14" opacity="0.8"/>
+        <path d="M15.3,22 C15.4,28 15.2,36 15.35,48.5" stroke="#2A1E0E" stroke-width="0.16" opacity="0.7"/>
+        <path d="M16.2,24.5 C16.1,31 16.3,38 16.15,44" stroke="#5E4A2C" stroke-width="0.14" opacity="0.8"/>
+        <path d="M14,41.8 C14.3,41.3 14.7,41.4 14.8,42 C14.7,42.6 14.2,42.6 14,41.8 Z" fill="#6A4E2C" stroke="#4A3620" stroke-width="0.12"/>
+      </g>
+      <!-- Shadows the big pole's arms cast on it. -->
+      <rect x="13" y="23.9" width="4" height="1.1" fill="url(#armShadow)"/>
+      <rect x="13" y="29.6" width="4" height="1.2" fill="url(#armShadow)"/>
+      <!-- Its braces, slanting from under each arm in to the pole, each
+           with a lit upper edge. -->
+      <g fill="none" stroke-linecap="round">
+        <path d="M11.2,23.9 L13,25.4 M18.8,23.9 L17,25.4 M11.6,29.6 L13,30.9 M18.4,29.6 L17,30.9" stroke="#3E3120" stroke-width="0.6"/>
+        <path d="M11.3,23.7 L13,25.1 M11.7,29.4 L13,30.6" stroke="#B89666" stroke-width="0.2"/>
+      </g>
+      <!-- Its two crossarms, each with a lit top face. -->
+      <path d="M8.2,23 L8.6,22.5 L23.2,22.5 L22.8,23 Z" fill="url(#armTop)"/>
+      <rect x="8.2" y="23" width="14.6" height="0.9" fill="url(#armFront)" stroke="#241A10" stroke-width="0.15"/>
+      <path d="M9,28.4 L9.5,27.8 L24.1,27.8 L23.6,28.4 Z" fill="url(#armTop)"/>
+      <rect x="9" y="28.4" width="14.6" height="1.2" fill="url(#armFront)" stroke="#241A10" stroke-width="0.15"/>
+      <!-- Fine grain along the arms' front faces. -->
+      <path d="M8.8,23.5 L22.4,23.45 M9.6,29 L23.2,28.95" stroke="#6E5838" stroke-width="0.14" opacity="0.7"/>
+      <!-- The bolts through the arms into the pole. -->
+      <circle cx="15" cy="23.45" r="0.2" fill="#18120A"/>
+      <circle cx="15" cy="29" r="0.22" fill="#18120A"/>
+      <circle cx="27.95" cy="33.65" r="0.2" fill="#18120A"/>
+      <circle cx="27.95" cy="38.65" r="0.2" fill="#18120A"/>
+
+      <!-- The insulators, on the ends of every arm. -->
+      <use href="#insulator" transform="translate(8.8,22.8)"/>
+      <use href="#insulator" transform="translate(21.9,22.8)"/>
+      <use href="#insulator" transform="translate(9.6,28.1)"/>
+      <use href="#insulator" transform="translate(20.9,28.1)"/>
+      <use href="#insulator" transform="translate(23,32.8)"/>
+      <use href="#insulator" transform="translate(33,32.8)"/>
+      <use href="#insulator" transform="translate(24,37.8)"/>
+      <use href="#insulator" transform="translate(32,37.8)"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

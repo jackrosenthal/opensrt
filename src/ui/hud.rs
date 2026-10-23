@@ -1,5 +1,5 @@
 //! In-game interface from the original art. The 1024×768 navigation frame
-//! is scaled to the window height and stretched across its width; the
+//! is scaled to the window height and drawn as wide as the window; the
 //! readouts, buttons and extending menus use the original layout tables.
 
 use egui::{Color32, FontFamily, FontId, Pos2, Rect as ERect, Sense, Vec2};
@@ -585,7 +585,7 @@ impl Hud {
         if editor {
             self.editor_frame(ui, art, f);
         } else {
-            self.frame(ui, art, assets, f);
+            self.frame(ui, art, f);
             self.readouts(ui, art, assets, strings, f, g);
             self.ticker(ui, strings, f, g, dt);
         }
@@ -694,31 +694,15 @@ impl Hud {
         }
     }
 
-    /// Draws the frame: three top parts and two bottom parts at their
-    /// anchors, with the plain bar stretched between them. The bottom bar
-    /// is drawn from its vector remake.
-    fn frame(&mut self, ui: &egui::Ui, art: &mut Art, assets: &Assets, f: Frame) {
+    /// Draws the frame from its vector remakes, each as wide as the
+    /// window.
+    fn frame(&mut self, ui: &egui::Ui, art: &mut Art, f: Frame) {
         let s = f.s;
-        let src = |x1: f32, y1: f32, x2: f32, y2: f32| ERect::from_min_max(Pos2::new(x1, y1), Pos2::new(x2, y2));
-        let gap = |a: Pos2, b: Pos2| ERect::from_min_max(a, b);
         let left = f.cv(Anchor::Left, false);
         let center = f.cv(Anchor::Center, false);
-        let right = f.cv(Anchor::Right, false);
         let bl = f.cv(Anchor::Left, true);
-        // Top: rows 0..74, plain bar 0..23 between the parts.
-        if let Some(sprite) = art.group_element(assets, NAV, art::nav_bar::BACKGROUND_1024, 0).and_then(|e| e.0) {
-            let parts = [
-                (left, 0.0, 430.0),
-                (center, 430.0, 594.0),
-                (right, 594.0, 1024.0),
-            ];
-            for (cv, x1, x2) in parts {
-                art.sprite_stretch(ui, assets, cv, NAV, sprite, src(x1, 0.0, x2, 74.0), cv.rect_xywh(x1, 0.0, x2 - x1, 74.0));
-            }
-            art.sprite_stretch(ui, assets, left, NAV, sprite, src(420.0, 0.0, 421.0, 23.0), gap(left.pos(430.0, 0.0), center.pos(430.0, 23.0)));
-            art.sprite_stretch(ui, assets, left, NAV, sprite, src(610.0, 0.0, 611.0, 23.0), gap(center.pos(594.0, 0.0), right.pos(594.0, 23.0)));
-        }
-        // Bottom: rows 708..768, as wide as the window.
+        // Top: rows 0..74. Bottom: rows 708..768.
+        art.vector_wide(ui, left, vector::TOP_BAR, f.screen.width() / s, 0.0, 0.0);
         art.vector_wide(ui, bl, vector::BOTTOM_BAR, f.screen.width() / s, 0.0, 708.0);
         for (x, y) in SNOWFLAKES {
             art.vector_at(ui, f.at(x, y), vector::SNOWFLAKE, None, x, y);
@@ -823,12 +807,7 @@ impl Hud {
         } else {
             0
         };
-        match vector::button(rel, group) {
-            Some(svg) => art.vector_at(ui, cv, svg, Some(vector::state(state)), x, y),
-            None => {
-                art.draw(ui, assets, cv, rel, group, state, x, y);
-            }
-        }
+        art.draw(ui, assets, cv, rel, group, state, x, y);
         self.track(&resp, area, tip, assets);
         if resp.clicked() {
             crate::audio::sfx(assets, crate::audio::Sound::IngameDownclick);

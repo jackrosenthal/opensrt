@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Groomer tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Groomer_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The body's lit left face, bright orange. -->
+    <linearGradient id="bodyLit" x1="0" y1="30" x2="0" y2="33" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF9C20"/>
+      <stop offset="0.6" stop-color="#FF9418"/>
+      <stop offset="1" stop-color="#E06E04"/>
+    </linearGradient>
+    <!-- The body's shaded front, burnt orange fading to brown. -->
+    <linearGradient id="bodyDark" x1="0" y1="30" x2="0" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B45A00"/>
+      <stop offset="0.3" stop-color="#DE7B10"/>
+      <stop offset="0.5" stop-color="#7B4108"/>
+      <stop offset="0.75" stop-color="#8B4A08"/>
+      <stop offset="1" stop-color="#622908"/>
+    </linearGradient>
+    <!-- The pale yellow band along the body's lit side. -->
+    <linearGradient id="band" x1="0" y1="33" x2="0" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF66A"/>
+      <stop offset="1" stop-color="#FFE65A"/>
+    </linearGradient>
+    <!-- The blade's face, bright yellow with a lit left edge. -->
+    <linearGradient id="bladeFace" x1="19" y1="0" x2="33" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFEE00"/>
+      <stop offset="0.12" stop-color="#E6D500"/>
+      <stop offset="0.9" stop-color="#E2D400"/>
+      <stop offset="1" stop-color="#FFF600"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The cab: a gold frame with a dark outline. -->
+      <rect x="12.5" y="23.5" width="12.5" height="6" fill="#C5A23A" stroke="#735A41"/>
+      <!-- A glint along the top of the cab frame. -->
+      <rect x="15" y="24" width="2" height="1" fill="#F6CD45"/>
+      <!-- The cab's lit left post. -->
+      <rect x="13" y="25" width="1" height="4" fill="#DEB439"/>
+      <!-- The narrow side window. -->
+      <rect x="14.6" y="25" width="1.8" height="4" fill="#4A4A29"/>
+      <rect x="15" y="25.6" width="1" height="3.4" fill="#000000"/>
+      <!-- The wide front window, nearly black. -->
+      <rect x="18" y="25" width="6" height="4" fill="#000810"/>
+      <rect x="18" y="25" width="6" height="0.6" fill="#18282A"/>
+
+      <!-- The body: a dark outline behind both faces. -->
+      <path d="M8.5,29.5 H29.5 V35.5 H7.5 V31.5 L8.5,30.5 Z" fill="#735A41" stroke="#735A41"/>
+      <!-- The body's lit left face. -->
+      <rect x="9" y="30" width="8" height="3" fill="url(#bodyLit)"/>
+      <!-- The pale yellow band below it. -->
+      <rect x="8" y="33" width="9" height="2" fill="url(#band)"/>
+      <!-- The body's shaded front. -->
+      <rect x="17" y="30" width="12" height="5" fill="url(#bodyDark)"/>
+      <!-- The crease between the two faces. -->
+      <rect x="17" y="30" width="0.8" height="5" fill="#9C4A00" opacity="0.8"/>
+
+      <!-- The track: a rounded olive slab with a dark outline. -->
+      <path d="M6.5,35.5 H17.5 V43 H14 Q8.5,42.5 6.5,38.5 Z" fill="#5A5A42" stroke="#4A4131" stroke-width="0.9"/>
+      <!-- Light on the track's upper left. -->
+      <path d="M7.2,36 H16.8 V37 H7.2 Z" fill="#7B7B52" opacity="0.8"/>
+      <!-- The track's cleats. -->
+      <g stroke="#9C9C70" stroke-width="0.8" stroke-linecap="round">
+        <path d="M8.6,37.6 L8.2,39.2"/>
+        <path d="M11.6,37.6 L11.2,41.2"/>
+        <path d="M14.6,37.6 L14.2,42.2"/>
+      </g>
+      <g stroke="#313120" stroke-width="0.7" stroke-linecap="round">
+        <path d="M10,37.8 L9.7,40.6"/>
+        <path d="M13,37.8 L12.7,42"/>
+        <path d="M16,37.8 L15.8,42.4"/>
+      </g>
+      <!-- The blade's hitch, a dark gap behind the blade. -->
+      <rect x="17" y="35.5" width="1.5" height="8" fill="#202030"/>
+
+      <!-- The blade's outline. -->
+      <rect x="18.5" y="35.5" width="15" height="10" fill="#413920" stroke="#413920"/>
+      <!-- The blade's curled top edge, dark olive into gold. -->
+      <rect x="19" y="35" width="14.5" height="1" fill="#6A5A00"/>
+      <rect x="19" y="36" width="14" height="1" fill="#B4AC00"/>
+      <rect x="19" y="37" width="14" height="1" fill="#8B8300"/>
+      <!-- The blade's face. -->
+      <rect x="19" y="38" width="13.8" height="5" fill="url(#bladeFace)"/>
+      <!-- The blade's lower lip, shaded above and lit below. -->
+      <rect x="19" y="43" width="14" height="1" fill="#B4A400"/>
+      <rect x="19" y="44" width="14" height="1" fill="#EEE600"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <!-- The icon sinks one pixel right and down when pressed. -->
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

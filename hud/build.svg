@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 55" width="45" height="55">
+  <!-- Build button: vector remake of the original Ski Resort Tycoon
+       sprites LogConstruct_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The hammer's handle, a wooden shaft running down to the right,
+         lit along its left side. -->
+    <linearGradient id="hammerWood" x1="0" y1="-2.1" x2="0" y2="2.1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#401A10"/>
+      <stop offset="0.3" stop-color="#7B3920"/>
+      <stop offset="0.6" stop-color="#C47C66"/>
+      <stop offset="0.8" stop-color="#D2927E"/>
+      <stop offset="1" stop-color="#7B4A39"/>
+    </linearGradient>
+    <!-- The hammer's head, steel shaded dark toward its inner curve. -->
+    <linearGradient id="hammerSteel" x1="14" y1="22" x2="19" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#868686"/>
+      <stop offset="0.5" stop-color="#565656"/>
+      <stop offset="1" stop-color="#242424"/>
+    </linearGradient>
+    <!-- The screwdriver's green grip, shiny along its upper-left side. -->
+    <linearGradient id="gripGreen" x1="0" y1="-3.2" x2="0" y2="3.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A7A2A"/>
+      <stop offset="0.2" stop-color="#94E89C"/>
+      <stop offset="0.45" stop-color="#52B45A"/>
+      <stop offset="0.75" stop-color="#22922A"/>
+      <stop offset="1" stop-color="#0A560A"/>
+    </linearGradient>
+    <g id="icon">
+      <!-- the hammer's handle -->
+      <g transform="translate(19.6,27.6) rotate(51.7)">
+        <path d="M0,-2.1 L19.4,-2.1 Q20.8,-2.1 20.8,0 Q20.8,2.1 19.4,2.1 L0,2.1 Z" fill="url(#hammerWood)"/>
+        <path d="M18.6,-2.1 L19.4,-2.1 Q20.8,-2.1 20.8,0 Q20.8,2.1 19.4,2.1 L18.6,2.1 Z" fill="#4A2A1C"/>
+        <path d="M0,-2.1 L19.4,-2.1 Q20.8,-2.1 20.8,0 Q20.8,2.1 19.4,2.1 L0,2.1" fill="none" stroke="#3A1810" stroke-width="0.5" stroke-opacity="0.7"/>
+      </g>
+      <!-- the hammer's head: a bent claw arching from the striking face
+           at the lower left up and over to the right -->
+      <path d="M18.2,19.9 L24.6,19.9 Q25.6,20.4 25.5,22.3 L24.8,23.9 L20.2,24.2 L20.6,26 L21.6,27.4 L19.2,28.6 L17.4,27.6 L15.8,27.8 Q15.6,31.4 13,32 Q10.4,32.2 9.9,30 Q9.6,27.8 11.2,26.6 L12.8,25.2 L14.6,23.4 Z"
+            fill="url(#hammerSteel)" stroke="#A88C6A" stroke-width="0.5" stroke-linejoin="round"/>
+      <!-- a dark rim along the head's inner curve -->
+      <path d="M24.8,23.9 L20.2,24.2 L20.6,26 L21.6,27.4 M17.4,27.6 L15.8,27.8 Q15.6,31.4 13,32"
+            fill="none" stroke="#1A1612" stroke-width="0.8" stroke-linejoin="round"/>
+      <!-- shine on the striking face and along the top of the head -->
+      <path d="M11.2,28.6 Q11.6,27.2 12.8,26.8" fill="none" stroke="#E2E2E2" stroke-width="1" stroke-linecap="round"/>
+      <path d="M16,22.6 Q18,20.8 23,20.9" fill="none" stroke="#9A9A9A" stroke-width="0.8" stroke-linecap="round"/>
+      <!-- the screwdriver, lying over the hammer: a green grip at the lower
+           left and a blue steel shaft running up to the right -->
+      <g transform="translate(11.2,43.2) rotate(-39.6)">
+        <!-- the shaft, with a soft lavender sheen -->
+        <path d="M17,0 L31,0" stroke="#A8A8E0" stroke-width="1.6" stroke-opacity="0.45" stroke-linecap="round"/>
+        <path d="M17,0 L31,0" stroke="#4444E0" stroke-width="0.9" stroke-linecap="round"/>
+        <!-- the ferrule where the shaft meets the grip -->
+        <path d="M15,-1.9 L17.6,-1.3 L17.6,1.3 L15,1.9 Z" fill="#3E6A30" stroke="#183A12" stroke-width="0.4"/>
+        <!-- the grip -->
+        <path d="M0.6,-2.8 Q3,-3.3 6,-3.1 L15.2,-2.1 L15.2,2.1 L6,3.1 Q3,3.3 0.6,2.8 Q-0.6,1.5 -0.6,0 Q-0.6,-1.5 0.6,-2.8 Z"
+              fill="url(#gripGreen)" stroke="#0A400A" stroke-width="0.6" stroke-linejoin="round"/>
+        <!-- grooves along the grip -->
+        <path d="M2,-1 L13.5,-0.8 M2.4,1.2 L13.5,1" fill="none" stroke="#1C7A22" stroke-width="0.4" stroke-opacity="0.7"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

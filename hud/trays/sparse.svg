@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Plant Sparse tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_PlantSparce_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The pine's needles: bright green on the lit left, deep green on
+         the shaded right. -->
+    <linearGradient id="pineGreen" x1="13" y1="30" x2="31" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3CC854"/>
+      <stop offset="0.35" stop-color="#22803A"/>
+      <stop offset="0.65" stop-color="#155826"/>
+      <stop offset="1" stop-color="#083414"/>
+    </linearGradient>
+    <!-- The ground patch: lit tan earth on top, dark soil below. -->
+    <linearGradient id="groundBrown" x1="0" y1="45" x2="0" y2="49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A4835A"/>
+      <stop offset="0.45" stop-color="#7A5A38"/>
+      <stop offset="1" stop-color="#3A2A18"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The small patch of ground the tree stands on. -->
+      <path d="M16,48.8 L16,46.6 Q16.5,45.9 18,45.6 Q19,44.9 21.5,44.9 Q24.5,44.9 25.6,45.6 Q28.4,45.8 29,46.6 L29,47.8 Q28,48.8 26.5,48.8 Z"
+            fill="url(#groundBrown)"/>
+      <!-- A dark hollow at the foot of the trunk. -->
+      <ellipse cx="22" cy="46.2" rx="2.2" ry="0.8" fill="#4A3420"/>
+      <!-- Lit clods along the top left of the patch. -->
+      <ellipse cx="19" cy="45.9" rx="1.4" ry="0.6" fill="#B4946A"/>
+      <!-- The trunk, showing below the lowest branches. -->
+      <rect x="20.2" y="42.5" width="2.6" height="4" fill="#4A2838"/>
+      <rect x="20.2" y="42.5" width="1" height="4" fill="#6A4A52"/>
+
+      <!-- The tree's tiered silhouette, branches drooping to points on
+           each side. -->
+      <path d="M21.5,20.8 L23,24.5 L25,27.8 L24,28.2 L26.4,30.8 L25.5,31.4
+               L28.2,34.6 L27.2,35.2 L29.9,38 L29.2,38.6 L31,40.8 L30.2,41.2
+               L31.6,43.8 L29.2,43.2 L27.2,43.8 L25,43.2 L22.8,43.6 L20,43.2
+               L17.5,43.8 L15.2,43.2 L12.2,43.8 L14.4,41.4 L12.8,41.4
+               L15,38.6 L13.2,38.6 L15.6,35.8 L14,35.6 L16.8,32.2 L16,31.6
+               L18.2,29 L17,28.6 L19.2,25.5 L19.8,24 Z"
+            fill="url(#pineGreen)"/>
+      <!-- Shadows under each tier, darkest on the right. -->
+      <g fill="none" stroke="#062A10" stroke-width="0.7" stroke-linecap="round" opacity="0.6">
+        <path d="M21,27.6 Q23,28.4 24.4,28"/>
+        <path d="M20.6,31 Q23.5,31.8 25.6,31.2"/>
+        <path d="M20.8,34.6 Q24.5,35.6 27.4,35"/>
+        <path d="M19.6,38 Q24.5,39 29.2,38.4"/>
+        <path d="M18.6,41 Q25,42 30.2,41"/>
+      </g>
+      <!-- Bright sprays of needles catching the light on the left half
+           of each tier, angled down and out like the branches. -->
+      <g fill="none" stroke="#4ADE62" stroke-width="0.7" stroke-linecap="round" opacity="0.9">
+        <path d="M21,24.6 L20.2,26.2"/>
+        <path d="M20.6,29 L19.2,30.6 M21.4,30.4 L20.6,31.6"/>
+        <path d="M19.6,32.4 L18,34.4 M20.8,34.2 L19.8,35.4"/>
+        <path d="M19,35.8 L16.8,37.8 M20.6,37.4 L19.4,38.8"/>
+        <path d="M18.4,38.8 L15.6,40.8 M20.2,40.2 L18.8,41.8 M23.6,39.6 L24.6,40.8"/>
+        <path d="M17,41.6 L15.4,42.8"/>
+      </g>
+      <!-- Dark gaps between the sprays, mostly on the shaded right. -->
+      <g fill="none" stroke="#03200A" stroke-width="0.6" stroke-linecap="round" opacity="0.7">
+        <path d="M23.4,29.4 L24.4,30.6"/>
+        <path d="M24.8,32.8 L26.2,34.2"/>
+        <path d="M25.8,36.4 L27.6,37.8"/>
+        <path d="M24.4,39.2 L25.8,40.4 M27.6,39.8 L29,40.8"/>
+        <path d="M26,42 L27.6,42.8 M17.6,40.2 L16.8,41"/>
+      </g>
+      <!-- A dark core down the middle where the trunk shows through. -->
+      <path d="M21.6,26 L22.4,26 L22.8,42.6 L21,42.6 Z" fill="#0A3414" opacity="0.6"/>
+      <!-- Sunlit tan needle tips at the ends of the branches. -->
+      <g fill="#B4AC6E">
+        <circle cx="17.6" cy="28.6" r="0.6"/>
+        <circle cx="16.6" cy="31.8" r="0.6"/>
+        <circle cx="14.6" cy="35.7" r="0.6"/>
+        <circle cx="13.6" cy="38.7" r="0.6"/>
+        <circle cx="13.2" cy="41.5" r="0.6"/>
+        <circle cx="13.4" cy="43.3" r="0.6"/>
+        <circle cx="16.4" cy="43.4" r="0.6"/>
+        <circle cx="25.6" cy="30.9" r="0.6"/>
+        <circle cx="29.4" cy="38.4" r="0.6"/>
+        <circle cx="30.3" cy="43.2" r="0.6"/>
+        <circle cx="21.8" cy="22.6" r="0.5"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Run Markers tray button: vector remake of the original Ski Resort
+       Tycoon sprites Tray_Markers_Normal/_Rollover/_Depress. One group
+       per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- A square wooden post: its sunlit left face and its shaded
+         right face, with a soft sheen just inside the left edge. -->
+    <linearGradient id="post" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5E4840"/>
+      <stop offset="0.18" stop-color="#7C6258"/>
+      <stop offset="0.48" stop-color="#6A524A"/>
+      <stop offset="0.52" stop-color="#443329"/>
+      <stop offset="1" stop-color="#33261F"/>
+    </linearGradient>
+    <!-- A crossbar's wood: a lit top edge over a shaded underside. -->
+    <linearGradient id="rail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8AE98"/>
+      <stop offset="0.5" stop-color="#B49C94"/>
+      <stop offset="1" stop-color="#8E7E94"/>
+    </linearGradient>
+    <!-- The boards' white faces, brightest at the upper left and cooling
+         to a pale blue toward the lower right. -->
+    <linearGradient id="board" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6FFFF"/>
+      <stop offset="0.5" stop-color="#EEFFFF"/>
+      <stop offset="1" stop-color="#E2F0F8"/>
+    </linearGradient>
+    <!-- The boards' violet-blue frame, catching a little more light down
+         its right side, as in the original. -->
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5E5EA8"/>
+      <stop offset="0.7" stop-color="#6464AC"/>
+      <stop offset="1" stop-color="#7474B0"/>
+    </linearGradient>
+    <!-- The green circle (the easiest runs' symbol): a bright glint at the
+         upper left, deepening a touch toward the lower right. -->
+    <radialGradient id="dot" cx="0.36" cy="0.32" r="0.75">
+      <stop offset="0" stop-color="#7CFFA2"/>
+      <stop offset="0.3" stop-color="#18FF52"/>
+      <stop offset="0.8" stop-color="#08FF41"/>
+      <stop offset="1" stop-color="#05E03A"/>
+    </radialGradient>
+    <!-- The faint shadow a post's foot casts on the snow. -->
+    <radialGradient id="footShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#6A7494" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#6A7494" stop-opacity="0"/>
+    </radialGradient>
+
+    <g id="icon">
+      <!-- Soft shadows on the snow where the posts stand, falling to the
+           lower right. -->
+      <ellipse cx="17.9" cy="46.9" rx="2.2" ry="0.6" fill="url(#footShadow)"/>
+      <ellipse cx="26.9" cy="47.9" rx="2.2" ry="0.6" fill="url(#footShadow)"/>
+
+      <!-- Everything on the sign is drawn square and then sheared, so the
+           whole face turns a little away, its right side a pixel lower. -->
+      <g transform="matrix(1,0.0741,0,1,0,-1.07)">
+        <!-- The two posts, behind the boards, with flat-sawn tops. -->
+        <rect x="16" y="19" width="2" height="28" fill="url(#post)"/>
+        <rect x="16" y="19" width="2" height="0.5" fill="#8A7066"/>
+        <rect x="25" y="19" width="2" height="28" fill="url(#post)"/>
+        <rect x="25" y="19" width="2" height="0.5" fill="#8A7066"/>
+
+        <!-- Three wooden crossbars between the posts, behind the boards,
+             peeking out in slivers above the top board and under each
+             board. -->
+        <rect x="15" y="20.4" width="12" height="1" fill="url(#rail)"/>
+        <rect x="15" y="34.9" width="12" height="1.2" fill="url(#rail)"/>
+        <rect x="15" y="40.8" width="12" height="0.9" fill="url(#rail)"/>
+
+        <!-- The big upper board, framed in violet-blue. -->
+        <rect x="14.5" y="21.5" width="13" height="13" fill="url(#board)" stroke="url(#frame)" stroke-width="1"/>
+        <!-- The green circle. -->
+        <ellipse cx="21" cy="28.1" rx="4.2" ry="4.55" fill="url(#dot)"/>
+
+        <!-- The narrow lower board, framed the same. -->
+        <rect x="14.5" y="36.5" width="13" height="4.2" fill="url(#board)" stroke="url(#frame)" stroke-width="1"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

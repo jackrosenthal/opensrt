@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Flatten tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_FlatRaise_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The block's lit left side: grey under the top face, brightening
+         to near white toward its outer lower edge. -->
+    <linearGradient id="sideLeft" x1="15" y1="35" x2="11.5" y2="41.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#94A08A"/>
+      <stop offset="0.45" stop-color="#C2D4D4"/>
+      <stop offset="1" stop-color="#F6FFF6"/>
+    </linearGradient>
+    <!-- The block's shaded right side: dark under the top face, lighter
+         toward its outer edge. -->
+    <linearGradient id="sideRight" x1="25" y1="36" x2="29.5" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#454C4C"/>
+      <stop offset="0.55" stop-color="#6E7878"/>
+      <stop offset="1" stop-color="#ACBA9C"/>
+    </linearGradient>
+
+    <!-- One red arrow pointing up, centered on x=0, its tip at y=0. -->
+    <g id="arrow">
+      <!-- The shaft, running down behind the block's top face. -->
+      <rect x="-1.5" y="4.6" width="3" height="5.4" fill="#F60808"/>
+      <!-- The head, with a lighter band along its base. -->
+      <path d="M0,-0.2 L4.6,4.8 L-4.6,4.8 Z" fill="#F60808"/>
+      <rect x="-4.4" y="4" width="8.8" height="0.9" fill="#F63A26"/>
+    </g>
+
+    <g id="icon">
+      <!-- The two arrows above the block. -->
+      <use href="#arrow" x="14.5" y="21"/>
+      <use href="#arrow" x="27.5" y="21"/>
+
+      <!-- The block's silhouette, outlined in blue: a flat top face over
+           sides that taper to a point at the bottom. -->
+      <path d="M20.5,27.8 L32.7,32.8 L33,34.4 L34.9,37.6 L20.5,48.4 L6.1,37.6 L8.3,34.4 L8.3,32.8 Z"
+            fill="#5A6AFF" stroke="#5A6AFF" stroke-width="0.3" stroke-linejoin="round"/>
+      <!-- The left side. -->
+      <path d="M8.9,33.6 L20.5,38.3 L20.5,47.4 L7.2,37.6 L8.9,35 Z" fill="url(#sideLeft)"/>
+      <!-- The right side. -->
+      <path d="M32.1,33.6 L20.5,38.3 L20.5,47.4 L33.8,37.6 L32.1,35 Z" fill="url(#sideRight)"/>
+      <!-- A bright highlight down the front edge between the sides. -->
+      <path d="M19.6,38.5 L20.5,38.5 L20.5,47.2 L19.6,46.4 Z" fill="#F6FFFF"/>
+
+      <!-- The top face: pale blue, with a checkered blue grid. -->
+      <path d="M20.5,28 L32.5,33 L20.5,38 L8.5,33 Z" fill="#E6E8FF"/>
+      <path d="M17.5,29.2 20.5,30.5 17.5,31.8 14.5,30.5Z
+               M11.5,31.8 14.5,33 11.5,34.2 8.5,33Z
+               M23.5,29.2 26.5,30.5 23.5,31.8 20.5,30.5Z
+               M17.5,31.8 20.5,33 17.5,34.2 14.5,33Z
+               M23.5,31.8 26.5,33 23.5,34.2 20.5,33Z
+               M17.5,34.2 20.5,35.5 17.5,36.8 14.5,35.5Z
+               M29.5,31.8 32.5,33 29.5,34.2 26.5,33Z
+               M23.5,34.2 26.5,35.5 23.5,36.8 20.5,35.5Z" fill="#6474FF"/>
+      <!-- The grid lines across the top face. -->
+      <path d="M17.5,29.2 L29.5,34.2 M14.5,30.5 L26.5,35.5 M11.5,31.8 L23.5,36.8
+               M23.5,29.2 L11.5,34.2 M26.5,30.5 L14.5,35.5 M29.5,31.8 L17.5,36.8"
+            fill="none" stroke="#4152FF" stroke-width="0.5"/>
+      <!-- The top face's rim. -->
+      <path d="M20.5,28 L32.5,33 L20.5,38 L8.5,33 Z" fill="none" stroke="#3A4AF6" stroke-width="0.7" stroke-linejoin="round"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

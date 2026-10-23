@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Raise Single Point tray button: vector remake of the original Ski
+       Resort Tycoon sprites Tray_RaisePoint_Normal/_Rollover/_Depress.
+       One group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The left lobe of ground, greying toward its outer corner. -->
+    <linearGradient id="pointLobeL" x1="9.5" y1="0" x2="17" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D2D4E4"/>
+      <stop offset="0.5" stop-color="#E2E0D8"/>
+      <stop offset="1" stop-color="#F4F4F8"/>
+    </linearGradient>
+    <!-- The right lobe, the same but mirrored. -->
+    <linearGradient id="pointLobeR" x1="31.5" y1="0" x2="24" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D2D4E4"/>
+      <stop offset="0.5" stop-color="#E4E4E0"/>
+      <stop offset="1" stop-color="#F6F6F4"/>
+    </linearGradient>
+    <!-- The slopes of the peak, a pale blue fading downward. -->
+    <linearGradient id="pointSlope" x1="0" y1="28" x2="0" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A4ACFF"/>
+      <stop offset="0.5" stop-color="#C8CCFF"/>
+      <stop offset="1" stop-color="#F2F2FF"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The whole patch of ground: a diamond whose middle is pulled up
+           into a peak, with the upper edges sagging inward. -->
+      <path d="M20.5,27.6 Q16,33.4 9.4,37.6 L20.5,46.6 L31.6,37.6 Q25,33.4 20.5,27.6 Z" fill="#F4F4FF"/>
+      <!-- The slopes either side of the spine below the peak. -->
+      <path d="M20.5,27.6 Q17.4,32.4 16.6,37.8 L20.5,38.6 L24.4,37.8 Q23.6,32.4 20.5,27.6 Z" fill="url(#pointSlope)"/>
+      <!-- The left and right lobes, out past the ridge lines. -->
+      <path d="M16.2,33 Q13,35.8 9.4,37.6 L14.9,42.1 Q16.2,39.6 16.6,37.8 Q16.2,35.4 16.2,33 Z" fill="url(#pointLobeL)"/>
+      <path d="M24.8,33 Q28,35.8 31.6,37.6 L26.1,42.1 Q24.8,39.6 24.4,37.8 Q24.8,35.4 24.8,33 Z" fill="url(#pointLobeR)"/>
+      <!-- The bottom cell, flat and white. -->
+      <path d="M20.5,38.6 L14.9,42.1 L20.5,46.6 L26.1,42.1 Z" fill="#F8F8FF"/>
+
+      <!-- The grid lines: two outer ridges running down from the peak,
+           two inner ones fanning out either side of the spine, and
+           the bottom cell's top edges. -->
+      <g fill="none" stroke="#5A6AFF" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.5,28 Q17,32.6 16.6,37.8 Q16,40 14.9,42.1"/>
+        <path d="M20.5,28 Q24,32.6 24.4,37.8 Q25,40 26.1,42.1"/>
+        <path d="M20.5,28 L18.7,38.3 M20.5,28 L22.3,38.3" stroke="#7680FF" stroke-width="0.7"/>
+        <path d="M20.5,28 L20.5,38.6"/>
+        <path d="M14.9,42.1 L20.5,38.6 L26.1,42.1"/>
+      </g>
+      <!-- A dark dot where the lines meet in the middle. -->
+      <circle cx="20.5" cy="38.6" r="0.7" fill="#1820FF"/>
+      <!-- The outline of the patch. -->
+      <path d="M20.5,27.6 Q16,33.4 9.4,37.6 L20.5,46.6 L31.6,37.6 Q25,33.4 20.5,27.6 Z" fill="none" stroke="#4252F6" stroke-width="0.85" stroke-linejoin="round"/>
+
+      <!-- The red arrow pointing up from the peak: a short stem and a
+           triangular head. -->
+      <rect x="19.4" y="26.4" width="2.2" height="1.6" fill="#D51029"/>
+      <path d="M20.5,21.9 L25.4,26.6 Q25.2,27 24.6,27 L16.4,27 Q15.8,27 15.6,26.6 Z" fill="#F60C0C"/>
+      <!-- A slightly lighter band along the base of the head. -->
+      <path d="M16.6,26 L24.4,26 L25.2,26.8 Q25,27 24.6,27 L16.4,27 Q16,27 15.8,26.8 Z" fill="#F62E22"/>
+      <!-- A faint highlight on the upper-left slope of the head. -->
+      <path d="M20.5,22.6 L18.2,24.8" stroke="#FF5A48" stroke-width="0.6" stroke-linecap="round" fill="none"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

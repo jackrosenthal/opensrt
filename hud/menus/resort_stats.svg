@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Resort Stats menu log: vector remake of the original Ski Resort
+       Tycoon sprites LogStats_Normal/_Rollover/_Depress.  It opens no
+       tray, so it has no open state.  One group per state; the game
+       shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+    <!-- The chart sheet on its spiral pad: a sheet shaded from pale
+         teal at the top to gray in the middle, a chart in red rising to
+         an arrowhead at the upper right. -->
+    <linearGradient id="sheetShade" x1="0" y1="22" x2="0" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2FFFF"/>
+      <stop offset="0.2" stop-color="#DDEEEE"/>
+      <stop offset="0.65" stop-color="#A9B2B6"/>
+      <stop offset="1" stop-color="#D2E8E8"/>
+    </linearGradient>
+    <g id="icon">
+      <!-- the pad's brown back, showing along the left and bottom -->
+      <path d="M10.6 21.6 H13 V42.6 H31 V44 H10.6 Z" fill="#9A7A68"/>
+      <path d="M12 22 H13.2 V43 H30.8 V44 H12 Z" fill="#3E2E26"/>
+      <!-- the sheet -->
+      <path d="M13 22 H31.8 L32.6 40.2 L34 42.6 H13 Z" fill="url(#sheetShade)"/>
+      <!-- the sheet's shaded left margin -->
+      <rect x="13" y="22" width="1" height="20" fill="#7E9498" opacity="0.8"/>
+      <!-- the sheet's brown right edge and its curled lower corner -->
+      <path d="M32.3 23 L32.9 40.4 L34.4 42.8" fill="none" stroke="#6E5644" stroke-width="0.9"/>
+      <!-- the spiral rings across the top -->
+      <rect x="13" y="22" width="19" height="1" fill="#949CA2"/>
+      <g fill="#6A5A48">
+        <rect x="13" y="21" width="2" height="1"/>
+        <rect x="16" y="21" width="2" height="1"/>
+        <rect x="19" y="21" width="2" height="1"/>
+        <rect x="22" y="21" width="2" height="1"/>
+        <rect x="25" y="21" width="2" height="1"/>
+        <rect x="28" y="21" width="2" height="1"/>
+      </g>
+      <!-- the punched holes under the rings -->
+      <g fill="#5A5A5A">
+        <rect x="15" y="22" width="1" height="2"/>
+        <rect x="18" y="22" width="1" height="2"/>
+        <rect x="21" y="22" width="1" height="2"/>
+        <rect x="24" y="22" width="1" height="2"/>
+        <rect x="27" y="22" width="1" height="2"/>
+        <rect x="30" y="22" width="1" height="2"/>
+      </g>
+      <!-- the red tick marks up the left axis -->
+      <g fill="#F03050">
+        <rect x="14" y="26.2" width="1" height="0.9"/>
+        <rect x="14" y="29.2" width="1" height="0.9"/>
+        <rect x="14" y="32.2" width="1" height="0.9"/>
+        <rect x="14" y="35.2" width="1" height="0.9"/>
+        <rect x="14" y="38.2" width="1" height="0.9"/>
+      </g>
+      <!-- a white strip along the sheet's foot -->
+      <rect x="14" y="42" width="19" height="1" fill="#FFF4F8"/>
+      <!-- the dotted red and teal axis along the bottom -->
+      <rect x="15" y="41" width="17" height="1" fill="#4A8580"/>
+      <g fill="#F81838">
+        <rect x="17.5" y="41" width="1.5" height="1"/>
+        <rect x="20.5" y="41" width="1.5" height="1"/>
+        <rect x="23.5" y="41" width="1.5" height="1"/>
+        <rect x="26.5" y="41" width="1.5" height="1"/>
+        <rect x="29.5" y="41" width="1.5" height="1"/>
+      </g>
+      <!-- the chart line's shadow to the lower right -->
+      <path d="M15.2 37 L19.6 27.8 L24.4 39.2 L29.4 26.6" fill="none" stroke="#6A2026" stroke-width="1.4" stroke-linejoin="round" opacity="0.75"/>
+      <!-- the rising red chart line -->
+      <path d="M14.6 36.4 L19.2 27.2 L24 38.6 L29 26" fill="none" stroke="#FF0000" stroke-width="1.4" stroke-linejoin="round"/>
+      <!-- its arrowhead -->
+      <path d="M31 24.4 L30.6 28.6 L27.2 27.4 Z" fill="#FF0000"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

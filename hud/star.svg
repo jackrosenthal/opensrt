@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" width="14" height="13">
+  <!-- Rating star: vector remake of the original Ski Resort Tycoon
+       sprites Star_none, Star_Half and Star.  One group per state; the
+       game shows one with a stylesheet.  The money box is white, so an
+       unearned star draws nothing. -->
+  <defs>
+    <radialGradient id="starFace" cx="7" cy="6" r="6.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A8CE6"/>
+      <stop offset="0.35" stop-color="#0A3C9C"/>
+      <stop offset="1" stop-color="#00187A"/>
+    </radialGradient>
+    <path id="star" d="M7.5,1.0 L9.2,5.0 L13.5,5.4 L10.2,8.2 L11.2,12.4 L7.5,10.2 L3.8,12.4 L4.8,8.2 L1.5,5.4 L5.8,5.0 Z"/>
+    <!-- a navy star, lit from its middle -->
+    <g id="starLit">
+      <use href="#star" fill="url(#starFace)" stroke="#000C5A" stroke-width="0.5" stroke-linejoin="round"/>
+    </g>
+    <clipPath id="leftHalf"><rect x="0" y="0" width="7.5" height="13"/></clipPath>
+  </defs>
+
+  <g id="none" class="state" display="none"/>
+  <g id="half" class="state" display="none">
+    <g clip-path="url(#leftHalf)"><use href="#starLit"/></g>
+  </g>
+  <g id="full" class="state">
+    <use href="#starLit"/>
+  </g>
+</svg>

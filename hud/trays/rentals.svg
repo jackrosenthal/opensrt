@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Rentals tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Shops_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The box's lit left face, brightening toward the front corner. -->
+    <linearGradient id="boxLeft" x1="13" y1="0" x2="21" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0058B4"/>
+      <stop offset="0.5" stop-color="#0050C0"/>
+      <stop offset="1" stop-color="#1284D0"/>
+    </linearGradient>
+    <!-- The box's shaded right face, darkest at the front corner. -->
+    <linearGradient id="boxRight" x1="21" y1="0" x2="30" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00183C"/>
+      <stop offset="0.5" stop-color="#002C5C"/>
+      <stop offset="1" stop-color="#004078"/>
+    </linearGradient>
+    <!-- The ribbon on the left face, bright yellow with a gold edge. -->
+    <linearGradient id="ribbonLeft" x1="15" y1="0" x2="17.8" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B4BD52"/>
+      <stop offset="0.35" stop-color="#FFFF20"/>
+      <stop offset="1" stop-color="#CDB010"/>
+    </linearGradient>
+    <!-- The ribbon on the right face, in shadow. -->
+    <linearGradient id="ribbonRight" x1="24.8" y1="0" x2="26.9" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D5A800"/>
+      <stop offset="1" stop-color="#FCE800"/>
+    </linearGradient>
+    <!-- The bow's loops, pale at the upper left and gold below. -->
+    <radialGradient id="bow" cx="16" cy="27.6" r="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFE0"/>
+      <stop offset="0.25" stop-color="#FFF430"/>
+      <stop offset="0.7" stop-color="#F0CC10"/>
+      <stop offset="1" stop-color="#B08800"/>
+    </radialGradient>
+
+    <g id="icon">
+      <!-- The two green skis, crossed from the upper left to the lower
+           right behind the box.  A dark edge under a bright core. -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11.6,19.8 L15,28.5 L25.3,42 L29.2,47.8" stroke="#2E5A26" stroke-width="2.3"/>
+        <path d="M11.6,19.8 L15,28.5 L25.3,42 L29.2,47.8" stroke="#00B000" stroke-width="1.5"/>
+        <path d="M6.4,24.8 L14,32.2 L29,39.7 L34.2,42.6" stroke="#2E5A26" stroke-width="2.5"/>
+        <path d="M6.4,24.8 L14,32.2 L29,39.7 L34.2,42.6" stroke="#00C000" stroke-width="1.7"/>
+        <!-- Light running down the upper-left edge of each ski. -->
+        <path d="M11.3,20.3 L13.5,26.2" stroke="#8BD06A" stroke-width="0.7"/>
+        <path d="M6.6,24.4 L11,28.8" stroke="#40E040" stroke-width="0.8"/>
+        <path d="M28.6,40.4 L33.6,43.1" stroke="#18A018" stroke-width="0.7"/>
+        <path d="M27.4,43.9 L29.5,47.2" stroke="#10C010" stroke-width="0.7"/>
+      </g>
+      <!-- The two ski poles, crossed from the upper right to the lower
+           left behind the box, with their straps at the top. -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M27.4,20.4 L24.6,27.5 L12.6,38.8 L6.9,43.6" stroke="#3A3640" stroke-width="1.1"/>
+        <path d="M30.2,22.4 L29.4,29 L13.4,41.2 L9.6,46.6" stroke="#242028" stroke-width="1.1"/>
+        <!-- Grey light along the upper side of each pole. -->
+        <path d="M27,20.3 L25.4,24.6" stroke="#A8A8B0" stroke-width="0.5"/>
+        <path d="M11.8,39 L8.2,42" stroke="#8B8373" stroke-width="0.5"/>
+        <!-- The straps: a tan one on the left pole, a grey one on the
+             right pole. -->
+        <path d="M26.6,22.6 Q24.4,24 25.2,26.6" stroke="#C8AA7A" stroke-width="0.8"/>
+        <path d="M30.4,23.4 Q33.6,24.2 32.6,27.8 Q31.6,28.6 30.4,27.4" stroke="#6A6A72" stroke-width="0.8"/>
+        <path d="M31.6,24.2 Q32.8,25.2 32.2,26.6" stroke="#C0C0C0" stroke-width="0.5"/>
+      </g>
+
+      <!-- The gift box, seen corner on: its lit left face and shaded
+           right face, meeting at a front corner. -->
+      <path d="M13,31.4 L21,34 L21,45.9 L13,41.3 Z" fill="url(#boxLeft)"/>
+      <path d="M21,34 L30,30.8 L30,39.6 L21,45.9 Z" fill="url(#boxRight)"/>
+      <!-- The lid on top, its front corner catching the light. -->
+      <path d="M13,31.4 L21.5,28 L30,30.8 L21,34 Z" fill="#1880E0"/>
+      <path d="M18.4,32.9 L21,32 L23.6,32.9 L21,35.2 Z" fill="#A0D0FF"/>
+      <path d="M19.4,33.2 L21,32.7 L22.4,33.2 L21,34.4 Z" fill="#D2E6F6"/>
+      <!-- The ribbon down the middle of each face. -->
+      <path d="M15,32.1 L17.8,33 L17.8,44.3 L15,42.7 Z" fill="url(#ribbonLeft)"/>
+      <path d="M24.8,32.7 L26.9,32 L26.9,42 L24.8,43.4 Z" fill="url(#ribbonRight)"/>
+      <!-- The ribbon across the lid, from each face up to the knot. -->
+      <path d="M15,32.1 L17.8,33 L21.6,30.6 L19,29.8 Z" fill="#FFF040"/>
+      <path d="M24.8,32.7 L26.9,32 L22.6,29.7 L20.4,30.6 Z" fill="#F0D000"/>
+      <!-- The bow: two loops on either side of the knot. -->
+      <path d="M20.8,30.4 Q17.4,26 14.4,26.8 Q12.9,28.6 14.6,30.4 Q17.6,31.8 20.8,30.4 Z" fill="url(#bow)"/>
+      <path d="M21.4,30.4 Q24.6,26 28.2,26.8 Q30,28.8 28,30.4 Q24.6,31.8 21.4,30.4 Z" fill="url(#bow)"/>
+      <!-- Gold shading inside the loops. -->
+      <path d="M19.8,30 Q17.6,28.4 15.8,28.6 Q17.4,29.6 19.8,30 Z" fill="#A08000"/>
+      <path d="M22.4,30 Q24.8,28.4 27,28.6 Q25,29.8 22.4,30 Z" fill="#A08000"/>
+      <!-- The knot. -->
+      <ellipse cx="21.1" cy="30.2" rx="1.3" ry="1" fill="#D8A800"/>
+      <ellipse cx="20.8" cy="29.9" rx="0.6" ry="0.4" fill="#FFF8A0"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

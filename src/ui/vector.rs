@@ -1,8 +1,9 @@
 //! Vector interface art (`hud/*.svg`) that replaces original sprites: most
 //! of it remakes them, the map view button is a new design. Drawn in the
 //! original's layout pixels so it replaces sprites one for one and can be
-//! rasterized at the display's scale. Buttons hold their three states as
-//! groups `normal`, `rollover` and `depress`, one shown at a time.
+//! rasterized at the display's scale. A drawing with several looks holds
+//! each as a group with `class="state"` (buttons: `normal`, `rollover` and
+//! `depress`), one shown at a time.
 
 use resvg::{tiny_skia, usvg};
 
@@ -13,6 +14,18 @@ use super::art::{self, ArtFile, Group};
 pub struct Svg {
     pub name: &'static str,
     source: &'static str,
+}
+
+impl Svg {
+    /// Where the drawing's top-left sits relative to the sprite it
+    /// replaces: its `viewBox` origin, which is above or left of 0 when
+    /// it reaches past the sprite (the menu logs' stems reach up into the
+    /// log above).
+    pub fn origin(&self) -> egui::Vec2 {
+        let view_box = self.source.split_once("viewBox=\"").and_then(|(_, rest)| rest.split_once('"'));
+        let mut n = view_box.into_iter().flat_map(|(v, _)| v.split_whitespace()).map(|v| v.parse().unwrap_or(0.0));
+        egui::Vec2::new(n.next().unwrap_or(0.0), n.next().unwrap_or(0.0))
+    }
 }
 
 impl PartialEq for Svg {
@@ -38,23 +51,163 @@ macro_rules! svg {
 /// The bottom bar, drawn as wide as the window: its root is
 /// `width="1024"`, laid out relative to that.
 pub const BOTTOM_BAR: Svg = svg!("bottom_bar");
+/// The top bar, drawn as wide as the window like the bottom bar.
+pub const TOP_BAR: Svg = svg!("top_bar");
 pub const SNOWFLAKE: Svg = svg!("snowflake");
 /// The map editor's panel under the view buttons.
 pub const EDITOR_BOTTOM: Svg = svg!("editor_bottom");
 
-/// The vector version of a three-state button, if it has one.
-pub fn button(file: ArtFile, group: Group) -> Option<Svg> {
-    if file != art::nav_bar::FILE {
-        return None;
+/// What a menu log stretches through while its tray opens, and the cap
+/// on the tray's far end.
+const LOG_OPEN_SHORT: Svg = svg!("menus/open_short");
+const LOG_OPEN_LONG: Svg = svg!("menus/open_long");
+const ENDCAP: Svg = svg!("menus/endcap");
+
+/// The vector drawing that stands in for element `index` of a group, with
+/// the state to show, if it has one.
+pub fn element(file: ArtFile, group: Group, index: usize) -> Option<(Svg, Option<&'static str>)> {
+    let button = |svg: Svg| Some((svg, Some(state(index))));
+    let shown = |svg: Svg, state: &'static str| Some((svg, Some(state)));
+    // A menu log: its three states, element 3 at rest, then the pieces it
+    // stretches through while its tray opens.
+    let log = |svg: Svg| match index {
+        0..=2 => button(svg),
+        3 => shown(svg, "normal"),
+        4 => Some((LOG_OPEN_SHORT, None)),
+        _ => Some((LOG_OPEN_LONG, None)),
+    };
+    if group == art::extension::ENDCAP && art::extension::FILES.contains(&file) {
+        return Some((ENDCAP, None));
     }
-    Some(match group {
-        art::nav_bar::ZOOM_IN => svg!("zoom_in"),
-        art::nav_bar::ZOOM_OUT => svg!("zoom_out"),
-        art::nav_bar::ROTATE_CW => svg!("rotate_cw"),
-        art::nav_bar::ROTATE_CCW => svg!("rotate_ccw"),
-        art::nav_bar::MAP_VIEW => svg!("map_view"),
-        _ => return None,
-    })
+    match file {
+        art::nav_bar::FILE => {
+            use art::nav_bar::*;
+            match group {
+                ZOOM_IN => button(svg!("zoom_in")),
+                ZOOM_OUT => button(svg!("zoom_out")),
+                ROTATE_CW => button(svg!("rotate_cw")),
+                ROTATE_CCW => button(svg!("rotate_ccw")),
+                MAP_VIEW => button(svg!("map_view")),
+                MAIN => button(svg!("main")),
+                BUILD => button(svg!("build")),
+                TERRAIN => button(svg!("terrain")),
+                FINANCES => button(svg!("finances")),
+                FIRST_PERSON => button(svg!("first_person")),
+                LOG_GRID => button(svg!("grid")),
+                LOG_SURVEY => button(svg!("survey")),
+                // Each shows what the button is now, then what it will be.
+                PAUSE => shown(svg!("pause"), ["pause", "play", "play"][index.min(2)]),
+                PAUSE_OFF => shown(svg!("pause"), ["play", "pause_lit", "pause"][index.min(2)]),
+                // Drawn over a log while its menu is open.
+                CONSTRUCTION_OVERLAY => shown(svg!("build"), "depress"),
+                TERRAIN_OVERLAY => shown(svg!("terrain"), "depress"),
+                FINANCE_OVERLAY => shown(svg!("finances"), "rollover"),
+                STAR => shown(svg!("star"), ["none", "half", "full"][index.min(2)]),
+                _ => None,
+            }
+        }
+        art::construction_ext::FILE => {
+            use art::construction_ext::*;
+            match group {
+                LOG_STRUCTURES => log(svg!("menus/structures")),
+                LOG_LIFTS => log(svg!("menus/lifts")),
+                LOG_OBJECTS => log(svg!("menus/objects")),
+                // Drawn over a log while its tray is open.
+                STRUCTURES_OVERLAY => shown(svg!("menus/structures"), "open"),
+                LIFTS_OVERLAY => shown(svg!("menus/lifts"), "open"),
+                OBJECTS_OVERLAY => shown(svg!("menus/objects"), "open"),
+                _ => None,
+            }
+        }
+        art::terrain_ext::FILE => {
+            use art::terrain_ext::*;
+            match group {
+                LOG_SURFACEMOD => log(svg!("menus/surface")),
+                LOG_TREES => log(svg!("menus/trees")),
+                LOG_SKIRUN => log(svg!("menus/runs")),
+                SURFACEMOD_OVERLAY => shown(svg!("menus/surface"), "open"),
+                TREES_OVERLAY => shown(svg!("menus/trees"), "open"),
+                SKIRUN_OVERLAY => shown(svg!("menus/runs"), "open"),
+                _ => None,
+            }
+        }
+        art::finance_ext::FILE => {
+            use art::finance_ext::*;
+            match group {
+                LOG_RESORTSTATS => log(svg!("menus/resort_stats")),
+                LOG_RESORTFINANCE => log(svg!("menus/finances")),
+                LOG_GUESTSTATS => log(svg!("menus/guests")),
+                LOG_STAFFSTATS => log(svg!("menus/staff")),
+                LOG_ATTRACTION => log(svg!("menus/attractions")),
+                _ => None,
+            }
+        }
+        art::build_sub::FILE => {
+            use art::build_sub::*;
+            match group {
+                TRAY_LODGING => button(svg!("trays/lodging")),
+                TRAY_FOOD => button(svg!("trays/food")),
+                TRAY_COMFORT => button(svg!("trays/comfort")),
+                TRAY_ENTERTAINMENT => button(svg!("trays/entertainment")),
+                TRAY_RENTALS => button(svg!("trays/rentals")),
+                TRAY_MAINTENANCE => button(svg!("trays/maintenance")),
+                TRAY_SERVICES => button(svg!("trays/services")),
+                TRAY_UTILITIES => button(svg!("trays/utilities")),
+                _ => None,
+            }
+        }
+        art::lifts_sub::FILE => {
+            use art::lifts_sub::*;
+            match group {
+                TRAY_LIFTS => button(svg!("trays/lifts")),
+                TRAY_JUMPS => button(svg!("trays/jumps")),
+                TRAY_MARKERS => button(svg!("trays/markers")),
+                _ => None,
+            }
+        }
+        art::fluff_sub::FILE => {
+            use art::fluff_sub::*;
+            match group {
+                TRAY_OBJECTS => button(svg!("trays/objects")),
+                TRAY_PATHS => button(svg!("trays/paths")),
+                _ => None,
+            }
+        }
+        art::skirun_sub::FILE => {
+            use art::skirun_sub::*;
+            match group {
+                TRAY_RUNFOLLOW => button(svg!("trays/run_follow")),
+                TRAY_RUNSUB => button(svg!("trays/run_cut")),
+                TRAY_RUNADD => button(svg!("trays/run_fill")),
+                _ => None,
+            }
+        }
+        art::surface_sub::FILE => {
+            use art::surface_sub::*;
+            match group {
+                TRAY_HILL => button(svg!("trays/hill")),
+                TRAY_PEAK => button(svg!("trays/peak")),
+                TRAY_FLATRAISE => button(svg!("trays/flatten")),
+                TRAY_RAISEPOINT => button(svg!("trays/point")),
+                TRAY_SMOOTH => button(svg!("trays/smooth")),
+                TRAY_MOGULS => button(svg!("trays/moguls")),
+                TRAY_SNOW => button(svg!("trays/snow")),
+                TRAY_GROOMER => button(svg!("trays/groomer")),
+                _ => None,
+            }
+        }
+        art::trees_sub::FILE => {
+            use art::trees_sub::*;
+            match group {
+                TRAY_CHAINSAW => button(svg!("trays/clear")),
+                TRAY_TREESPARSE => button(svg!("trays/sparse")),
+                TRAY_TREEMEDIUM => button(svg!("trays/medium")),
+                TRAY_TREEDENSE => button(svg!("trays/dense")),
+                _ => None,
+            }
+        }
+        _ => None,
+    }
 }
 
 /// Group shown for button state `index` (normal, rollover, depress).
@@ -62,14 +215,14 @@ pub fn state(index: usize) -> &'static str {
     ["normal", "rollover", "depress"][index.min(2)]
 }
 
-/// Draws `svg` (with only group `state` shown, when given) at `scale`
-/// pixels per layout pixel. `width` replaces the layout width of a drawing
-/// laid out relative to it (its root's `width="1024"`). Returns the image
-/// and the drawing's size in layout pixels.
+/// Draws `svg` (with only state group `state` shown, when given) at
+/// `scale` pixels per layout pixel. `width` replaces the layout width of a
+/// drawing laid out relative to it (its root's `width="1024"`). Returns
+/// the image and the drawing's size in layout pixels.
 pub fn rasterize(svg: Svg, state: Option<&str>, width: Option<f32>, scale: f32) -> Option<(egui::ColorImage, egui::Vec2)> {
     let mut opt = usvg::Options::default();
     if let Some(s) = state {
-        opt.style_sheet = Some(format!("#normal,#rollover,#depress{{display:none}} #{s}{{display:inline}}"));
+        opt.style_sheet = Some(format!(".state{{display:none}} #{s}{{display:inline}}"));
     }
     // usvg only resolves percentages against an explicit root width.
     let source = match width {

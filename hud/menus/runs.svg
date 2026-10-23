@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Ski Runs menu log: vector remake of the original Ski Resort Tycoon
+       sprites LogRuns_Normal/_Rollover/_Depress, and LogRuns_Special
+       (state open: drawn over the log while its tray is open). One
+       group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+    <!-- Open: pressed in, and joined on its right to its tray's strip. -->
+    <clipPath id="stripInside"><rect x="23" y="15" width="22" height="36"/></clipPath>
+    <g id="openLook">
+      <circle cx="23" cy="33" r="21" fill="#000000"/>
+      <rect x="23" y="12" width="22" height="42" fill="#000000"/>
+      <g clip-path="url(#stripInside)">
+        <rect x="23" y="15" width="22" height="36" fill="#FFFFFF"/>
+        <rect x="23" y="15" width="22" height="3" fill="#F6EEF6"/>
+        <rect x="23" y="48" width="22" height="3" fill="#C5C5C5"/>
+      </g>
+      <use href="#faceDepress"/>
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+    </g>
+    <!-- A small pine, tip at the origin, 8 tall: three tiers, lit on
+         the left and shaded on the right, on a short trunk. -->
+    <g id="pine">
+      <rect x="-0.4" y="7.6" width="0.8" height="1.2" fill="#5A3A20"/>
+      <path d="M0,0 L1.7,3.1 L0.9,3 L2.5,5.7 L1.3,5.6 L2.9,8 L-2.9,8 L-1.3,5.6 L-2.5,5.7 L-0.9,3 L-1.7,3.1 Z" fill="#118A3E"/>
+      <path d="M0,0 L1.7,3.1 L0.9,3 L2.5,5.7 L1.3,5.6 L2.9,8 L0.3,8 Z" fill="#085028"/>
+      <path d="M0,0 L-1.7,3.1 L-1.1,3.1 Z M-0.9,3 L-2.5,5.7 L-1.8,5.7 Z M-1.3,5.6 L-2.9,8 L-2.1,8 Z" fill="#3CBE64"/>
+    </g>
+    <!-- A slalom gate: a red banner strung between two dark poles. -->
+    <g id="gate">
+      <rect x="0" y="0" width="0.7" height="5.5" fill="#3A3A36"/>
+      <rect x="3.3" y="0" width="0.7" height="5.5" fill="#3A3A36"/>
+      <rect x="0.6" y="0.4" width="2.8" height="2.6" fill="#FF0000"/>
+      <rect x="2.6" y="0.4" width="0.8" height="2.6" fill="#B01010"/>
+      <rect x="0.7" y="3" width="2.6" height="0.7" fill="#FFC8C8"/>
+    </g>
+    <!-- The snow of the run: lit at the top left, grayer toward the
+         lower right. -->
+    <linearGradient id="snow" x1="14" y1="20" x2="30" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#F2F2F0"/>
+      <stop offset="1" stop-color="#B4B4B0"/>
+    </linearGradient>
+    <g id="icon">
+      <!-- The run: a band that comes in under the top pines, hairpins
+           left, crosses right, hairpins right, and widens down to the
+           lower left. -->
+      <path d="M24.5,17.6 L14.5,18 C12.2,18.2 11.2,20 11.2,22.5 L11.4,28 L21,28 L25,31.2 Q25.6,32.6 24,33.2 L19.5,34.4 L17,35.6 L12.6,44.8 L26.6,44.8 L30.2,36 L30,26.6 Q29.8,24.6 27.6,24.5 L24.5,24.3 Z" fill="url(#snow)" stroke="#77736E" stroke-width="0.9" stroke-linejoin="round"/>
+      <!-- The edge between the top and middle crossings. -->
+      <path d="M14.2,24.7 L28,24.7" fill="none" stroke="#5A5A56" stroke-width="0.9"/>
+      <!-- The heavier lower edge of the run. -->
+      <path d="M12.6,44.9 L26.6,44.9" fill="none" stroke="#625E5A" stroke-width="1.2"/>
+      <!-- The pines at the top. -->
+      <use href="#pine" transform="translate(20.3,17.4) scale(0.92)"/>
+      <use href="#pine" transform="translate(24.2,16.6) scale(0.85)"/>
+      <!-- The pines at the left. -->
+      <use href="#pine" transform="translate(20.6,25.8) scale(0.8)"/>
+      <use href="#pine" transform="translate(13.8,23.6) scale(1.05)"/>
+      <use href="#pine" transform="translate(17,25.8) scale(1.05)"/>
+      <!-- The pines at the lower right. -->
+      <use href="#pine" transform="translate(35.8,32) scale(1.1)"/>
+      <use href="#pine" transform="translate(31.2,32.2) scale(1.35)"/>
+      <!-- The gates: top left, right, and bottom. -->
+      <use href="#gate" transform="translate(12.2,19.6) scale(0.7)"/>
+      <use href="#gate" transform="translate(29.6,26.4) scale(0.95)"/>
+      <use href="#gate" transform="translate(16,36.6) scale(1.1)"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+  <g id="open" class="state" display="none">
+    <use href="#openLook"/>
+    <use href="#icon"/>
+  </g>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 55" width="45" height="55">
+  <!-- Survey button: vector remake of the original Ski Resort Tycoon
+       sprites LogSurvey_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The theodolite's telescope: a dark metal tube, lit along its
+         upper middle, with brass fittings. -->
+    <linearGradient id="tubeFill" x1="0" y1="26.8" x2="0" y2="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1C2424"/>
+      <stop offset="0.3" stop-color="#9CA4A6"/>
+      <stop offset="0.45" stop-color="#D2D6D4"/>
+      <stop offset="0.7" stop-color="#4A5252"/>
+      <stop offset="1" stop-color="#0C1010"/>
+    </linearGradient>
+    <linearGradient id="brassFill" x1="0" y1="26" x2="0" y2="31.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE0A0"/>
+      <stop offset="0.4" stop-color="#F0C050"/>
+      <stop offset="1" stop-color="#946A08"/>
+    </linearGradient>
+    <!-- The stand's base: metal with a shine on its upper left. -->
+    <radialGradient id="baseFill" cx="20.6" cy="41.6" r="7" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F6F4"/>
+      <stop offset="0.35" stop-color="#9CA4A4"/>
+      <stop offset="1" stop-color="#303838"/>
+    </radialGradient>
+    <linearGradient id="footFill" x1="0" y1="44.6" x2="0" y2="46.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E6BD90"/>
+      <stop offset="0.5" stop-color="#B48B6A"/>
+      <stop offset="1" stop-color="#3A4242"/>
+    </linearGradient>
+    <radialGradient id="hubFill" cx="22.1" cy="28.3" r="1.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFAD0"/>
+      <stop offset="0.5" stop-color="#FFD520"/>
+      <stop offset="1" stop-color="#B48A20"/>
+    </radialGradient>
+    <g id="icon">
+      <!-- The telescope, eyepiece to the left, objective to the right. -->
+      <rect x="10" y="27" width="21" height="4" fill="url(#tubeFill)"/>
+      <rect x="31" y="26" width="5" height="5.6" fill="url(#tubeFill)"/>
+      <rect x="31" y="26" width="5" height="5.6" fill="none" stroke="#141A1A" stroke-width="0.4"/>
+      <!-- Brass caps: the eyepiece and the collar of the objective. -->
+      <rect x="8.9" y="27.6" width="1.4" height="2.8" rx="0.4" fill="url(#brassFill)"/>
+      <rect x="29.4" y="26.1" width="1.9" height="5.4" rx="0.4" fill="url(#brassFill)"/>
+      <!-- The stand: a neck under the wheel spreading into two legs. -->
+      <path fill="#394242" fill-rule="evenodd"
+            d="M17.2,33.4 L27.6,33.4 L26.2,35.6 L27.4,40.6 L16.4,40.6 L17.8,35.6 Z
+               M19.6,36 L24.4,36 L25.2,40 L18.8,40 Z"/>
+      <!-- Lit left edges of the legs. -->
+      <path fill="none" stroke="#8A9494" stroke-width="0.5" d="M17.6,35.8 L16.7,40.2 M20.2,33.8 L24,33.8"/>
+      <!-- The base, a squat flared block on which the legs stand. -->
+      <path fill="url(#baseFill)" stroke="#202828" stroke-width="0.5" d="M16.6,40.4 L27.2,40.4 L28.4,43.9 L15.2,43.9 Z"/>
+      <!-- The two feet: brass on top, shadowed below. -->
+      <path fill="#2E3636" d="M18,43.9 L26,43.9 L25.4,44.8 L18.6,44.8 Z"/>
+      <rect x="15.8" y="44.6" width="4" height="2.2" fill="url(#footFill)"/>
+      <rect x="23.8" y="44.6" width="4" height="2.2" fill="url(#footFill)"/>
+      <!-- The graduated wheel, a dark ring with six spokes. -->
+      <path fill="none" stroke="#3A4242" stroke-width="1.1" stroke-linecap="round"
+            d="M22.6,24 L22.6,33.2 M18.6,26.3 L26.6,30.9 M18.6,30.9 L26.6,26.3"/>
+      <circle cx="22.6" cy="28.6" r="4.9" fill="none" stroke="#323A3A" stroke-width="1.8"/>
+      <!-- The brass hub at the wheel's center. -->
+      <circle cx="22.6" cy="28.9" r="1.5" fill="url(#hubFill)"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

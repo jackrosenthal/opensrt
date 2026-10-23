@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Entertainment tray button: vector remake of the original Ski Resort
+       Tycoon sprites Tray_FoodEnt_Normal/_Rollover/_Depress. One group per
+       state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The note's head, bright at the upper left and navy below. -->
+    <radialGradient id="noteHead" cx="7.8" cy="36.4" r="6.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A4A4FF"/>
+      <stop offset="0.3" stop-color="#3131FF"/>
+      <stop offset="0.65" stop-color="#0808C8"/>
+      <stop offset="1" stop-color="#00005A"/>
+    </radialGradient>
+    <!-- The note's stem and flag, bright blue darkening downward. -->
+    <linearGradient id="noteBlue" x1="0" y1="20" x2="0" y2="37" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3939FF"/>
+      <stop offset="0.6" stop-color="#2020E0"/>
+      <stop offset="1" stop-color="#1010C8"/>
+    </linearGradient>
+    <!-- The upper glass's bowl: pale at the lit upper left, bluer toward
+         the rim. -->
+    <linearGradient id="bowlUpper" x1="19" y1="22" x2="34" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2F8FF"/>
+      <stop offset="0.45" stop-color="#A8C4E8"/>
+      <stop offset="0.8" stop-color="#7BA4D5"/>
+      <stop offset="1" stop-color="#4A7EC4"/>
+    </linearGradient>
+    <!-- The drink in the upper glass, olive at the top and nearly black
+         at the bottom. -->
+    <linearGradient id="drink" x1="0" y1="28" x2="0" y2="34.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A49452"/>
+      <stop offset="0.35" stop-color="#525A40"/>
+      <stop offset="0.7" stop-color="#18213A"/>
+      <stop offset="1" stop-color="#000810"/>
+    </linearGradient>
+    <!-- The lower glass's bowl: pale at the rim, deep blue in the shadow
+         at the lower right. -->
+    <linearGradient id="bowlLower" x1="13" y1="42" x2="21" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C8DAF4"/>
+      <stop offset="0.35" stop-color="#6A90C4"/>
+      <stop offset="0.7" stop-color="#1A3360"/>
+      <stop offset="1" stop-color="#000810"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The music note.  The stem, leaning a little to the right as it
+           comes down to the head. -->
+      <path d="M10,20.2 L11.8,20.4 L14.6,36.4 L12.8,36.8 Z" fill="url(#noteBlue)"/>
+      <!-- The flag, curling from the top of the stem down its right side. -->
+      <path d="M10.6,20.2 Q13.6,20.4 14.8,22.4 Q16.6,25.4 16.4,29.4 L15.4,29.6 Q15.2,26.4 14,24 Q13,22.6 11.2,22.4 Z" fill="url(#noteBlue)"/>
+      <!-- The head, a tilted oval. -->
+      <ellipse cx="9.8" cy="37.8" rx="4.9" ry="2.6" fill="url(#noteHead)" transform="rotate(-14 9.8 37.8)"/>
+      <!-- A glint on the head's upper left. -->
+      <ellipse cx="8.6" cy="36.6" rx="1.6" ry="0.7" fill="#B4B4FF" opacity="0.9" transform="rotate(-14 8.6 36.6)"/>
+
+      <!-- The lower glass, behind the upper one's stem.  Its bowl, a cone
+           tipping down to the right, cut off by the tile's grey band. -->
+      <path d="M11.8,42.4 L21.8,43.2 Q22.4,46.6 21.2,48.2 Q19.6,48.9 18.4,48.6 Z" fill="url(#bowlLower)"/>
+      <!-- Its rim, seen from just above. -->
+      <ellipse cx="16.8" cy="42.6" rx="5.1" ry="1.1" fill="#E4EEFA" transform="rotate(5 16.8 42.6)"/>
+      <ellipse cx="17.2" cy="42.8" rx="3.6" ry="0.5" fill="#9CB4D5" transform="rotate(5 17.2 42.8)"/>
+      <!-- A pale streak down the bowl's lit left side. -->
+      <path d="M13.4,43.6 L15.8,43.9 L18,47.6 L17.2,47.8 Z" fill="#B4CDF0" opacity="0.8"/>
+
+      <!-- The upper glass, tipped over to the right.  Its stem, running
+           down to the left from the bowl's point. -->
+      <path d="M20.8,34.6 L22,35 L20,41.2 L19,41 Z" fill="#7F9CC5"/>
+      <path d="M20.8,34.6 L21.4,34.8 L19.4,41.1 L19,41 Z" fill="#E6F0FF"/>
+      <!-- The bowl, a cone with its point at the lower left, widening to
+           its mouth at the upper right. -->
+      <path d="M21.4,35.6 Q19,28.6 19.4,22.4 Q22,21.4 25.4,22.2 L34.4,30.6 Q33.6,32 30.8,32.6 Z" fill="url(#bowlUpper)"/>
+      <!-- The mouth, a tilted oval seen nearly edge on: the far wall is
+           pale and the drink lies in its lower half. -->
+      <clipPath id="mouthClip">
+        <ellipse cx="29.2" cy="26.6" rx="6.6" ry="2.6" transform="rotate(42 29.2 26.6)"/>
+      </clipPath>
+      <ellipse cx="29.2" cy="26.6" rx="6.6" ry="2.6" fill="#D2E2F6" transform="rotate(42 29.2 26.6)"/>
+      <g clip-path="url(#mouthClip)">
+        <path d="M22,27.4 Q28,27 36,29.6 L36,36 L22,36 Z" fill="#3E7AC6"/>
+        <path d="M22,28.6 Q28,28.4 36,31 L36,36 L22,36 Z" fill="url(#drink)"/>
+      </g>
+      <!-- The drink seen through the bowl's near wall, toward the point. -->
+      <path d="M21.4,35.6 Q21,32 22.4,29.4 Q26,28.6 29.6,29.6 Q31.4,31.6 30.8,32.6 Z" fill="url(#drink)" opacity="0.85"/>
+      <!-- The rim around the mouth. -->
+      <ellipse cx="29.2" cy="26.6" rx="6.6" ry="2.6" fill="none" stroke="#F6FAFF" stroke-width="0.7" transform="rotate(42 29.2 26.6)"/>
+      <!-- A highlight down the bowl's lit left side. -->
+      <path d="M19.8,23.4 L20.8,23.4 Q20.6,29 21.8,33.4 L21.2,33.6 Q19.8,28.8 19.8,23.4 Z" fill="#FFFFFF" opacity="0.9"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

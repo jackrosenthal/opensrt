@@ -246,7 +246,8 @@ impl Art {
     fn vector_paint(&mut self, ui: &egui::Ui, cv: Canvas, svg: Svg, state: Option<&'static str>, width: Option<f32>, x: f32, y: f32) {
         let Some((tex, size)) = self.vector_texture(ui.ctx(), cv, svg, state, width) else { return };
         let uv = ERect::from_min_max(Pos2::ZERO, Pos2::new(1.0, 1.0));
-        ui.painter().image(tex.id(), cv.rect_xywh(x, y, size.x, size.y), uv, Color32::WHITE);
+        let o = svg.origin();
+        ui.painter().image(tex.id(), cv.rect_xywh(x + o.x, y + o.y, size.x, size.y), uv, Color32::WHITE);
     }
 
     /// Paints a sprite with its top-left at canvas (x, y).
@@ -310,9 +311,14 @@ impl Art {
     }
 
     /// Paints every layer of element `index` of a group placed at canvas
-    /// (x, y). Returns false when the element does not exist.
+    /// (x, y), or its vector remake when it has one. Returns false when
+    /// the element does not exist.
     #[allow(clippy::too_many_arguments)]
     pub fn draw(&mut self, ui: &egui::Ui, assets: &Assets, cv: Canvas, file: ArtFile, group: Group, index: usize, x: f32, y: f32) -> bool {
+        if let Some((svg, state)) = vector::element(file, group, index) {
+            self.vector_at(ui, cv, svg, state, x, y);
+            return true;
+        }
         let Some(layers) = self
             .screen(assets, file)
             .and_then(|s| s.group(group.0))

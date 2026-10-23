@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Structures menu log: vector remake of the original Ski Resort Tycoon
+       sprites LogStructures_Normal/_Rollover/_Depress, and LogStructures_Special
+       (state open: drawn over the log while its tray is open). One
+       group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+    <!-- Open: pressed in, and joined on its right to its tray's strip. -->
+    <clipPath id="stripInside"><rect x="23" y="15" width="22" height="36"/></clipPath>
+    <g id="openLook">
+      <circle cx="23" cy="33" r="21" fill="#000000"/>
+      <rect x="23" y="12" width="22" height="42" fill="#000000"/>
+      <g clip-path="url(#stripInside)">
+        <rect x="23" y="15" width="22" height="36" fill="#FFFFFF"/>
+        <rect x="23" y="15" width="22" height="3" fill="#F6EEF6"/>
+        <rect x="23" y="48" width="22" height="3" fill="#C5C5C5"/>
+      </g>
+      <use href="#faceDepress"/>
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+    </g>
+    <!-- The structures icon: a log cabin seen from above its front left
+         corner.  Its long wall, with the door, faces the lower left and
+         catches the light; its gable end faces the lower right in shade.
+         The walls and roof are drawn flat in their own planes, each
+         mapped into place by a transform. -->
+    <linearGradient id="logLit" x1="0" y1="0" x2="0" y2="2" gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+      <stop offset="0" stop-color="#E2B47A"/>
+      <stop offset="0.3" stop-color="#C9965A"/>
+      <stop offset="0.75" stop-color="#A97840"/>
+      <stop offset="1" stop-color="#7A5226"/>
+    </linearGradient>
+    <linearGradient id="logShade" x1="0" y1="0" x2="0" y2="2" gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+      <stop offset="0" stop-color="#BE8644"/>
+      <stop offset="0.3" stop-color="#A26C32"/>
+      <stop offset="0.75" stop-color="#875A28"/>
+      <stop offset="1" stop-color="#5A3C18"/>
+    </linearGradient>
+    <!-- light falling off toward the front corner and the ground -->
+    <linearGradient id="litFade" x1="0" y1="-10" x2="11.2" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF2D8" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#3A2410" stop-opacity="0.22"/>
+    </linearGradient>
+    <linearGradient id="shadeFade" x1="0" y1="-14" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A1808" stop-opacity="0.3"/>
+      <stop offset="0.45" stop-color="#2A1808" stop-opacity="0"/>
+      <stop offset="1" stop-color="#2A1808" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="nearRoofFill" x1="0" y1="0" x2="0" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4C3E36"/>
+      <stop offset="1" stop-color="#6E6158"/>
+    </linearGradient>
+    <linearGradient id="farRoofFill" x1="0" y1="0" x2="0" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5E5048"/>
+      <stop offset="1" stop-color="#44372F"/>
+    </linearGradient>
+    <linearGradient id="glassLit" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5E7088"/>
+      <stop offset="0.5" stop-color="#2A3A56"/>
+      <stop offset="1" stop-color="#141C30"/>
+    </linearGradient>
+    <linearGradient id="doorFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C85040"/>
+      <stop offset="1" stop-color="#8E2A22"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- the gable end, in shade: its logs, window, and the gable above -->
+      <g transform="matrix(1,-0.56,0,1,23,46.6)">
+        <path fill="url(#logShade)" d="M0,0 L11.4,0 L11.4,-10 L5.7,-14.9 L0,-10 Z"/>
+        <clipPath id="gableClip"><path d="M0,0 L11.4,0 L11.4,-10 L5.7,-14.9 L0,-10 Z"/></clipPath>
+        <path fill="none" stroke="#4A3014" stroke-width="0.35" stroke-opacity="0.8" clip-path="url(#gableClip)" d="M0,-2 H11.4 M0,-4 H11.4 M0,-6 H11.4 M0,-8 H11.4 M0,-10 H11.4 M0,-12 H11.4"/>
+        <path fill="url(#shadeFade)" d="M0,0 L11.4,0 L11.4,-10 L5.7,-14.9 L0,-10 Z"/>
+        <!-- the ends of the long wall's logs, crossing at the front corner -->
+        <path fill="#A87A48" stroke="#4A3014" stroke-width="0.3" d="M0,-1.9 h0.9 a0.4,0.9 0 0 1 0,1.8 h-0.9 Z M0,-5.9 h0.9 a0.4,0.9 0 0 1 0,1.8 h-0.9 Z M0,-9.9 h0.9 a0.4,0.9 0 0 1 0,1.8 h-0.9 Z"/>
+        <!-- its window: a weathered frame around dark panes -->
+        <rect x="3.6" y="-9.4" width="3.2" height="5.4" fill="#9A8A72"/>
+        <rect x="4.1" y="-8.9" width="2.2" height="4.4" fill="#1A2236"/>
+        <path fill="#5E6E7A" d="M4.1,-8.9 h0.9 v4.4 h-0.9 Z" opacity="0.8"/>
+        <path fill="none" stroke="#9A8A72" stroke-width="0.35" d="M5.2,-8.9 V-4.5 M4.1,-6.8 H6.3"/>
+        <path fill="#6A5640" d="M3.4,-4.2 h3.6 v0.5 h-3.6 Z"/>
+        <!-- the log ends stacked at the right corner -->
+        <path fill="#3E2A12" d="M11,-1.8 h0.8 v1.6 h-0.8 Z M11,-3.8 h0.8 v1.6 h-0.8 Z M11,-5.8 h0.8 v1.6 h-0.8 Z M11,-7.8 h0.8 v1.6 h-0.8 Z M11,-9.8 h0.8 v1.6 h-0.8 Z"/>
+      </g>
+      <!-- the long wall, lit, built of round logs -->
+      <g transform="matrix(1,0.62,0,1,11.8,39.7)">
+        <rect x="0" y="-10" width="11.2" height="10" fill="url(#logLit)"/>
+        <path fill="none" stroke="#6A4418" stroke-width="0.35" stroke-opacity="0.75" d="M0,-2 H11.2 M0,-4 H11.2 M0,-6 H11.2 M0,-8 H11.2"/>
+        <rect x="0" y="-10" width="11.2" height="10" fill="url(#litFade)"/>
+        <!-- the left window, its frame lit -->
+        <rect x="0.5" y="-8.2" width="2.6" height="5.2" fill="#C4B8A6"/>
+        <rect x="1" y="-7.7" width="1.6" height="4.2" fill="url(#glassLit)"/>
+        <path fill="none" stroke="#C4B8A6" stroke-width="0.3" d="M1,-5.6 H2.6"/>
+        <path fill="#E8D4AE" d="M0.3,-3.1 h3 v0.5 h-3 Z"/>
+        <!-- the red front door in its frame -->
+        <rect x="3.8" y="-8.1" width="3.2" height="7.6" fill="#D8AA70"/>
+        <rect x="4.3" y="-7.6" width="2.4" height="7.1" fill="url(#doorFill)"/>
+        <path fill="#5A1010" d="M4.3,-7.6 h0.5 v7.1 h-0.5 Z M4.3,-7.6 h2.4 v0.4 h-2.4 Z"/>
+        <path fill="none" stroke="#7A2018" stroke-width="0.25" stroke-opacity="0.8" d="M5.5,-7.2 V-0.5"/>
+        <circle cx="6.2" cy="-4" r="0.25" fill="#E8C070"/>
+        <path fill="#8A6438" d="M3.6,-0.5 h3.6 v0.5 h-3.6 Z"/>
+        <!-- the window by the corner -->
+        <rect x="7.8" y="-7.4" width="2.6" height="5" fill="#C9BCA8"/>
+        <rect x="8.3" y="-6.9" width="1.6" height="4" fill="url(#glassLit)"/>
+        <path fill="none" stroke="#C9BCA8" stroke-width="0.3" d="M8.3,-4.9 H9.9"/>
+        <path fill="#EED8B0" d="M7.6,-2.5 h3 v0.5 h-3 Z"/>
+        <!-- the log ends at the left corner, each cut round -->
+        <ellipse cx="-0.2" cy="-1" rx="0.7" ry="0.95" fill="#D2B48A" stroke="#6A4820" stroke-width="0.3"/>
+        <ellipse cx="-0.2" cy="-3" rx="0.7" ry="0.95" fill="#D2B48A" stroke="#6A4820" stroke-width="0.3"/>
+        <ellipse cx="-0.2" cy="-5" rx="0.7" ry="0.95" fill="#D2B48A" stroke="#6A4820" stroke-width="0.3"/>
+        <ellipse cx="-0.2" cy="-7" rx="0.7" ry="0.95" fill="#D2B48A" stroke="#6A4820" stroke-width="0.3"/>
+        <ellipse cx="-0.2" cy="-9" rx="0.7" ry="0.95" fill="#D2B48A" stroke="#6A4820" stroke-width="0.3"/>
+      </g>
+      <!-- the front corner, where the two walls meet -->
+      <path fill="none" stroke="#4A3014" stroke-width="0.5" d="M23,36.6 V46.6"/>
+      <!-- a dark footing along the base of both walls -->
+      <path fill="none" stroke="#3A2610" stroke-width="0.8" stroke-linejoin="round" stroke-linecap="round" d="M11.8,39.7 L23,46.6 L34.4,40.3"/>
+      <!-- the far roof slope, seen at a glancing angle -->
+      <path fill="url(#farRoofFill)" d="M0,0 H13 V10 H0 Z" transform="matrix(1,0.62,0.63,0.156,16.1,20.7)"/>
+      <path fill="none" stroke="#2E241E" stroke-width="0.3" stroke-opacity="0.8" d="M0,2.5 H13 M0,5 H13 M0,7.5 H13" transform="matrix(1,0.62,0.63,0.156,16.1,20.7)"/>
+      <!-- the stone chimney rising from the far slope -->
+      <path fill="#2A1E1A" fill-opacity="0.5" d="M23.6,25 L25.6,25.4 L26.8,26 L24.8,25.6 Z"/>
+      <path fill="#7E5E56" d="M21.6,21.7 L23.6,23 L23.6,25 L21.6,23.7 Z"/>
+      <path fill="#4A3030" d="M23.6,23 L25.6,21.8 L25.6,25.4 L23.6,25 Z"/>
+      <path fill="none" stroke="#5E4440" stroke-width="0.3" d="M21.6,22.4 L23.6,23.7 M21.6,23 L23.6,24.3"/>
+      <path fill="none" stroke="#2E1E1C" stroke-width="0.3" d="M23.6,23.7 L25.6,23.1 M23.6,24.3 L25.6,24.2"/>
+      <path fill="#BDA47B" d="M20.9,21.1 L23.6,22.8 L23.6,23.4 L20.9,21.7 Z"/>
+      <path fill="#7A6450" d="M23.6,22.8 L26.3,21.3 L26.3,21.9 L23.6,23.4 Z"/>
+      <path fill="#D8C29A" d="M20.9,21.1 L23.6,22.8 L26.3,21.3 L23.6,19.6 Z"/>
+      <path fill="#1E1614" d="M22.4,21.1 L23.6,21.9 L24.8,21.2 L23.6,20.5 Z"/>
+      <path fill="none" stroke="#2A1E1A" stroke-width="0.35" stroke-linejoin="round" d="M23.6,19.6 L20.9,21.1 L20.9,21.7 L21.6,23.7 L23.6,25 L25.6,25.4 L26.3,21.3 Z"/>
+      <!-- the near roof slope, rows of shingles laid along the eave -->
+      <g transform="matrix(1,0.62,0.6,-0.861,9.8,29.4)">
+        <path fill="url(#nearRoofFill)" d="M0,0 H13 V10 H0 Z"/>
+        <path fill="none" stroke="#2E241E" stroke-width="0.35" stroke-opacity="0.9" d="M0,1.6 H13 M0,3.3 H13 M0,5 H13 M0,6.7 H13 M0,8.4 H13"/>
+        <path fill="none" stroke="#8A7E72" stroke-width="0.3" stroke-opacity="0.75" d="M0,2 H13 M0,3.6 H13 M0,5.3 H13 M0,7 H13 M0,8.8 H13"/>
+        <path fill="none" stroke="#2E241E" stroke-width="0.25" stroke-opacity="0.7" d="M1,0.3 V1.6 M2.8,0.3 V1.6 M4.6,0.3 V1.6 M6.4,0.3 V1.6 M8.2,0.3 V1.6 M10,0.3 V1.6 M11.8,0.3 V1.6 M2.3,1.9 V3.3 M4.1,1.9 V3.3 M5.9,1.9 V3.3 M7.7,1.9 V3.3 M9.5,1.9 V3.3 M11.3,1.9 V3.3 M1.2,3.6 V5 M3,3.6 V5 M4.8,3.6 V5 M6.6,3.6 V5 M8.4,3.6 V5 M10.2,3.6 V5 M12,3.6 V5 M2,5.3 V6.7 M3.8,5.3 V6.7 M5.6,5.3 V6.7 M7.4,5.3 V6.7 M9.2,5.3 V6.7 M11,5.3 V6.7 M1.5,7 V8.4 M3.3,7 V8.4 M5.1,7 V8.4 M6.9,7 V8.4 M8.7,7 V8.4 M10.5,7 V8.4 M12.3,7 V8.4 M2.2,8.7 V10 M4,8.7 V10 M5.8,8.7 V10 M7.6,8.7 V10 M9.4,8.7 V10 M11.2,8.7 V10"/>
+      </g>
+      <!-- the thick edge of the roof along the eave, its underside in shadow -->
+      <path fill="#3A2A1E" d="M9.8,29.4 L22.8,37.4 L22.8,38.1 L9.8,30.1 Z"/>
+      <path fill="none" stroke="#1E140E" stroke-width="0.4" d="M9.8,30.5 L22.8,38.5"/>
+      <!-- the barge boards on the front gable, and their shadow on it -->
+      <path fill="#2A1C10" fill-opacity="0.55" d="M22.8,38.1 L29.1,29.5 L35.4,31.1 L35.4,32.1 L29.1,30.6 L22.8,39.1 Z"/>
+      <path fill="#6A4E30" d="M22.8,37.4 L29.1,28.8 L35.4,30.4 L35.4,31.1 L29.1,29.5 L22.8,38.1 Z"/>
+      <!-- the ridge cap and the lit back rake -->
+      <path fill="none" stroke="#C2AA80" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" d="M9.8,29.4 L16.1,20.7 L22.4,22.3"/>
+      <path fill="none" stroke="#B49C74" stroke-width="0.7" stroke-linecap="round" d="M16.1,20.7 L29.1,28.8"/>
+      <path fill="none" stroke="#9A8462" stroke-width="0.5" stroke-linecap="round" d="M22.4,22.3 L35.4,30.4"/>
+      <!-- a dark outline around the whole roof -->
+      <path fill="none" stroke="#24180F" stroke-width="0.45" stroke-linejoin="round" d="M9.8,29.4 L16.1,20.7 L22.4,22.3 L35.4,30.4 L35.4,31.1 L29.1,29.5 L22.8,38.1 Z"/>
+      <path fill="none" stroke="#24180F" stroke-width="0.4" d="M9.8,30.1 L22.8,38.1"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+  <g id="open" class="state" display="none">
+    <use href="#openLook"/>
+    <use href="#icon"/>
+  </g>
+</svg>

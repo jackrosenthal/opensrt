@@ -118,19 +118,19 @@
     </g>
   </defs>
 
-  <g id="normal">
+  <g id="normal" class="state">
     <use href="#disc"/>
     <use href="#face" fill="url(#faceNormal)"/>
     <use href="#rim"/>
     <use href="#map"/>
   </g>
-  <g id="rollover" display="none">
+  <g id="rollover" class="state" display="none">
     <use href="#disc"/>
     <use href="#face" fill="url(#faceRollover)"/>
     <use href="#rim"/>
     <use href="#map"/>
   </g>
-  <g id="depress" display="none">
+  <g id="depress" class="state" display="none">
     <use href="#disc"/>
     <use href="#faceDepress"/>
     <use href="#rim"/>

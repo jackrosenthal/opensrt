@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Food tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Food_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The cup's blue body: dark at the edges, bright just left of
+         center. -->
+    <linearGradient id="cupBlue" x1="19" y1="0" x2="34.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0841A4"/>
+      <stop offset="0.4" stop-color="#39A4FF"/>
+      <stop offset="0.65" stop-color="#1F6ADD"/>
+      <stop offset="1" stop-color="#08296A"/>
+    </linearGradient>
+    <!-- The cup's white bands, greying toward the right. -->
+    <linearGradient id="cupWhite" x1="19" y1="0" x2="34.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#BDB4A4"/>
+      <stop offset="0.3" stop-color="#FFFFFF"/>
+      <stop offset="0.7" stop-color="#D5CDB4"/>
+      <stop offset="1" stop-color="#737373"/>
+    </linearGradient>
+    <!-- The inside of the cup above the drink, dark at the left and
+         catching the light at the right. -->
+    <linearGradient id="cupInside" x1="20" y1="0" x2="34" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#303030"/>
+      <stop offset="0.5" stop-color="#8F8F8F"/>
+      <stop offset="1" stop-color="#F0F0F0"/>
+    </linearGradient>
+    <!-- The top bun, lit from the upper left. -->
+    <radialGradient id="bunTop" cx="12" cy="32" r="13" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6DEAC"/>
+      <stop offset="0.35" stop-color="#E6BD6A"/>
+      <stop offset="0.75" stop-color="#C57320"/>
+      <stop offset="1" stop-color="#8B3A08"/>
+    </radialGradient>
+    <!-- The bottom bun. -->
+    <linearGradient id="bunBottom" x1="0" y1="43" x2="0" y2="46.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D59C41"/>
+      <stop offset="0.5" stop-color="#B8691E"/>
+      <stop offset="1" stop-color="#9C4A10"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The drink cup, behind the burger.  Its body tapers a little
+           toward the bottom. -->
+      <path d="M19.2,25 L34.8,25 L32.9,45.2 Q28.6,47 24.3,45.6 Z" fill="url(#cupBlue)"/>
+      <!-- The white band around the middle of the cup. -->
+      <path d="M19.9,34.3 Q26.8,35.8 34,34.3 L33.7,37.6 Q26.8,39 20.2,37.6 Z" fill="url(#cupWhite)"/>
+      <!-- The white base of the cup. -->
+      <path d="M21,43 Q27,44.4 33.2,42.8 L32.9,45.2 Q28.6,47 24.3,45.6 Z" fill="url(#cupWhite)"/>
+      <!-- The rolled rim. -->
+      <ellipse cx="27" cy="24.8" rx="7.9" ry="3.6" fill="url(#cupWhite)"/>
+      <!-- The inside wall, and the dark drink seen low across the cup. -->
+      <ellipse cx="27" cy="24.3" rx="6.9" ry="2.6" fill="url(#cupInside)"/>
+      <path d="M20.3,25.4 Q27,24.2 33.7,25.4 Q27,26.6 20.3,25.4 Z" fill="#180800"/>
+
+      <!-- The burger, in front.  Bottom bun first. -->
+      <path d="M7,43.2 L25.5,43.2 Q25,45.2 21.6,45.8 Q17,47.2 12,46.6 Q8.4,46 7,43.2 Z" fill="url(#bunBottom)"/>
+      <!-- The lettuce, green with darker folds. -->
+      <path d="M6.2,41 Q9,40.4 12,41.2 Q15,40.4 18,41.3 Q21,40.4 25.6,41 L25.8,43.4 Q22,42.6 19,43.6 Q16,42.6 13,43.6 Q10,42.6 6.6,43.6 Z" fill="#9CBF18"/>
+      <path d="M13,41.8 Q15,42.6 17.5,41.8 L17,43 Q15,43.4 13.4,43 Z" fill="#314A10"/>
+      <path d="M8.5,41.6 L11.3,41.6 L10.6,42.8 Z M20,41.6 L23,41.6 L22.2,42.8 Z" fill="#A4CD18"/>
+      <!-- The tomato slice. -->
+      <path d="M7.2,40.2 Q16,39.2 25.2,40.2 L25,41.6 Q16,40.6 7.4,41.6 Z" fill="#8B0A00"/>
+      <ellipse cx="14" cy="40.4" rx="3.6" ry="0.7" fill="#DE5A18"/>
+      <!-- The patty, nearly black on top and browner below. -->
+      <path d="M6,37 Q16,36.2 26,37 L26,39.4 Q24,40.5 16,40.2 Q8,40.5 6,39.4 Z" fill="#6A4128"/>
+      <path d="M6,37 Q16,36.2 26,37 L26,38.6 Q16,38 6,38.6 Z" fill="#352010"/>
+      <path d="M6,37 Q16,36.2 26,37 L26,37.8 Q16,37.2 6,37.8 Z" fill="#120600"/>
+      <path d="M9.5,39.3 Q13,38.6 17,39.2 Q13,39.9 9.5,39.3 Z" fill="#B4946A"/>
+      <!-- The top bun, a dome with a dark rim along its base. -->
+      <path d="M6.2,36.6 Q6,33.6 9.6,31.8 Q13.5,29.8 17.4,30.1 Q21.6,30.4 23.8,32.6 Q25.8,34.6 25.4,36.6 Q16,37.6 6.2,36.6 Z" fill="url(#bunTop)"/>
+      <path d="M6.6,35.8 Q16,36.8 25.6,35.8 L25.4,36.6 Q16,37.6 6.2,36.6 Z" fill="#833900"/>
+      <!-- A highlight on the bun's upper left. -->
+      <ellipse cx="12.2" cy="32.6" rx="3.2" ry="1" fill="#FAE6BC" opacity="0.8" transform="rotate(-12 12.2 32.6)"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

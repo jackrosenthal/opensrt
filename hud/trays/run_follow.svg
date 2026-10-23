@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Follow-terrain run tray button: vector remake of the original Ski
+       Resort Tycoon sprites Tray_RunFollow_Normal/_Rollover/_Depress.
+       One group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The lower bend of the run, across its width: a dark back edge,
+         a pale snowy surface, and grey shade toward the front. -->
+    <linearGradient id="lowerSnow" x1="20" y1="37" x2="22.2" y2="47" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A4A4A"/>
+      <stop offset="0.2" stop-color="#2A2A2A"/>
+      <stop offset="0.32" stop-color="#B0B0AC"/>
+      <stop offset="0.45" stop-color="#ECF0EC"/>
+      <stop offset="0.6" stop-color="#CDCDC8"/>
+      <stop offset="0.78" stop-color="#8E8E8A"/>
+      <stop offset="1" stop-color="#4A4A4A"/>
+    </linearGradient>
+    <!-- The upper bend's top surface: white at the left, greying toward
+         its rounded right end. -->
+    <linearGradient id="upperSnow" x1="13" y1="31" x2="33" y2="25" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6F8F4"/>
+      <stop offset="0.45" stop-color="#EEEEEC"/>
+      <stop offset="0.75" stop-color="#A8A8A4"/>
+      <stop offset="1" stop-color="#6A6A66"/>
+    </linearGradient>
+    <!-- The front face of the upper bend, darkest at its middle. -->
+    <linearGradient id="upperFront" x1="0" y1="32.4" x2="0" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8A8A88"/>
+      <stop offset="0.45" stop-color="#262626"/>
+      <stop offset="1" stop-color="#8A7E6A"/>
+    </linearGradient>
+    <!-- The red arrows: bright on the lit left, deep red on the right. -->
+    <linearGradient id="arrowUp" x1="16.3" y1="0" x2="22.4" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF5A52"/>
+      <stop offset="0.45" stop-color="#FF1C14"/>
+      <stop offset="1" stop-color="#B80404"/>
+    </linearGradient>
+    <linearGradient id="arrowDown" x1="22" y1="0" x2="28.6" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F65A5A"/>
+      <stop offset="0.45" stop-color="#FF1818"/>
+      <stop offset="1" stop-color="#B41414"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The run's middle stretch, dropping from the upper bend down
+           behind the red down arrow. -->
+      <path d="M19.6,33.6 L24.6,31 L29.4,34.6 L28.6,40 L21.6,40 L20.8,36.4 Z" fill="#B4B4B0"/>
+      <!-- The lower bend: from its high right shoulder it sweeps down and
+           left to a rounded end. -->
+      <path d="M7.2,46.4 C6.8,44.6 7.6,42.8 9.4,41.6 L11.4,40.2 L16,39.6 L21.4,39.4 L22,37.6 L28,35 C30.6,35 33,36.4 33.9,38.6 C34.4,40.6 33.6,42.6 31.6,43.6 L28.4,44.6 C26,45.4 23.6,46.8 21.4,47.8 Q19.6,48.5 18,48.7 Q15.8,49.4 14,49.2 L11,48.6 L8.8,47.8 C8,47.5 7.4,47.1 7.2,46.4 Z" fill="url(#lowerSnow)"/>
+      <!-- The raised dark back edge of the lower bend, at the left. -->
+      <path d="M11.3,40.5 C13.5,39.8 17.5,39.6 21.6,39.6 L21.4,41.6 C18,41.4 14.6,41.5 12.2,41.9 Z" fill="#262626"/>
+      <!-- A shadow on the lower bend's shoulder, right of the arrow. -->
+      <path d="M27.6,35.4 C29.6,35.6 31.6,36.6 32.8,38.4 C31.6,38.8 29.8,38.8 28.4,38.6 Z" fill="#2E2E2E"/>
+      <!-- The upper bend's front face, seen below its surface at the
+           left. -->
+      <path d="M12.2,31.6 L22.6,31.8 L22.4,36 C20,36.6 17.6,36 15.8,35.6 C14.4,35.3 13,35 12.4,34.4 Z" fill="url(#upperFront)"/>
+      <!-- The upper bend's top surface, running up to a rounded end at the
+           right. -->
+      <path d="M12,29.4 C15.6,28.6 19.6,27.4 22.6,26.2 C25,25.2 26.6,24 28.4,23.3 C30.6,22.6 32.6,23.4 33.6,25 C34.2,26.4 33.6,27.9 32.2,28.6 C29.6,29.6 27.4,30.8 25.4,32 C22,33.6 18,33.4 15,33.2 L12.6,33.2 C12,32.2 11.8,30.6 12,29.4 Z" fill="url(#upperSnow)"/>
+      <!-- Shade on the underside of the rounded end. -->
+      <path d="M33.6,25 C34.2,26.4 33.6,27.9 32.2,28.6 C29.6,29.6 27.4,30.8 25.4,32 C26,30.4 28.6,28.4 30.6,27.4 C32,26.8 33,26 33.6,25 Z" fill="#3A3A38"/>
+      <!-- A gleam on the top of the rounded end. -->
+      <ellipse cx="29" cy="25" rx="1.5" ry="0.7" fill="#E8E8E6" opacity="0.8" transform="rotate(-20 29 25)"/>
+
+      <!-- The red arrow pointing up. -->
+      <path d="M19.5,19.8 L22.4,26.2 L20.7,26.2 L20.7,30.8 L17.4,30.8 L17.4,27 L16.2,27 Z" fill="url(#arrowUp)"/>
+      <!-- The red arrow pointing down. -->
+      <path d="M24.1,33.2 L27.6,33.2 L27.6,38.4 L28.7,38.4 L25.5,44.8 L21.9,38.6 L24.1,38.6 Z" fill="url(#arrowDown)"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

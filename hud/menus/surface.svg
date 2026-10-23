@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Surface menu log: vector remake of the original Ski Resort Tycoon
+       sprites LogSurfaceMod_Normal/_Rollover/_Depress, and LogSurfaceMod_Special
+       (state open: drawn over the log while its tray is open). One
+       group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+    <!-- Open: pressed in, and joined on its right to its tray's strip. -->
+    <clipPath id="stripInside"><rect x="23" y="15" width="22" height="36"/></clipPath>
+    <g id="openLook">
+      <circle cx="23" cy="33" r="21" fill="#000000"/>
+      <rect x="23" y="12" width="22" height="42" fill="#000000"/>
+      <g clip-path="url(#stripInside)">
+        <rect x="23" y="15" width="22" height="36" fill="#FFFFFF"/>
+        <rect x="23" y="15" width="22" height="3" fill="#F6EEF6"/>
+        <rect x="23" y="48" width="22" height="3" fill="#C5C5C5"/>
+      </g>
+      <use href="#faceDepress"/>
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+    </g>
+    <!-- The surface: a brown rocky mountain with jagged snowy spires
+         and a smaller second peak on its right. -->
+    <linearGradient id="rockFill" x1="11" y1="31" x2="31" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A49483"/>
+      <stop offset="0.3" stop-color="#735A41"/>
+      <stop offset="0.65" stop-color="#3E2812"/>
+      <stop offset="1" stop-color="#140A02"/>
+    </linearGradient>
+    <linearGradient id="snowFill" x1="15" y1="24" x2="30" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#EEEEE6"/>
+      <stop offset="1" stop-color="#C5C5BD"/>
+    </linearGradient>
+    <clipPath id="snowClip"><use href="#snow"/></clipPath>
+    <!-- the snow on the spires, ragged where it meets the rock -->
+    <path id="snow" d="M12.2,30.4 L13.6,30 L14.4,28 L15.6,28.2 L16.2,25.4 L17.6,25.4 L18.4,23.8
+             L19.8,24 L21.6,22.4 L22.8,22.2 L24.2,20.9 L25.2,23.2 L26.4,24.8 L27.4,26.6
+             L28.6,27.4 L30.4,26.6 L31,28.6 L29.2,30.4 L28.4,33 L27,34.2 L26.4,36.4
+             L25.2,35.4 L24,35.4 L22.4,34.4 L21.2,35.4 L19.6,36.6 L18.6,35 L16.4,34.6
+             L15.4,33.2 L13.6,32.4 Z"/>
+    <g id="icon">
+      <!-- the rocky mass, lit tan on the upper left, dark brown on the
+           lower right -->
+      <path fill="url(#rockFill)" d="M24.2,20.9 L27,25.3 L28.6,27.2 L30.4,26.6 L31.6,30
+               L32.2,33.2 L33.6,36.2 L33.4,38.6 L31.4,40.8 L28.6,41.8 L25.6,42.7 L18.2,42.7
+               L14.6,40.8 L12.2,38.4 L10.4,35.6 L10,33.2 L12.2,30.4 L14.6,28.4 L16.4,25.6 L19.2,24 Z"/>
+      <!-- lighter rock facets running down the slope -->
+      <path fill="#9C8B7B" fill-opacity="0.8" d="M25.2,35.6 L27.2,35 L27.6,38 L26.8,41.4 L25.4,41.6 L26,38.2 Z"/>
+      <path fill="#A49483" fill-opacity="0.7" d="M17.8,35.6 L19.4,36.6 L18.6,39.4 L17.4,40 L17.4,37.6 Z"/>
+      <path fill="#B4A494" fill-opacity="0.8" d="M10.8,33.2 L13.8,32.2 L14.6,33.8 L12.2,35.2 Z"/>
+      <!-- dark hollows in the rock -->
+      <g fill="#1E1006" fill-opacity="0.5">
+        <ellipse cx="14.6" cy="37.4" rx="1.2" ry="0.9"/>
+        <ellipse cx="21.6" cy="39.4" rx="2.4" ry="1.6"/>
+        <ellipse cx="30.4" cy="37.4" rx="2" ry="2.4"/>
+      </g>
+      <!-- the snow, banded with gray rock showing through between the
+           spires -->
+      <use href="#snow" fill="url(#snowFill)"/>
+      <g clip-path="url(#snowClip)" fill="none" stroke-linecap="round">
+        <path stroke="#8B8B83" stroke-width="1.1" stroke-opacity="0.8"
+              d="M19.2,24.6 L14,31.6 M22.2,23.4 L17.4,31.4 M28.4,28.4 L24.2,35"/>
+        <path stroke="#2E2E2A" stroke-width="1"
+              d="M24.2,21.8 L23.2,24.4 L21.8,25.8 L20.8,28.2 L19.6,31.2"/>
+        <path stroke="#3E3E3A" stroke-width="0.9" stroke-opacity="0.85"
+              d="M26.2,27.6 L25.2,30.2 M23.8,31.6 L22.2,33.6 M18.8,32 L18,34"/>
+      </g>
+      <!-- the second peak's shaded right face -->
+      <path fill="#36302A" d="M30.4,26.6 L31.6,30 L32,33.2 L30.4,34 L28.6,33.4 L29.2,30.6 L30.6,29 Z"/>
+      <!-- a warm glint on the second peak -->
+      <path fill="#EED5AC" d="M29.8,26.8 L30.5,26.6 L30.7,27.7 L30,28 Z"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+  <g id="open" class="state" display="none">
+    <use href="#openLook"/>
+    <use href="#icon"/>
+  </g>
+</svg>

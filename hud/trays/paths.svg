@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Paths tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Paths_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The snowy ground, white at the upper left and rounding off into
+         grey shade at the bottom and the right. -->
+    <radialGradient id="snow" cx="16.6" cy="34" r="15" gradientUnits="userSpaceOnUse" gradientTransform="translate(16.6 34) scale(1 0.8) translate(-16.6 -34)">
+      <stop offset="0" stop-color="#FCFCF8"/>
+      <stop offset="0.36" stop-color="#EEF0EC"/>
+      <stop offset="0.56" stop-color="#C4C6C2"/>
+      <stop offset="0.78" stop-color="#868884"/>
+      <stop offset="1" stop-color="#4E4E4E"/>
+    </radialGradient>
+    <!-- The footpath's dirt, pale and hazy at the far end and a
+         richer brown toward the viewer. -->
+    <linearGradient id="dirt" x1="0" y1="30.4" x2="0" y2="46.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#BCB2A4"/>
+      <stop offset="0.25" stop-color="#A69886"/>
+      <stop offset="0.55" stop-color="#94826E"/>
+      <stop offset="0.7" stop-color="#857260"/>
+      <stop offset="1" stop-color="#8E7E6A"/>
+    </linearGradient>
+    <!-- The mound's outline, to trim the trail where it runs off the
+         front. -->
+    <clipPath id="moundClip">
+      <path d="M10.4,29.4 C9.1,30.8 8.3,33.2 8.2,36.2 C8.1,40.5 11.2,44.5 15.4,45.6 C18.6,46.4 22.8,46.4 25.8,45.6 C29.8,44.4 32.4,40.8 32.4,36.8 C32.4,35.8 32.3,34.8 32,34 L21.4,32.6 C20.8,31.6 20.3,30.6 19.8,29.6 Z"/>
+    </clipPath>
+    <!-- The peak's sunlit left face. -->
+    <linearGradient id="peakLit" x1="11" y1="24" x2="18" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFF8"/>
+      <stop offset="0.55" stop-color="#DCDCD4"/>
+      <stop offset="1" stop-color="#B4B4AC"/>
+    </linearGradient>
+    <!-- The peak's shaded right face. -->
+    <linearGradient id="peakShade" x1="16.6" y1="0" x2="20" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#727270"/>
+      <stop offset="1" stop-color="#383832"/>
+    </linearGradient>
+    <!-- The pine's needles, bright at the sunlit left and dark at the
+         right. -->
+    <linearGradient id="pine" x1="21" y1="0" x2="32.4" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4CC05C"/>
+      <stop offset="0.3" stop-color="#2C963E"/>
+      <stop offset="0.62" stop-color="#18642C"/>
+      <stop offset="1" stop-color="#0C3A16"/>
+    </linearGradient>
+    <!-- The shade along the bottom of a tier of boughs. -->
+    <linearGradient id="boughShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.45" stop-color="#062A0E" stop-opacity="0"/>
+      <stop offset="1" stop-color="#042208" stop-opacity="0.75"/>
+    </linearGradient>
+    <!-- A soft blur for shadows. -->
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    <!-- One tier of the pine: a tapered cone of boughs whose tips droop
+         along the bottom.  Each is drawn twice, once in needles and once
+         with the shade over it. -->
+    <path id="tier4" d="M26,30.4 C24.6,32.7 22.1,34.8 20.4,35.6 C21.3,35.1 22.2,35.1 23.4,35.6 C24.4,35.1 25.3,35.1 26.5,35.6 C27.4,35.1 28.3,35.1 29.6,35.6 C30.5,35.1 31.4,35.1 32.6,35.6 C30.6,34.8 27.6,32.7 26,30.4 Z"/>
+    <path id="tier3" d="M25.9,27.2 C24.8,29.6 22.9,31.7 21.6,32.5 C22.3,32 23,31.9 23.9,32.5 C24.5,32 25.2,31.9 26.1,32.5 C26.8,32 27.5,31.9 28.4,32.4 C29,31.9 29.7,31.8 30.6,32.4 C29.2,31.6 27.1,29.5 25.9,27.2 Z"/>
+    <path id="tier2" d="M25.8,24.1 C24.9,26.4 23.4,28.5 22.3,29.3 C23,28.8 23.7,28.7 24.6,29.3 C25.3,28.8 26,28.7 27,29.2 C27.7,28.7 28.4,28.6 29.3,29.2 C28.2,28.4 26.7,26.4 25.8,24.1 Z"/>
+    <path id="tier1" d="M25.6,21.5 C25.1,23.7 24.1,25.6 23.4,26.3 C24.1,25.8 24.8,25.7 25.7,26.2 C26.4,25.7 27.1,25.6 28,26.1 C27.3,25.4 26.2,23.6 25.6,21.5 Z"/>
+
+    <g id="icon">
+      <!-- The snowy ground, a rounded mound. -->
+      <path d="M10.4,29.4 C9.1,30.8 8.3,33.2 8.2,36.2 C8.1,40.5 11.2,44.5 15.4,45.6 C18.6,46.4 22.8,46.4 25.8,45.6 C29.8,44.4 32.4,40.8 32.4,36.8 C32.4,35.8 32.3,34.8 32,34 L21.4,32.6 C20.8,31.6 20.3,30.6 19.8,29.6 Z" fill="url(#snow)"/>
+      <!-- A warm rim of light around the mound's lower edge. -->
+      <path d="M8.6,33.4 C8.3,34.6 8.2,35.6 8.3,36.8 C8.6,40.8 11.6,44.4 15.6,45.4 C18.8,46.1 22.8,46.1 25.6,45.4 C27.4,44.9 28.9,44 30,43" fill="none" stroke="#CDB48A" stroke-width="0.5" stroke-linecap="round" opacity="0.7"/>
+      <!-- The pine's soft shadow on the snow at its foot. -->
+      <path d="M24,36.2 C26.6,35.8 30.4,36 32,36.6 C32,38.6 31.2,40.6 30,41.6 C28,40.6 25.6,38.4 24,36.2 Z" fill="#2E3030" opacity="0.35" filter="url(#soft)"/>
+
+      <!-- The footpath, a ribbon sunk into the snow that widens toward
+           the viewer: out from behind the peak's foot, round down the
+           left of the mound, back across the middle, and down and out
+           over the front edge. -->
+      <path d="M20,30.5 C17.6,30.5 13.8,30.4 11.8,31 C10.2,31.6 9.6,33.6 9.6,35.6 C9.7,38.4 11.4,40.4 14.4,40.4 C17.4,40.4 19.4,40.4 20.2,40.9 C20.8,41.4 20,42.9 18.9,44.2 C18.2,45 17.6,45.8 17.2,46.6 L16.8,47.6 L30.6,47.6 L29.8,45 C29.2,44.2 28.6,43.4 28,42.6 C27.4,41.9 26.8,41 26,40 C25.2,39 24.2,38.1 22.8,37.9 C20.6,37.6 17.4,38 14.4,38 C12.6,38 12,37.4 11.9,36 C11.9,34.6 12.1,33.1 13.4,32.4 C15,31.6 17.6,31.1 20,31 Z" fill="url(#dirt)" clip-path="url(#moundClip)"/>
+      <!-- A few lighter stones in the near gravel. -->
+      <g fill="#A89A88" opacity="0.8">
+        <ellipse cx="23" cy="42.6" rx="0.6" ry="0.3"/>
+        <ellipse cx="26" cy="44" rx="0.7" ry="0.32"/>
+        <ellipse cx="21" cy="45" rx="0.8" ry="0.35"/>
+      </g>
+      <!-- The trail's shaded banks, on the sides that face away from the
+           light: the far and left runs' outer edge, the middle run's top
+           edge, and the near end's left edge. -->
+      <g fill="none" stroke="#4E3826" stroke-width="0.6" stroke-linecap="round" opacity="0.85" clip-path="url(#moundClip)">
+        <path d="M19.6,30.5 C17.6,30.5 13.8,30.4 11.8,31 C10.2,31.6 9.6,33.6 9.6,35.6 C9.65,37 10.1,38.2 10.9,39.05"/>
+        <path d="M12.5,37.5 C12.9,37.85 13.5,38 14.4,38 C17.4,38 20.6,37.6 22.8,37.9 C24.2,38.1 25.2,39 26,40"/>
+        <path d="M20.2,40.9 C20.8,41.4 20,42.9 18.9,44.2 C18.2,45 17.6,45.8 17.2,46.6"/>
+      </g>
+      <!-- The trail's sunlit banks, on the sides that face the light. -->
+      <g fill="none" stroke="#F4F2EA" stroke-width="0.5" stroke-linecap="round" opacity="0.9" clip-path="url(#moundClip)">
+        <path d="M19.6,31 C17.6,31.1 15,31.6 13.4,32.4 C12.1,33.1 11.9,34.6 11.9,36 C11.95,36.7 12.1,37.2 12.5,37.5"/>
+        <path d="M10.9,39.05 C11.7,39.9 12.9,40.4 14.4,40.4 C17.4,40.4 19.4,40.4 20.2,40.9"/>
+        <path d="M26,40 C26.8,41 27.4,41.9 28,42.6 C28.6,43.4 29.2,44.2 29.8,45"/>
+      </g>
+      <!-- The warm rim of light around the mound's lower edge, over the
+           trail where it runs off the front. -->
+      <path d="M15.6,45.4 C18.8,46.1 22.8,46.1 25.6,45.4 C27.4,44.9 28.9,44 30,43" fill="none" stroke="#CDB48A" stroke-width="0.5" stroke-linecap="round" opacity="0.7"/>
+
+      <!-- The snow-capped peak at the upper left, with a low shoulder on
+           its left. -->
+      <path d="M16.5,22.6 C17.3,24 17.8,25.8 18.4,27.4 C18.9,28.6 19.6,29.6 20.3,30.4 C17,30.8 13,30.8 9.9,30.5 C10.3,29.3 10.8,28.3 11.5,27.6 C12.2,27.8 12.8,27.4 13.4,26.6 C14.3,25.4 15.4,24 16.5,22.6 Z" fill="url(#peakLit)"/>
+      <!-- Its shaded right face, beyond the ridge. -->
+      <path d="M16.5,22.6 C17.3,24 17.8,25.8 18.4,27.4 C18.9,28.6 19.6,29.6 20.3,30.4 L18.4,30.5 C17.8,28.8 17.4,27 17.2,25.4 C17.1,24.3 16.8,23.4 16.5,22.6 Z" fill="url(#peakShade)"/>
+      <!-- Bare rock showing through the snow near the base. -->
+      <path d="M15.2,27.4 C15.6,28.2 15.6,29.2 15.3,30.2 L14.4,30.3 C14.8,29.4 15,28.4 15.2,27.4 Z" fill="#8A7A62"/>
+      <path d="M12.4,28.4 C12.7,29 12.7,29.7 12.5,30.3 L11.9,30.4 C12.1,29.7 12.3,29 12.4,28.4 Z" fill="#8A8682"/>
+      <!-- A glint of sun on the left of the ridge. -->
+      <path d="M16.3,23.4 C15.8,24.6 15.4,26 15.3,27.2" fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="round"/>
+
+      <!-- The pine's trunk, under the lowest boughs. -->
+      <path d="M25.6,35 L26.9,35 L27,37 L25.5,37 Z" fill="#4A2232"/>
+      <rect x="26.3" y="35" width="0.7" height="2" fill="#2A1420"/>
+      <!-- The pine, four tiers of boughs from the bottom up, each shaded
+           along its drooping lower edge. -->
+      <use href="#tier4" fill="url(#pine)"/>
+      <use href="#tier4" fill="url(#boughShade)"/>
+      <use href="#tier3" fill="url(#pine)"/>
+      <use href="#tier3" fill="url(#boughShade)"/>
+      <use href="#tier2" fill="url(#pine)"/>
+      <use href="#tier2" fill="url(#boughShade)"/>
+      <use href="#tier1" fill="url(#pine)"/>
+      <use href="#tier1" fill="url(#boughShade)"/>
+      <!-- Sunlit needles down the left side of each tier, with warm
+           tips. -->
+      <g fill="none" stroke="#64CC6C" stroke-width="0.4" stroke-linecap="round" opacity="0.55">
+        <path d="M25.7,31.2 C24.6,32.8 22.8,34.4 21.2,35.2"/>
+        <path d="M25.6,28 C24.8,29.6 23.4,31.2 22.3,32.1"/>
+        <path d="M25.5,25 C24.9,26.4 23.9,28 23,28.9"/>
+        <path d="M25.4,22.6 C25,23.8 24.5,25 23.9,25.8"/>
+      </g>
+      <g fill="none" stroke="#D5BD7B" stroke-width="0.45" stroke-linecap="round" opacity="0.7">
+        <path d="M21.9,34.9 L20.8,35.5"/>
+        <path d="M22.8,31.8 L21.9,32.4"/>
+        <path d="M23.3,28.7 L22.6,29.2"/>
+        <path d="M24.1,25.6 L23.6,26.1"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

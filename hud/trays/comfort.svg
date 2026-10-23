@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Guest Comfort tray button: vector remake of the original Ski Resort
+       Tycoon sprites Tray_Comfort_Normal/_Rollover/_Depress. One group per
+       state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The fire's glow on the back of the firebox. -->
+    <radialGradient id="fireGlow" cx="20.5" cy="38.5" r="7" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7A3A12"/>
+      <stop offset="0.6" stop-color="#2A1A10"/>
+      <stop offset="1" stop-color="#0A0806"/>
+    </radialGradient>
+    <!-- The flames, hot white at the core fading to orange at the tips. -->
+    <linearGradient id="flameOuter" x1="0" y1="41" x2="0" y2="33" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFC000"/>
+      <stop offset="0.5" stop-color="#FF8B20"/>
+      <stop offset="1" stop-color="#C55A20"/>
+    </linearGradient>
+    <linearGradient id="flameInner" x1="0" y1="40.5" x2="0" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFF00"/>
+      <stop offset="1" stop-color="#FFD57B"/>
+    </linearGradient>
+    <!-- The mantel's front, lit along the top. -->
+    <linearGradient id="mantelFront" x1="0" y1="24" x2="0" y2="27" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7B4E22"/>
+      <stop offset="1" stop-color="#5E3A18"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The stone chimney breast, its mortar dark behind the stones. -->
+      <rect x="8" y="26.5" width="26" height="16.5" fill="#6E5E4A"/>
+      <!-- Stones above the firebox, in two courses. -->
+      <g stroke="#5A4A39" stroke-width="0.25">
+        <rect x="8.2" y="27.6" width="3.2" height="1.9" rx="0.6" fill="#9C8B73"/>
+        <rect x="11.6" y="27.6" width="3.6" height="1.9" rx="0.6" fill="#7B6A52"/>
+        <rect x="15.4" y="27.6" width="3" height="1.9" rx="0.6" fill="#A49483"/>
+        <rect x="18.6" y="27.6" width="3.8" height="1.9" rx="0.6" fill="#8B735A"/>
+        <rect x="22.6" y="27.6" width="3" height="1.9" rx="0.6" fill="#A4947B"/>
+        <rect x="25.8" y="27.6" width="3.6" height="1.9" rx="0.6" fill="#7B6241"/>
+        <rect x="29.6" y="27.6" width="3.2" height="1.9" rx="0.6" fill="#9C8B73"/>
+        <rect x="8.2" y="29.7" width="2.2" height="2.1" rx="0.6" fill="#C5B4A4"/>
+        <rect x="10.6" y="29.7" width="3.4" height="2.1" rx="0.6" fill="#ACA494"/>
+        <rect x="14.2" y="29.7" width="3.6" height="2.1" rx="0.6" fill="#BDB4A4"/>
+        <rect x="18" y="29.7" width="3" height="2.1" rx="0.6" fill="#8B7B62"/>
+        <rect x="21.2" y="29.7" width="3.6" height="2.1" rx="0.6" fill="#C5B4A4"/>
+        <rect x="25" y="29.7" width="3" height="2.1" rx="0.6" fill="#B4AC94"/>
+        <rect x="28.2" y="29.7" width="2.2" height="2.1" rx="0.6" fill="#8B6A4A"/>
+        <rect x="30.6" y="29.7" width="2.2" height="2.1" rx="0.6" fill="#ACA494"/>
+        <!-- The left jamb. -->
+        <rect x="8.2" y="32" width="2.6" height="2.2" rx="0.6" fill="#947B62"/>
+        <rect x="11" y="32" width="1.8" height="2.2" rx="0.6" fill="#C5BDAC"/>
+        <rect x="8.2" y="34.4" width="1.8" height="2.2" rx="0.6" fill="#A4947B"/>
+        <rect x="10.2" y="34.4" width="2.6" height="2.2" rx="0.6" fill="#E6CDB4"/>
+        <rect x="8.2" y="36.8" width="2.6" height="2.2" rx="0.6" fill="#E6DECD"/>
+        <rect x="11" y="36.8" width="1.8" height="2.2" rx="0.6" fill="#BDAC94"/>
+        <rect x="8.2" y="39.2" width="1.8" height="1.6" rx="0.6" fill="#A49483"/>
+        <rect x="10.2" y="39.2" width="2.6" height="1.6" rx="0.6" fill="#C5BDA4"/>
+        <rect x="8.2" y="41" width="2.6" height="1.8" rx="0.6" fill="#8B7B6A"/>
+        <rect x="11" y="41" width="1.8" height="1.8" rx="0.6" fill="#736A5A"/>
+        <!-- The right jamb. -->
+        <rect x="28.2" y="32" width="1.8" height="2.2" rx="0.6" fill="#C5B4A4"/>
+        <rect x="30.2" y="32" width="2.6" height="2.2" rx="0.6" fill="#A49483"/>
+        <rect x="28.2" y="34.4" width="2.6" height="2.2" rx="0.6" fill="#ACA494"/>
+        <rect x="31" y="34.4" width="1.8" height="2.2" rx="0.6" fill="#BDAC9C"/>
+        <rect x="28.2" y="36.8" width="1.8" height="2.2" rx="0.6" fill="#C5B4A4"/>
+        <rect x="30.2" y="36.8" width="2.6" height="2.2" rx="0.6" fill="#7B624A"/>
+        <rect x="28.2" y="39.2" width="2.6" height="1.6" rx="0.6" fill="#BDAC94"/>
+        <rect x="31" y="39.2" width="1.8" height="1.6" rx="0.6" fill="#A49483"/>
+        <rect x="28.2" y="41" width="1.8" height="1.8" rx="0.6" fill="#B4AC9C"/>
+        <rect x="30.2" y="41" width="2.6" height="1.8" rx="0.6" fill="#836A5A"/>
+      </g>
+      <!-- A shadow under the mantel, and one down the right side. -->
+      <rect x="8" y="27" width="25" height="0.8" fill="#2A2018" opacity="0.7"/>
+      <rect x="33" y="26.5" width="1" height="19.5" fill="#5A4A31"/>
+
+      <!-- The firebox, dark and lit from within by the fire. -->
+      <rect x="13" y="32" width="15" height="10.6" fill="url(#fireGlow)"/>
+      <rect x="13" y="32" width="15" height="1" fill="#000000" opacity="0.6"/>
+      <!-- The flames: a tongue on each side and a tall one in the middle. -->
+      <path d="M14.8,40.5 C14.6,38.8 15,37.6 15.6,36.6 C15.8,37.8 16.6,38.4 17,39.4 L17,40.5 Z" fill="url(#flameOuter)"/>
+      <path d="M16.4,40.5 C16,38.6 16.8,37 18.4,35.6 C19,34.6 19.6,33.6 20.4,33.2 C20.6,34.6 21.6,35.4 22,36.8 C22.4,37.8 22,39.4 21.6,40.5 Z" fill="url(#flameOuter)"/>
+      <path d="M21.4,40.5 C21.4,38.6 22.2,36.6 23.4,34.8 C23.8,36.4 24.8,37.6 24.8,39 C24.8,39.6 24.6,40.2 24.4,40.5 Z" fill="url(#flameOuter)"/>
+      <path d="M17.2,40.5 C17,38.8 17.8,37.4 19,36.4 C19.6,35.6 20.2,34.8 20.6,34.4 C20.8,35.6 21.4,36.6 21.4,38 C21.4,39 21,40 20.6,40.5 Z" fill="url(#flameInner)"/>
+      <path d="M22.6,40.5 C22.4,39 23,37.4 23.6,36.4 C24,37.6 24.4,38.6 24,40.5 Z" fill="#FFD520"/>
+      <!-- The white-hot heart of the fire. -->
+      <path d="M17.6,38.6 C17.6,37.6 18.6,37 19.4,36.6 C20.2,36.2 20.6,35.2 20.8,34.2 C21.2,35.2 21.2,36.6 20.6,37.6 C20,38.4 18.6,38.8 17.6,38.6 Z" fill="#FFF6E0"/>
+      <!-- The logs on the grate, and the andirons in front of them. -->
+      <path d="M14.4,40.2 L22.4,39.6 L22.6,41 L14.6,41.6 Z" fill="#6A4118"/>
+      <path d="M19.4,39.8 L26.6,40.2 L26.4,41.6 L19.2,41.2 Z" fill="#835231"/>
+      <path d="M14.6,40.3 L22.4,39.7" stroke="#A46A3A" stroke-width="0.4" fill="none"/>
+      <rect x="15.4" y="39.4" width="0.9" height="2.6" fill="#201830"/>
+      <rect x="24.2" y="39.4" width="0.9" height="2.6" fill="#201830"/>
+      <rect x="13" y="41.8" width="15" height="0.8" fill="#292010"/>
+
+      <!-- The hearth: a course of pale stones along the bottom. -->
+      <rect x="8" y="42.8" width="25" height="3.2" fill="#A48362"/>
+      <g stroke="#8B7352" stroke-width="0.3">
+        <rect x="8.2" y="43" width="3.6" height="1.3" rx="0.4" fill="#F6EEDE"/>
+        <rect x="12" y="43" width="4" height="1.3" rx="0.4" fill="#F6F0E6"/>
+        <rect x="16.2" y="43" width="4.4" height="1.3" rx="0.4" fill="#FFF6DE"/>
+        <rect x="20.8" y="43" width="3.6" height="1.3" rx="0.4" fill="#EED0A8"/>
+        <rect x="24.6" y="43" width="4.2" height="1.3" rx="0.4" fill="#F6F0E6"/>
+        <rect x="29" y="43" width="3.8" height="1.3" rx="0.4" fill="#E6CDB4"/>
+        <rect x="8.2" y="44.5" width="2.6" height="1.4" rx="0.4" fill="#D5C5AC"/>
+        <rect x="11" y="44.5" width="4.4" height="1.4" rx="0.4" fill="#CDC0A8"/>
+        <rect x="15.6" y="44.5" width="3.8" height="1.4" rx="0.4" fill="#B4A48B"/>
+        <rect x="19.6" y="44.5" width="4.2" height="1.4" rx="0.4" fill="#C5B49C"/>
+        <rect x="24" y="44.5" width="4.6" height="1.4" rx="0.4" fill="#D5CDBD"/>
+        <rect x="28.8" y="44.5" width="4" height="1.4" rx="0.4" fill="#B4A48B"/>
+      </g>
+
+      <!-- The wooden mantel: its board under the shelf, the shelf's
+           front, its lit top, and its sunlit left end. -->
+      <rect x="8" y="26" width="26" height="1" fill="#5E4020"/>
+      <rect x="7" y="24" width="28" height="2" fill="url(#mantelFront)"/>
+      <rect x="8" y="23" width="26" height="1" fill="#CD8341"/>
+      <rect x="7" y="24" width="1" height="2" fill="#C49058"/>
+      <rect x="33" y="24" width="2" height="2" fill="#45332A"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

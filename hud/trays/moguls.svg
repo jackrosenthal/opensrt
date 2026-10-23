@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Moguls tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Moguls_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- One mogul in its own coordinates, 12.6 wide and 7 tall: a
+         shiny gray dome lit from the upper left, with a warm tan rim
+         along its left and lower edges. -->
+    <radialGradient id="mogul-shine" gradientUnits="userSpaceOnUse"
+                    cx="4.8" cy="2.2" r="7.8" fx="4.4" fy="2">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.2" stop-color="#F0FCFC"/>
+      <stop offset="0.4" stop-color="#C0D2D2"/>
+      <stop offset="0.6" stop-color="#839494"/>
+      <stop offset="0.8" stop-color="#4E5656"/>
+      <stop offset="1" stop-color="#313939"/>
+    </radialGradient>
+    <!-- a shadow over the dome's underside -->
+    <linearGradient id="mogul-under" gradientUnits="userSpaceOnUse"
+                    x1="0" y1="4" x2="0" y2="7">
+      <stop offset="0" stop-color="#3A4242" stop-opacity="0"/>
+      <stop offset="1" stop-color="#3A4242" stop-opacity="0.6"/>
+    </linearGradient>
+    <path id="mogul-shape" d="M0,4.4 C0.3,2.3 2.8,0 5.6,0 C8.6,0 12.6,2.4 12.6,4.4 C12.6,5.9 10.5,7 6.3,7 C2.2,7 -0.2,6.2 0,4.4 Z"/>
+    <g id="mogul">
+      <!-- the tan rim, peeking out to the lower left -->
+      <use href="#mogul-shape" transform="translate(-0.3,0.2)" fill="none"
+           stroke="#C8AE84" stroke-width="0.6" stroke-opacity="0.65"/>
+      <use href="#mogul-shape" fill="url(#mogul-shine)"/>
+      <use href="#mogul-shape" fill="url(#mogul-under)"/>
+    </g>
+
+    <!-- The icon: six moguls, drawn back to front. -->
+    <g id="icon">
+      <!-- the back right mogul -->
+      <use href="#mogul" transform="translate(20,22) scale(1.03,1)"/>
+      <!-- the back left mogul -->
+      <use href="#mogul" transform="translate(8,25) scale(1.08,1)"/>
+      <!-- the middle right mogul -->
+      <use href="#mogul" transform="translate(17,30) scale(1,0.98)"/>
+      <!-- the small middle left mogul -->
+      <use href="#mogul" transform="translate(8,33) scale(0.78,0.84)"/>
+      <!-- the front right mogul -->
+      <use href="#mogul" transform="translate(19.2,37) scale(1.12,0.88)"/>
+      <!-- the front left mogul -->
+      <use href="#mogul" transform="translate(9.2,39) scale(1,0.98)"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

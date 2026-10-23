@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 55" width="41" height="55">
+  <!-- Services tray button: vector remake of the original Ski Resort Tycoon
+       sprites Tray_Services_Normal/_Rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The tile, shared by every tray button: a piece of the tray's
+         strip, with a pale band along the top and a grey one along the
+         bottom, and a coloured face behind the icon. -->
+    <g id="tile">
+      <rect x="0" y="12" width="41" height="3" fill="#000000"/>
+      <rect x="0" y="15" width="41" height="3" fill="#F6EEF6"/>
+      <rect x="0" y="18" width="41" height="30" fill="#FFFFFF"/>
+      <rect x="0" y="48" width="41" height="3" fill="#C5C5C5"/>
+      <rect x="0" y="51" width="41" height="3" fill="#000000"/>
+    </g>
+    <rect id="face" x="3" y="19" width="35" height="29"/>
+
+    <!-- The sign's face: bright lemon at the top, warming through
+         yellow to amber along the bottom. -->
+    <linearGradient id="signFace" x1="16" y1="23.3" x2="23" y2="44.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF820"/>
+      <stop offset="0.45" stop-color="#FFE600"/>
+      <stop offset="0.85" stop-color="#FFD000"/>
+      <stop offset="1" stop-color="#FFB400"/>
+    </linearGradient>
+    <!-- The red border, a touch brighter toward the upper left. -->
+    <linearGradient id="signRed" x1="12" y1="24" x2="30" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F62A08"/>
+      <stop offset="1" stop-color="#E60C00"/>
+    </linearGradient>
+
+    <g id="icon">
+      <!-- The warning triangle's red border, with rounded corners. -->
+      <path d="M23.7 22.5 L34 42.2 A2.6 2.6 0 0 1 31.7 46 L10.3 46 A2.6 2.6 0 0 1 8 42.2 L18.3 22.5 A3 3 0 0 1 23.7 22.5 Z" fill="url(#signRed)"/>
+      <!-- A thin orange line just inside the border. -->
+      <path d="M22.5 23.1 L33 43.2 A1.3 1.3 0 0 1 31.9 45.1 L10.1 45.1 A1.3 1.3 0 0 1 9 43.2 L19.5 23.1 A1.7 1.7 0 0 1 22.5 23.1 Z" fill="#FF6A00"/>
+      <!-- The yellow face. -->
+      <path d="M22.1 23.3 L32.6 43.4 A0.8 0.8 0 0 1 31.9 44.6 L10.1 44.6 A0.8 0.8 0 0 1 9.4 43.4 L19.9 23.3 A1.2 1.2 0 0 1 22.1 23.3 Z" fill="url(#signFace)"/>
+      <!-- A pale glint along the face's upper left edge. -->
+      <path d="M20.2 24.4 L10.6 42.7" fill="none" stroke="#FFFF9C" stroke-width="0.5" stroke-linecap="round" opacity="0.8"/>
+
+      <!-- The skier, a black silhouette schussing down to the left on a
+           slope that rises to the right. -->
+      <g fill="#000000" stroke="#000000" stroke-linecap="round" stroke-linejoin="round">
+        <!-- His skis, parallel, with their tips turned up at the left.
+             The far ski is higher and partly hidden behind his legs. -->
+        <path d="M13.9 42.9 Q14.2 43.7 15.2 43.3 L25.8 39.6" fill="none" stroke-width="0.9"/>
+        <path d="M16.6 43.9 Q16.9 44.7 17.9 44.3 L29.2 40.1" fill="none" stroke-width="0.9"/>
+        <!-- His pole, trailing behind him from his right hand to the
+             snow beside the near ski's tail. -->
+        <path d="M24.7 34.6 L29.6 39.7" fill="none" stroke-width="0.7"/>
+        <!-- His legs, knees together and feet set back under him. -->
+        <path d="M19.2 36.4 C19.4 38.2 19.6 39.8 19.8 41.7" fill="none" stroke-width="1.4"/>
+        <path d="M22.5 36.4 C22.7 38.4 23 40.2 23.2 42.2" fill="none" stroke-width="1.35"/>
+        <!-- His body, leaning forward, with a rounded back, slim at the
+             waist and broader at the hips. -->
+        <path d="M19 31 C19.1 30 19.8 29.6 20.8 29.4 C21.9 29.3 22.9 29.8 23.2 31 L23.2 36.5 C22.9 37 22.2 37 21.8 36.8 L21 36.3 L20.2 36.9 C19.5 37.2 18.7 37 18.6 36.3 C18.8 35.2 19.6 34.6 19.8 33.6 C19.9 32.6 19 32 19 31 Z" stroke-width="0.2"/>
+        <!-- His head, tucked forward of his shoulders. -->
+        <circle cx="19" cy="28.5" r="1.35" stroke="none"/>
+        <!-- His neck, joining his head to his shoulders. -->
+        <path d="M19.1 29.2 L20.4 30.4" fill="none" stroke-width="1.4"/>
+        <!-- His left arm, reaching forward and down. -->
+        <path d="M19.4 31.2 C18.7 32.1 17.6 33.6 16.5 35" fill="none" stroke-width="1.2"/>
+        <!-- His right arm, bent at the elbow to hold the pole. -->
+        <path d="M22.6 31 C23.6 31.7 24.3 32.6 24.6 34.5" fill="none" stroke-width="1.2"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#FFFF73"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile"/>
+    <use href="#face" fill="#C5C5C5"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

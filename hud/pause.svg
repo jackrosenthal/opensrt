@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 55" width="45" height="55">
+  <!-- Pause button: vector remake of the original Ski Resort Tycoon
+       sprites LogPausePlay_Normal (pause), _Rollover (pause_lit) and
+       _Depress (play).  The game shows one state at a time with a
+       stylesheet: what the button does now, then what it will do. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- Pause: two blue bars, lit along their upper left. -->
+    <linearGradient id="barFace" x1="0" y1="21" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5C8CF2"/>
+      <stop offset="0.5" stop-color="#2E62DE"/>
+      <stop offset="1" stop-color="#1C46B4"/>
+    </linearGradient>
+    <g id="bar">
+      <rect x="0" y="21" width="7.8" height="22.8" fill="url(#barFace)" stroke="#16308C" stroke-width="0.9"/>
+      <rect x="2.6" y="23.4" width="2.6" height="18" fill="#8CB4FF" fill-opacity="0.55"/>
+      <rect x="1.2" y="22.2" width="5.4" height="1" fill="#C8DCFF" fill-opacity="0.6"/>
+    </g>
+    <g id="pauseIcon">
+      <use href="#bar" x="14"/>
+      <use href="#bar" x="23"/>
+    </g>
+
+    <!-- Play: a green triangle with a pale rim, shading darker down to
+         its lower right. -->
+    <linearGradient id="playFace" x1="14" y1="22" x2="30" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5CCC5C"/>
+      <stop offset="0.55" stop-color="#2E9C3A"/>
+      <stop offset="1" stop-color="#1C6E28"/>
+    </linearGradient>
+    <path id="triangle" d="M15,21.6 Q14,21.2 14,22.4 V42.6 Q14,43.8 15,43.2 L32.4,33.4 Q33.4,32.6 32.4,31.8 Z"/>
+    <g id="playIcon">
+      <use href="#triangle" fill="url(#playFace)" stroke="#8CF08C" stroke-width="1.3" stroke-linejoin="round"/>
+      <use href="#triangle" fill="none" stroke="#1A5E22" stroke-width="0.4" stroke-linejoin="round"/>
+    </g>
+  </defs>
+
+  <g id="pause" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#pauseIcon"/>
+  </g>
+  <g id="pause_lit" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#pauseIcon"/>
+  </g>
+  <g id="play" class="state" display="none">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#playIcon"/>
+  </g>
+</svg>
