@@ -1,10 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 71" width="640" height="71">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 890 71" width="890" height="71">
   <!-- Title tab of the front-end screens: vector remake of the blue tab
        painted into the original Ski Resort Tycoon backgrounds of the
        Instant Action, Challenges, Map Editor, Load Game, Save Game,
        Settings, and credits screens.  Pure blue with a black rim along
        its foot, which rounds up into its left side.  The screens'
-       drawings, with their titles, are drawn over it. -->
-  <path d="M128,0 V2 A70,68 0 0 0 198,70.2 H640 V0 Z" fill="#000000"/>
-  <path d="M131.7,0 V2 A66.3,64.3 0 0 0 198,66.3 H640 V0 Z" fill="#0000FF"/>
+       drawings, with their titles, are drawn over it.  It runs on past
+       the canvas's right edge, as far as a wide window shows. -->
+  <path d="M128,0 V2 A70,68 0 0 0 198,70.2 H890 V0 Z" fill="#000000"/>
+  <path d="M131.7,0 V2 A66.3,64.3 0 0 0 198,66.3 H890 V0 Z" fill="#0000FF"/>
 </svg>

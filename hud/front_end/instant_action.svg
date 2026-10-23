@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 890 480" width="890" height="480">
   <!-- The Instant Action screen's panels and lettering: vector remake
        of what is painted into the original Ski Resort Tycoon background
        instant_background over the mountain scene.  The game draws the
-       scene (the credits screen's background) first, and this over the
+       scene (scene.svg) first, and this over the
        title tab (title.svg).  The panels are white frosting with a
        black rim, shaded inside their right and bottom edges.  The
        level's picture goes in the top left panel, the list in the right

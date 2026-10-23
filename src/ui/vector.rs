@@ -99,6 +99,9 @@ pub const BOTTOM_BAR: Svg = svg!("bottom_bar");
 /// The top bar, drawn as wide as the window like the bottom bar.
 pub const TOP_BAR: Svg = svg!("top_bar");
 pub const SNOWFLAKE: Svg = svg!("snowflake");
+/// The front end's mountain scene, behind every menu screen.  It reaches
+/// past the canvas on every side, so it fills wide and tall windows.
+pub const MENU_SCENE: Svg = svg!("front_end/scene");
 /// The map editor's panel under the view buttons.
 pub const EDITOR_BOTTOM: Svg = svg!("editor_bottom");
 

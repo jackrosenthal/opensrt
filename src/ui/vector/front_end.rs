@@ -8,12 +8,11 @@
 //! in `widgets` for every file; an arm here takes precedence, so it can
 //! claim the elements of a group that are the screen's own art.
 //!
-//! Every screen but the main menu draws the mountain scene (the credits
-//! screen's background, whose only chrome is its title tab) and then
-//! its background group, which is its title tab, title, panels and
-//! lettering here: `TITLE` under a drawing of the screen's own. The main
-//! menu's background is a drawing of its own scene and logo, without
-//! the buttons painted into the original.
+//! Every screen draws the mountain scene (`MENU_SCENE`) and then its
+//! background group. The main menu's is the logo; the other screens'
+//! are their title tab, title, panels and lettering here: `TITLE` under
+//! a drawing of the screen's own. The tab and those drawings reach past
+//! the canvas's right edge, as the scene does, for wide windows.
 
 use super::{Drawing, Svg, button, still, widgets};
 use crate::ui::art::{self, ArtFile, Group};
@@ -39,8 +38,8 @@ const DELETE: Svg = svg!("front_end/delete");
 const QUIT: Svg = svg!("front_end/quit");
 const SETTINGS_OK: Svg = svg!("front_end/settings_ok");
 
-/// The main menu's mountain scene and logo.
-const MAIN_SCENE: Svg = svg!("front_end/main_scene");
+/// The main menu's logo, laid out on the scene's grid.
+const LOGO: Svg = svg!("front_end/logo");
 
 /// The main menu's buttons: a picture and label each over the shared
 /// ring and pill.
@@ -71,7 +70,7 @@ pub(super) fn element(file: ArtFile, group: Group, index: usize) -> Option<Drawi
 fn main_menu(group: Group, index: usize) -> Option<Drawing> {
     use art::main_menu::*;
     match group {
-        MAIN => still(MAIN_SCENE),
+        MAIN => still(LOGO),
         MAIN_INSTANT_ACTION_BUTTON => button(INSTANT_ACTION_BUTTON, index),
         MAIN_CHALLENGES_BUTTON => button(CHALLENGES_BUTTON, index),
         MAIN_LOAD_GAME => button(LOAD_GAME_BUTTON, index),
