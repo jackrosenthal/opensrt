@@ -23,3 +23,4 @@ flate2 = "1"
 dirs = "6"
 clap = { version = "4", features = ["derive", "env"] }
 fontdb = "0.23"
+resvg = { version = "0.48", default-features = false }

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 19" width="24" height="19">
+  <!-- Hand cursor (carrying a guest): vector remake of the original Ski Resort Tycoon sprite. -->
+  <defs>
+    <linearGradient id="skin" x1="0" y1="1" x2="0" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFB4"/>
+      <stop offset="0.2" stop-color="#FFF6A8"/>
+      <stop offset="0.35" stop-color="#FFE694"/>
+      <stop offset="0.6" stop-color="#FFD587"/>
+      <stop offset="0.85" stop-color="#FFC570"/>
+      <stop offset="1" stop-color="#F0B868"/>
+    </linearGradient>
+    <linearGradient id="skinEdge" x1="0" y1="1" x2="0" y2="19" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D2AC78"/>
+      <stop offset="0.45" stop-color="#C59C62"/>
+      <stop offset="0.7" stop-color="#A47341"/>
+      <stop offset="1" stop-color="#9C7341"/>
+    </linearGradient>
+    <linearGradient id="rightShade" x1="13" y1="0" x2="17" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E6A45A" stop-opacity="0"/>
+      <stop offset="1" stop-color="#C08850" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="palmShadow" x1="0" y1="6.8" x2="0" y2="9.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E6A45A" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#E6A45A"/>
+      <stop offset="0.65" stop-color="#C08A50"/>
+      <stop offset="1" stop-color="#B8864E"/>
+    </linearGradient>
+    <linearGradient id="cuff" x1="0" y1="0" x2="0" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.42" stop-color="#FDFDFD"/>
+      <stop offset="0.6" stop-color="#E2E2E2"/>
+      <stop offset="0.75" stop-color="#BDBDBD"/>
+      <stop offset="0.88" stop-color="#9E9E9E"/>
+      <stop offset="1" stop-color="#949494"/>
+    </linearGradient>
+    <linearGradient id="cuffSide" x1="18" y1="0" x2="22" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#808080" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="cuffEdge" x1="0" y1="0" x2="0" y2="19" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#BDBDBD"/>
+      <stop offset="0.5" stop-color="#A4A4A4"/>
+      <stop offset="1" stop-color="#8B8B8B"/>
+    </linearGradient>
+    <path id="handShape" d="M10,1.1 C12.4,0.8 15,0.8 17,1 L17,10 L15.2,10 C15,11.8 13.2,13.4 12.2,14.6 C11.6,15.4 11.2,16.2 11.1,16.8 C10.9,17.6 10.4,18 9.5,18 C8.5,18 8,17.5 8,16.6 L8,14.8 C8.4,13.4 9.9,12.2 10.2,10 C8.4,9.6 6.4,9.6 5,10 C5,11.8 5.8,13 6.3,14 C6.8,14.8 7.1,15.4 7.1,16.2 C7.2,17.6 7,19 6,19 C5,19 4.4,18.2 4,17.2 C3.4,16.6 2.8,16.6 2.3,17.1 C2,17.8 1.5,18 1,18 C0.3,18 0,17.5 0,16.8 L0,12 C0.5,9.8 2.3,7.5 4.3,5.5 C6.1,3.7 8,2 10,1.1 Z"/>
+    <clipPath id="handClip"><use href="#handShape"/></clipPath>
+    <path id="cuffShape" d="M17,0 H23 V15.6 C22,16.8 20.6,17.8 18.8,18.4 C18.2,18.7 17.6,19 17,19 Z"/>
+    <clipPath id="cuffClip"><use href="#cuffShape"/></clipPath>
+  </defs>
+
+  <!-- Hand -->
+  <use href="#handShape" fill="url(#skin)"/>
+  <g clip-path="url(#handClip)">
+    <!-- shading toward the cuff on the back of the hand -->
+    <rect x="13" y="5" width="4" height="6" fill="url(#rightShade)"/>
+    <!-- shadow under the palm, along the top of the gap between fingers -->
+    <path d="M3.6,9.6 C5,7.4 8.2,6.6 10.6,7.8 L10.6,10.6 L3.6,10.6 Z" fill="url(#palmShadow)"/>
+    <!-- crease between the two left fingers -->
+    <path d="M1.4,11 C1.5,13 2,14.6 3.2,16.3" fill="none" stroke="#8B6A39" stroke-width="0.9" stroke-linecap="round"/>
+    <!-- shaded right side of the curled finger -->
+    <path d="M14,9.8 C13.4,12 11.6,13.6 10.6,16.2 C10.2,17.2 9.8,17.6 9.2,18" fill="none" stroke="#B07B45" stroke-width="1.3" stroke-linecap="round"/>
+    <path d="M14.3,8.4 C15.2,8.6 16,8.8 16.8,9.6" fill="none" stroke="#DEA45A" stroke-width="0.9"/>
+    <!-- outline -->
+    <use href="#handShape" fill="none" stroke="url(#skinEdge)" stroke-width="1.3"/>
+  </g>
+
+  <!-- Shirt cuff -->
+  <use href="#cuffShape" fill="url(#cuff)"/>
+  <g clip-path="url(#cuffClip)">
+    <rect x="17" y="0" width="6" height="19" fill="url(#cuffSide)"/>
+    <use href="#cuffShape" fill="none" stroke="url(#cuffEdge)" stroke-width="1.7"/>
+  </g>
+</svg>

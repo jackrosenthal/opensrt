@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- "No cash" cursor (can't afford it): vector remake of the original Ski Resort Tycoon sprite No_cash.png. -->
+  <defs>
+    <linearGradient id="ringOuter" gradientUnits="userSpaceOnUse" x1="4" y1="4" x2="27" y2="27">
+      <stop offset="0" stop-color="#ffbdbd"/>
+      <stop offset="0.35" stop-color="#ff0000"/>
+      <stop offset="0.65" stop-color="#ff0000"/>
+      <stop offset="1" stop-color="#b40010"/>
+    </linearGradient>
+    <linearGradient id="ringInner" gradientUnits="userSpaceOnUse" x1="7" y1="7" x2="24" y2="24">
+      <stop offset="0" stop-color="#b40010"/>
+      <stop offset="0.4" stop-color="#d00008"/>
+      <stop offset="0.6" stop-color="#ff0000"/>
+      <stop offset="1" stop-color="#ff7070"/>
+    </linearGradient>
+    <clipPath id="hole">
+      <circle cx="15.5" cy="15.5" r="13"/>
+    </clipPath>
+  </defs>
+
+  <!-- dollar sign: stem, then S drawn as shadow / highlight / body strokes -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke-width="3.6" stroke-linecap="butt">
+      <path d="M15.4 4.2V6.6M15.4 24V28" stroke="#625210" transform="translate(0.4 0.2)"/>
+      <path d="M15.4 4.2V6.6M15.4 24V28" stroke="#f6d84a" transform="translate(-0.4 0)"/>
+      <path d="M15.2 4.4V6.6M15.2 24V27.8" stroke="#9c8331" stroke-width="2.4"/>
+    </g>
+    <path id="s" d="M17.8 10C18 7.2 16.5 5.6 14.8 5.8C12.4 6.1 11 9.2 11.2 12C11.4 14.4 14 16.2 16.4 17.6C18.5 18.8 19.4 20.2 19.2 22C19 24.1 17.2 25.2 15.5 25C13.8 24.8 12.6 23.8 12.1 22.4"/>
+    <use href="#s" stroke="#625210" stroke-width="3.4" transform="translate(0.5 0.5)"/>
+    <use href="#s" stroke="#ffe84a" stroke-width="3.4" transform="translate(-0.5 -0.4)"/>
+    <use href="#s" stroke="#9c8331" stroke-width="2.6"/>
+  </g>
+
+  <!-- slash, upper right to lower left, lit on its upper-left edge -->
+  <g clip-path="url(#hole)" stroke-linecap="butt">
+    <path d="M27 4L4 27" stroke="#ff0000" stroke-width="4.4"/>
+    <path d="M26.2 3.2L3.2 26.2" stroke="#ff9a9a" stroke-width="1.1"/>
+    <path d="M28.6 5.6L5.6 28.6" stroke="#9a0014" stroke-width="0.9"/>
+  </g>
+
+  <!-- ring with bevel: bright outside top-left, bright inside bottom-right -->
+  <circle cx="15.5" cy="15.5" r="14" fill="none" stroke="#ff0000" stroke-width="3"/>
+  <circle cx="15.5" cy="15.5" r="15.1" fill="none" stroke="url(#ringOuter)" stroke-width="0.8"/>
+  <circle cx="15.5" cy="15.5" r="12.9" fill="none" stroke="url(#ringInner)" stroke-width="0.8"/>
+</svg>

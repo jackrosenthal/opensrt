@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 29" width="19" height="29">
+  <!-- Survey cursor: vector remake of the original Ski Resort Tycoon sprite (brass surveyor's transit on a tripod). -->
+  <defs>
+    <linearGradient id="tube" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d5ac41"/>
+      <stop offset="0.3" stop-color="#ffd562"/>
+      <stop offset="0.5" stop-color="#eebd52"/>
+      <stop offset="0.72" stop-color="#b48b31"/>
+      <stop offset="1" stop-color="#6a5218"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6b44a"/>
+      <stop offset="0.25" stop-color="#ffff94"/>
+      <stop offset="0.45" stop-color="#f6cd62"/>
+      <stop offset="0.65" stop-color="#cda44a"/>
+      <stop offset="1" stop-color="#8b6a29"/>
+    </linearGradient>
+    <linearGradient id="eye" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd573"/>
+      <stop offset="0.4" stop-color="#ffe673"/>
+      <stop offset="0.65" stop-color="#bda44a"/>
+      <stop offset="1" stop-color="#947b31"/>
+    </linearGradient>
+    <linearGradient id="std" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffde6a"/>
+      <stop offset="0.3" stop-color="#ffff83"/>
+      <stop offset="0.6" stop-color="#cd9c39"/>
+      <stop offset="0.85" stop-color="#7b6229"/>
+      <stop offset="1" stop-color="#624a18"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffff94"/>
+      <stop offset="0.45" stop-color="#ffd562"/>
+      <stop offset="0.55" stop-color="#d5a439"/>
+      <stop offset="1" stop-color="#bd9439"/>
+    </linearGradient>
+    <linearGradient id="neck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#836a29"/>
+      <stop offset="1" stop-color="#4a3918"/>
+    </linearGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff662"/>
+      <stop offset="1" stop-color="#e6b44a"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e6b44a"/>
+      <stop offset="0.4" stop-color="#f6cd52"/>
+      <stop offset="0.66" stop-color="#f6cd52"/>
+      <stop offset="0.67" stop-color="#7b5a20"/>
+      <stop offset="1" stop-color="#6a5218"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tripod legs: lit outer face, shaded inner face -->
+  <path d="M5.5 12 L8.3 12 L2.2 27.4 L1.4 28 L1 28 L1 26 Z" fill="#735a20"/>
+  <path d="M5.5 12 L6.8 12 L1.8 27.8 L1 28 L1 26 Z" fill="#e6bd4a"/>
+  <path d="M5.6 12 L6.2 12 L1.6 26.8 L1.1 26.6 Z" fill="#ffe65a" opacity="0.8"/>
+  <path d="M11.7 12 L13.6 12 L18 25.5 L18 28 L17.2 28 Z" fill="#8b6a20"/>
+  <path d="M12.6 12 L13.6 12 L18 25.5 L18 28 L17.7 28 Z" fill="#e6bd4a"/>
+  <path d="M8 11 L11 11 L11 27.6 L9.5 29 L8 28 Z" fill="url(#mid)"/>
+
+  <!-- tripod head -->
+  <path d="M6 10 L13 10 L13 11.2 L12.2 12 L6.8 12 L6 11.2 Z" fill="url(#head)"/>
+  <path d="M6 11 L8 11 L8 14.5 L7 15 L5.5 13.5 Z" fill="#6a5218" opacity="0.85"/>
+  <path d="M10.6 11.4 L13 11.6 L12.6 14 L10.8 14.5 Z" fill="#6a5218" opacity="0.85"/>
+  <path d="M8 11 L10.5 11 L10.2 15 L8 15 Z" fill="#ffd552"/>
+
+  <!-- vertical axis below the plate -->
+  <path d="M7 8 L12 8 L11 9 L11 10 L8 10 L8 9 Z" fill="url(#neck)"/>
+  <!-- horizontal circle plate -->
+  <rect x="5" y="6" width="9" height="2" rx="0.6" fill="url(#plate)"/>
+
+  <!-- telescope tube -->
+  <rect x="3" y="1" width="13" height="4" fill="url(#tube)"/>
+  <path d="M10 1 L12 1 L12 5 L10 5 Z" fill="#7b5a20" opacity="0.45"/>
+  <!-- eyepiece -->
+  <path d="M1 1 L2.4 1 L2.4 2 L3 2 L3 4 L2 4 L2 5 L1 5 Z" fill="url(#eye)"/>
+  <!-- standard / sight on top of the tube -->
+  <path d="M7 1 L8 1 L8 0 L10 0 L10 1 L10 5 L11 5 L11 6 L7 6 Z" fill="url(#std)"/>
+  <!-- objective end -->
+  <path d="M15 0.4 Q15 0 15.6 0 L17.4 0 Q18 0 18 0.6 L18 6 L16 6 L16 5 L15 5 Z" fill="url(#lens)"/>
+</svg>

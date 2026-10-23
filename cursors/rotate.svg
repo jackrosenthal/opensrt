@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="22" viewBox="0 0 43 22">
+  <!-- Area placement cursor (Cursor1): vector remake of the original Ski Resort Tycoon sprite.
+       Translucent green isometric tile with red corner brackets; hotspot about (21, 10). -->
+  <defs>
+    <clipPath id="tile">
+      <path d="M22 0.6 L43 10.5 L22 20.4 L0.6 10.5 Z"/>
+    </clipPath>
+    <clipPath id="tl"><path d="M7 2 H14.4 L7 6.1 Z"/></clipPath>
+    <clipPath id="tr"><path d="M37 2 H29.6 L37 6.1 Z"/></clipPath>
+    <clipPath id="bl"><path d="M7 19 H14.4 L7 14.9 Z"/></clipPath>
+    <clipPath id="br"><path d="M37 19 H29.6 L37 14.9 Z"/></clipPath>
+  </defs>
+
+  <!-- Ground tile: light green body with a darker green rim, all at about 51% opacity. -->
+  <g opacity="0.514">
+    <path d="M22 0.6 L43 10.5 L22 20.4 L0.6 10.5 Z" fill="#8bee83"/>
+    <path d="M22 0.6 L43 10.5 L22 20.4 L0.6 10.5 Z" fill="none" stroke="#39cd29"
+          stroke-width="2" stroke-linejoin="miter" stroke-miterlimit="10" clip-path="url(#tile)"/>
+  </g>
+
+  <!-- Red corner brackets: solid red wedges with lit and shaded edges. -->
+  <g clip-path="url(#tl)">
+    <path d="M7 2 H14.4 L7 6.1 Z" fill="#ff0000"/>
+    <path d="M14.4 2 L7 6.1" stroke="#bd1000" stroke-width="1.6"/>
+    <path d="M7 6.1 V2 H14.4" fill="none" stroke="#ff4141" stroke-width="2"/>
+  </g>
+  <g clip-path="url(#tr)">
+    <path d="M37 2 H29.6 L37 6.1 Z" fill="#ff0000"/>
+    <path d="M29.6 2 L37 6.1" stroke="#c00000" stroke-width="1.6"/>
+    <path d="M37 2 V6.1" stroke="#cd0000" stroke-width="2"/>
+    <path d="M29.6 2 H37" stroke="#ff4141" stroke-width="2"/>
+  </g>
+  <g clip-path="url(#bl)">
+    <path d="M7 19 H14.4 L7 14.9 Z" fill="#ff0000"/>
+    <path d="M14.4 19 L7 14.9" stroke="#ff4a4a" stroke-width="1.6"/>
+    <path d="M7 14.9 V19" stroke="#ff6a6a" stroke-width="2"/>
+    <path d="M7 19 H14.4" stroke="#cd0400" stroke-width="2"/>
+  </g>
+  <g clip-path="url(#br)">
+    <path d="M37 19 H29.6 L37 14.9 Z" fill="#ff0000"/>
+    <path d="M29.6 19 L37 14.9" stroke="#ff4a4a" stroke-width="1.6"/>
+    <path d="M37 14.9 V19" stroke="#ff1010" stroke-width="2"/>
+    <path d="M29.6 19 H37" stroke="#c80000" stroke-width="2"/>
+  </g>
+</svg>

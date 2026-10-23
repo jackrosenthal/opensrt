@@ -203,7 +203,7 @@ impl App {
         );
         crate::ui::style::apply(&self.egui_ctx);
         crate::ui::fonts::install(&self.egui_ctx);
-        let cursors = crate::cursor::Cursors::load(el, &self.assets);
+        let cursors = crate::cursor::Cursors::load(el, &self.assets, ui_scale(config.width, config.height));
         self.gfx = Some(Gfx {
             window,
             gpu,
@@ -684,6 +684,7 @@ impl ApplicationHandler for App {
                     let (m, d) = Self::make_targets(&gfx.gpu, &gfx.config);
                     gfx.msaa_view = m;
                     gfx.depth = d;
+                    gfx.cursors.rescale(el, ui_scale(gfx.config.width, gfx.config.height));
                 }
             }
             WindowEvent::KeyboardInput { event, .. } => {
@@ -806,4 +807,9 @@ pub fn ground_hit(cam: &Camera, level: &crate::formats::level::Level, ndc: Vec2)
         t += step;
     }
     None
+}
+
+/// Physical pixels per pixel of the interface's 1024x768 layout.
+fn ui_scale(width: u32, height: u32) -> f32 {
+    (height as f32 / 768.0).min(width as f32 / 1024.0)
 }

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 38" width="36" height="38">
+  <!-- Arrow pointer cursor (Cursor): vector remake of the original Ski Resort Tycoon sprite.
+       Black-outlined blue arrowhead with a light-to-dark gradient and a soft drop shadow;
+       the art keeps the sprite's pixel placement, so the visible tip sits at (3, 2). -->
+  <defs>
+    <path id="outer" d="M3 2 L4.5 2 L20 17.5 L20 19 L11.5 19 L4.5 26 L3 26 Z"/>
+    <radialGradient id="body" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" fx="0" fy="0.25"
+                    gradientTransform="translate(6.3 12.3) scale(9.5 13)">
+      <stop offset="0" stop-color="#bdf0ff"/>
+      <stop offset="0.22" stop-color="#a8e0ff"/>
+      <stop offset="0.45" stop-color="#6aa8dc"/>
+      <stop offset="0.65" stop-color="#306894"/>
+      <stop offset="0.85" stop-color="#173a58"/>
+      <stop offset="1" stop-color="#061828"/>
+    </radialGradient>
+    <linearGradient id="bevel" gradientUnits="userSpaceOnUse" x1="4" y1="0" x2="6" y2="0">
+      <stop offset="0" stop-color="#2a4a70" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#2a4a70" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lower" gradientUnits="userSpaceOnUse" x1="0" y1="17.5" x2="0" y2="25">
+      <stop offset="0" stop-color="#0a1a28" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0a1a28" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <!-- drop shadow -->
+  <g transform="translate(2.4 1.2)" stroke-linejoin="round">
+    <use href="#outer" fill="#000" fill-opacity="0.06" stroke="#000" stroke-opacity="0.06" stroke-width="3"/>
+    <use href="#outer" fill="#000" fill-opacity="0.07" stroke="#000" stroke-opacity="0.07" stroke-width="1.2"/>
+    <use href="#outer" fill="#000" fill-opacity="0.08"/>
+  </g>
+  <!-- outline -->
+  <use href="#outer" fill="#000"/>
+  <!-- body -->
+  <path d="M4 2.5 L19 17.5 L19 18 L11 18 L4 25.5 Z" fill="url(#body)"/>
+  <path d="M4 2.5 L19 17.5 L19 18 L11 18 L4 25.5 Z" fill="url(#bevel)"/>
+  <path d="M4 2.5 L19 17.5 L19 18 L11 18 L4 25.5 Z" fill="url(#lower)"/>
+</svg>
