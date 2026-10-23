@@ -349,6 +349,7 @@ impl Game {
             exit_line: Vec::new(),
             board_s: None,
             unload_s: None,
+            under: Vec::new(),
         };
         Sim::layout_chairs(&self.defs, &mut lift);
         // Stations block their cells and clear trees around the line.

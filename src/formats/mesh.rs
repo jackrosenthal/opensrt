@@ -189,8 +189,8 @@ pub struct Mesh {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AttachPoint {
     /// `cableA`, `cableB`, ...: where a lift's cable runs, 0 for A. The
-    /// original looks these up by exact name (0x49f4a0), so the rope tow
-    /// pole's `CableA` and `CableB` are not among them.
+    /// original looks these up ignoring case (0x49f4a0, through
+    /// `_stricmp`), so the rope tow pole's `CableA` and `CableB` count.
     Cable(u8),
     /// `pt0`, `pt1`, ...: a lift's queue line, or the way off at the top.
     Path(u8),
@@ -208,10 +208,12 @@ pub enum AttachPoint {
 impl AttachPoint {
     fn parse(name: &str) -> AttachPoint {
         let index = |rest: &str| rest.parse::<u8>().ok();
-        if let Some(c) = name.strip_prefix("cable").and_then(|r| r.strip_prefix(|c: char| c.is_ascii_uppercase()).filter(|r| r.is_empty()).map(|_| name.as_bytes()[5])) {
-            return AttachPoint::Cable(c - b'A');
-        }
         let lower = name.to_ascii_lowercase();
+        if let Some(&[c]) = lower.strip_prefix("cable").map(str::as_bytes) {
+            if c.is_ascii_lowercase() {
+                return AttachPoint::Cable(c - b'a');
+            }
+        }
         if let Some(i) = lower.strip_prefix("ptb").and_then(index) {
             AttachPoint::PathB(i)
         } else if let Some(i) = lower.strip_prefix("pt").and_then(index) {

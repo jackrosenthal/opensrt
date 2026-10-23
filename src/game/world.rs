@@ -139,6 +139,10 @@ pub struct Lift {
     pub board_s: Option<f32>,
     #[serde(skip)]
     pub unload_s: Option<f32>,
+    /// Per tower: the cable runs under its wheel, which then turns the
+    /// other way.
+    #[serde(skip)]
+    pub under: Vec<bool>,
 }
 
 /// Height of the cable above the stations and poles.

@@ -52,6 +52,14 @@ impl Game {
         let (wx, zr) = (self.world.weather.clone(), self.world.level().height_range());
         let snow = move |z: f32| wx.snow_variant(z, zr);
         let get = |cache: &mut MeshCache, rel: &str| cache.get(gpu, &scene.meshes, &assets, rel, 0);
+        // Where a skier's hands are (`tongs`).
+        let grip = |cache: &mut MeshCache, g: &world::Guest| {
+            let tongs = cache
+                .source(gpu, &assets, &guest_mesh(g))
+                .and_then(|m| attach_point(&m.mesh.attach, AttachPoint::Tongs))
+                .unwrap_or(Vec3::new(-0.3, 0.0, 3.15));
+            g.pos + Quat::from_rotation_z(g.heading) * tongs
+        };
 
         if self.foliage_dirty {
             self.foliage.clear();
@@ -132,19 +140,24 @@ impl Game {
             // wheels), played while the lift runs. The rate is not known
             // from the original; LIFT_FPS is a guess.
             let frame = (l.anim * LIFT_FPS) as usize;
-            let animated = |cache: &mut MeshCache, rel: &str| {
+            // A loop's last frame repeats its first (exactly, or a turn of
+            // the wheel by its spokes' spacing), so it is left out.
+            // `back` plays them backwards: a wheel the cable runs under.
+            let animated = |cache: &mut MeshCache, rel: &str, back: bool| {
                 let first = get(cache, rel);
-                let n = cache.frames(first);
-                cache.get(gpu, &scene.meshes, &assets, rel, frame % n.max(1))
+                let n = cache.frames(first).saturating_sub(1).max(1);
+                let f = frame % n;
+                cache.get(gpu, &scene.meshes, &assets, rel, if back { n - 1 - f } else { f })
             };
-            let b = animated(&mut self.meshes, d.begin.pick(night, snow(l.start.z)));
-            let e = animated(&mut self.meshes, d.end.pick(night, snow(l.end.z)));
+            let b = animated(&mut self.meshes, d.begin.pick(night, snow(l.start.z)), false);
+            let e = animated(&mut self.meshes, d.end.pick(night, snow(l.end.z)), false);
             let mut pieces: Vec<(MeshId, Mat4)> = vec![
                 (b, Mat4::from_rotation_translation(rot, l.start)),
                 (e, Mat4::from_rotation_translation(rot, l.end)),
             ];
-            for p in &l.poles {
-                let m = animated(&mut self.meshes, d.middle.pick(night, snow(p.z)));
+            for (i, p) in l.poles.iter().enumerate() {
+                let back = l.under.get(i).copied().unwrap_or(false);
+                let m = animated(&mut self.meshes, d.middle.pick(night, snow(p.z)), back);
                 pieces.push((m, Mat4::from_rotation_translation(rot, *p)));
             }
             for (id, model) in pieces {
@@ -156,6 +169,24 @@ impl Game {
             }
             if l.cable_loop.len() >= 2 {
                 let mut pts = l.cable_loop.clone();
+                // A rope tow's haul rope runs straight from station to
+                // station but where its riders pull it down into their
+                // hands.
+                if d.chairs.is_empty() {
+                    let (a, b) = (pts[0], pts[1]);
+                    let ab = (b - a).truncate();
+                    let mut grips = Vec::new();
+                    for id in l.chairs.iter().flat_map(|c| &c.riders) {
+                        let Some(g) = self.world.guests.iter().find(|g| g.id == *id) else { continue };
+                        let p = grip(&mut self.meshes, g);
+                        let t = (p - a).truncate().dot(ab) / ab.length_squared().max(1e-6);
+                        if t > 0.0 && t < 1.0 {
+                            grips.push((t, p));
+                        }
+                    }
+                    grips.sort_by(|x, y| x.0.total_cmp(&y.0));
+                    pts.splice(1..1, grips.into_iter().map(|(_, p)| p));
+                }
                 pts.push(pts[0]);
                 self.batches.line_strip(&pts, CABLE);
             }
@@ -187,13 +218,7 @@ impl Game {
                         // A loaded drag lift hanger: its `tbar` point in the
                         // skier's hands (`tongs`), its top on a line up to
                         // the cable.
-                        let body = guest_mesh(g);
-                        let tongs = self
-                            .meshes
-                            .source(gpu, &assets, &body)
-                            .and_then(|m| attach_point(&m.mesh.attach, AttachPoint::Tongs))
-                            .unwrap_or(Vec3::new(-0.3, 0.0, 3.15));
-                        let grip = g.pos + Quat::from_rotation_z(g.heading) * tongs;
+                        let grip = grip(&mut self.meshes, g);
                         let tbar = self
                             .meshes
                             .source(gpu, &assets, d.chairs.get(1).unwrap_or(chair))
