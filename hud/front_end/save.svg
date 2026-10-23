@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 52" width="131" height="52">
+  <!-- Save button of the Save Game screen: vector remake of the
+       original Ski Resort Tycoon sprites save_save_*.  A black rimmed
+       pill, white shading to grey at its foot, yellow under the pointer
+       and grey, shaded under its rim, when pressed, with its label in
+       black over a soft shadow.  One group per state; the game shows
+       one with a stylesheet. -->
+  <defs>
+    <linearGradient id="white" x1="0" y1="8" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E4EAF0"/>
+      <stop offset="0.3" stop-color="#FFFFFF"/>
+      <stop offset="0.74" stop-color="#FFFFFF"/>
+      <stop offset="0.86" stop-color="#DCE0E4"/>
+      <stop offset="1" stop-color="#BEC2CA"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0" y1="8" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAEA9A"/>
+      <stop offset="0.3" stop-color="#FFF673"/>
+      <stop offset="0.74" stop-color="#FFF673"/>
+      <stop offset="0.86" stop-color="#DEDA70"/>
+      <stop offset="1" stop-color="#C2C072"/>
+    </linearGradient>
+    <path id="face" d="M25,8 H105 A18,18 0 0 1 123,26 V26 A18,18 0 0 1 105,44 H25 A18,18 0 0 1 7,26 V26 A18,18 0 0 1 25,8 Z"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="1.49"/>
+    </filter>
+    <path id="label" d="M37 26.95C37.13 28.34 37.48 29.22 38.29 30.18C39.47 31.52 41.4 32.31 43.52 32.31C47.08 32.31 49.85 29.85 49.85 26.64C49.85 25.15 49.26 23.91 48.08 22.95C47.3 22.31 46.68 22.02 44.72 21.35C42.85 20.73 42.79 20.7 42.52 20.56C41.8 20.15 41.42 19.6 41.42 18.95C41.42 17.9 42.26 17.16 43.46 17.16C44.7 17.16 45.45 17.83 45.55 19.03H49.36C49.28 17.69 48.93 16.78 48.13 15.89C47.06 14.69 45.34 14 43.49 14C40.27 14 37.72 16.23 37.72 19.03C37.72 21.25 39.17 22.95 41.85 23.84C44.51 24.72 44.7 24.8 45.29 25.2C45.88 25.63 46.2 26.26 46.2 27C46.2 28.27 45.1 29.15 43.52 29.15C41.88 29.15 41 28.43 40.83 26.95ZM67.25 18.74H63.98V20.51C62.74 19.05 61.27 18.43 59.12 18.43C54.73 18.43 51.56 21.37 51.56 25.42C51.56 29.41 54.7 32.31 59.04 32.31C61.13 32.31 62.56 31.74 63.98 30.28V32H67.25ZM59.5 21.35C62.05 21.35 63.87 23.05 63.87 25.47C63.87 26.42 63.44 27.52 62.8 28.19C62.07 28.98 60.92 29.39 59.55 29.39C56.95 29.39 55.15 27.81 55.15 25.49C55.15 23.07 56.95 21.35 59.5 21.35ZM74.46 32H77.31L83.29 18.74H79.26L75.88 27.52L72.45 18.74H68.48ZM98.87 26.78C98.97 26.3 99 26.02 99 25.54C99 21.44 95.76 18.43 91.33 18.43C86.96 18.43 83.5 21.52 83.5 25.42C83.5 29.3 87.01 32.31 91.54 32.31C93.99 32.31 95.89 31.52 97.44 29.92C98.01 29.3 98.38 28.74 98.62 28.07H94.74C93.82 29.03 92.94 29.39 91.46 29.39C89.35 29.39 87.79 28.39 87.36 26.78ZM87.25 23.98C87.82 22.26 89.27 21.35 91.38 21.35C93.58 21.35 95.03 22.28 95.49 23.98Z"/>
+  </defs>
+
+  <g id="normal" class="state">
+    <path d="M25,3.6 H105 A22.4,22.4 0 0 1 127.4,26 V26 A22.4,22.4 0 0 1 105,48.4 H25 A22.4,22.4 0 0 1 2.6,26 V26 A22.4,22.4 0 0 1 25,3.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#white)"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <path d="M25,3.6 H105 A22.4,22.4 0 0 1 127.4,26 V26 A22.4,22.4 0 0 1 105,48.4 H25 A22.4,22.4 0 0 1 2.6,26 V26 A22.4,22.4 0 0 1 25,3.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#yellow)"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <path d="M25,3.6 H105 A22.4,22.4 0 0 1 127.4,26 V26 A22.4,22.4 0 0 1 105,48.4 H25 A22.4,22.4 0 0 1 2.6,26 V26 A22.4,22.4 0 0 1 25,3.6 Z" fill="#000000"/>
+    <use href="#face" fill="#BCC2C6"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.5,-3)" fill="none" stroke="#5A6068" stroke-width="5" filter="url(#soft)"/>
+    </g>
+  </g>
+  <!-- the label, the same in every state -->
+  <use href="#label" transform="translate(3,3.5)" fill="#4A4A50" fill-opacity="0.65" filter="url(#soft)"/>
+  <use href="#label" fill="#000000"/>
+</svg>

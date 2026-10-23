@@ -316,13 +316,18 @@ impl Art {
     #[allow(clippy::too_many_arguments)]
     pub fn draw(&mut self, ui: &egui::Ui, assets: &Assets, cv: Canvas, file: ArtFile, group: Group, index: usize, x: f32, y: f32) -> bool {
         if let Some((svg, state)) = vector::element(file, group, index) {
-            // The drawing replaces the sprite where the element puts it.
+            // The drawing replaces the sprite where the element puts it;
+            // an element without one (the settings OK button at rest,
+            // which the original's background shows) goes where the
+            // group's others put theirs.
             let (dx, dy) = self
                 .screen(assets, file)
                 .and_then(|s| s.group(group.0))
-                .and_then(|g| g.elements.get(index))
-                .and_then(|e| e.layers.first())
-                .map_or((0, 0), |l| l.dst);
+                .and_then(|g| {
+                    let placed = |e: &crate::formats::ui::Element| e.layers.iter().find(|l| l.sprite.is_some()).map(|l| l.dst);
+                    g.elements.get(index).and_then(placed).or_else(|| g.elements.iter().find_map(placed))
+                })
+                .unwrap_or((0, 0));
             self.vector_at(ui, cv, svg, state, x + dx as f32, y + dy as f32);
             return true;
         }

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 51" width="131" height="51">
+  <!-- Cancel button of the Save Game screen: vector remake of the
+       original Ski Resort Tycoon sprites save_cancel_*.  A black rimmed
+       pill, white shading to grey at its foot, yellow under the pointer
+       and grey, shaded under its rim, when pressed, with its label in
+       black over a soft shadow.  One group per state; the game shows
+       one with a stylesheet. -->
+  <defs>
+    <linearGradient id="white" x1="0" y1="8" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E4EAF0"/>
+      <stop offset="0.3" stop-color="#FFFFFF"/>
+      <stop offset="0.74" stop-color="#FFFFFF"/>
+      <stop offset="0.86" stop-color="#DCE0E4"/>
+      <stop offset="1" stop-color="#BEC2CA"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0" y1="8" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAEA9A"/>
+      <stop offset="0.3" stop-color="#FFF673"/>
+      <stop offset="0.74" stop-color="#FFF673"/>
+      <stop offset="0.86" stop-color="#DEDA70"/>
+      <stop offset="1" stop-color="#C2C072"/>
+    </linearGradient>
+    <path id="face" d="M25,8 H107 A18,18 0 0 1 125,26 V26 A18,18 0 0 1 107,44 H25 A18,18 0 0 1 7,26 V26 A18,18 0 0 1 25,8 Z"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="1.49"/>
+    </filter>
+    <path id="label" d="M36.45 28.07C34.91 29.58 33.61 30.15 31.81 30.15C28.33 30.15 25.51 27.42 25.51 24.12C25.51 22.68 26.09 21.15 27.06 20.1C28.2 18.83 29.82 18.16 31.73 18.16C33.91 18.16 35.39 18.83 36.66 20.39H40.55C39.81 18.85 39.15 18.02 37.88 17.03C36.15 15.72 33.94 15 31.65 15C26.34 15 22 19.09 22 24.1C22 29.22 26.39 33.31 31.88 33.31C35.74 33.31 39.07 31.3 40.55 28.07ZM56.73 19.74H53.63V21.51C52.46 20.05 51.06 19.43 49.03 19.43C44.86 19.43 41.87 22.37 41.87 26.42C41.87 30.41 44.84 33.31 48.95 33.31C50.94 33.31 52.28 32.74 53.63 31.28V33H56.73ZM49.39 22.35C51.8 22.35 53.53 24.05 53.53 26.47C53.53 27.42 53.12 28.52 52.51 29.19C51.82 29.98 50.73 30.39 49.44 30.39C46.97 30.39 45.27 28.81 45.27 26.49C45.27 24.07 46.97 22.35 49.39 22.35ZM59.24 33H62.62V26.75C62.62 24.98 62.75 24.22 63.18 23.57C63.71 22.78 64.58 22.35 65.67 22.35C66.56 22.35 67.24 22.64 67.7 23.19C68.16 23.76 68.36 24.74 68.36 26.51V33H71.74V25.89C71.74 23.52 71.49 22.37 70.73 21.34C69.81 20.1 68.29 19.43 66.33 19.43C64.7 19.43 63.61 19.86 62.37 21.01V19.74H59.24ZM84.57 28.64C83.73 29.86 82.77 30.39 81.37 30.39C79.03 30.39 77.28 28.67 77.28 26.35C77.28 24 78.93 22.35 81.29 22.35C82.82 22.35 83.88 22.95 84.57 24.17H88.38C87.9 22.83 87.44 22.13 86.48 21.3C85.1 20.1 83.25 19.43 81.29 19.43C77.13 19.43 73.88 22.47 73.88 26.37C73.88 30.22 77.23 33.31 81.39 33.31C84.7 33.31 87.21 31.61 88.38 28.64ZM104.28 27.78C104.39 27.3 104.41 27.02 104.41 26.54C104.41 22.44 101.34 19.43 97.15 19.43C93 19.43 89.73 22.52 89.73 26.42C89.73 30.3 93.06 33.31 97.35 33.31C99.66 33.31 101.46 32.52 102.94 30.92C103.47 30.3 103.83 29.74 104.06 29.07H100.37C99.51 30.03 98.67 30.39 97.27 30.39C95.27 30.39 93.79 29.39 93.39 27.78ZM93.28 24.98C93.82 23.26 95.19 22.35 97.2 22.35C99.28 22.35 100.65 23.28 101.08 24.98ZM106.62 33H110V15.31H106.62Z"/>
+  </defs>
+
+  <g id="normal" class="state">
+    <path d="M25,3.6 H107 A22.4,22.4 0 0 1 129.4,26 V26 A22.4,22.4 0 0 1 107,48.4 H25 A22.4,22.4 0 0 1 2.6,26 V26 A22.4,22.4 0 0 1 25,3.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#white)"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <path d="M25,3.6 H107 A22.4,22.4 0 0 1 129.4,26 V26 A22.4,22.4 0 0 1 107,48.4 H25 A22.4,22.4 0 0 1 2.6,26 V26 A22.4,22.4 0 0 1 25,3.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#yellow)"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <path d="M25,3.6 H107 A22.4,22.4 0 0 1 129.4,26 V26 A22.4,22.4 0 0 1 107,48.4 H25 A22.4,22.4 0 0 1 2.6,26 V26 A22.4,22.4 0 0 1 25,3.6 Z" fill="#000000"/>
+    <use href="#face" fill="#BCC2C6"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.5,-3)" fill="none" stroke="#5A6068" stroke-width="5" filter="url(#soft)"/>
+    </g>
+  </g>
+  <!-- the label, the same in every state -->
+  <use href="#label" transform="translate(3,3.5)" fill="#4A4A50" fill-opacity="0.65" filter="url(#soft)"/>
+  <use href="#label" fill="#000000"/>
+</svg>

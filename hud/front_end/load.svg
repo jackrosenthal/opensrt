@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 47" width="129" height="47">
+  <!-- Load button of the Load Game screen: vector remake of the
+       original Ski Resort Tycoon sprites Load_load_*.  A black rimmed
+       pill, white shading to grey at its foot, yellow under the pointer
+       and grey, shaded under its rim, when pressed, with its label in
+       black over a soft shadow.  One group per state; the game shows
+       one with a stylesheet. -->
+  <defs>
+    <linearGradient id="white" x1="0" y1="7" x2="0" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E4EAF0"/>
+      <stop offset="0.3" stop-color="#FFFFFF"/>
+      <stop offset="0.74" stop-color="#FFFFFF"/>
+      <stop offset="0.86" stop-color="#DCE0E4"/>
+      <stop offset="1" stop-color="#BEC2CA"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0" y1="7" x2="0" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAEA9A"/>
+      <stop offset="0.3" stop-color="#FFF673"/>
+      <stop offset="0.74" stop-color="#FFF673"/>
+      <stop offset="0.86" stop-color="#DEDA70"/>
+      <stop offset="1" stop-color="#C2C072"/>
+    </linearGradient>
+    <path id="face" d="M25,7 H105 A18,18 0 0 1 123,25 V25 A18,18 0 0 1 105,43 H25 A18,18 0 0 1 7,25 V25 A18,18 0 0 1 25,7 Z"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="1.49"/>
+    </filter>
+    <path id="label" d="M34 32H43.72V28.63H37.67V13H34ZM52.4 17.42C48.09 17.42 44.56 20.79 44.56 24.88C44.56 28.99 48.09 32.33 52.43 32.33C56.74 32.33 60.33 28.99 60.33 24.98C60.33 20.74 56.88 17.42 52.4 17.42ZM52.43 20.56C54.82 20.56 56.74 22.49 56.74 24.88C56.74 27.27 54.82 29.2 52.46 29.2C50.05 29.2 48.14 27.27 48.14 24.83C48.14 22.49 50.07 20.56 52.43 20.56ZM77.37 17.76H74.1V19.66C72.87 18.09 71.4 17.42 69.26 17.42C64.86 17.42 61.7 20.58 61.7 24.93C61.7 29.22 64.83 32.33 69.17 32.33C71.26 32.33 72.68 31.72 74.1 30.15V32H77.37ZM69.63 20.56C72.18 20.56 74 22.38 74 24.98C74 26.01 73.57 27.19 72.93 27.91C72.2 28.76 71.05 29.2 69.68 29.2C67.09 29.2 65.29 27.5 65.29 25.01C65.29 22.41 67.09 20.56 69.63 20.56ZM95 13H91.44V19.02C90.39 17.91 88.68 17.24 86.83 17.24C82.65 17.24 79.38 20.58 79.38 24.85C79.38 29.09 82.6 32.33 86.83 32.33C88.84 32.33 90.29 31.69 91.73 30.15V32H95ZM87.31 20.38C89.8 20.38 91.7 22.28 91.7 24.8C91.7 27.27 89.8 29.2 87.39 29.2C84.9 29.2 82.97 27.24 82.97 24.7C82.97 22.26 84.87 20.38 87.31 20.38Z"/>
+  </defs>
+
+  <g id="normal" class="state">
+    <path d="M25,2.6 H105 A22.4,22.4 0 0 1 127.4,25 V25 A22.4,22.4 0 0 1 105,47.4 H25 A22.4,22.4 0 0 1 2.6,25 V25 A22.4,22.4 0 0 1 25,2.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#white)"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <path d="M25,2.6 H105 A22.4,22.4 0 0 1 127.4,25 V25 A22.4,22.4 0 0 1 105,47.4 H25 A22.4,22.4 0 0 1 2.6,25 V25 A22.4,22.4 0 0 1 25,2.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#yellow)"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <path d="M25,2.6 H105 A22.4,22.4 0 0 1 127.4,25 V25 A22.4,22.4 0 0 1 105,47.4 H25 A22.4,22.4 0 0 1 2.6,25 V25 A22.4,22.4 0 0 1 25,2.6 Z" fill="#000000"/>
+    <use href="#face" fill="#BCC2C6"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.5,-3)" fill="none" stroke="#5A6068" stroke-width="5" filter="url(#soft)"/>
+    </g>
+  </g>
+  <!-- the label, the same in every state -->
+  <use href="#label" transform="translate(3,3.5)" fill="#4A4A50" fill-opacity="0.65" filter="url(#soft)"/>
+  <use href="#label" fill="#000000"/>
+</svg>

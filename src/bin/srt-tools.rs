@@ -626,8 +626,6 @@ enum Command {
     /// `flat:<size>`, a height map (`data/height_maps/<name>.bmp`), or a
     /// level.
     MakeMap { source: String, out: PathBuf },
-    /// Redraw the settings background (a 640x480 PNG) as the game does.
-    SettingsArt { input: PathBuf, out: PathBuf },
     /// List the groups of a UI screen file, optionally saving its sprites.
     DumpUi { file: PathBuf, out: Option<PathBuf> },
     /// List the light nodes of every mesh under a folder.
@@ -659,12 +657,6 @@ fn main() -> Result<()> {
             shot_level(&root, &level, &out, yaw)
         }
         Command::MakeMap { source, out } => make_map(data, &source, &out),
-        Command::SettingsArt { input, out } => {
-            let mut img = formats::texture::load_any(&input)?;
-            srt::ui::settings_art::lift_controls(&mut img);
-            image::RgbaImage::from_raw(img.width, img.height, img.pixels).context("bad image")?.save(&out)?;
-            Ok(())
-        }
         Command::DumpUi { file, out } => dump_ui(&file, out.as_deref()),
         Command::ScanLights { dir } => scan_lights(&dir),
     }

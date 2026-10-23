@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 54" width="135" height="54">
+  <!-- Start button: vector remake of the original Ski Resort Tycoon
+       sprites instant_start_* and challenge_start_* (the same art), on
+       the Instant Action, Challenges, and Map Editor screens.  A black
+       rimmed pill, white shading to grey at its foot, yellow under the
+       pointer and grey, shaded under its rim, when pressed, with its
+       label in black over a soft shadow.  One group per state; the game
+       shows one with a stylesheet. -->
+  <defs>
+    <linearGradient id="white" x1="0" y1="10" x2="0" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E4EAF0"/>
+      <stop offset="0.3" stop-color="#FFFFFF"/>
+      <stop offset="0.74" stop-color="#FFFFFF"/>
+      <stop offset="0.86" stop-color="#DCE0E4"/>
+      <stop offset="1" stop-color="#BEC2CA"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0" y1="10" x2="0" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAEA9A"/>
+      <stop offset="0.3" stop-color="#FFF673"/>
+      <stop offset="0.74" stop-color="#FFF673"/>
+      <stop offset="0.86" stop-color="#DEDA70"/>
+      <stop offset="1" stop-color="#C2C072"/>
+    </linearGradient>
+    <path id="face" d="M27,10 H107 A18,18 0 0 1 125,28 V28 A18,18 0 0 1 107,46 H27 A18,18 0 0 1 9,28 V28 A18,18 0 0 1 27,10 Z"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="1.49"/>
+    </filter>
+    <path id="label" d="M39 28.95C39.14 30.34 39.49 31.22 40.31 32.18C41.51 33.52 43.48 34.31 45.64 34.31C49.27 34.31 52.08 31.85 52.08 28.64C52.08 27.15 51.48 25.91 50.28 24.95C49.49 24.31 48.86 24.02 46.87 23.35C44.95 22.73 44.9 22.7 44.63 22.56C43.89 22.15 43.51 21.6 43.51 20.95C43.51 19.9 44.35 19.16 45.58 19.16C46.84 19.16 47.6 19.83 47.71 21.03H51.59C51.51 19.69 51.15 18.78 50.33 17.89C49.24 16.69 47.49 16 45.61 16C42.33 16 39.74 18.23 39.74 21.03C39.74 23.25 41.21 24.95 43.94 25.84C46.65 26.72 46.84 26.8 47.44 27.2C48.04 27.63 48.37 28.26 48.37 29C48.37 30.27 47.25 31.15 45.64 31.15C43.97 31.15 43.07 30.43 42.91 28.95ZM55.09 34H58.72V23.64H60.9V20.74H58.72V16.31H55.09V20.74H53.31V23.64H55.09ZM77.84 20.74H74.51V22.51C73.25 21.05 71.75 20.43 69.56 20.43C65.08 20.43 61.86 23.37 61.86 27.42C61.86 31.41 65.06 34.31 69.48 34.31C71.61 34.31 73.06 33.74 74.51 32.28V34H77.84ZM69.94 23.35C72.54 23.35 74.4 25.05 74.4 27.47C74.4 28.42 73.96 29.52 73.3 30.19C72.57 30.98 71.39 31.39 70 31.39C67.35 31.39 65.52 29.81 65.52 27.49C65.52 25.07 67.35 23.35 69.94 23.35ZM80.54 34H84.17V26.63C84.09 24.66 85.24 23.56 87.42 23.49V20.43H87.15C85.59 20.43 84.83 20.81 83.87 22.03V20.74H80.54ZM90.18 34H93.82V23.64H96V20.74H93.82V16.31H90.18V20.74H88.41V23.64H90.18Z"/>
+  </defs>
+
+  <g id="normal" class="state">
+    <path d="M27,5.6 H107 A22.4,22.4 0 0 1 129.4,28 V28 A22.4,22.4 0 0 1 107,50.4 H27 A22.4,22.4 0 0 1 4.6,28 V28 A22.4,22.4 0 0 1 27,5.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#white)"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <path d="M27,5.6 H107 A22.4,22.4 0 0 1 129.4,28 V28 A22.4,22.4 0 0 1 107,50.4 H27 A22.4,22.4 0 0 1 4.6,28 V28 A22.4,22.4 0 0 1 27,5.6 Z" fill="#000000"/>
+    <use href="#face" fill="url(#yellow)"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <path d="M27,5.6 H107 A22.4,22.4 0 0 1 129.4,28 V28 A22.4,22.4 0 0 1 107,50.4 H27 A22.4,22.4 0 0 1 4.6,28 V28 A22.4,22.4 0 0 1 27,5.6 Z" fill="#000000"/>
+    <use href="#face" fill="#BCC2C6"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.5,-3)" fill="none" stroke="#5A6068" stroke-width="5" filter="url(#soft)"/>
+    </g>
+  </g>
+  <!-- the label, the same in every state -->
+  <use href="#label" transform="translate(3,3.5)" fill="#4A4A50" fill-opacity="0.65" filter="url(#soft)"/>
+  <use href="#label" fill="#000000"/>
+</svg>

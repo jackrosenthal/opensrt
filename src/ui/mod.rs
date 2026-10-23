@@ -11,7 +11,6 @@ pub mod genmap;
 pub mod menus;
 pub mod minimap;
 pub mod picker;
-pub mod settings_art;
 pub mod snowfall;
 pub mod statwin;
 pub mod windows;

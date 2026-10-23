@@ -100,8 +100,7 @@ const SAVE_NAME: (f32, f32, f32, f32) = (150.0, 160.0, 300.0, 186.0);
 const OPTION_X: f32 = 349.0;
 const OPTION_Y: [f32; 5] = [51.0, 126.0, 205.0, 283.0, 362.0];
 // The left panel's rows where the original has them. Its Renderer and
-// Resolution rows stay in the picture but do nothing here (the picture is
-// to be redone; `settings_art` has an attempt).
+// Resolution rows are drawn as the original has them but do nothing here.
 const DETAIL_Y: f32 = 204.0;
 const LEVEL_OFF_X: f32 = 22.0;
 const SOUND_X: [f32; 5] = [133.0, 159.0, 185.0, 210.0, 235.0];
@@ -118,8 +117,9 @@ pub struct ListState {
 }
 
 /// A check or radio widget at canvas (x, y). The group's elements are
-/// relative to the widget: element 1 is the rollover image and element 2
-/// the selected image. Returns true when clicked.
+/// relative to the widget: element 0 is the empty box, element 1 the
+/// rollover image and element 2 the selected image. Returns true when
+/// clicked.
 #[allow(clippy::too_many_arguments)]
 fn toggle(art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas, rel: ArtFile, group: Group, x: f32, y: f32, on: bool) -> bool {
     let r = art
@@ -129,11 +129,14 @@ fn toggle(art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas, rel: Ar
     let hit = cv.rect_xywh(x + r.x1 as f32, y + r.y1 as f32, r.width() as f32, r.height() as f32);
     let id = ui.scope_id().with((rel.0, group.0, x as i32, y as i32));
     let resp = ui.interact(hit, id, Sense::click());
-    if on {
-        art.widget_element(ui, assets, cv, rel, group, 2, x, y);
+    let index = if on {
+        2
     } else if resp.hovered() {
-        art.widget_element(ui, assets, cv, rel, group, 1, x, y);
-    }
+        1
+    } else {
+        0
+    };
+    art.widget_element(ui, assets, cv, rel, group, index, x, y);
     if resp.clicked() {
         crate::audio::sfx(assets, crate::audio::Sound::UiDownclick);
     }
@@ -187,6 +190,15 @@ fn list(art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas, rel: ArtF
         }
     }
     clicked
+}
+
+/// The mountain scene behind every front-end screen but the main menu:
+/// the credits screen's background. Its only chrome is its title tab,
+/// which each screen's background (vector art) covers with its own.
+fn scene(art: &mut Art, ui: &egui::Ui, assets: &Assets, cv: Canvas) {
+    if let Some((Some(sprite), _)) = art.group_element(assets, CREDITS, art::credits::BACKGROUND, 0) {
+        art.sprite_at(ui, assets, cv, CREDITS, sprite, 0.0, 0.0);
+    }
 }
 
 pub fn level_name(rel: &str) -> String {
@@ -270,6 +282,7 @@ impl Ui {
 
     fn instant_screen(&mut self, art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas, actions: &mut Vec<Action>, challenges: bool) {
         let rel = if challenges { CHALLENGE } else { INSTANT };
+        scene(art, ui, assets, cv);
         art.background(ui, assets, cv, rel, art::list_screen::BACKGROUND);
         // Entries: (label, level, challenge number, description)
         let entries: Vec<(String, String, Option<usize>, String)> = if challenges {
@@ -334,6 +347,7 @@ impl Ui {
     /// 0x4572a0): a flat map of the size typed in, a height map picture,
     /// or a level to edit.
     fn map_editor_screen(&mut self, art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas, actions: &mut Vec<Action>) {
+        scene(art, ui, assets, cv);
         art.background(ui, assets, cv, LEVEL_EDIT, art::level_edit::BACKGROUND);
         let st = &mut self.map_editor;
         for (i, (x, y)) in EDITOR_MODE_POS.into_iter().enumerate() {
@@ -387,6 +401,7 @@ impl Ui {
     }
 
     fn load_screen(&mut self, art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas, actions: &mut Vec<Action>) {
+        scene(art, ui, assets, cv);
         art.background(ui, assets, cv, LOAD, art::load_game::BACKGROUND);
         let mut saves: Vec<std::path::PathBuf> = std::fs::read_dir(saves_dir())
             .map(|rd| rd.flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|e| e == "json")).collect())
@@ -413,6 +428,7 @@ impl Ui {
     }
 
     fn settings_screen(&mut self, art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas) {
+        scene(art, ui, assets, cv);
         art.background(ui, assets, cv, SETTINGS, art::settings::BACKGROUND);
         let s: &mut Settings = &mut self.settings;
         let mut changed = false;
@@ -500,6 +516,7 @@ impl Ui {
     }
 
     fn save_screen(&mut self, art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas, g: &mut Game) {
+        scene(art, ui, assets, cv);
         art.background(ui, assets, cv, SAVE, art::save_game::BACKGROUND);
         // In the map editor the screen lists and saves levels (0x468210).
         let editor = g.world.editor;
@@ -568,6 +585,7 @@ impl Ui {
     }
 
     fn credits_screen(&mut self, art: &mut Art, ui: &mut egui::Ui, assets: &Assets, cv: Canvas) {
+        scene(art, ui, assets, cv);
         art.background(ui, assets, cv, CREDITS, art::credits::BACKGROUND);
         // The credit roll scrolls up through the window.
         let dt = ui.input(|i| i.stable_dt).min(0.1);

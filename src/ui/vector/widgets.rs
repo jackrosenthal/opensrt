@@ -74,6 +74,9 @@ pub const BLUE_NUB: Svg = svg!("widgets/blue_nub");
 /// Radio and check buttons (Radial_on, RADIAL_rollover): states `off`,
 /// `rollover` and `on`.
 pub const CHECK: Svg = svg!("widgets/check");
+/// The small OK pill (the credits screen's OkButton; Bob's Ok is the
+/// same art).
+pub const OK: Svg = svg!("widgets/ok");
 
 /// Files whose `close` group is the red cross.
 const CLOSE_FILES: &[ArtFile] = &[
