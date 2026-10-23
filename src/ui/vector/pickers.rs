@@ -189,6 +189,7 @@ fn bob(group: Group, index: usize) -> Option<Drawing> {
     use art::bob::*;
     match group {
         BACKGROUND => still(svg!("pickers/bob")),
+        OK => button(widgets::OK, index),
         BOB_BUTTON => button(svg!("pickers/bob_button"), index),
         BOB_BUTTON_NORMAL => button(svg!("pickers/bob_button"), index),
         BOB_BUTTON_ROLLOVER => shown(svg!("pickers/bob_button"), "rollover"),
