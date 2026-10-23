@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 150" width="28" height="150">
+  <!-- Vertical scroll track of a stat window's list: vector remake of
+       the original Ski Resort Tycoon sprite vert_text_box.  A black
+       groove with rounded ends, for a nub to slide along. -->
+  <rect x="11" y="0" width="5" height="150" rx="2.5" fill="#000000"/>
+</svg>

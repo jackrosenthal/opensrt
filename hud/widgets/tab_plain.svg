@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 34" width="46" height="34">
+  <!-- Wooden tab: vector remake of the original Ski Resort Tycoon
+       sprites Tab_Plain_Normal and Tab_Plain_Depress.  A pine arch with
+       a dark edge and a pale ridge inside it, its foot flaring out; the
+       chosen one (depress) is paler and stands on the panel.  One group
+       per state; the game shows one with a stylesheet. -->
+  <defs>
+    <path id="ridge" d="M6.5,27 V16.5 A11,11 0 0 1 17.5,5.5 H27 A11,11 0 0 1 38,16.5 V27"/>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+    <!-- faint grain along the wood -->
+    <g id="grain" fill="none" stroke-width="0.7" stroke-opacity="0.2">
+      <path d="M7,10 C15,9.4 26,10.6 38,9.8"/>
+      <path d="M5,15 C14,15.6 28,14.4 40,15.2"/>
+      <path d="M5,20 C16,19.4 27,20.6 40,19.8"/>
+      <path d="M5,25 C14,25.6 30,24.4 40,25.2"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <path d="M0.6,31 C3.4,30.4 4,28 4,25 V16 A15,15 0 0 1 19,1 H26 A15,15 0 0 1 41,16 V25 C41,28 41.6,30.4 44.4,31 Z" fill="#CDA462" stroke="#735229" stroke-width="1.2"/>
+    <use href="#grain" stroke="#A0783C"/>
+    <use href="#ridge" fill="none" stroke="#E6D894" stroke-width="1.2" filter="url(#soft)"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <path d="M0.6,34 C3.4,33 4,30 4,26 V16 A15,15 0 0 1 19,1 H27 A15,15 0 0 1 42,16 V26 C42,30 42.6,33 45.4,34 Z" fill="#FFD58B" stroke="#9C7B4A" stroke-width="1.2"/>
+    <use href="#grain" stroke="#D5AA62"/>
+    <use href="#ridge" fill="none" stroke="#FFFFB4" stroke-width="1.2" filter="url(#soft)"/>
+  </g>
+</svg>

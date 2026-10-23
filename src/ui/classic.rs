@@ -316,7 +316,14 @@ impl Art {
     #[allow(clippy::too_many_arguments)]
     pub fn draw(&mut self, ui: &egui::Ui, assets: &Assets, cv: Canvas, file: ArtFile, group: Group, index: usize, x: f32, y: f32) -> bool {
         if let Some((svg, state)) = vector::element(file, group, index) {
-            self.vector_at(ui, cv, svg, state, x, y);
+            // The drawing replaces the sprite where the element puts it.
+            let (dx, dy) = self
+                .screen(assets, file)
+                .and_then(|s| s.group(group.0))
+                .and_then(|g| g.elements.get(index))
+                .and_then(|e| e.layers.first())
+                .map_or((0, 0), |l| l.dst);
+            self.vector_at(ui, cv, svg, state, x + dx as f32, y + dy as f32);
             return true;
         }
         let Some(layers) = self

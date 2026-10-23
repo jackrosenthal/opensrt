@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36" width="35" height="36">
+  <!-- Ski patrol's eye button's picture: vector remake of the original
+       Ski Resort Tycoon sprites patseye_normal/_rollover/_depress, drawn
+       over the round button frame.  A blue eye between a brown upper lid
+       and a rosy lower one.  The same in every state. -->
+  <defs>
+    <!-- the opening between the lids -->
+    <path id="white" d="M7.6,18.6 C10.6,13.6 14.4,11.8 18.6,11.8 C23.2,11.8 27,13.6 30,16.4 C27.4,21.8 23.4,25 18.4,25 C13.4,25 10,22.6 7.6,18.6 Z"/>
+    <clipPath id="whiteClip"><use href="#white"/></clipPath>
+    <radialGradient id="iris" cx="17.6" cy="18.6" r="5.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#103060"/>
+      <stop offset="0.45" stop-color="#1E64B4"/>
+      <stop offset="0.85" stop-color="#2C8AD8"/>
+      <stop offset="1" stop-color="#164A8C"/>
+    </radialGradient>
+    <linearGradient id="sclera" x1="0" y1="12" x2="0" y2="25" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C8CCD8"/>
+      <stop offset="0.4" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E4E6F0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+  </defs>
+  <!-- the lids: brown above, flicking out at the far corner, rosy below -->
+  <path d="M6.4,18.8 C9.6,12.2 14,9.8 18.6,9.8 C23.6,9.8 28,12 31.4,15.6 L29.6,16.8 C26.8,13.8 23,12.4 18.6,12.4 C14.6,12.4 11,14.4 8.6,18.8 Z" fill="#8C684C"/>
+  <path d="M28.6,13.6 L32,13.2 L30.6,15.2 Z" fill="#7A5A40"/>
+  <path d="M6.6,18.6 C9.4,24 13.4,27.4 18.4,27.4 C23.8,27.4 27.8,23.6 30.6,16.8 L29.6,16.6 C26.8,22.2 23,24.6 18.4,24.6 C13.8,24.6 10.6,22.6 8.2,18.6 Z" fill="#DCA48A"/>
+  <path d="M8,18.6 C10.6,23 14,25.4 18.4,25.4 C23,25.4 26.6,22.8 29.4,17.4" fill="none" stroke="#B87C64" stroke-width="0.7"/>
+  <use href="#white" fill="url(#sclera)"/>
+  <g clip-path="url(#whiteClip)">
+    <circle cx="17.6" cy="18.6" r="5.8" fill="url(#iris)"/>
+    <circle cx="17.6" cy="18.6" r="2.4" fill="#0A0A14"/>
+    <circle cx="16.6" cy="17.4" r="1.1" fill="#FFFFFF" fill-opacity="0.9"/>
+    <!-- the upper lid's shadow on the eye -->
+    <path d="M6,17 C10,12 14,11 18.6,11 C23.6,11 27.6,13 31,16.6" fill="none" stroke="#4A3A30" stroke-opacity="0.55" stroke-width="2" filter="url(#soft)"/>
+  </g>
+  <use href="#white" fill="none" stroke="#5A4434" stroke-width="0.6"/>
+</svg>

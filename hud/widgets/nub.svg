@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 16" width="15" height="16">
+  <!-- Scroll nub: vector remake of the original Ski Resort Tycoon sprite
+       Scroll_Tab (scroll_Tab in the object windows, a pixel to the
+       right there), the black disc that slides along a scroll track. -->
+  <circle cx="7.2" cy="7" r="7.3" fill="#000000"/>
+</svg>

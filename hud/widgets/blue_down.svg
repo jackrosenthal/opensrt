@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="22" height="22">
+  <!-- Blue scroll down arrow: vector remake of the original Ski Resort
+       Tycoon sprites Scroll_Down_Normal/_Rollover/_Depress, the blue
+       scroller of the finances window and the object picker.  A sky blue
+       tile, its foot toward the track, with a ring standing up from it
+       round a chevron: olive, gold under the pointer, and bright yellow
+       with the ring pressed in.  One group per state; the game shows one
+       with a stylesheet. -->
+  <defs>
+    <g id="tile">
+      <rect x="0" y="0" width="22" height="22" rx="2" fill="#4AACDE"/>
+      <rect x="0" y="0" width="22" height="1" fill="#9CD5F6"/>
+      <rect x="0" y="0" width="1" height="22" fill="#9CD5F6"/>
+      <rect x="21" y="0" width="1" height="22" fill="#2073CD"/>
+      <!-- the foot, where the tile meets its track -->
+      <path d="M1,17.6 H21 V22 H1 Z" fill="#4AB4E6"/>
+      <path d="M1,17.6 L3,19.6 V22 H1 Z M21,17.6 L19,19.6 V22 H21 Z" fill="#185A52"/>
+      <rect x="3" y="21" width="16" height="1" fill="#62D5CD"/>
+    </g>
+    <circle id="ring" cx="11" cy="10" r="6.2" fill="none" stroke-width="1.4"/>
+    <path id="chevron" d="M6.8,13.4 L11,7.2 L15.2,13.4 L12.8,13.4 L11,10.8 L9.2,13.4 Z"/>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#tile" transform="rotate(180,11,11)"/>
+    <use href="#ring" stroke="#9CD5F6" transform="translate(-0.4,0.4)"/>
+    <use href="#ring" stroke="#085A5A" stroke-dasharray="17.3 21.7" stroke-dashoffset="10.8" transform="translate(0.4,-0.2)"/>
+    <use href="#chevron" fill="#837300" transform="rotate(180,11,11)"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#tile" transform="rotate(180,11,11)"/>
+    <use href="#ring" stroke="#9CD5F6" transform="translate(-0.4,0.4)"/>
+    <use href="#ring" stroke="#085A5A" stroke-dasharray="17.3 21.7" stroke-dashoffset="10.8" transform="translate(0.4,-0.2)"/>
+    <use href="#chevron" fill="#C5AC00" transform="rotate(180,11,11)"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#tile" transform="rotate(180,11,11)"/>
+    <use href="#ring" stroke="#9CD5F6" transform="translate(0.4,0.2)"/>
+    <use href="#ring" stroke="#08525A" stroke-dasharray="17.3 21.7" stroke-dashoffset="-17.3" transform="translate(-0.4,-0.2)"/>
+    <use href="#chevron" fill="#FFEE00" transform="translate(0,0.6) rotate(180,11,11)"/>
+  </g>
+</svg>

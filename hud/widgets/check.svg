@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" width="21" height="21">
+  <!-- Radio and check button: vector remake of the original Ski Resort
+       Tycoon sprites Radial_on and RADIAL_rollover.  A white box with a
+       black rim, ticked black when on and grey under the pointer.  The
+       original has no sprite for off, as the screens' backgrounds show
+       the empty box; it is the off state here.  One group per state; the
+       game shows one with a stylesheet. -->
+  <defs>
+    <g id="box">
+      <rect x="2" y="2" width="16" height="16" fill="#000000"/>
+      <rect x="4" y="4" width="12" height="12" fill="#FFFFFF"/>
+      <rect x="4" y="4" width="12" height="1" fill="#E6E6E6"/>
+    </g>
+    <path id="tick" d="M6,9.6 L8.6,12 L14,6.8" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </defs>
+
+  <g id="off" class="state">
+    <use href="#box"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#box"/>
+    <use href="#tick" stroke="#838383"/>
+  </g>
+  <g id="on" class="state" display="none">
+    <use href="#box"/>
+    <use href="#tick" stroke="#000000"/>
+  </g>
+</svg>

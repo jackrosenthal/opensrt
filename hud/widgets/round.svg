@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36" width="35" height="36">
+  <!-- Round window button: the frame shared by the original Ski Resort
+       Tycoon's round buttons (focus_*, rename_*, patseye_*, sell_* and
+       the rest), without their pictures.  Each button's picture is its
+       own drawing laid out on this 35x36 grid and drawn over this frame
+       (Svg frame), with the same state shown.  A grey rimmed disc, white,
+       pale yellow when the pointer is over it, and pressed in grey.  One
+       group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <circle id="face" cx="17" cy="17.2" r="14.6"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <!-- a grey shade inside the lower rim -->
+    <g id="foot" clip-path="url(#faceClip)">
+      <circle cx="17" cy="16" r="15.8" fill="none" stroke="#ACACAC" stroke-width="1.6" filter="url(#soft)"/>
+    </g>
+    <g id="rim">
+      <circle cx="17" cy="17.2" r="15.8" fill="none" stroke="#000000" stroke-opacity="0.25" stroke-width="1.2" filter="url(#soft)"/>
+      <circle cx="17" cy="17.2" r="15.1" fill="none" stroke="#505050" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#face" fill="#FFFFFF"/>
+    <use href="#foot"/>
+    <use href="#rim"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#face" fill="#FFFF83"/>
+    <use href="#foot"/>
+    <use href="#rim"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#face" fill="#D5CDD5"/>
+    <!-- pressed in: a shadow along the top inside of the rim -->
+    <g clip-path="url(#faceClip)">
+      <circle cx="17" cy="19" r="16" fill="none" stroke="#525252" stroke-opacity="0.7" stroke-width="3" filter="url(#inset)"/>
+    </g>
+    <use href="#rim"/>
+  </g>
+</svg>

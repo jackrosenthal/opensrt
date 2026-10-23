@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 23" width="350" height="23">
+  <!-- Row highlight of a front-end screen's list: vector remake of the
+       original Ski Resort Tycoon sprite highlightBAR.  A soft grey bar
+       on white behind the chosen row. -->
+  <defs>
+    <filter id="soft" x="-5%" y="-30%" width="110%" height="160%">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+  </defs>
+  <rect width="350" height="23" fill="#FFFFFF"/>
+  <rect x="3.5" y="3" width="343" height="17" rx="5" fill="#B4B4B4" filter="url(#soft)"/>
+</svg>

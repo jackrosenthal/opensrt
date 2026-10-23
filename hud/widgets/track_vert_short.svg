@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 60" width="21" height="60">
+  <!-- Short vertical scroll track: vector remake of the original Ski
+       Resort Tycoon sprite Tray_Vert_short.  A black groove with rounded
+       ends, for a nub to slide along. -->
+  <rect x="8" y="1" width="4" height="58" rx="2" fill="#000000"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 134" width="22" height="134">
+  <!-- Blue vertical scroll track: vector remake of the original Ski
+       Resort Tycoon sprite Scroll_Bar_Vertical, the blue scroller's
+       track in the finances window.  A teal groove sunk between sky blue
+       rails. -->
+  <rect x="0" y="0" width="1" height="134" fill="#9CD5F6"/>
+  <rect x="1" y="0" width="1" height="134" fill="#4AB4E6"/>
+  <rect x="2" y="0" width="1" height="134" fill="#185A52"/>
+  <rect x="3" y="0" width="16" height="134" fill="#418B83"/>
+  <rect x="19" y="0" width="1" height="134" fill="#62DECD"/>
+  <rect x="20" y="0" width="1" height="134" fill="#4AB4E6"/>
+  <rect x="21" y="0" width="1" height="134" fill="#2073CD"/>
+</svg>

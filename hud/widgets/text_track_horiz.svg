@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 31" width="110" height="31">
+  <!-- Horizontal scroll track between a window's arrows: vector remake
+       of the original Ski Resort Tycoon sprite horiz_text_box.  A black
+       groove with rounded ends, for a nub to slide along. -->
+  <rect x="1" y="13" width="108" height="4" rx="2" fill="#000000"/>
+</svg>

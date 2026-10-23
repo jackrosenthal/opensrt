@@ -1,9 +1,15 @@
-//! Vector interface art (`hud/*.svg`) that replaces original sprites: most
-//! of it remakes them, the map view button is a new design. Drawn in the
-//! original's layout pixels so it replaces sprites one for one and can be
-//! rasterized at the display's scale. A drawing with several looks holds
-//! each as a group with `class="state"` (buttons: `normal`, `rollover` and
-//! `depress`), one shown at a time.
+//! Vector interface art (`hud/**/*.svg`) that replaces original sprites:
+//! most of it remakes them, the map view button is a new design. Drawn in
+//! the original's layout pixels so it replaces sprites one for one and can
+//! be rasterized at the display's scale. A drawing with several looks
+//! holds each as a group with `class="state"` (buttons: `normal`,
+//! `rollover` and `depress`), one shown at a time.
+//!
+//! `element` finds the drawing for an original element. The HUD's own
+//! files are mapped here; the windows and screens each have a module of
+//! their own, one function per screen file, and the widgets many of them
+//! share (close buttons, scroll arrows, tabs and so on) are mapped once
+//! for every file that has them, in `widgets`.
 
 use resvg::{tiny_skia, usvg};
 
@@ -14,6 +20,9 @@ use super::art::{self, ArtFile, Group};
 pub struct Svg {
     pub name: &'static str,
     source: &'static str,
+    /// A drawing this one is drawn over, with the same state shown: the
+    /// shared frame of a button or tab whose icon this drawing is.
+    frame: Option<&'static Svg>,
 }
 
 impl Svg {
@@ -42,10 +51,43 @@ impl std::hash::Hash for Svg {
     }
 }
 
+/// `svg!("trays/food")` is `hud/trays/food.svg`; `svg!("widgets/focus" on
+/// ROUND)` is an icon drawn over the frame `ROUND`.
 macro_rules! svg {
     ($name:literal) => {
-        Svg { name: $name, source: include_str!(concat!("../../hud/", $name, ".svg")) }
+        Svg { name: $name, source: include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/hud/", $name, ".svg")), frame: None }
     };
+    ($name:literal on $frame:expr) => {
+        Svg {
+            name: $name,
+            source: include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/hud/", $name, ".svg")),
+            frame: Some(&$frame),
+        }
+    };
+}
+
+mod front_end;
+mod object_windows;
+mod pickers;
+mod stat_windows;
+pub mod widgets;
+
+/// A drawing and the state to show, if it has states.
+pub type Drawing = (Svg, Option<&'static str>);
+
+/// A button's drawing, showing state `index` (normal, rollover, depress).
+fn button(svg: Svg, index: usize) -> Option<Drawing> {
+    Some((svg, Some(state(index))))
+}
+
+/// A drawing showing one named state.
+fn shown(svg: Svg, state: &'static str) -> Option<Drawing> {
+    Some((svg, Some(state)))
+}
+
+/// A drawing with no states.
+fn still(svg: Svg) -> Option<Drawing> {
+    Some((svg, None))
 }
 
 /// The bottom bar, drawn as wide as the window: its root is
@@ -64,20 +106,31 @@ const LOG_OPEN_LONG: Svg = svg!("menus/open_long");
 const ENDCAP: Svg = svg!("menus/endcap");
 
 /// The vector drawing that stands in for element `index` of a group, with
-/// the state to show, if it has one.
-pub fn element(file: ArtFile, group: Group, index: usize) -> Option<(Svg, Option<&'static str>)> {
-    let button = |svg: Svg| Some((svg, Some(state(index))));
-    let shown = |svg: Svg, state: &'static str| Some((svg, Some(state)));
+/// the state to show, if it has one. A screen's own arms come first, so
+/// they can claim elements of a group whose other elements are shared
+/// widgets (a window's panels, say, where one panel is the plain list).
+pub fn element(file: ArtFile, group: Group, index: usize) -> Option<Drawing> {
+    hud(file, group, index)
+        .or_else(|| object_windows::element(file, group, index))
+        .or_else(|| stat_windows::element(file, group, index))
+        .or_else(|| pickers::element(file, group, index))
+        .or_else(|| front_end::element(file, group, index))
+        .or_else(|| widgets::element(file, group, index))
+}
+
+/// The bars, menus and trays of the in-game HUD.
+fn hud(file: ArtFile, group: Group, index: usize) -> Option<Drawing> {
+    let button = |svg: Svg| button(svg, index);
     // A menu log: its three states, element 3 at rest, then the pieces it
     // stretches through while its tray opens.
     let log = |svg: Svg| match index {
         0..=2 => button(svg),
         3 => shown(svg, "normal"),
-        4 => Some((LOG_OPEN_SHORT, None)),
-        _ => Some((LOG_OPEN_LONG, None)),
+        4 => still(LOG_OPEN_SHORT),
+        _ => still(LOG_OPEN_LONG),
     };
     if group == art::extension::ENDCAP && art::extension::FILES.contains(&file) {
-        return Some((ENDCAP, None));
+        return still(ENDCAP);
     }
     match file {
         art::nav_bar::FILE => {
@@ -215,10 +268,11 @@ pub fn state(index: usize) -> &'static str {
     ["normal", "rollover", "depress"][index.min(2)]
 }
 
-/// Draws `svg` (with only state group `state` shown, when given) at
-/// `scale` pixels per layout pixel. `width` replaces the layout width of a
-/// drawing laid out relative to it (its root's `width="1024"`). Returns
-/// the image and the drawing's size in layout pixels.
+/// Draws `svg` (with only state group `state` shown, when given, and over
+/// its frame, if it has one) at `scale` pixels per layout pixel. `width`
+/// replaces the layout width of a drawing laid out relative to it (its
+/// root's `width="1024"`). Returns the image and the drawing's size in
+/// layout pixels.
 pub fn rasterize(svg: Svg, state: Option<&str>, width: Option<f32>, scale: f32) -> Option<(egui::ColorImage, egui::Vec2)> {
     let mut opt = usvg::Options::default();
     if let Some(s) = state {
@@ -229,11 +283,16 @@ pub fn rasterize(svg: Svg, state: Option<&str>, width: Option<f32>, scale: f32) 
         Some(w) => std::borrow::Cow::Owned(svg.source.replacen("width=\"1024\"", &format!("width=\"{w}\""), 1)),
         None => std::borrow::Cow::Borrowed(svg.source),
     };
-    let tree = usvg::Tree::from_str(&source, &opt).map_err(|e| log::warn!("{}.svg: {e}", svg.name)).ok()?;
+    let parse = |svg: &Svg, source: &str| usvg::Tree::from_str(source, &opt).map_err(|e| log::warn!("{}.svg: {e}", svg.name)).ok();
+    let tree = parse(&svg, &source)?;
     let size = egui::Vec2::new(tree.size().width(), tree.size().height());
     let (w, h) = (((size.x * scale).round() as u32).max(1), ((size.y * scale).round() as u32).max(1));
     let mut pixmap = tiny_skia::Pixmap::new(w, h)?;
     let t = tiny_skia::Transform::from_scale(w as f32 / size.x, h as f32 / size.y);
+    // The frame, laid out on the same grid, goes underneath.
+    if let Some(frame) = svg.frame {
+        resvg::render(&parse(frame, frame.source)?, t, &mut pixmap.as_mut());
+    }
     resvg::render(&tree, t, &mut pixmap.as_mut());
     // tiny-skia's pixels are premultiplied, as egui's are.
     let pixels = pixmap

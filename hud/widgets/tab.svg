@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 32" width="35" height="32">
+  <!-- Picker and stat window tab: vector remake of the original Ski
+       Resort Tycoon sprites Tab_Normal and Tab_Depress, and the resort
+       window's tab_depress_empty (dim).  A sky blue card with rounded
+       top corners, lit along its left edge and shaded along its right;
+       the chosen one (depress) is lit along its foot instead, where it
+       meets the panel.  It is also the frame of the pickers' icon tabs,
+       which draw their pictures over it (Svg frame).  One group per
+       state; the game shows one with a stylesheet. -->
+  <defs>
+    <path id="card" d="M0,32 V2.6 A2.6,2.6 0 0 1 2.6,0 H32.4 A2.6,2.6 0 0 1 35,2.6 V32 Z"/>
+    <clipPath id="cardClip"><use href="#card"/></clipPath>
+    <linearGradient id="leftFade" x1="0" y1="0" x2="0" y2="6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9CD5F6"/>
+      <stop offset="1" stop-color="#9CD5F6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rightFade" x1="0" y1="10" x2="0" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#105ACD"/>
+      <stop offset="1" stop-color="#105ACD" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#card" fill="#4AB4E6"/>
+    <g clip-path="url(#cardClip)">
+      <rect x="0" y="0" width="35" height="1" fill="#9CD5F6"/>
+      <rect x="0" y="0" width="1.2" height="31" fill="#9CD5F6"/>
+      <rect x="34" y="0" width="1" height="32" fill="#2973D5"/>
+    </g>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#card" fill="#4AB4E6"/>
+    <g clip-path="url(#cardClip)">
+      <rect x="0" y="0" width="35" height="1" fill="#9CD5F6"/>
+      <rect x="0" y="0" width="1.2" height="6" fill="url(#leftFade)"/>
+      <rect x="34" y="0" width="1" height="32" fill="url(#rightFade)"/>
+      <rect x="0" y="31" width="35" height="1" fill="#9CD5F6"/>
+    </g>
+  </g>
+  <g id="dim" class="state" display="none">
+    <use href="#card" fill="#4A9CC5"/>
+    <g clip-path="url(#cardClip)">
+      <rect x="0" y="0" width="35" height="1" fill="#8BBDD5"/>
+      <rect x="0" y="0" width="1.2" height="6" fill="url(#leftFade)" opacity="0.7"/>
+      <rect x="34" y="0" width="1" height="32" fill="url(#rightFade)" opacity="0.8"/>
+      <rect x="0" y="31" width="35" height="1" fill="#9CD5F6"/>
+    </g>
+  </g>
+</svg>
