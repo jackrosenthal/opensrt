@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 39" width="36" height="39">
+  <!-- Zoom in button: vector remake of the original Ski Resort Tycoon
+       sprites zoomin_normal/_rollover/_depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The disc, shared by every bar button. -->
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.7"/>
+    </filter>
+    <radialGradient id="faceNormal" cx="0.5" cy="0.5" r="0.5" fx="0.36" fy="0.34">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.82" stop-color="#FFFFFF"/>
+      <stop offset="0.93" stop-color="#E4E4E6"/>
+      <stop offset="1" stop-color="#B8B8BC"/>
+    </radialGradient>
+    <radialGradient id="faceRollover" cx="0.5" cy="0.5" r="0.5" fx="0.36" fy="0.34">
+      <stop offset="0" stop-color="#FFFFB8"/>
+      <stop offset="0.3" stop-color="#FFFF86"/>
+      <stop offset="0.8" stop-color="#FFFF7E"/>
+      <stop offset="0.92" stop-color="#E6E070"/>
+      <stop offset="1" stop-color="#9C9A58"/>
+    </radialGradient>
+    <clipPath id="faceClip"><circle cx="18.1" cy="19.3" r="14"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.3"/>
+    </filter>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <circle cx="18.1" cy="19.3" r="14" fill="#C6C6C6"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="19.6" cy="20.9" r="16.2" fill="none" stroke="#1E1E1E" stroke-width="4.4" filter="url(#inset)"/>
+      </g>
+    </g>
+    <linearGradient id="ring" x1="6.8" y1="6.3" x2="28.8" y2="32.3" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7A7A7A"/>
+      <stop offset="0.5" stop-color="#4A4A4A"/>
+      <stop offset="1" stop-color="#3A3A40"/>
+    </linearGradient>
+    <g id="disc">
+      <!-- shadow on the bar, down and to the right -->
+      <circle cx="18.7" cy="20.3" r="15.6" fill="#28305A" fill-opacity="0.32" filter="url(#soft)"/>
+      <!-- pale halo round the rim -->
+      <circle cx="18.1" cy="19.3" r="15.4" fill="none" stroke="#B4B4B8" stroke-width="1" stroke-opacity="0.8"/>
+    </g>
+    <circle id="rim" cx="18.1" cy="19.3" r="14.6" fill="none" stroke="url(#ring)" stroke-width="1.1"/>
+    <circle id="face" cx="18.1" cy="19.3" r="14"/>
+
+    <!-- The plus: one blue cross with a lit top-left edge, shading to the
+         bottom right, and a dark underside showing its depth. -->
+    <path id="cross" d="M15.6,9 H20.8 V16 H28.4 V21.2 H20.8 V28.2 H15.6 V21.2 H8 V16 H15.6 Z"/>
+    <clipPath id="crossClip"><use href="#cross"/></clipPath>
+    <linearGradient id="crossFace" x1="0" y1="9" x2="0" y2="28.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8CB0FF"/>
+      <stop offset="0.38" stop-color="#7092F8"/>
+      <stop offset="0.62" stop-color="#5672DA"/>
+      <stop offset="1" stop-color="#3C4E9C"/>
+    </linearGradient>
+    <linearGradient id="crossShade" x1="8" y1="0" x2="28.4" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.1"/>
+      <stop offset="0.45" stop-color="#000020" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000020" stop-opacity="0.22"/>
+    </linearGradient>
+    <filter id="bevel" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="0.35"/>
+    </filter>
+    <g id="plus">
+      <!-- underside: dark brown with a dark blue lip -->
+      <use href="#cross" transform="translate(0.5,1.9)" fill="#332A20"/>
+      <use href="#cross" transform="translate(0.3,1.1)" fill="#232B56"/>
+      <use href="#cross" fill="url(#crossFace)"/>
+      <g clip-path="url(#crossClip)">
+        <use href="#cross" fill="url(#crossShade)"/>
+        <!-- lit along the top and left edges, shaded along the bottom and right -->
+        <path fill-rule="evenodd" fill="#E2EEFF" fill-opacity="0.65" filter="url(#bevel)"
+              d="M0,0 H36 V39 H0 Z M16.4,9.8 H21.6 V16.8 H29.2 V22 H21.6 V29 H16.4 V22 H8.8 V16.8 H16.4 Z"/>
+        <path fill-rule="evenodd" fill="#101C58" fill-opacity="0.38" filter="url(#bevel)"
+              d="M0,0 H36 V39 H0 Z M14.9,8.3 H20.1 V15.3 H27.7 V20.5 H20.1 V27.5 H14.9 V20.5 H7.3 V15.3 H14.9 Z"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal">
+    <use href="#disc"/>
+    <use href="#face" fill="url(#faceNormal)"/>
+    <use href="#rim"/>
+    <use href="#plus"/>
+  </g>
+  <g id="rollover" display="none">
+    <use href="#disc"/>
+    <use href="#face" fill="url(#faceRollover)"/>
+    <use href="#rim"/>
+    <use href="#plus" transform="translate(0,-1)"/>
+  </g>
+  <g id="depress" display="none">
+    <use href="#disc"/>
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#plus" transform="translate(1,0)"/>
+  </g>
+</svg>

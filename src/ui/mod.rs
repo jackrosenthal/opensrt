@@ -16,6 +16,7 @@ pub mod snowfall;
 pub mod statwin;
 pub mod windows;
 pub mod style;
+pub mod vector;
 
 use std::path::PathBuf;
 

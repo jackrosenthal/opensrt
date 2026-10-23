@@ -7,6 +7,7 @@ use egui::{Color32, FontFamily, FontId, Pos2, Rect as ERect, TextureHandle, Text
 
 use super::fonts::{ARIAL, ARIAL_BOLD};
 use super::art::{ArtFile, Group};
+use super::vector::{self, Svg};
 use crate::assets::Assets;
 use crate::formats::ui::{Rect, Screen};
 
@@ -113,6 +114,10 @@ pub struct Art {
     /// Textures resampled per display scale (in eighths), with the frame
     /// they were last used in.
     textures: HashMap<(String, usize, u32), (Option<(TextureHandle, Vec2)>, u64)>,
+    /// Vector art rasterized per display scale (in eighths), shown
+    /// state and width (in device pixels, for drawings without their own),
+    /// with the frame they were last used in.
+    vectors: HashMap<(Svg, Option<&'static str>, u32, Option<u32>), (Option<(TextureHandle, Vec2)>, u64)>,
 }
 
 impl Default for Art {
@@ -158,6 +163,7 @@ impl Art {
             sounds: UiSounds::Menu,
             screens: HashMap::new(),
             textures: HashMap::new(),
+            vectors: HashMap::new(),
         }
     }
 
@@ -199,6 +205,48 @@ impl Art {
         });
         self.textures.insert(key, (t.clone(), frame));
         t
+    }
+
+    fn vector_texture(&mut self, ctx: &egui::Context, cv: Canvas, svg: Svg, state: Option<&'static str>, width: Option<f32>) -> Option<(TextureHandle, Vec2)> {
+        let q = (cv.device_scale() * 8.0).round().max(1.0) as u32;
+        let scale = q as f32 / 8.0;
+        let frame = ctx.cumulative_pass_nr();
+        let key = (svg, state, q, width.map(|w| (w * scale).round() as u32));
+        if let Some(t) = self.vectors.get_mut(&key) {
+            t.1 = frame;
+            return t.0.clone();
+        }
+        // A drawing made to a width is redrawn whenever the window is
+        // resized, so its other widths go as soon as they are unused.
+        self.vectors.retain(|k, t| k.0 != svg || k.3.is_none() || t.1 == frame);
+        if self.vectors.len() > 64 {
+            self.vectors.retain(|_, t| frame.saturating_sub(t.1) < 120);
+        }
+        let t = vector::rasterize(svg, state, width, scale).map(|(img, size)| {
+            let name = format!("{}.svg:{}", svg.name, state.unwrap_or(""));
+            (ctx.load_texture(name, img, TextureOptions::LINEAR), size)
+        });
+        self.vectors.insert(key, (t.clone(), frame));
+        t
+    }
+
+    /// Paints vector art with its top-left at canvas (x, y), showing
+    /// only group `state` when given.
+    pub fn vector_at(&mut self, ui: &egui::Ui, cv: Canvas, svg: Svg, state: Option<&'static str>, x: f32, y: f32) {
+        self.vector_paint(ui, cv, svg, state, None, x, y);
+    }
+
+    /// Paints vector art that has no width of its own `width` canvas
+    /// pixels wide, with its top-left at canvas (x, y).
+    pub fn vector_wide(&mut self, ui: &egui::Ui, cv: Canvas, svg: Svg, width: f32, x: f32, y: f32) {
+        self.vector_paint(ui, cv, svg, None, Some(width), x, y);
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn vector_paint(&mut self, ui: &egui::Ui, cv: Canvas, svg: Svg, state: Option<&'static str>, width: Option<f32>, x: f32, y: f32) {
+        let Some((tex, size)) = self.vector_texture(ui.ctx(), cv, svg, state, width) else { return };
+        let uv = ERect::from_min_max(Pos2::ZERO, Pos2::new(1.0, 1.0));
+        ui.painter().image(tex.id(), cv.rect_xywh(x, y, size.x, size.y), uv, Color32::WHITE);
     }
 
     /// Paints a sprite with its top-left at canvas (x, y).

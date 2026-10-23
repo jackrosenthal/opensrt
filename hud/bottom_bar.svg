@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="60">
+  <!-- Bottom bar: vector remake of rows 708..768 of the original Ski
+       Resort Tycoon 1024x768 frame art. The game draws it as wide as the
+       window (in layout pixels, at least 1024) by setting the root's
+       width, so the left part keeps its layout x, the right part is laid
+       out from the right edge (layout x 790..1024 of a 1024-wide bar) and
+       the message box runs between them. The view buttons and the
+       snowflakes are drawn over it. -->
+  <defs>
+    <!-- The slab's face, sampled down the original. -->
+    <linearGradient id="face" x1="0" y1="711" x2="0" y2="764" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ACBDEE"/>
+      <stop offset="0.028" stop-color="#ACBDEE"/>
+      <stop offset="0.085" stop-color="#C5CDF6"/>
+      <stop offset="0.142" stop-color="#DEE6FF"/>
+      <stop offset="0.198" stop-color="#F6F6FF"/>
+      <stop offset="0.217" stop-color="#FFFFFF"/>
+      <stop offset="0.33" stop-color="#FFFFFF"/>
+      <stop offset="0.377" stop-color="#F6F6FF"/>
+      <stop offset="0.453" stop-color="#EEEEFF"/>
+      <stop offset="0.528" stop-color="#DEE6FF"/>
+      <stop offset="0.613" stop-color="#D5DEF6"/>
+      <stop offset="0.708" stop-color="#C5D5F6"/>
+      <stop offset="0.774" stop-color="#BDCDF6"/>
+      <stop offset="0.849" stop-color="#B4C5EE"/>
+      <stop offset="0.915" stop-color="#ACBDEE"/>
+      <stop offset="1" stop-color="#A4B4E6"/>
+    </linearGradient>
+    <!-- The slab: face with its top and bottom bevels. -->
+    <g id="slab">
+      <rect x="0" y="708" width="100%" height="60" fill="url(#face)"/>
+      <rect x="0" y="708" width="100%" height="1" fill="#000000"/>
+      <rect x="0" y="709" width="100%" height="1" fill="#6E7690"/>
+      <rect x="0" y="710" width="100%" height="1" fill="#C5D2F6"/>
+      <rect x="0" y="764" width="100%" height="1" fill="#7B8BAC"/>
+      <rect x="0" y="765" width="100%" height="1" fill="#525A7B"/>
+      <rect x="0" y="766" width="100%" height="1" fill="#182029"/>
+      <rect x="0" y="767" width="100%" height="1" fill="#000000"/>
+    </g>
+    <!-- A slab's edge at a seam: its face shades off into the seam, and
+         the next slab catches a little light coming out of it. -->
+    <linearGradient id="intoSeam">
+      <stop offset="0" stop-color="#20203A" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#20203A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#20203A" stop-opacity="0.62"/>
+    </linearGradient>
+    <linearGradient id="outOfSeam">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-5%" y="-30%" width="110%" height="160%">
+      <feGaussianBlur stdDeviation="0.9"/>
+    </filter>
+    <!-- A text box has a black rim and a white inside, shaded toward the
+         bottom right: dark everywhere but the inside moved up and left,
+         blurred and kept to the inside. -->
+    <clipPath id="msgInside"><rect x="212" y="719.2" width="100%" height="38.4" rx="13.6"/></clipPath>
+    <mask id="msgLit" maskUnits="userSpaceOnUse" x="0" y="700" width="100%" height="80">
+      <rect x="0" y="700" width="100%" height="80" fill="#FFFFFF"/>
+      <rect x="210.4" y="716.8" width="100%" height="38.4" rx="13.6" fill="#000000"/>
+    </mask>
+    <clipPath id="rightPart"><rect x="790" y="708" width="234" height="60"/></clipPath>
+    <clipPath id="msgEndInside"><rect x="600" y="719.2" width="201.8" height="38.4" rx="13.6"/></clipPath>
+    <clipPath id="dateInside"><rect x="846.2" y="719.2" width="121.8" height="38.4" rx="13.6"/></clipPath>
+  </defs>
+
+  <g transform="translate(0,-708)">
+    <use href="#slab"/>
+
+    <!-- Screen edge -->
+    <rect x="0" y="708" width="2.4" height="60" fill="#08080C"/>
+    <rect x="2.4" y="709" width="2.6" height="56" fill="url(#outOfSeam)"/>
+
+    <!-- Seam between the button slab and the message slab -->
+    <rect x="158.9" y="709" width="4.6" height="57" fill="url(#intoSeam)"/>
+    <rect x="163.5" y="708" width="2" height="60" fill="#08080C"/>
+    <rect x="165.5" y="709" width="2.6" height="56" fill="url(#outOfSeam)"/>
+
+    <!-- Message box from its left end on; the right part draws its end. -->
+    <rect x="209.2" y="716.6" width="100%" height="43.4" rx="16.5" fill="#000000"/>
+    <rect x="212" y="719.2" width="100%" height="38.4" rx="13.6" fill="#FFFFFF"/>
+    <g clip-path="url(#msgInside)">
+      <g filter="url(#soft)">
+        <rect x="0" y="700" width="100%" height="80" fill="#3C3C3C" mask="url(#msgLit)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right part, from the right edge: layout x 790..1024 of a 1024-wide bar. -->
+  <svg x="100%" y="0" overflow="visible">
+    <g transform="translate(-1024,-708)" clip-path="url(#rightPart)">
+      <use href="#slab"/>
+
+      <!-- End of the message box (x 209.2..804.6 in a 1024-wide bar) -->
+      <rect x="590" y="716.6" width="214.6" height="43.4" rx="16.5" fill="#000000"/>
+      <rect x="600" y="719.2" width="201.8" height="38.4" rx="13.6" fill="#FFFFFF"/>
+      <g clip-path="url(#msgEndInside)">
+        <path fill-rule="evenodd" fill="#3C3C3C" filter="url(#soft)"
+              d="M580,700 H830 V780 H580 Z
+                 M612,716.8 H786.6 A13.6,13.6 0 0 1 800.2,730.4 V741.6 A13.6,13.6 0 0 1 786.6,755.2
+                 H612 A13.6,13.6 0 0 1 598.4,741.6 V730.4 A13.6,13.6 0 0 1 612,716.8 Z"/>
+      </g>
+
+      <!-- Date and occupancy box -->
+      <rect x="843.4" y="716.6" width="127.4" height="43.4" rx="16.5" fill="#000000"/>
+      <rect x="846.2" y="719.2" width="121.8" height="38.4" rx="13.6" fill="#FFFFFF"/>
+      <g clip-path="url(#dateInside)">
+        <path fill-rule="evenodd" fill="#3C3C3C" filter="url(#soft)"
+              d="M830,700 H990 V780 H830 Z
+                 M858.2,716.8 H952.8 A13.6,13.6 0 0 1 966.4,730.4 V741.6 A13.6,13.6 0 0 1 952.8,755.2
+                 H858.2 A13.6,13.6 0 0 1 844.6,741.6 V730.4 A13.6,13.6 0 0 1 858.2,716.8 Z"/>
+      </g>
+
+      <!-- Seam before the map view button's slab -->
+      <rect x="972.9" y="709" width="4.6" height="57" fill="url(#intoSeam)"/>
+      <rect x="977.5" y="708" width="2" height="60" fill="#08080C"/>
+      <rect x="979.5" y="709" width="2.6" height="56" fill="url(#outOfSeam)"/>
+
+      <!-- Screen edge -->
+      <rect x="1017.4" y="709" width="4.6" height="57" fill="url(#intoSeam)"/>
+      <rect x="1022" y="708" width="2" height="60" fill="#08080C"/>
+    </g>
+  </svg>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bottom-bar snowflake (Ski Resort Tycoon: Deep Powder), 32x36.
+     Place the viewBox top-left at 1024-layout (174, 721) for the copy left of
+     the message box, and at (809, 721) for the copy between the message box
+     and the date box.  The two originals are the same design; they differ
+     only in pixel-level antialiasing. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="32" height="36" viewBox="0 0 32 36">
+  <defs>
+    <!-- One arm: spoke from the center plus a pair of side branches. -->
+    <path id="arm" d="M0,0 V-13.4 M0,-8.4 L-4.41,-10.75 M0,-8.4 L4.41,-10.75"/>
+    <g id="flake">
+      <use xlink:href="#arm"/>
+      <use xlink:href="#arm" transform="rotate(60)"/>
+      <use xlink:href="#arm" transform="rotate(120)"/>
+      <use xlink:href="#arm" transform="rotate(180)"/>
+      <use xlink:href="#arm" transform="rotate(240)"/>
+      <use xlink:href="#arm" transform="rotate(300)"/>
+    </g>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.75"/>
+    </filter>
+  </defs>
+  <g transform="translate(15,17)">
+    <!-- Soft shadow of the arms on the bar, toward the lower right. -->
+    <use xlink:href="#flake" transform="translate(1,1.3)" filter="url(#drop)" opacity="0.5"
+         fill="none" stroke="#4A5068" stroke-width="2.6" stroke-linecap="round"/>
+    <!-- Emboss: dark copy of the arms offset up-left, then the white arms. -->
+    <use xlink:href="#flake" transform="translate(-1.4,-0.9)" filter="url(#soft)" opacity="0.85"
+         fill="none" stroke="#30343c" stroke-width="1.6" stroke-linecap="round"/>
+    <use xlink:href="#flake"
+         fill="none" stroke="#fafafc" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>

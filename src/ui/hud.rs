@@ -7,6 +7,7 @@ use egui::{Color32, FontFamily, FontId, Pos2, Rect as ERect, Sense, Vec2};
 use super::art::{self, ArtFile, Group};
 use super::classic::{Art, Canvas, TextStyle};
 use super::fonts::{ARIAL, ARIAL_BOLD};
+use super::vector;
 use crate::assets::Assets;
 use crate::formats::eng::Strings;
 use crate::game::{Game, TerrainTool};
@@ -38,6 +39,9 @@ const FONT1: TextStyle = TextStyle {
     bold: true,
     color: Color32::from_rgb(0x0a, 0x4b, 0xce),
 };
+
+/// Where the bottom bar's two snowflakes go (top left, 1024×768 layout).
+const SNOWFLAKES: [(f32, f32); 2] = [(174.0, 721.0), (809.0, 721.0)];
 
 /// Thresholds on the 0..1000 resort score for half and full stars.
 const STAR_HALF: [f32; 5] = [50.0, 200.0, 400.0, 600.0, 800.0];
@@ -579,7 +583,7 @@ impl Hud {
         // The editor's buttons are laid out around the middle.
         let at = |x: f32, y: f32| if editor { f.cv(Anchor::Center, y > LAYOUT.y * 0.5) } else { f.at(x, y) };
         if editor {
-            self.editor_frame(ui, art, assets, f);
+            self.editor_frame(ui, art, f);
         } else {
             self.frame(ui, art, assets, f);
             self.readouts(ui, art, assets, strings, f, g);
@@ -689,46 +693,45 @@ impl Hud {
     }
 
     /// Draws the frame: three top parts and two bottom parts at their
-    /// anchors, with the plain bar stretched between them.
+    /// anchors, with the plain bar stretched between them. The bottom bar
+    /// is drawn from its vector remake.
     fn frame(&mut self, ui: &egui::Ui, art: &mut Art, assets: &Assets, f: Frame) {
-        let Some(sprite) = art.group_element(assets, NAV, art::nav_bar::BACKGROUND_1024, 0).and_then(|e| e.0) else { return };
         let s = f.s;
         let src = |x1: f32, y1: f32, x2: f32, y2: f32| ERect::from_min_max(Pos2::new(x1, y1), Pos2::new(x2, y2));
+        let gap = |a: Pos2, b: Pos2| ERect::from_min_max(a, b);
         let left = f.cv(Anchor::Left, false);
         let center = f.cv(Anchor::Center, false);
         let right = f.cv(Anchor::Right, false);
         let bl = f.cv(Anchor::Left, true);
-        let br = f.cv(Anchor::Right, true);
         // Top: rows 0..74, plain bar 0..23 between the parts.
-        let parts = [
-            (left, 0.0, 430.0),
-            (center, 430.0, 594.0),
-            (right, 594.0, 1024.0),
-        ];
-        for (cv, x1, x2) in parts {
-            art.sprite_stretch(ui, assets, cv, NAV, sprite, src(x1, 0.0, x2, 74.0), cv.rect_xywh(x1, 0.0, x2 - x1, 74.0));
+        if let Some(sprite) = art.group_element(assets, NAV, art::nav_bar::BACKGROUND_1024, 0).and_then(|e| e.0) {
+            let parts = [
+                (left, 0.0, 430.0),
+                (center, 430.0, 594.0),
+                (right, 594.0, 1024.0),
+            ];
+            for (cv, x1, x2) in parts {
+                art.sprite_stretch(ui, assets, cv, NAV, sprite, src(x1, 0.0, x2, 74.0), cv.rect_xywh(x1, 0.0, x2 - x1, 74.0));
+            }
+            art.sprite_stretch(ui, assets, left, NAV, sprite, src(420.0, 0.0, 421.0, 23.0), gap(left.pos(430.0, 0.0), center.pos(430.0, 23.0)));
+            art.sprite_stretch(ui, assets, left, NAV, sprite, src(610.0, 0.0, 611.0, 23.0), gap(center.pos(594.0, 0.0), right.pos(594.0, 23.0)));
         }
-        let gap = |a: Pos2, b: Pos2| ERect::from_min_max(a, b);
-        art.sprite_stretch(ui, assets, left, NAV, sprite, src(420.0, 0.0, 421.0, 23.0), gap(left.pos(430.0, 0.0), center.pos(430.0, 23.0)));
-        art.sprite_stretch(ui, assets, left, NAV, sprite, src(610.0, 0.0, 611.0, 23.0), gap(center.pos(594.0, 0.0), right.pos(594.0, 23.0)));
-        // Bottom: rows 708..768, message box stretched in the middle.
-        art.sprite_stretch(ui, assets, bl, NAV, sprite, src(0.0, 708.0, 230.0, 768.0), bl.rect_xywh(0.0, 708.0, 230.0, 60.0));
-        art.sprite_stretch(ui, assets, br, NAV, sprite, src(790.0, 708.0, 1024.0, 768.0), br.rect_xywh(790.0, 708.0, 234.0, 60.0));
-        art.sprite_stretch(ui, assets, bl, NAV, sprite, src(500.0, 708.0, 501.0, 768.0), gap(bl.pos(230.0, 708.0), br.pos(790.0, 768.0)));
+        // Bottom: rows 708..768, as wide as the window.
+        art.vector_wide(ui, bl, vector::BOTTOM_BAR, f.screen.width() / s, 0.0, 708.0);
+        for (x, y) in SNOWFLAKES {
+            art.vector_at(ui, f.at(x, y), vector::SNOWFLAKE, None, x, y);
+        }
         self.blocks.push(ERect::from_min_max(f.screen.min, Pos2::new(f.screen.max.x, f.screen.min.y + 23.0 * s)));
         self.blocks.push(ERect::from_min_max(center.pos(440.0, 0.0), center.pos(584.0, 74.0)));
         self.blocks.push(ERect::from_min_max(Pos2::new(f.screen.min.x, bl.pos(0.0, 708.0).y), f.screen.max));
     }
 
     /// The map editor's frame: just the panel under the view controls
-    /// (`1024TEBackground`, rows 708..768).
-    fn editor_frame(&mut self, ui: &egui::Ui, art: &mut Art, assets: &Assets, f: Frame) {
-        let Some(sprite) = art.group_element(assets, NAV, art::nav_bar::TE_BACKGROUND_1024, 0).and_then(|e| e.0) else { return };
-        let src = ERect::from_min_max(Pos2::new(387.0, 708.0), Pos2::new(641.0, 768.0));
+    /// (a vector remake of `1024TEBackground`, rows 708..768).
+    fn editor_frame(&mut self, ui: &egui::Ui, art: &mut Art, f: Frame) {
         let cv = f.cv(Anchor::Center, true);
-        let area = cv.rect_xywh(387.0, 708.0, 254.0, 60.0);
-        art.sprite_stretch(ui, assets, cv, NAV, sprite, src, area);
-        self.blocks.push(area);
+        art.vector_at(ui, cv, vector::EDITOR_BOTTOM, None, 387.0, 708.0);
+        self.blocks.push(cv.rect_xywh(387.0, 708.0, 254.0, 60.0));
     }
 
     fn readouts(&mut self, ui: &egui::Ui, art: &mut Art, assets: &Assets, strings: &Strings, f: Frame, g: &Game) {
@@ -818,7 +821,12 @@ impl Hud {
         } else {
             0
         };
-        art.draw(ui, assets, cv, rel, group, state, x, y);
+        match vector::button(rel, group) {
+            Some(svg) => art.vector_at(ui, cv, svg, Some(vector::state(state)), x, y),
+            None => {
+                art.draw(ui, assets, cv, rel, group, state, x, y);
+            }
+        }
         self.track(&resp, area, tip, assets);
         if resp.clicked() {
             crate::audio::sfx(assets, crate::audio::Sound::IngameDownclick);

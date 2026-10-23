@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="387 708 254 60" width="254" height="60">
+  <!-- Map editor's bottom panel (1024x768 layout x 387..641, under the
+       view buttons): vector remake of the original Ski Resort Tycoon
+       1024TEBackground art. A plain slab; the buttons are drawn over it. -->
+  <defs>
+    <linearGradient id="face" x1="0" y1="711" x2="0" y2="764" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ACBDEE"/>
+      <stop offset="0.028" stop-color="#ACBDEE"/>
+      <stop offset="0.085" stop-color="#C5CDF6"/>
+      <stop offset="0.142" stop-color="#DEE6FF"/>
+      <stop offset="0.198" stop-color="#F6F6FF"/>
+      <stop offset="0.217" stop-color="#FFFFFF"/>
+      <stop offset="0.33" stop-color="#FFFFFF"/>
+      <stop offset="0.377" stop-color="#F6F6FF"/>
+      <stop offset="0.453" stop-color="#EEEEFF"/>
+      <stop offset="0.528" stop-color="#DEE6FF"/>
+      <stop offset="0.613" stop-color="#D5DEF6"/>
+      <stop offset="0.708" stop-color="#C5D5F6"/>
+      <stop offset="0.774" stop-color="#BDCDF6"/>
+      <stop offset="0.849" stop-color="#B4C5EE"/>
+      <stop offset="0.915" stop-color="#ACBDEE"/>
+      <stop offset="1" stop-color="#A4B4E6"/>
+    </linearGradient>
+    <g id="bevels">
+      <rect x="0" y="708" width="1024" height="1" fill="#000000"/>
+      <rect x="0" y="709" width="1024" height="1" fill="#6E7690"/>
+      <rect x="0" y="710" width="1024" height="1" fill="#C5D2F6"/>
+      <rect x="0" y="764" width="1024" height="1" fill="#7B8BAC"/>
+      <rect x="0" y="765" width="1024" height="1" fill="#525A7B"/>
+      <rect x="0" y="766" width="1024" height="1" fill="#182029"/>
+      <rect x="0" y="767" width="1024" height="1" fill="#000000"/>
+    </g>
+    <!-- A slab's edge at a seam: its face shades off into the seam, and
+         the next slab catches a little light coming out of it. -->
+    <linearGradient id="intoSeam">
+      <stop offset="0" stop-color="#20203A" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#20203A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#20203A" stop-opacity="0.62"/>
+    </linearGradient>
+    <linearGradient id="outOfSeam">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="387" y="708" width="254" height="60" fill="url(#face)"/>
+  <use href="#bevels"/>
+
+  <!-- Left edge -->
+  <rect x="387" y="708" width="1.4" height="60" fill="#08080C"/>
+  <rect x="388.4" y="709" width="2.6" height="56" fill="url(#outOfSeam)"/>
+
+  <!-- Right edge -->
+  <rect x="634.4" y="709" width="4.6" height="57" fill="url(#intoSeam)"/>
+  <rect x="639" y="708" width="2" height="60" fill="#08080C"/>
+</svg>

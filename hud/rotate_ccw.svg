@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39" width="38" height="39">
+  <!-- Rotate counterclockwise button: vector remake of the original Ski Resort Tycoon
+       sprites RotL_normal/_rollover/_depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The disc, shared by every bar button. -->
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.7"/>
+    </filter>
+    <radialGradient id="faceNormal" cx="0.5" cy="0.5" r="0.5" fx="0.36" fy="0.34">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.82" stop-color="#FFFFFF"/>
+      <stop offset="0.93" stop-color="#E4E4E6"/>
+      <stop offset="1" stop-color="#B8B8BC"/>
+    </radialGradient>
+    <radialGradient id="faceRollover" cx="0.5" cy="0.5" r="0.5" fx="0.36" fy="0.34">
+      <stop offset="0" stop-color="#FFFFB8"/>
+      <stop offset="0.3" stop-color="#FFFF86"/>
+      <stop offset="0.8" stop-color="#FFFF7E"/>
+      <stop offset="0.92" stop-color="#E6E070"/>
+      <stop offset="1" stop-color="#9C9A58"/>
+    </radialGradient>
+    <clipPath id="faceClip"><circle cx="19" cy="19.7" r="14"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.3"/>
+    </filter>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <circle cx="19" cy="19.7" r="14" fill="#C6C6C6"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.5" cy="21.3" r="16.2" fill="none" stroke="#1E1E1E" stroke-width="4.4" filter="url(#inset)"/>
+      </g>
+    </g>
+    <linearGradient id="ring" x1="7.7" y1="6.7" x2="29.7" y2="32.7" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7A7A7A"/>
+      <stop offset="0.5" stop-color="#4A4A4A"/>
+      <stop offset="1" stop-color="#3A3A40"/>
+    </linearGradient>
+    <g id="disc">
+      <!-- shadow on the bar, down and to the right -->
+      <circle cx="19.6" cy="20.7" r="15.6" fill="#28305A" fill-opacity="0.32" filter="url(#soft)"/>
+      <!-- pale halo round the rim -->
+      <circle cx="19" cy="19.7" r="15.4" fill="none" stroke="#B4B4B8" stroke-width="1" stroke-opacity="0.8"/>
+    </g>
+    <circle id="rim" cx="19" cy="19.7" r="14.6" fill="none" stroke="url(#ring)" stroke-width="1.1"/>
+    <circle id="face" cx="19" cy="19.7" r="14"/>
+
+    <!-- The arrow: a thick red ribbon seen from above, curling round in a
+         loop and coming back over its own start as the head.  A copy of the
+         top face shifted down makes the side walls; the face is shaded by a
+         soft bevel (light upper left) that follows every curve, with a glossy
+         streak along the outside of the curl. -->
+    <path id="loop" d="M 14.4,21.4 L 14.4,17.5 C 14.4,16.6 15.2,16.1 16.1,16.1 L 20.6,16.1 C 22.04,16.1 23.2,17.02 23.2,18.15 C 23.2,19.28 22.04,20.2 20.6,20.2 L 17.4,20.2 L 17.4,16.8 L 7.6,22.8 L 15.6,28.6 L 17.4,28.6 L 17.4,26 L 20.6,26 C 24.47,26 27.6,22.64 27.6,18.5 C 27.6,14.36 24.47,11 20.6,11 L 16.1,11 C 13,11 10.8,12.7 10.8,15.2 L 10.8,21.4 Z"/>
+    <clipPath id="loopClip"><use href="#loop"/></clipPath>
+    <!-- The head, drawn again over the tail where the loop's far side
+         turns down behind it; it runs on past its back edge so the bevel
+         makes no edge there, and is cut at the back edge. -->
+    <path id="head" d="M 21,20.2 L 17.4,20.2 L 17.4,16.8 L 7.6,22.8 L 15.6,28.6 L 17.4,28.6 L 17.4,26 L 21,26 Z"/>
+    <clipPath id="headClip"><rect x="4" y="10" width="13.4" height="22"/></clipPath>
+    <filter id="bevel" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0.7" result="blur"/>
+      <feOffset in="blur" dx="0.8" dy="0.8" result="down"/>
+      <feOffset in="blur" dx="-0.8" dy="-0.8" result="up"/>
+      <feComposite in="SourceAlpha" in2="down" operator="out" result="litA"/>
+      <feComposite in="SourceAlpha" in2="up" operator="out" result="darkA"/>
+      <feFlood flood-color="#FFA890" flood-opacity="0.65"/>
+      <feComposite in2="litA" operator="in" result="lit"/>
+      <feFlood flood-color="#700404" flood-opacity="0.5"/>
+      <feComposite in2="darkA" operator="in" result="dark"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="dark"/><feMergeNode in="lit"/></feMerge>
+    </filter>
+    <filter id="soften" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="0.5"/></filter>
+    <linearGradient id="ribbon" x1="12" y1="10" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF5A50"/>
+      <stop offset="0.45" stop-color="#FF2A22"/>
+      <stop offset="0.7" stop-color="#E01612"/>
+      <stop offset="1" stop-color="#9A0A08"/>
+    </linearGradient>
+    <linearGradient id="turnAway" x1="16.1" y1="0" x2="10.8" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A0606" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A0606" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="headShadow" x1="17.4" y1="0" x2="18.5" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A0806" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#3A0806" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="16.1" x2="0" y2="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8A1C14"/>
+      <stop offset="0.06" stop-color="#4E3626"/>
+      <stop offset="0.12" stop-color="#AC946A"/>
+      <stop offset="0.2" stop-color="#842A20"/>
+      <stop offset="0.62" stop-color="#941A16"/>
+      <stop offset="0.74" stop-color="#7A4A32"/>
+      <stop offset="1" stop-color="#A4835A"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="11" x2="0" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="0.5" stop-color="#FFC8C0" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FF9C94" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="topHl" x1="10" y1="0" x2="26" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFC49C" stop-opacity="0.8"/>
+      <stop offset="0.6" stop-color="#FFAC7C" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#FF8A70" stop-opacity="0.1"/>
+    </linearGradient>
+    <g id="arrow">
+      <use href="#loop" fill="url(#wall)" transform="translate(0.25,2.1)"/>
+      <use href="#loop" fill="url(#ribbon)" filter="url(#bevel)"/>
+      <!-- the far side of the loop darkens as it turns away behind the head -->
+      <g clip-path="url(#loopClip)">
+        <rect x="10.4" y="10" width="5.7" height="11.8" fill="url(#turnAway)"/>
+        <path d="M 16.1,11.6 C 13.5,11.6 11.4,13 11.4,15.2" fill="none" stroke="#FFB098" stroke-width="0.7" stroke-opacity="0.6" stroke-linecap="round" filter="url(#soften)"/>
+      </g>
+      <!-- the head's shadow in the hole beside it -->
+      <rect x="17.3" y="16.6" width="1.2" height="3.7" fill="url(#headShadow)"/>
+      <g clip-path="url(#headClip)">
+        <use href="#head" fill="url(#ribbon)" filter="url(#bevel)"/>
+      </g>
+      <g clip-path="url(#loopClip)">
+        <path d="M 17.3,12 L 20.6,12 C 23.91,12 26.6,14.91 26.6,18.5 C 26.6,22.09 23.91,25 19.6,25" fill="none" stroke="url(#sheen)" stroke-width="1.3" stroke-linecap="round" filter="url(#soften)"/>
+        <path d="M 22.3,18.75 C 22.3,19.88 22.04,21.1 20.6,21.1 L 18.2,21.1" fill="none" stroke="url(#topHl)" stroke-width="1.4" stroke-linecap="round" filter="url(#soften)"/>
+        <path d="M 17.1,17.35 L 8.1,22.8" fill="none" stroke="#FFC0A0" stroke-width="0.7" stroke-opacity="0.8" stroke-linecap="round" filter="url(#soften)"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal">
+    <use href="#disc"/>
+    <use href="#face" fill="url(#faceNormal)"/>
+    <use href="#rim"/>
+    <use href="#arrow"/>
+  </g>
+  <g id="rollover" display="none">
+    <use href="#disc"/>
+    <use href="#face" fill="url(#faceRollover)"/>
+    <use href="#rim"/>
+    <use href="#arrow"/>
+  </g>
+  <g id="depress" display="none">
+    <use href="#disc"/>
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#arrow" transform="translate(1,1)"/>
+  </g>
+</svg>
