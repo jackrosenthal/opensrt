@@ -12,8 +12,8 @@
 //! screen's background, whose only chrome is its title tab) and then
 //! its background group, which is its title tab, title, panels and
 //! lettering here: `TITLE` under a drawing of the screen's own. The main
-//! menu's background keeps its scene and logo, and its buttons cover
-//! the ones painted into it.
+//! menu's background is a drawing of its own scene and logo, without
+//! the buttons painted into the original.
 
 use super::{Drawing, Svg, button, still, widgets};
 use crate::ui::art::{self, ArtFile, Group};
@@ -38,6 +38,9 @@ const SAVE_CANCEL: Svg = svg!("front_end/save_cancel");
 const DELETE: Svg = svg!("front_end/delete");
 const QUIT: Svg = svg!("front_end/quit");
 const SETTINGS_OK: Svg = svg!("front_end/settings_ok");
+
+/// The main menu's mountain scene and logo.
+const MAIN_SCENE: Svg = svg!("front_end/main_scene");
 
 /// The main menu's buttons: a picture and label each over the shared
 /// ring and pill.
@@ -68,6 +71,7 @@ pub(super) fn element(file: ArtFile, group: Group, index: usize) -> Option<Drawi
 fn main_menu(group: Group, index: usize) -> Option<Drawing> {
     use art::main_menu::*;
     match group {
+        MAIN => still(MAIN_SCENE),
         MAIN_INSTANT_ACTION_BUTTON => button(INSTANT_ACTION_BUTTON, index),
         MAIN_CHALLENGES_BUTTON => button(CHALLENGES_BUTTON, index),
         MAIN_LOAD_GAME => button(LOAD_GAME_BUTTON, index),
