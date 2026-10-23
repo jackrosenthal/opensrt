@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 34" width="45" height="34">
+  <!-- Jumps tab's picture: vector remake of the original Ski Resort
+       Tycoon sprites Tab_Jumps_Normal/_Depress, drawn over the window
+       icon tab frame.  A ski jumper flying over a timber ramp, its snow
+       slope beside it (a terrain park's window, and the attractions
+       window's jumps tab).  Shown as it is on the tab in front (normal)
+       and dimmed on a tab behind (depress). -->
+  <defs>
+    <filter id="dim" x="0" y="0" width="45" height="34" filterUnits="userSpaceOnUse">
+      <feColorMatrix type="matrix" values="0.6 0 0 0 0  0 0.6 0 0 0  0 0 0.6 0 0  0 0 0 1 0"/>
+    </filter>
+    <linearGradient id="timber" x1="0" y1="18" x2="0" y2="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C89C78"/>
+      <stop offset="1" stop-color="#7A5034"/>
+    </linearGradient>
+    <g id="picture">
+      <!-- the ramp's snow slope, and its timber frame braced in crosses -->
+      <path d="M36.4,9.2 C37.6,14 38.6,22 38.8,30.4 H33.4 C34.4,23 35.4,15 36.4,9.2 Z" fill="#F0F0F0" stroke="#A8A8A8" stroke-width="0.5"/>
+      <path d="M14,20.2 H27.6 L36,25.4 V30.4 H14 Z" fill="url(#timber)" stroke="#4A2C18" stroke-width="0.5" stroke-linejoin="round"/>
+      <path d="M14.6,21 L26.6,29.8 M26.6,21 L14.6,29.8 M27.6,21.2 L35.4,29.8 M31,23.4 L28,29.8" fill="none" stroke="#3A2010" stroke-width="0.8"/>
+      <path d="M14,20.2 V30.4 M27,20.2 V30.4 M14.2,17.4 V20.2 M26.6,17.2 V20.2" fill="none" stroke="#3A2010" stroke-width="1"/>
+      <path d="M14,20.2 H27.6 L36,25.4" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+      <path d="M6.6,30.6 H40" stroke="#D8D8D8" stroke-width="0.8"/>
+      <!-- the jumper in the air over it, skis spread in a V -->
+      <path d="M9,9.4 L21.6,21.2 M23.4,6 L24.6,21.4" fill="none" stroke="#101010" stroke-width="0.9" stroke-linecap="round"/>
+      <path d="M18,9 L21.6,13.6 L22.4,17 L20.8,17.2 L19.4,14.4 L16.4,11.2 Z" fill="#30D0E0" stroke="#08707C" stroke-width="0.4" stroke-linejoin="round"/>
+      <path d="M13.2,5.6 C14.6,4.6 17,5.2 19.4,7.2 C20.4,8.2 20,10.6 18.6,11 C16.6,11.6 14.4,9.4 13.4,8 Z" fill="#E020D0" stroke="#700868" stroke-width="0.4" stroke-linejoin="round"/>
+      <circle cx="15.2" cy="4.4" r="1.4" fill="#3030C0" stroke="#101060" stroke-width="0.3"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#picture"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#picture" filter="url(#dim)"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 16" width="198" height="16">
+  <!-- Song highlight: vector remake of the original Ski Resort Tycoon
+       sprite Highlight, behind the chosen song on a radio tower's music
+       tab.  A pale yellow-green bar, lit along its top and left and
+       shaded along its foot and right end. -->
+  <rect x="0" y="0" width="198" height="16" fill="#E6FF8B"/>
+  <path d="M0,0 H198 L197,1 H1 V15 L0,16 Z" fill="#F6FFC5"/>
+  <path d="M198,0 V16 H0 L1,15 H197 V1 Z" fill="#CDE67B"/>
+  <rect x="197" y="1" width="1" height="15" fill="#ACBD6A"/>
+</svg>

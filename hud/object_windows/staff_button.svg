@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36" width="35" height="36">
+  <!-- Employee window button: the frame of the original Ski Resort
+       Tycoon's staff window buttons (rename_*, focus_*, patseye_* and
+       sell_*, 33x33), without their pictures, which are the round
+       buttons' own drawings laid over it.  Laid out on the round button's
+       35x36 grid so those pictures fit it, the button filling its top
+       left 33x33.  A square of light wood with a dark rounded rim inset
+       in it: paler inside at rest, a little darker under the pointer, and
+       pressed in, shadowed along the top and left, when pressed. -->
+  <defs>
+    <linearGradient id="wood" x1="0" y1="2" x2="0" y2="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6CD94"/>
+      <stop offset="0.6" stop-color="#FFE0A4"/>
+      <stop offset="1" stop-color="#E6C58B"/>
+    </linearGradient>
+    <linearGradient id="woodDim" x1="0" y1="2" x2="0" y2="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E6C58B"/>
+      <stop offset="0.6" stop-color="#EED59C"/>
+      <stop offset="1" stop-color="#DEBD83"/>
+    </linearGradient>
+    <rect id="face" x="1.6" y="1.4" width="29.8" height="29.4" rx="5.4"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+    <!-- the grain: faint streaks across the wood -->
+    <g id="grain" fill="none" stroke="#C89C5C" stroke-opacity="0.25" stroke-width="0.6">
+      <path d="M0,3.6 C8,3.2 18,4.2 33,3.4"/>
+      <path d="M0,9.4 C10,10 20,8.8 33,9.6"/>
+      <path d="M0,14.8 C9,14.4 22,15.4 33,14.6"/>
+      <path d="M0,20.6 C12,21.2 21,20 33,20.8"/>
+      <path d="M0,26.2 C8,25.8 19,26.8 33,26"/>
+    </g>
+    <!-- the square of wood round the rim -->
+    <g id="board">
+      <rect x="0" y="0" width="33" height="33" fill="#FACB86"/>
+      <use href="#grain"/>
+    </g>
+    <path id="rim" d="M7,1.4 H26 A5.4,5.4 0 0 1 31.4,6.8 V25.4 A5.4,5.4 0 0 1 26,30.8 H7 A5.4,5.4 0 0 1 1.6,25.4 V6.8 A5.4,5.4 0 0 1 7,1.4 Z" fill="none" stroke="#6A5239" stroke-width="1.3"/>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#board"/>
+    <use href="#face" fill="url(#wood)"/>
+    <use href="#grain" clip-path="url(#faceClip)"/>
+    <use href="#rim"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#board"/>
+    <use href="#face" fill="url(#woodDim)"/>
+    <use href="#grain" clip-path="url(#faceClip)"/>
+    <use href="#rim"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#board"/>
+    <use href="#face" fill="url(#woodDim)"/>
+    <use href="#grain" clip-path="url(#faceClip)"/>
+    <!-- pressed in: a shadow along the top and left inside the rim -->
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(1.6,1.8)" fill="none" stroke="#413929" stroke-opacity="0.8" stroke-width="3" filter="url(#soft)"/>
+    </g>
+    <use href="#rim"/>
+  </g>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 234" width="270" height="234">
+  <!-- Lift window stats panel: vector remake of the original Ski Resort
+       Tycoon sprite Lift_Stats_bkrnd (the lift window's own; the
+       structure window's wooden one is never shown), the panel under a
+       lift's title tray on its stats tab.  The window list panel's black
+       rimmed slab, white shading to sky blue, with nine rows of flat label
+       and value boxes, and a last row whose value box is wide for the
+       condition bar. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="228" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.16" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#DEDEFF"/>
+      <stop offset="1" stop-color="#9CB0E6"/>
+    </linearGradient>
+    <linearGradient id="rightShade" x1="261" y1="0" x2="265" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A4A5A" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A4A5A" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="footShade" x1="0" y1="222" x2="0" y2="229" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A5A84" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A5A84" stop-opacity="0.9"/>
+    </linearGradient>
+    <path id="inside" d="M4,0 H265 V215 A14,14 0 0 1 251,229 H18 A14,14 0 0 1 4,215 Z"/>
+    <clipPath id="insideClip"><use href="#inside"/></clipPath>
+  </defs>
+
+  <!-- the rim, open along the top -->
+  <path d="M0.8,0 H268.2 V215 A16.6,16.6 0 0 1 251.6,231.6 H17.4 A16.6,16.6 0 0 1 0.8,215 Z" fill="#000000"/>
+  <use href="#inside" fill="url(#sky)"/>
+  <g clip-path="url(#insideClip)">
+    <!-- the bevels, and the shade along the foot -->
+    <rect x="4" y="0" width="1" height="234" fill="#6A6A7B"/>
+    <rect x="261" y="0" width="4" height="234" fill="url(#rightShade)"/>
+    <rect x="0" y="222" width="270" height="7" fill="url(#footShade)"/>
+  </g>
+  <!-- a grey box for each label and a yellow one for its value -->
+  <g fill="#BDB4BD">
+    <rect x="17" y="8" width="160" height="18"/>
+    <rect x="17" y="29" width="160" height="18"/>
+    <rect x="17" y="50" width="160" height="18"/>
+    <rect x="17" y="71" width="160" height="18"/>
+    <rect x="17" y="92" width="160" height="18"/>
+    <rect x="17" y="113" width="160" height="18"/>
+    <rect x="17" y="134" width="160" height="18"/>
+    <rect x="17" y="155" width="160" height="18"/>
+    <rect x="17" y="176" width="160" height="18"/>
+    <rect x="17" y="197" width="96" height="18"/>
+  </g>
+  <g fill="#FFF69C">
+    <rect x="180" y="8" width="73" height="18"/>
+    <rect x="180" y="29" width="73" height="18"/>
+    <rect x="180" y="50" width="73" height="18"/>
+    <rect x="180" y="71" width="73" height="18"/>
+    <rect x="180" y="92" width="73" height="18"/>
+    <rect x="180" y="113" width="73" height="18"/>
+    <rect x="180" y="134" width="73" height="18"/>
+    <rect x="180" y="155" width="73" height="18"/>
+    <rect x="180" y="176" width="73" height="18"/>
+    <rect x="116" y="197" width="137" height="18"/>
+  </g>
+
+</svg>

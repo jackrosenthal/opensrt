@@ -647,6 +647,16 @@ impl App {
                 g.selection = match pick {
                     crate::testhook::StarterPick::Run => g.world.runs.first().map(|r| Selection::Run(r.id)),
                     crate::testhook::StarterPick::Lift => g.world.lifts.first().map(|l| Selection::Lift(l.id)),
+                    crate::testhook::StarterPick::Guest => {
+                        let ticks = (g.defs.resort.seconds_per_day / crate::game::sim::TICK) as usize;
+                        for _ in 0..ticks {
+                            if !g.world.guests.is_empty() {
+                                break;
+                            }
+                            crate::game::sim::Sim { defs: &g.defs, w: &mut g.world }.step(crate::game::sim::TICK);
+                        }
+                        g.world.guests.first().map(|v| Selection::Guest(v.id))
+                    }
                 };
             }
             TestHook::Escape | TestHook::Save => {

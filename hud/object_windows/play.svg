@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36" width="35" height="36">
+  <!-- Play button's picture: vector remake of the original Ski Resort
+       Tycoon sprites play_normal/_rollover/_depress, drawn over the round
+       button frame on a radio tower's music tab.  A green triangle
+       pointing right, lit along its top and shadowed in tan below.  The
+       same in every state. -->
+  <defs>
+    <path id="play" d="M11.6,9.6 C11.6,8.8 12.3,8.5 12.9,8.9 L26.4,17.6 C27,18 27,18.8 26.4,19.2 L12.9,27.9 C12.3,28.3 11.6,28 11.6,27.2 Z"/>
+    <linearGradient id="green" x1="12" y1="10" x2="24" y2="26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B4FFBD"/>
+      <stop offset="0.3" stop-color="#62D56A"/>
+      <stop offset="1" stop-color="#2C8434"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+  </defs>
+  <!-- a tan shadow down and to the right -->
+  <use href="#play" transform="translate(0.9,1.1)" fill="#A08860" fill-opacity="0.8" filter="url(#soft)"/>
+  <use href="#play" fill="url(#green)" stroke="#2A7432" stroke-width="0.5" stroke-linejoin="round"/>
+  <!-- a pale rim along the lower right edge -->
+  <path d="M25.6,19.3 L13.4,27.2" fill="none" stroke="#8CF094" stroke-width="0.7" stroke-linecap="round" filter="url(#soft)"/>
+</svg>

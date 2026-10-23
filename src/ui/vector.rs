@@ -37,9 +37,11 @@ impl Svg {
     }
 }
 
+/// A drawing is known by its name and its frame's, as one picture can be
+/// drawn over more than one frame.
 impl PartialEq for Svg {
     fn eq(&self, other: &Svg) -> bool {
-        self.name == other.name
+        self.name == other.name && self.frame.map(|f| f.name) == other.frame.map(|f| f.name)
     }
 }
 
@@ -48,6 +50,7 @@ impl Eq for Svg {}
 impl std::hash::Hash for Svg {
     fn hash<H: std::hash::Hasher>(&self, h: &mut H) {
         self.name.hash(h);
+        self.frame.map(|f| f.name).hash(h);
     }
 }
 

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 16" width="134" height="16">
+  <!-- Graph bar: vector remake of the original Ski Resort Tycoon sprite
+       Graph_Bar, the meter of the guests window's averages, which the
+       game cuts to the value's length.  A row of lit segments running
+       from red through yellow to green, each set off by a darker line of
+       its own color. -->
+  <defs>
+    <linearGradient id="lit" x1="0" y1="0" x2="134" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF0800"/>
+      <stop offset="0.5" stop-color="#FFFF00"/>
+      <stop offset="1" stop-color="#00FF00"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="0" y1="0" x2="134" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A40000"/>
+      <stop offset="0.5" stop-color="#A4A400"/>
+      <stop offset="1" stop-color="#00A400"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="134" height="16" fill="url(#dark)"/>
+  <g fill="url(#lit)">
+    <rect x="1" y="0" width="3" height="16"/>
+    <rect x="5" y="0" width="3" height="16"/>
+    <rect x="9" y="0" width="3" height="16"/>
+    <rect x="13" y="0" width="3" height="16"/>
+    <rect x="17" y="0" width="3" height="16"/>
+    <rect x="21" y="0" width="3" height="16"/>
+    <rect x="25" y="0" width="3" height="16"/>
+    <rect x="29" y="0" width="3" height="16"/>
+    <rect x="33" y="0" width="3" height="16"/>
+    <rect x="37" y="0" width="3" height="16"/>
+    <rect x="41" y="0" width="3" height="16"/>
+    <rect x="45" y="0" width="3" height="16"/>
+    <rect x="49" y="0" width="3" height="16"/>
+    <rect x="53" y="0" width="3" height="16"/>
+    <rect x="57" y="0" width="3" height="16"/>
+    <rect x="61" y="0" width="3" height="16"/>
+    <rect x="65" y="0" width="3" height="16"/>
+    <rect x="69" y="0" width="3" height="16"/>
+    <rect x="73" y="0" width="3" height="16"/>
+    <rect x="77" y="0" width="3" height="16"/>
+    <rect x="81" y="0" width="3" height="16"/>
+    <rect x="85" y="0" width="3" height="16"/>
+    <rect x="89" y="0" width="3" height="16"/>
+    <rect x="93" y="0" width="3" height="16"/>
+    <rect x="97" y="0" width="3" height="16"/>
+    <rect x="101" y="0" width="3" height="16"/>
+    <rect x="105" y="0" width="3" height="16"/>
+    <rect x="109" y="0" width="3" height="16"/>
+    <rect x="113" y="0" width="3" height="16"/>
+    <rect x="117" y="0" width="3" height="16"/>
+    <rect x="121" y="0" width="3" height="16"/>
+    <rect x="125" y="0" width="3" height="16"/>
+    <rect x="129" y="0" width="3" height="16"/>
+    <rect x="133" y="0" width="3" height="16"/>
+  </g>
+</svg>

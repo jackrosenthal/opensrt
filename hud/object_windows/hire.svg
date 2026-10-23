@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36" width="35" height="36">
+  <!-- Hire button's picture: vector remake of the original Ski Resort
+       Tycoon sprites hire_normal/_rollover/_depress, drawn over the round
+       button frame.  A thumbs up: a fist with its thumb raised, coming out
+       of a white cuff and a blue sleeve on the right.  The same in every
+       state. -->
+  <defs>
+    <linearGradient id="skin" x1="7" y1="6" x2="17" y2="25" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE0C8"/>
+      <stop offset="0.5" stop-color="#F4AE8C"/>
+      <stop offset="1" stop-color="#C87458"/>
+    </linearGradient>
+    <linearGradient id="sleeve" x1="21" y1="0" x2="28" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3048B4"/>
+      <stop offset="0.35" stop-color="#5A7CF0"/>
+      <stop offset="1" stop-color="#1A2470"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    <!-- the fist, its thumb up, knuckles to the left -->
+    <path id="fist" d="M11.2,12.8 C11,10.4 11.2,7.6 12.2,6 C12.9,4.9 14.4,5.2 14.7,6.6 C15.1,8.4 14.9,10.6 15.6,12.2 C17.2,12.6 19.4,13.2 20.6,14.4 L21.4,21.6 C20.4,23.8 18.4,24.8 16,24.8 L9.4,24.8 C7.2,24.8 5.6,23.6 5.6,21.6 C5.6,20.4 6,19.6 6.6,19 C5.8,18.4 5.4,17.4 5.6,16.4 C5.8,15 6.8,14.2 8,13.8 C8.6,13.2 9.8,12.8 11.2,12.8 Z"/>
+  </defs>
+  <!-- a soft shadow down and to the right -->
+  <g transform="translate(0.9,1)" fill="#8C6450" fill-opacity="0.45" filter="url(#soft)">
+    <use href="#fist"/>
+    <rect x="21.4" y="14" width="6.4" height="13.6" rx="1.4"/>
+  </g>
+  <!-- the sleeve and its cuff -->
+  <rect x="21.4" y="14" width="6.4" height="13.6" rx="1.4" fill="url(#sleeve)" stroke="#101850" stroke-width="0.6"/>
+  <path d="M19.6,21.2 L21.6,20.8 L21.8,26 L19.4,26.2 Z" fill="#F0F0F8" stroke="#8C8CA0" stroke-width="0.4"/>
+  <!-- the fist -->
+  <use href="#fist" fill="url(#skin)" stroke="#8A4A34" stroke-width="0.6" stroke-linejoin="round"/>
+  <!-- the curled fingers, and the thumb's crease -->
+  <g fill="none" stroke="#A85C44" stroke-width="0.6" stroke-linecap="round">
+    <path d="M6.6,19 C8.6,19.2 10.4,19 11.6,18.4"/>
+    <path d="M7.6,14.2 C9.4,14.6 11,14.8 12.4,14.6"/>
+    <path d="M6.4,22.2 C8.4,22.4 10.2,22.2 11.4,21.8"/>
+    <path d="M11.6,13 C12.6,13.6 14,13.6 15.4,12.4"/>
+  </g>
+  <!-- lit along the thumb and the knuckles' tops -->
+  <path d="M12.3,11.8 C12.2,9.6 12.4,7.6 13.2,6.4" fill="none" stroke="#FFF4EA" stroke-width="0.8" stroke-linecap="round" filter="url(#soft)"/>
+</svg>

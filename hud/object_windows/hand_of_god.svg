@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36" width="35" height="36">
+  <!-- Hand of God button's picture: vector remake of the original Ski
+       Resort Tycoon sprites handOgod_normal/_rollover/_depress, drawn over
+       the round button frame: it picks up a guest or an employee and moves
+       them.  A hand reaching down from the upper right, its thumb and
+       forefinger pinched together in a ring, the other fingers hanging
+       below.  The same in every state. -->
+  <defs>
+    <linearGradient id="skin" x1="11" y1="12" x2="24" y2="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE4D0"/>
+      <stop offset="0.45" stop-color="#F8B898"/>
+      <stop offset="1" stop-color="#C47058"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    <!-- the back of the hand, its wrist cut off by the button's rim -->
+    <path id="back" d="M24.8,4.6 C27.4,4.8 30.4,7.2 30.6,9.6 C30.4,13 27.8,16.6 25,19.8 C23.4,21.6 21.6,23 19.6,23.4 L12.4,19.2 C13,16 15.4,13 18.6,11.2 C20.4,10.2 21.6,8.6 22.4,7 C23,5.6 23.8,4.6 24.8,4.6 Z"/>
+    <!-- the fingers hanging below it, the thumb along its left -->
+    <path id="ring" d="M22,22.4 C20.6,24.8 18.6,27.4 16.8,29.2"/>
+    <path id="middle" d="M20.4,21.8 C18.4,24.2 15.8,27.2 13.8,29.4"/>
+    <path id="index" d="M18.6,20.2 C16.2,22.8 13.2,26 10.8,28.6"/>
+    <path id="thumb" d="M16.4,13.2 C13.4,15.8 10.6,20.2 8.8,23.6 C8,25.2 7.4,26.4 7.4,27.4"/>
+    <g id="hand">
+      <use href="#back"/>
+      <g fill="none" stroke-width="3.2" stroke-linecap="round">
+        <use href="#ring"/>
+        <use href="#middle"/>
+        <use href="#index"/>
+        <use href="#thumb"/>
+      </g>
+    </g>
+  </defs>
+  <!-- a soft shadow down and to the right -->
+  <use href="#hand" transform="translate(0.9,1)" fill="#8C6450" stroke="#8C6450" opacity="0.45" filter="url(#soft)"/>
+  <use href="#back" fill="url(#skin)" stroke="#9A5A40" stroke-width="0.5" stroke-linejoin="round"/>
+  <!-- the ring of thumb and forefinger: shade inside it, a gap at its
+       heart -->
+  <ellipse cx="13.8" cy="21" rx="2.8" ry="3.6" transform="rotate(35,13.8,21)" fill="#6A2C1C" filter="url(#soft)"/>
+  <ellipse cx="14" cy="21.6" rx="0.9" ry="1.2" transform="rotate(35,14,21.6)" fill="#FFFFFF"/>
+  <!-- each finger edged in brown, back to front -->
+  <g fill="none" stroke-linecap="round">
+    <use href="#ring" stroke="#9A5A40" stroke-width="3.2"/>
+    <use href="#ring" stroke="#E09878" stroke-width="2.2"/>
+    <use href="#middle" stroke="#9A5A40" stroke-width="3.2"/>
+    <use href="#middle" stroke="#F0A888" stroke-width="2.2"/>
+    <use href="#index" stroke="#9A5A40" stroke-width="3.2"/>
+    <use href="#index" stroke="#F8B898" stroke-width="2.2"/>
+    <use href="#thumb" stroke="#9A5A40" stroke-width="3.2"/>
+    <use href="#thumb" stroke="url(#skin)" stroke-width="2.2"/>
+  </g>
+  <!-- lit along the back of the hand and the thumb -->
+  <path d="M10.2,20.4 C12,16.6 14.8,13 18.4,11.4 C20.2,10.6 21.8,9.6 23,8" fill="none" stroke="#FFF4EC" stroke-width="0.9" stroke-linecap="round" filter="url(#soft)"/>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 34" width="45" height="34">
+  <!-- Ski patrol tab's picture: vector remake of the original Ski Resort
+       Tycoon sprites Tab_SkiPatrol_Normal/_Depress, drawn over the window
+       icon tab frame.  A ski patroller in a red helmet and red rimmed
+       goggles, a walkie-talkie beside him.  Shown as it is on the tab in
+       front (normal) and dimmed on a tab behind (depress). -->
+  <defs>
+    <filter id="dim" x="0" y="0" width="45" height="34" filterUnits="userSpaceOnUse">
+      <feColorMatrix type="matrix" values="0.6 0 0 0 0  0 0.6 0 0 0  0 0 0.6 0 0  0 0 0 1 0"/>
+    </filter>
+    <radialGradient id="skin" cx="-1" cy="15" r="11" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FCC8A4"/>
+      <stop offset="0.6" stop-color="#E8987A"/>
+      <stop offset="1" stop-color="#B86448"/>
+    </radialGradient>
+    <radialGradient id="dome" cx="-3" cy="2" r="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.45"/>
+    </radialGradient>
+    <linearGradient id="lens" x1="0" y1="10.8" x2="0" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFF90"/>
+      <stop offset="1" stop-color="#9C9C00"/>
+    </linearGradient>
+    <g id="picture">
+      <g transform="translate(29,19) rotate(28)">
+        <path d="M1.6,-6 L2.6,-16" stroke="#202020" stroke-width="1.2" stroke-linecap="round"/>
+        <rect x="-3.6" y="-7.4" width="7.6" height="17" rx="1.4" fill="#202020" stroke="#000000" stroke-width="0.5"/>
+        <rect x="-2.4" y="-5.6" width="5.2" height="5" rx="0.6" fill="#505050"/>
+        <path d="M-1.8,-4.6 H2.2 M-1.8,-3.2 H2.2 M-1.8,-1.8 H2.2" stroke="#202020" stroke-width="0.5"/>
+        <g fill="#909090">
+          <circle cx="-1.4" cy="1.8" r="0.7"/>
+          <circle cx="1" cy="1.8" r="0.7"/>
+          <circle cx="-1.4" cy="4.2" r="0.7"/>
+          <circle cx="1" cy="4.2" r="0.7"/>
+        </g>
+      </g>
+      <g transform="translate(15.6,5.2) scale(0.86)">
+        <path d="M-8.4,10.6 C-8.6,17.4 -5.8,23.4 -2,25.2 C-0.7,25.7 0.8,25.7 2,25.2 C5.8,23.4 8.6,18 8.8,10.6 Z" fill="url(#skin)" stroke="#8A4C34" stroke-width="0.5"/>
+        <path d="M-0.4,15.8 C-0.2,17.2 -1.4,18 -0.6,18.6 C0.2,19 1,18.8 1.6,18.4" fill="none" stroke="#A85A40" stroke-width="0.5" stroke-linecap="round"/>
+        <path d="M-4.6,19.8 C-2.6,22.2 2.4,22.2 4.6,19.6 C2.6,20.6 -2.4,20.8 -4.6,19.8 Z" fill="#FFFFFF" stroke="#702818" stroke-width="0.6" stroke-linejoin="round"/>
+        <path d="M-10,11 C-10.4,4.4 -6.6,0 -0.2,0 C6,0 10.4,4.4 10.2,11 Z" fill="#D82020" stroke="#202040" stroke-width="0.5"/>
+        <path d="M-10,11 C-10.4,4.4 -6.6,0 -0.2,0 C6,0 10.4,4.4 10.2,11 Z" fill="url(#dome)"/>
+        <path d="M-8.2,4.4 C-4,2.4 4,2.4 8.4,4.4 M-9.6,7.6 C-4,5.6 4.6,5.6 9.8,7.6" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="0.8"/>
+        <rect x="-9.4" y="9.8" width="19" height="5.8" rx="2.6" fill="#C81818"/>
+        <g fill="#384058">
+          <ellipse cx="-3.8" cy="12.7" rx="3.3" ry="1.9"/>
+          <ellipse cx="3.6" cy="12.7" rx="3.3" ry="1.9"/>
+        </g>
+        <path d="M-5.6,12 L-3.6,11.4 M1.8,12 L3.8,11.4" stroke="#FFFFFF" stroke-width="0.7" stroke-linecap="round" stroke-opacity="0.9"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#picture"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#picture" filter="url(#dim)"/>
+  </g>
+</svg>

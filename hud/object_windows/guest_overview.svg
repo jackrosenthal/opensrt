@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 234" width="270" height="234">
+  <!-- Guest window overview panel: vector remake of the original Ski
+       Resort Tycoon sprite Guest_Overview_bkrnd, the panel under a guest's
+       title tray on the first tab.  The window list panel's black rimmed
+       slab, white shading to sky blue, with the grey strip for the
+       guest's thought along the top and a sunken white well for the
+       guest's details. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="228" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.16" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#DEDEFF"/>
+      <stop offset="1" stop-color="#9CB0E6"/>
+    </linearGradient>
+    <linearGradient id="rightShade" x1="261" y1="0" x2="265" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A4A5A" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A4A5A" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="footShade" x1="0" y1="222" x2="0" y2="229" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A5A84" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A5A84" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="wellFoot" x1="0" y1="195" x2="0" y2="202" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#BDBDBD" stop-opacity="0"/>
+      <stop offset="1" stop-color="#BDBDBD"/>
+    </linearGradient>
+    <path id="inside" d="M4,0 H265 V215 A14,14 0 0 1 251,229 H18 A14,14 0 0 1 4,215 Z"/>
+    <clipPath id="insideClip"><use href="#inside"/></clipPath>
+    <rect id="well" x="23.8" y="39.8" width="181.4" height="162.4" rx="10"/>
+    <clipPath id="wellClip"><use href="#well"/></clipPath>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+  </defs>
+
+  <!-- the rim, open along the top -->
+  <path d="M0.8,0 H268.2 V215 A16.6,16.6 0 0 1 251.6,231.6 H17.4 A16.6,16.6 0 0 1 0.8,215 Z" fill="#000000"/>
+  <use href="#inside" fill="url(#sky)"/>
+  <g clip-path="url(#insideClip)">
+    <!-- the bevels, and the shade along the foot -->
+    <rect x="4" y="0" width="1" height="234" fill="#6A6A7B"/>
+    <rect x="261" y="0" width="4" height="234" fill="url(#rightShade)"/>
+    <rect x="0" y="222" width="270" height="7" fill="url(#footShade)"/>
+  </g>
+  <!-- the thought strip -->
+  <rect x="22" y="7" width="184" height="21" fill="#BDB4BD"/>
+  <!-- the well, sunk into the panel: shaded all round, most
+       below and to the right -->
+  <use href="#well" fill="none" stroke="#283040" stroke-opacity="0.45" stroke-width="3" filter="url(#soft)"/>
+  <use href="#well" transform="translate(1,1.2)" fill="none" stroke="#283040" stroke-opacity="0.8" stroke-width="2" filter="url(#soft)"/>
+  <use href="#well" fill="#FFFFFF"/>
+  <g clip-path="url(#wellClip)">
+    <rect x="22.8" y="195" width="183.4" height="8" fill="url(#wellFoot)"/>
+  </g>
+  <use href="#well" fill="none" stroke="#000000" stroke-width="1.6"/>
+</svg>

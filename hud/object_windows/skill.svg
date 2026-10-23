@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 18" width="17" height="18">
+  <!-- Guest skill icon: vector remake of the original Ski Resort Tycoon
+       sprites Beginner, Intermediate, advanced and expert, beside the
+       skill on a guest's overview.  A grey-blue tile, dark along its top
+       and left, bearing the trail sign for the guest's level: a green
+       circle (state "beginner"), a blue square ("intermediate"), a black
+       diamond ("advanced") or two ("expert"). -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="1" x2="0" y2="17" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B0B8CC"/>
+      <stop offset="1" stop-color="#A8B0C8"/>
+    </linearGradient>
+    <linearGradient id="green" x1="5" y1="5" x2="12" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10C040"/>
+      <stop offset="1" stop-color="#00A420"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="4" y1="4" x2="13" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#006AB4"/>
+      <stop offset="1" stop-color="#0058A0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.4"/>
+    </filter>
+  </defs>
+  <!-- the tile -->
+  <rect x="0" y="0" width="17" height="18" fill="#525A83"/>
+  <rect x="1" y="1" width="15" height="16" fill="url(#tile)"/>
+  <path d="M0,0 H17 V1 H1 V18 H0 Z" fill="#393973"/>
+
+  <g id="beginner" class="state">
+    <circle cx="8.5" cy="9.1" r="5" fill="#7A8AA8" filter="url(#soft)" transform="translate(0.3,0.5)"/>
+    <circle cx="8.5" cy="9.1" r="5" fill="url(#green)"/>
+  </g>
+  <g id="intermediate" class="state" display="none">
+    <rect x="4" y="4" width="9.4" height="10.4" fill="#7A8AA8" filter="url(#soft)" transform="translate(0.3,0.5)"/>
+    <rect x="4" y="4" width="9.4" height="10.4" fill="url(#blue)"/>
+  </g>
+  <g id="advanced" class="state" display="none">
+    <path d="M8.6,3 L12.6,8.8 L8.6,15 L4.6,8.8 Z" fill="#7A8AA8" filter="url(#soft)" transform="translate(0.3,0.5)"/>
+    <path d="M8.6,3 L12.6,8.8 L8.6,15 L4.6,8.8 Z" fill="#000000"/>
+  </g>
+  <g id="expert" class="state" display="none">
+    <path d="M5.6,3.8 L8.6,8.6 L5.6,13.6 L2.6,8.6 Z M11.4,3.8 L14.4,8.6 L11.4,13.6 L8.4,8.6 Z" fill="#7A8AA8" filter="url(#soft)" transform="translate(0.3,0.5)"/>
+    <path d="M5.6,3.8 L8.6,8.6 L5.6,13.6 L2.6,8.6 Z M11.4,3.8 L14.4,8.6 L11.4,13.6 L8.4,8.6 Z" fill="#000000"/>
+  </g>
+</svg>

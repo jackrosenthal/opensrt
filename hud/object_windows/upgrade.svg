@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81 24" width="81" height="24">
+  <!-- Upgrade button: vector remake of the original Ski Resort Tycoon
+       sprites upgrade_normal/_rollover/_depress, under a condominium's or
+       hotel's picture.  A black rimmed rounded slab with "Upgrade" in
+       bold black letters: white at rest, pale yellow under the pointer,
+       grey when pressed.  One group per state; the game shows one with a
+       stylesheet. -->
+  <defs>
+    <rect id="slab" x="2.5" y="2.5" width="76" height="17" rx="1.6"/>
+    <g id="word" fill="none" stroke="#000000" stroke-width="1.5">
+      <!-- U -->
+      <path d="M15,5 V11.9 A2.25,2.2 0 0 0 19.5,11.9 V5"/>
+      <!-- p -->
+      <path d="M23,8 V17.8"/>
+      <ellipse cx="25.8" cy="11.5" rx="2.7" ry="2.6"/>
+      <!-- g -->
+      <ellipse cx="34" cy="11.5" rx="2.5" ry="2.6"/>
+      <path d="M36.4,8 V14.6 A2.4,1.9 0 0 1 31.7,15.4"/>
+      <!-- r -->
+      <path d="M40,15 V8 M40,10.9 A2.6,2.8 0 0 1 43.6,8.7"/>
+      <!-- a -->
+      <ellipse cx="46.7" cy="11.5" rx="2.6" ry="2.6"/>
+      <path d="M49.3,8 V15"/>
+      <!-- d -->
+      <ellipse cx="55.3" cy="11.5" rx="2.7" ry="2.6"/>
+      <path d="M58,5 V15"/>
+      <!-- e -->
+      <path d="M61,11.5 H66.3 A2.65,2.6 0 1 0 65.6,13.4"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#slab" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+    <use href="#word"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#slab" fill="#FFF69C" stroke="#000000" stroke-width="1"/>
+    <use href="#word"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#slab" fill="#9C9C9C" stroke="#000000" stroke-width="1"/>
+    <use href="#word"/>
+  </g>
+</svg>

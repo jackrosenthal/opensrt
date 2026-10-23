@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 34" width="45" height="34">
+  <!-- Music tab's picture: vector remake of the original Ski Resort
+       Tycoon sprites Tab_Music_Normal/_Depress, drawn over the window
+       icon tab frame.  Blue music notes: an eighth note and two notes
+       beamed together.  Shown as it is on the tab in front (normal) and
+       dimmed on a tab behind (depress). -->
+  <defs>
+    <filter id="dim" x="0" y="0" width="45" height="34" filterUnits="userSpaceOnUse">
+      <feColorMatrix type="matrix" values="0.6 0 0 0 0  0 0.6 0 0 0  0 0 0.6 0 0  0 0 0 1 0"/>
+    </filter>
+    <linearGradient id="note" x1="0" y1="4" x2="0" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6A6AFF"/>
+      <stop offset="1" stop-color="#1010C0"/>
+    </linearGradient>
+    <g id="picture">
+      <g fill="url(#note)" stroke="#080870" stroke-width="0.5" stroke-linejoin="round">
+        <!-- an eighth note -->
+        <ellipse cx="11.6" cy="24.6" rx="3.2" ry="2.4" transform="rotate(-22,11.6,24.6)"/>
+        <path d="M13.8,23.6 L14.4,6.4 C15.6,9 19.4,10.4 18.6,15.6 C18.2,13.4 16.6,12.2 15.4,11.8 L14.9,23.8 Z"/>
+        <!-- two notes beamed together -->
+        <ellipse cx="21.2" cy="26.6" rx="3.2" ry="2.4" transform="rotate(-22,21.2,26.6)"/>
+        <ellipse cx="31" cy="24.6" rx="3.2" ry="2.4" transform="rotate(-22,31,24.6)"/>
+        <path d="M23.4,25.6 L23.6,11.4 L34.4,8.2 L33.2,23.6 L32.2,23.6 L33,12.4 L24.6,14.8 L24.5,25.8 Z"/>
+      </g>
+      <path d="M10,23.6 C10.6,22.8 11.6,22.6 12.4,22.8 M19.6,25.6 C20.2,24.8 21.2,24.6 22,24.8 M29.4,23.6 C30,22.8 31,22.6 31.8,22.8" fill="none" stroke="#C0C0FF" stroke-width="0.6" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#picture"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#picture" filter="url(#dim)"/>
+  </g>
+</svg>

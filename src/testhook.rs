@@ -51,7 +51,8 @@ pub enum TestHook {
     Escape,
     Save,
     /// Auto-builds a starter resort and selects its first run (`run`),
-    /// lift (`lift`) or park.
+    /// lift (`lift`) or park, or runs it until a guest arrives and
+    /// selects them (`guest`).
     Starter(StarterPick),
 }
 
@@ -98,6 +99,7 @@ impl TestHook {
             "save" => TestHook::Save,
             "run" => TestHook::Starter(StarterPick::Run),
             "lift" => TestHook::Starter(StarterPick::Lift),
+            "guest" => TestHook::Starter(StarterPick::Guest),
             _ => return None,
         })
     }
@@ -107,4 +109,5 @@ impl TestHook {
 pub enum StarterPick {
     Run,
     Lift,
+    Guest,
 }
