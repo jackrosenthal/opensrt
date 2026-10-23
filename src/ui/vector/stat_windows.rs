@@ -45,18 +45,18 @@ fn resort_stats(group: Group, index: usize) -> Option<Drawing> {
     match group {
         // The history tab's panel is the plain list panel, in `widgets`.
         BACKGROUND => match index {
-            0 => still(svg!("stat_windows/overview")),
-            1 => still(svg!("stat_windows/admissions")),
-            2 => still(svg!("stat_windows/rating")),
-            3 => still(svg!("stat_windows/weather")),
+            0 => still(svg!("windows/stats/overview")),
+            1 => still(svg!("windows/stats/admissions")),
+            2 => still(svg!("windows/stats/rating")),
+            3 => still(svg!("windows/stats/weather")),
             _ => None,
         },
-        TAB_MAIN | TAB_MAIN_ANI => tab(svg!("stat_windows/tabs/overview" on ICON_TAB), group == TAB_MAIN_ANI),
-        TAB_GUESTS | TAB_GUESTS_ANI => tab(svg!("stat_windows/tabs/admissions" on ICON_TAB), group == TAB_GUESTS_ANI),
-        TAB_RATE | TAB_RATE_ANI => tab(svg!("stat_windows/tabs/rating" on ICON_TAB), group == TAB_RATE_ANI),
-        TAB_WEATHER | TAB_WEATHER_ANI => tab(svg!("stat_windows/tabs/weather" on ICON_TAB), group == TAB_WEATHER_ANI),
-        TAB_HISTORY | TAB_HISTORY_ANI => tab(svg!("stat_windows/tabs/history" on ICON_TAB), group == TAB_HISTORY_ANI),
-        WIND => shown(svg!("stat_windows/wind"), HEADINGS[(index / 2).min(7)]),
+        TAB_MAIN | TAB_MAIN_ANI => tab(svg!("windows/stats/tabs/overview" on ICON_TAB), group == TAB_MAIN_ANI),
+        TAB_GUESTS | TAB_GUESTS_ANI => tab(svg!("windows/stats/tabs/admissions" on ICON_TAB), group == TAB_GUESTS_ANI),
+        TAB_RATE | TAB_RATE_ANI => tab(svg!("windows/stats/tabs/rating" on ICON_TAB), group == TAB_RATE_ANI),
+        TAB_WEATHER | TAB_WEATHER_ANI => tab(svg!("windows/stats/tabs/weather" on ICON_TAB), group == TAB_WEATHER_ANI),
+        TAB_HISTORY | TAB_HISTORY_ANI => tab(svg!("windows/stats/tabs/history" on ICON_TAB), group == TAB_HISTORY_ANI),
+        WIND => shown(svg!("windows/stats/wind"), HEADINGS[(index / 2).min(7)]),
         _ => None,
     }
 }
@@ -64,15 +64,15 @@ fn resort_stats(group: Group, index: usize) -> Option<Drawing> {
 fn finances_stats(group: Group, index: usize) -> Option<Drawing> {
     use art::finances_stats::*;
     match group {
-        TITLE_BAR => still(svg!("stat_windows/finances_tray")),
+        TITLE_BAR => still(svg!("windows/stats/finances_tray")),
         BACKGROUND => match index {
-            0 => still(svg!("stat_windows/income")),
-            1 => still(svg!("stat_windows/cash")),
-            _ => still(svg!("stat_windows/assets")),
+            0 => still(svg!("windows/stats/income")),
+            1 => still(svg!("windows/stats/cash")),
+            _ => still(svg!("windows/stats/assets")),
         },
-        CHART_TAB | CHART_TAB_ANI => tab(svg!("stat_windows/tabs/chart" on ICON_TAB), group == CHART_TAB_ANI),
-        CASH_TAB | CASH_TAB_ANI => tab(svg!("stat_windows/tabs/cash" on ICON_TAB), group == CASH_TAB_ANI),
-        ASSET_TAB | ASSET_TAB_ANI => tab(svg!("stat_windows/tabs/assets" on ICON_TAB), group == ASSET_TAB_ANI),
+        CHART_TAB | CHART_TAB_ANI => tab(svg!("windows/stats/tabs/chart" on ICON_TAB), group == CHART_TAB_ANI),
+        CASH_TAB | CASH_TAB_ANI => tab(svg!("windows/stats/tabs/cash" on ICON_TAB), group == CASH_TAB_ANI),
+        ASSET_TAB | ASSET_TAB_ANI => tab(svg!("windows/stats/tabs/assets" on ICON_TAB), group == ASSET_TAB_ANI),
         _ => None,
     }
 }
@@ -81,10 +81,10 @@ fn guests_stats(group: Group, index: usize) -> Option<Drawing> {
     use art::guests_stats::*;
     match group {
         // The average needs, then the lists' taller list panel.
-        BACKGROUND if index == 0 => still(svg!("stat_windows/guest_needs")),
-        BACKGROUND => still(svg!("stat_windows/guest_list")),
-        THOUGHT => button(svg!("stat_windows/thoughts" on ROUND), index),
-        ACTION => button(svg!("stat_windows/actions" on ROUND), index),
+        BACKGROUND if index == 0 => still(svg!("windows/stats/guest_needs")),
+        BACKGROUND => still(svg!("windows/stats/guest_list")),
+        THOUGHT => button(svg!("windows/stats/thoughts" on ROUND), index),
+        ACTION => button(svg!("windows/stats/actions" on ROUND), index),
         AVE | AVE_ANI => tab(GUEST_STATS_TAB, group == AVE_ANI),
         INDIVIDUAL | INDIVIDUAL_ANI => tab(GUEST_HISTORY, group == INDIVIDUAL_ANI),
         GROUP | GROUP_ANI => tab(GUEST_GROUP, group == GROUP_ANI),
@@ -95,7 +95,7 @@ fn guests_stats(group: Group, index: usize) -> Option<Drawing> {
 fn attractions(group: Group) -> Option<Drawing> {
     use art::attractions::*;
     match group {
-        TAB_LIFT | TAB_LIFT_ANI => tab(svg!("stat_windows/tabs/lifts" on ICON_TAB), group == TAB_LIFT_ANI),
+        TAB_LIFT | TAB_LIFT_ANI => tab(svg!("windows/stats/tabs/lifts" on ICON_TAB), group == TAB_LIFT_ANI),
         TAB_STRUCTURE | TAB_STRUCTURE_ANI => tab(BUILDINGS, group == TAB_STRUCTURE_ANI),
         TAB_RUN | TAB_RUN_ANI => tab(RUNS, group == TAB_RUN_ANI),
         TAB_JUMP | TAB_JUMP_ANI => tab(JUMPS, group == TAB_JUMP_ANI),
@@ -109,10 +109,10 @@ fn highlevel_stats(group: Group, index: usize) -> Option<Drawing> {
     let frame = FRAMES[index.min(9)];
     match group {
         // The broken building marker, in four sizes.
-        WRENCH_ZOOM1 => shown(svg!("stat_windows/wrench_1"), frame),
-        WRENCH_ZOOM2 => shown(svg!("stat_windows/wrench_2"), frame),
-        WRENCH_ZOOM3 => shown(svg!("stat_windows/wrench_3"), frame),
-        WRENCH_ZOOM4 => shown(svg!("stat_windows/wrench_4"), frame),
+        WRENCH_ZOOM1 => shown(svg!("windows/stats/wrench_1"), frame),
+        WRENCH_ZOOM2 => shown(svg!("windows/stats/wrench_2"), frame),
+        WRENCH_ZOOM3 => shown(svg!("windows/stats/wrench_3"), frame),
+        WRENCH_ZOOM4 => shown(svg!("windows/stats/wrench_4"), frame),
         _ => None,
     }
 }

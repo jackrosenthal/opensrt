@@ -1,5 +1,5 @@
 //! The mouse cursors, installed as native window cursors. Each is a
-//! vector remake (`cursors/*.svg`) of the original sprite in
+//! vector remake (`art/cursors/*.svg`) of the original sprite in
 //! `data/ui/global/MouseCursor.bin`, drawn in the sprite's pixel units so
 //! it can be rasterized at the interface's scale; the hotspots still come
 //! from the original file. The original sprite stands in if a remake
@@ -57,14 +57,14 @@ impl CursorKind {
     /// The vector remake.
     fn svg(self) -> &'static str {
         match self {
-            CursorKind::Arrow => include_str!("../cursors/arrow.svg"),
-            CursorKind::NoCash => include_str!("../cursors/no_cash.svg"),
-            CursorKind::TooLong => include_str!("../cursors/too_long.svg"),
-            CursorKind::Saw => include_str!("../cursors/saw.svg"),
-            CursorKind::Survey => include_str!("../cursors/survey.svg"),
-            CursorKind::Rotate => include_str!("../cursors/rotate.svg"),
-            CursorKind::Pan => include_str!("../cursors/pan.svg"),
-            CursorKind::Hand => include_str!("../cursors/hand.svg"),
+            CursorKind::Arrow => include_str!("../art/cursors/arrow.svg"),
+            CursorKind::NoCash => include_str!("../art/cursors/no_cash.svg"),
+            CursorKind::TooLong => include_str!("../art/cursors/too_long.svg"),
+            CursorKind::Saw => include_str!("../art/cursors/saw.svg"),
+            CursorKind::Survey => include_str!("../art/cursors/survey.svg"),
+            CursorKind::Rotate => include_str!("../art/cursors/rotate.svg"),
+            CursorKind::Pan => include_str!("../art/cursors/pan.svg"),
+            CursorKind::Hand => include_str!("../art/cursors/hand.svg"),
         }
     }
 }

@@ -1,4 +1,4 @@
-//! Widgets many windows and screens share (`hud/widgets/*.svg`): close
+//! Widgets many windows and screens share (`art/windows/widgets/`): close
 //! buttons, scroll arrows, tracks and nubs (black, and the finances
 //! window's blue ones), title trays, list panels, tabs, round buttons,
 //! list highlights and check buttons. The original repeats each as the
@@ -15,68 +15,68 @@ use super::{Drawing, Svg, button, shown, still};
 use crate::ui::art::{self, ArtFile, Group};
 
 /// The red cross that closes a window (SPU_Close).
-pub const CLOSE: Svg = svg!("widgets/close");
+pub const CLOSE: Svg = svg!("windows/widgets/close");
 /// The horizontal scroller's arrows (SPU_arrowL, SPU_arrowR).
-pub const ARROW_LEFT: Svg = svg!("widgets/arrow_left");
-pub const ARROW_RIGHT: Svg = svg!("widgets/arrow_right");
+pub const ARROW_LEFT: Svg = svg!("windows/widgets/arrow_left");
+pub const ARROW_RIGHT: Svg = svg!("windows/widgets/arrow_right");
 /// A window list's scroll arrows (ScrollUp, ScrollDown).
-pub const SCROLL_UP: Svg = svg!("widgets/scroll_up");
-pub const SCROLL_DOWN: Svg = svg!("widgets/scroll_down");
+pub const SCROLL_UP: Svg = svg!("windows/widgets/scroll_up");
+pub const SCROLL_DOWN: Svg = svg!("windows/widgets/scroll_down");
 /// Small arrows of spinners and short lists (miniscrollUp, miniscrollDown).
-pub const SPIN_UP: Svg = svg!("widgets/spin_up");
-pub const SPIN_DOWN: Svg = svg!("widgets/spin_down");
+pub const SPIN_UP: Svg = svg!("windows/widgets/spin_up");
+pub const SPIN_DOWN: Svg = svg!("windows/widgets/spin_down");
 /// A front-end list's scroll arrows (Scroll_Up, Scroll_Down).
-pub const LIST_UP: Svg = svg!("widgets/list_up");
-pub const LIST_DOWN: Svg = svg!("widgets/list_down");
+pub const LIST_UP: Svg = svg!("windows/widgets/list_up");
+pub const LIST_DOWN: Svg = svg!("windows/widgets/list_down");
 /// The black disc that slides along a track (Scroll_Tab).
-pub const NUB: Svg = svg!("widgets/nub");
+pub const NUB: Svg = svg!("windows/widgets/nub");
 /// Scroll tracks: a window list's (Tray_Vert, Tray_Horiz), a short one
 /// (Tray_Vert_short), a stat window's (vert_text_box, horiz_text_box)
 /// and a front-end list's (Scroll_Bar_Vertical).
-pub const TRACK_VERT: Svg = svg!("widgets/track_vert");
-pub const TRACK_VERT_SHORT: Svg = svg!("widgets/track_vert_short");
-pub const TRACK_HORIZ: Svg = svg!("widgets/track_horiz");
-pub const TEXT_TRACK_VERT: Svg = svg!("widgets/text_track_vert");
-pub const TEXT_TRACK_HORIZ: Svg = svg!("widgets/text_track_horiz");
-pub const LIST_TRACK: Svg = svg!("widgets/list_track");
+pub const TRACK_VERT: Svg = svg!("windows/widgets/track_vert");
+pub const TRACK_VERT_SHORT: Svg = svg!("windows/widgets/track_vert_short");
+pub const TRACK_HORIZ: Svg = svg!("windows/widgets/track_horiz");
+pub const TEXT_TRACK_VERT: Svg = svg!("windows/widgets/text_track_vert");
+pub const TEXT_TRACK_HORIZ: Svg = svg!("windows/widgets/text_track_horiz");
+pub const LIST_TRACK: Svg = svg!("windows/widgets/list_track");
 /// The top of a window, under its title and tabs (Popup_tray_bkgrnd).
-pub const TITLE_TRAY: Svg = svg!("widgets/title_tray");
+pub const TITLE_TRAY: Svg = svg!("windows/widgets/title_tray");
 /// A window's plain list panel (Text_list_bkgrnd, music_bkgrnd).
-pub const LIST_PANEL: Svg = svg!("widgets/list_panel");
+pub const LIST_PANEL: Svg = svg!("windows/widgets/list_panel");
 /// The blue picker tab (Tab_Normal, Tab_Depress, tab_depress_empty):
 /// states `normal`, `depress` (chosen) and `dim`.
-pub const TAB: Svg = svg!("widgets/tab");
+pub const TAB: Svg = svg!("windows/widgets/tab");
 /// The wooden tab (Tab_Plain_Normal, Tab_Plain_Depress): states `normal`
 /// and `depress` (chosen).
-pub const TAB_PLAIN: Svg = svg!("widgets/tab_plain");
+pub const TAB_PLAIN: Svg = svg!("windows/widgets/tab_plain");
 /// Frame of the windows' 45x34 picture tabs (Tab_*_Normal, Tab_*_Depress):
 /// states `normal` (in front) and `depress` (behind).
-pub const ICON_TAB: Svg = svg!("widgets/icon_tab");
+pub const ICON_TAB: Svg = svg!("windows/widgets/icon_tab");
 /// Frame of the 35x36 round buttons: states `normal`, `rollover` and
 /// `depress`.
-pub const ROUND: Svg = svg!("widgets/round");
-pub const FOCUS: Svg = svg!("widgets/focus" on ROUND);
-pub const RENAME: Svg = svg!("widgets/rename" on ROUND);
-pub const PATSEYE: Svg = svg!("widgets/patseye" on ROUND);
-pub const SELL: Svg = svg!("widgets/sell" on ROUND);
+pub const ROUND: Svg = svg!("windows/widgets/round");
+pub const FOCUS: Svg = svg!("windows/widgets/focus" on ROUND);
+pub const RENAME: Svg = svg!("windows/widgets/rename" on ROUND);
+pub const PATSEYE: Svg = svg!("windows/widgets/patseye" on ROUND);
+pub const SELL: Svg = svg!("windows/widgets/sell" on ROUND);
 /// The chosen row of a front-end list (highlightBAR).
-pub const HIGHLIGHT: Svg = svg!("widgets/highlight");
+pub const HIGHLIGHT: Svg = svg!("windows/widgets/highlight");
 /// The finances window's blue scroller (Scroll_Up, Scroll_Down,
 /// Scroll_Left, Scroll_Right, Scroll_Bar_Vertical, Scroll_Bar and its
 /// Scroll_Tab); the object picker has its arrows too.
-pub const BLUE_UP: Svg = svg!("widgets/blue_up");
-pub const BLUE_DOWN: Svg = svg!("widgets/blue_down");
-pub const BLUE_LEFT: Svg = svg!("widgets/blue_left");
-pub const BLUE_RIGHT: Svg = svg!("widgets/blue_right");
-pub const BLUE_TRACK_VERT: Svg = svg!("widgets/blue_track_vert");
-pub const BLUE_TRACK_HORIZ: Svg = svg!("widgets/blue_track_horiz");
-pub const BLUE_NUB: Svg = svg!("widgets/blue_nub");
+pub const BLUE_UP: Svg = svg!("windows/widgets/blue_up");
+pub const BLUE_DOWN: Svg = svg!("windows/widgets/blue_down");
+pub const BLUE_LEFT: Svg = svg!("windows/widgets/blue_left");
+pub const BLUE_RIGHT: Svg = svg!("windows/widgets/blue_right");
+pub const BLUE_TRACK_VERT: Svg = svg!("windows/widgets/blue_track_vert");
+pub const BLUE_TRACK_HORIZ: Svg = svg!("windows/widgets/blue_track_horiz");
+pub const BLUE_NUB: Svg = svg!("windows/widgets/blue_nub");
 /// Radio and check buttons (Radial_on, RADIAL_rollover): states `off`,
 /// `rollover` and `on`.
-pub const CHECK: Svg = svg!("widgets/check");
+pub const CHECK: Svg = svg!("windows/widgets/check");
 /// The small OK pill (the credits screen's OkButton; Bob's Ok is the
 /// same art).
-pub const OK: Svg = svg!("widgets/ok");
+pub const OK: Svg = svg!("windows/widgets/ok");
 
 /// Files whose `close` group is the red cross.
 const CLOSE_FILES: &[ArtFile] = &[

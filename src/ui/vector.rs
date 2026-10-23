@@ -1,4 +1,4 @@
-//! Vector interface art (`hud/**/*.svg`) that replaces original sprites:
+//! Vector interface art (`art/**/*.svg`) that replaces original sprites:
 //! most of it remakes them, the map view button is a new design. Drawn in
 //! the original's layout pixels so it replaces sprites one for one and can
 //! be rasterized at the display's scale. A drawing with several looks
@@ -10,6 +10,15 @@
 //! their own, one function per screen file, and the widgets many of them
 //! share (close buttons, scroll arrows, tabs and so on) are mapped once
 //! for every file that has them, in `widgets`.
+//!
+//! The drawings are laid out in `art/` by where they appear in the game:
+//! `menus/` (the front end's scene and logo, the main and escape menus'
+//! buttons, the other screens' panels and buttons, and the level
+//! previews), `hud/` (the top bar with its buttons, menus and trays, the
+//! bottom bar, the minimap, and the thought icons over guests),
+//! `windows/` (the widgets and tab pictures the windows share, the object
+//! windows, the stat windows, and the build pickers), `dialogs/` (one
+//! directory each), and `cursors/`.
 
 use resvg::{tiny_skia, usvg};
 
@@ -54,16 +63,17 @@ impl std::hash::Hash for Svg {
     }
 }
 
-/// `svg!("trays/food")` is `hud/trays/food.svg`; `svg!("widgets/focus" on
-/// ROUND)` is an icon drawn over the frame `ROUND`.
+/// `svg!("hud/top_bar/trays/food")` is `art/hud/top_bar/trays/food.svg`;
+/// `svg!("windows/widgets/focus" on ROUND)` is an icon drawn over the
+/// frame `ROUND`.
 macro_rules! svg {
     ($name:literal) => {
-        Svg { name: $name, source: include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/hud/", $name, ".svg")), frame: None }
+        Svg { name: $name, source: include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/art/", $name, ".svg")), frame: None }
     };
     ($name:literal on $frame:expr) => {
         Svg {
             name: $name,
-            source: include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/hud/", $name, ".svg")),
+            source: include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/art/", $name, ".svg")),
             frame: Some(&$frame),
         }
     };
@@ -95,21 +105,21 @@ fn still(svg: Svg) -> Option<Drawing> {
 
 /// The bottom bar, drawn as wide as the window: its root is
 /// `width="1024"`, laid out relative to that.
-pub const BOTTOM_BAR: Svg = svg!("bottom_bar");
+pub const BOTTOM_BAR: Svg = svg!("hud/bottom_bar/bar");
 /// The top bar, drawn as wide as the window like the bottom bar.
-pub const TOP_BAR: Svg = svg!("top_bar");
-pub const SNOWFLAKE: Svg = svg!("snowflake");
+pub const TOP_BAR: Svg = svg!("hud/top_bar/bar");
+pub const SNOWFLAKE: Svg = svg!("hud/bottom_bar/snowflake");
 /// The front end's mountain scene, behind every menu screen.  It reaches
 /// past the canvas on every side, so it fills wide and tall windows.
-pub const MENU_SCENE: Svg = svg!("front_end/scene");
+pub const MENU_SCENE: Svg = svg!("menus/scene");
 /// The map editor's panel under the view buttons.
-pub const EDITOR_BOTTOM: Svg = svg!("editor_bottom");
+pub const EDITOR_BOTTOM: Svg = svg!("hud/bottom_bar/editor_bar");
 
 /// What a menu log stretches through while its tray opens, and the cap
 /// on the tray's far end.
-const LOG_OPEN_SHORT: Svg = svg!("menus/open_short");
-const LOG_OPEN_LONG: Svg = svg!("menus/open_long");
-const ENDCAP: Svg = svg!("menus/endcap");
+const LOG_OPEN_SHORT: Svg = svg!("hud/top_bar/menus/open_short");
+const LOG_OPEN_LONG: Svg = svg!("hud/top_bar/menus/open_long");
+const ENDCAP: Svg = svg!("hud/top_bar/menus/endcap");
 
 /// The vector drawing that stands in for element `index` of a group, with
 /// the state to show, if it has one. A screen's own arms come first, so
@@ -142,126 +152,126 @@ fn hud(file: ArtFile, group: Group, index: usize) -> Option<Drawing> {
         art::nav_bar::FILE => {
             use art::nav_bar::*;
             match group {
-                ZOOM_IN => button(svg!("zoom_in")),
-                ZOOM_OUT => button(svg!("zoom_out")),
-                ROTATE_CW => button(svg!("rotate_cw")),
-                ROTATE_CCW => button(svg!("rotate_ccw")),
-                MAP_VIEW => button(svg!("map_view")),
-                MAIN => button(svg!("main")),
-                BUILD => button(svg!("build")),
-                TERRAIN => button(svg!("terrain")),
-                FINANCES => button(svg!("finances")),
-                FIRST_PERSON => button(svg!("first_person")),
-                LOG_GRID => button(svg!("grid")),
-                LOG_SURVEY => button(svg!("survey")),
+                ZOOM_IN => button(svg!("hud/bottom_bar/zoom_in")),
+                ZOOM_OUT => button(svg!("hud/bottom_bar/zoom_out")),
+                ROTATE_CW => button(svg!("hud/bottom_bar/rotate_cw")),
+                ROTATE_CCW => button(svg!("hud/bottom_bar/rotate_ccw")),
+                MAP_VIEW => button(svg!("hud/bottom_bar/map_view")),
+                MAIN => button(svg!("hud/top_bar/save")),
+                BUILD => button(svg!("hud/top_bar/build")),
+                TERRAIN => button(svg!("hud/top_bar/terrain")),
+                FINANCES => button(svg!("hud/top_bar/finances")),
+                FIRST_PERSON => button(svg!("hud/top_bar/first_person")),
+                LOG_GRID => button(svg!("hud/top_bar/grid")),
+                LOG_SURVEY => button(svg!("hud/top_bar/survey")),
                 // Each shows what the button is now, then what it will be.
-                PAUSE => shown(svg!("pause"), ["pause", "play", "play"][index.min(2)]),
-                PAUSE_OFF => shown(svg!("pause"), ["play", "pause_lit", "pause"][index.min(2)]),
+                PAUSE => shown(svg!("hud/top_bar/pause"), ["pause", "play", "play"][index.min(2)]),
+                PAUSE_OFF => shown(svg!("hud/top_bar/pause"), ["play", "pause_lit", "pause"][index.min(2)]),
                 // Drawn over a log while its menu is open.
-                CONSTRUCTION_OVERLAY => shown(svg!("build"), "depress"),
-                TERRAIN_OVERLAY => shown(svg!("terrain"), "depress"),
-                FINANCE_OVERLAY => shown(svg!("finances"), "rollover"),
-                STAR => shown(svg!("star"), ["none", "half", "full"][index.min(2)]),
+                CONSTRUCTION_OVERLAY => shown(svg!("hud/top_bar/build"), "depress"),
+                TERRAIN_OVERLAY => shown(svg!("hud/top_bar/terrain"), "depress"),
+                FINANCE_OVERLAY => shown(svg!("hud/top_bar/finances"), "rollover"),
+                STAR => shown(svg!("hud/bottom_bar/star"), ["none", "half", "full"][index.min(2)]),
                 _ => None,
             }
         }
         art::construction_ext::FILE => {
             use art::construction_ext::*;
             match group {
-                LOG_STRUCTURES => log(svg!("menus/structures")),
-                LOG_LIFTS => log(svg!("menus/lifts")),
-                LOG_OBJECTS => log(svg!("menus/objects")),
+                LOG_STRUCTURES => log(svg!("hud/top_bar/menus/structures")),
+                LOG_LIFTS => log(svg!("hud/top_bar/menus/lifts")),
+                LOG_OBJECTS => log(svg!("hud/top_bar/menus/objects")),
                 // Drawn over a log while its tray is open.
-                STRUCTURES_OVERLAY => shown(svg!("menus/structures"), "open"),
-                LIFTS_OVERLAY => shown(svg!("menus/lifts"), "open"),
-                OBJECTS_OVERLAY => shown(svg!("menus/objects"), "open"),
+                STRUCTURES_OVERLAY => shown(svg!("hud/top_bar/menus/structures"), "open"),
+                LIFTS_OVERLAY => shown(svg!("hud/top_bar/menus/lifts"), "open"),
+                OBJECTS_OVERLAY => shown(svg!("hud/top_bar/menus/objects"), "open"),
                 _ => None,
             }
         }
         art::terrain_ext::FILE => {
             use art::terrain_ext::*;
             match group {
-                LOG_SURFACEMOD => log(svg!("menus/surface")),
-                LOG_TREES => log(svg!("menus/trees")),
-                LOG_SKIRUN => log(svg!("menus/runs")),
-                SURFACEMOD_OVERLAY => shown(svg!("menus/surface"), "open"),
-                TREES_OVERLAY => shown(svg!("menus/trees"), "open"),
-                SKIRUN_OVERLAY => shown(svg!("menus/runs"), "open"),
+                LOG_SURFACEMOD => log(svg!("hud/top_bar/menus/surface")),
+                LOG_TREES => log(svg!("hud/top_bar/menus/trees")),
+                LOG_SKIRUN => log(svg!("hud/top_bar/menus/runs")),
+                SURFACEMOD_OVERLAY => shown(svg!("hud/top_bar/menus/surface"), "open"),
+                TREES_OVERLAY => shown(svg!("hud/top_bar/menus/trees"), "open"),
+                SKIRUN_OVERLAY => shown(svg!("hud/top_bar/menus/runs"), "open"),
                 _ => None,
             }
         }
         art::finance_ext::FILE => {
             use art::finance_ext::*;
             match group {
-                LOG_RESORTSTATS => log(svg!("menus/resort_stats")),
-                LOG_RESORTFINANCE => log(svg!("menus/finances")),
-                LOG_GUESTSTATS => log(svg!("menus/guests")),
-                LOG_STAFFSTATS => log(svg!("menus/staff")),
-                LOG_ATTRACTION => log(svg!("menus/attractions")),
+                LOG_RESORTSTATS => log(svg!("hud/top_bar/menus/resort_stats")),
+                LOG_RESORTFINANCE => log(svg!("hud/top_bar/menus/finances")),
+                LOG_GUESTSTATS => log(svg!("hud/top_bar/menus/guests")),
+                LOG_STAFFSTATS => log(svg!("hud/top_bar/menus/staff")),
+                LOG_ATTRACTION => log(svg!("hud/top_bar/menus/attractions")),
                 _ => None,
             }
         }
         art::build_sub::FILE => {
             use art::build_sub::*;
             match group {
-                TRAY_LODGING => button(svg!("trays/lodging")),
-                TRAY_FOOD => button(svg!("trays/food")),
-                TRAY_COMFORT => button(svg!("trays/comfort")),
-                TRAY_ENTERTAINMENT => button(svg!("trays/entertainment")),
-                TRAY_RENTALS => button(svg!("trays/rentals")),
-                TRAY_MAINTENANCE => button(svg!("trays/maintenance")),
-                TRAY_SERVICES => button(svg!("trays/services")),
-                TRAY_UTILITIES => button(svg!("trays/utilities")),
+                TRAY_LODGING => button(svg!("hud/top_bar/trays/lodging")),
+                TRAY_FOOD => button(svg!("hud/top_bar/trays/food")),
+                TRAY_COMFORT => button(svg!("hud/top_bar/trays/comfort")),
+                TRAY_ENTERTAINMENT => button(svg!("hud/top_bar/trays/entertainment")),
+                TRAY_RENTALS => button(svg!("hud/top_bar/trays/rentals")),
+                TRAY_MAINTENANCE => button(svg!("hud/top_bar/trays/maintenance")),
+                TRAY_SERVICES => button(svg!("hud/top_bar/trays/services")),
+                TRAY_UTILITIES => button(svg!("hud/top_bar/trays/utilities")),
                 _ => None,
             }
         }
         art::lifts_sub::FILE => {
             use art::lifts_sub::*;
             match group {
-                TRAY_LIFTS => button(svg!("trays/lifts")),
-                TRAY_JUMPS => button(svg!("trays/jumps")),
-                TRAY_MARKERS => button(svg!("trays/markers")),
+                TRAY_LIFTS => button(svg!("hud/top_bar/trays/lifts")),
+                TRAY_JUMPS => button(svg!("hud/top_bar/trays/jumps")),
+                TRAY_MARKERS => button(svg!("hud/top_bar/trays/markers")),
                 _ => None,
             }
         }
         art::fluff_sub::FILE => {
             use art::fluff_sub::*;
             match group {
-                TRAY_OBJECTS => button(svg!("trays/objects")),
-                TRAY_PATHS => button(svg!("trays/paths")),
+                TRAY_OBJECTS => button(svg!("hud/top_bar/trays/objects")),
+                TRAY_PATHS => button(svg!("hud/top_bar/trays/paths")),
                 _ => None,
             }
         }
         art::skirun_sub::FILE => {
             use art::skirun_sub::*;
             match group {
-                TRAY_RUNFOLLOW => button(svg!("trays/run_follow")),
-                TRAY_RUNSUB => button(svg!("trays/run_cut")),
-                TRAY_RUNADD => button(svg!("trays/run_fill")),
+                TRAY_RUNFOLLOW => button(svg!("hud/top_bar/trays/run_follow")),
+                TRAY_RUNSUB => button(svg!("hud/top_bar/trays/run_cut")),
+                TRAY_RUNADD => button(svg!("hud/top_bar/trays/run_fill")),
                 _ => None,
             }
         }
         art::surface_sub::FILE => {
             use art::surface_sub::*;
             match group {
-                TRAY_HILL => button(svg!("trays/hill")),
-                TRAY_PEAK => button(svg!("trays/peak")),
-                TRAY_FLATRAISE => button(svg!("trays/flatten")),
-                TRAY_RAISEPOINT => button(svg!("trays/point")),
-                TRAY_SMOOTH => button(svg!("trays/smooth")),
-                TRAY_MOGULS => button(svg!("trays/moguls")),
-                TRAY_SNOW => button(svg!("trays/snow")),
-                TRAY_GROOMER => button(svg!("trays/groomer")),
+                TRAY_HILL => button(svg!("hud/top_bar/trays/hill")),
+                TRAY_PEAK => button(svg!("hud/top_bar/trays/peak")),
+                TRAY_FLATRAISE => button(svg!("hud/top_bar/trays/flatten")),
+                TRAY_RAISEPOINT => button(svg!("hud/top_bar/trays/point")),
+                TRAY_SMOOTH => button(svg!("hud/top_bar/trays/smooth")),
+                TRAY_MOGULS => button(svg!("hud/top_bar/trays/moguls")),
+                TRAY_SNOW => button(svg!("hud/top_bar/trays/snow")),
+                TRAY_GROOMER => button(svg!("hud/top_bar/trays/groomer")),
                 _ => None,
             }
         }
         art::trees_sub::FILE => {
             use art::trees_sub::*;
             match group {
-                TRAY_CHAINSAW => button(svg!("trays/clear")),
-                TRAY_TREESPARSE => button(svg!("trays/sparse")),
-                TRAY_TREEMEDIUM => button(svg!("trays/medium")),
-                TRAY_TREEDENSE => button(svg!("trays/dense")),
+                TRAY_CHAINSAW => button(svg!("hud/top_bar/trays/clear")),
+                TRAY_TREESPARSE => button(svg!("hud/top_bar/trays/sparse")),
+                TRAY_TREEMEDIUM => button(svg!("hud/top_bar/trays/medium")),
+                TRAY_TREEDENSE => button(svg!("hud/top_bar/trays/dense")),
                 _ => None,
             }
         }

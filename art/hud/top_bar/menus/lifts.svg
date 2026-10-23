@@ -1,0 +1,285 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 45 57" width="45" height="57">
+  <!-- Lifts menu log: vector remake of the original Ski Resort Tycoon
+       sprites LogLifts_Normal/_Rollover/_Depress, and LogLifts_Special
+       (state open: drawn over the log while its tray is open).  One
+       group per state; the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The stem the log hangs from the one above by, reaching up into
+         its rim (the drawing starts 2 px above the sprite). -->
+    <rect id="stem" x="21" y="-2" width="4" height="16" fill="#000000"/>
+    <!-- Open: pressed in, and joined on its right to its tray's strip. -->
+    <clipPath id="stripInside"><rect x="23" y="15" width="22" height="36"/></clipPath>
+    <g id="openLook">
+      <circle cx="23" cy="33" r="21" fill="#000000"/>
+      <rect x="23" y="12" width="22" height="42" fill="#000000"/>
+      <g clip-path="url(#stripInside)">
+        <rect x="23" y="15" width="22" height="36" fill="#FFFFFF"/>
+        <rect x="23" y="15" width="22" height="3" fill="#F6EEF6"/>
+        <rect x="23" y="48" width="22" height="3" fill="#C5C5C5"/>
+      </g>
+      <use href="#faceDepress"/>
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+    </g>
+    <!-- The chairlift is the tray's chairlift button's drawing (see
+         hud/top_bar/trays/lifts.svg), as in the original, where the two sprites
+         are the same art 1 px apart. -->
+    <!-- The centerline of the hanger's round steel bar: the shaft
+         straight down out of the grip, the arm out to the right, and the
+         rod down to the seat. -->
+    <path id="hangerLine" fill="none" stroke-linecap="round" stroke-linejoin="round"
+          d="M17.2,21.4 V23.9 C17.2,24.6 17.7,25.1 18.4,25.1 H27.9 C28.5,25.1 29,25.6 29,26.2 V40.3"/>
+    <!-- Everything the bar covers, to keep its shading inside it. -->
+    <mask id="hangerMask" maskUnits="userSpaceOnUse" x="0" y="0" width="41" height="55">
+      <use href="#hangerLine" stroke="#FFFFFF" stroke-width="1.8"/>
+    </mask>
+
+    <!-- The grip's cast steel body, rounded: a pale top catching the
+         light, rolling down into a dark underside. -->
+    <linearGradient id="gripBody" x1="0" y1="18.6" x2="0" y2="22.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D8C8A0"/>
+      <stop offset="0.25" stop-color="#B0A27C"/>
+      <stop offset="0.55" stop-color="#6A6048"/>
+      <stop offset="1" stop-color="#2C2410"/>
+    </linearGradient>
+    <!-- Light along the grip's left end, fading to the right. -->
+    <linearGradient id="gripEnd" x1="15.6" y1="0" x2="21.8" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF4D0" stop-opacity="0.35"/>
+      <stop offset="0.4" stop-color="#FFF4D0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#140C00" stop-opacity="0.35"/>
+    </linearGradient>
+    <!-- The green chair's slats: brighter along the top, deeper below. -->
+    <linearGradient id="slat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5ADC64"/>
+      <stop offset="0.35" stop-color="#22BC30"/>
+      <stop offset="1" stop-color="#088E18"/>
+    </linearGradient>
+    <!-- Sunlight on the slats' left ends, fading to nothing. -->
+    <linearGradient id="slatEnd" x1="14" y1="0" x2="17" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D2D88A" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#D2D88A" stop-opacity="0"/>
+    </linearGradient>
+    <!-- The slats' right ends, falling into shade by the rod. -->
+    <linearGradient id="slatShade" x1="25" y1="0" x2="28.8" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#043A08" stop-opacity="0"/>
+      <stop offset="1" stop-color="#043A08" stop-opacity="0.55"/>
+    </linearGradient>
+    <!-- The blue jacket, lit from the upper left. -->
+    <linearGradient id="jacket" x1="18" y1="31" x2="26" y2="37" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#36C6FF"/>
+      <stop offset="0.45" stop-color="#00A6FF"/>
+      <stop offset="1" stop-color="#0064C2"/>
+    </linearGradient>
+    <!-- The skier's tan face, shading to the right. -->
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FAC872"/>
+      <stop offset="0.6" stop-color="#FFB842"/>
+      <stop offset="1" stop-color="#E4843E"/>
+    </linearGradient>
+    <!-- The blue hood. -->
+    <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2A40F0"/>
+      <stop offset="1" stop-color="#0418A8"/>
+    </linearGradient>
+    <!-- A red trouser leg, round: lit on the left, dark on the right. -->
+    <linearGradient id="leg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E02A08"/>
+      <stop offset="0.3" stop-color="#FF3410"/>
+      <stop offset="0.6" stop-color="#E41600"/>
+      <stop offset="1" stop-color="#780400"/>
+    </linearGradient>
+    <!-- The lap, red in the shadow of the jacket. -->
+    <linearGradient id="lap" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B85428"/>
+      <stop offset="0.4" stop-color="#B42410"/>
+      <stop offset="1" stop-color="#8C0806"/>
+    </linearGradient>
+    <!-- A blue ski boot, glossy at the upper left. -->
+    <linearGradient id="boot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4A62EC"/>
+      <stop offset="0.4" stop-color="#0A1CD0"/>
+      <stop offset="1" stop-color="#00005E"/>
+    </linearGradient>
+    <!-- The navy glove gripping the rod. -->
+    <linearGradient id="glove" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2A64C8"/>
+      <stop offset="0.6" stop-color="#14306E"/>
+      <stop offset="1" stop-color="#5A4A6A"/>
+    </linearGradient>
+
+    <g id="chairlift">
+      <!-- The hanger's round steel bar: dark underneath and on the right,
+           a broad tan face toward the light, and a thin bright glint. -->
+      <g mask="url(#hangerMask)">
+        <use href="#hangerLine" stroke="#2C2410" stroke-width="1.8"/>
+        <use href="#hangerLine" stroke="#4E4630" stroke-width="1.4" transform="translate(-0.25,-0.25)"/>
+        <use href="#hangerLine" stroke="#A09472" stroke-width="0.75" transform="translate(-0.55,-0.55)"/>
+        <use href="#hangerLine" stroke="#DCCDA2" stroke-width="0.3" transform="translate(-0.65,-0.65)"/>
+      </g>
+
+      <!-- A short stub of the haul cable, thin dark steel rising a
+           little to the right, with a faint glint along its top. -->
+      <path d="M12.6,21.2 L25.8,19.6" stroke="#221E16" stroke-width="0.75" stroke-linecap="round"/>
+      <path d="M12.8,21 L25.6,19.45" stroke="#8A8476" stroke-width="0.18" stroke-linecap="round"/>
+
+      <!-- The grip: a short rounded clamp body closed on the cable, its
+           jaw seam along the cable line, and a bolt head on its face. -->
+      <rect x="15.6" y="18.6" width="6.2" height="3.8" rx="1.1" fill="url(#gripBody)"
+            stroke="#241C08" stroke-width="0.3"/>
+      <rect x="15.6" y="18.6" width="6.2" height="3.8" rx="1.1" fill="url(#gripEnd)"/>
+      <path d="M16.1,20.85 L21.3,20.2" stroke="#2A2210" stroke-width="0.3" stroke-linecap="round"/>
+      <path d="M16.1,21.15 L21.3,20.5" stroke="#8C8060" stroke-width="0.18" stroke-linecap="round"/>
+      <path d="M16.5,19.1 H20.8" stroke="#ECE0BC" stroke-width="0.3" stroke-linecap="round"/>
+      <circle cx="20.3" cy="21.55" r="0.45" fill="#3A3220" stroke="#1C1608" stroke-width="0.15"/>
+      <circle cx="20.15" cy="21.4" r="0.15" fill="#B4A884"/>
+
+      <!-- The chair's back slat, showing on either side of the skier. -->
+      <rect x="14" y="33" width="14.8" height="3.9" rx="0.9" fill="url(#slat)"/>
+      <rect x="14" y="33" width="14.8" height="3.9" rx="0.9" fill="url(#slatEnd)"/>
+      <rect x="14" y="33" width="14.8" height="3.9" rx="0.9" fill="url(#slatShade)"/>
+      <path d="M14.9,33.35 H27.9" stroke="#9AF09A" stroke-width="0.3" stroke-linecap="round" opacity="0.8"/>
+      <!-- The shadow the right arm casts on the back slat. -->
+      <path d="M23.8,34.8 C25,35.3 26.4,35.6 28.6,35.3 V36.2 C26.6,36.5 24.8,36.2 23.8,35.8 Z"
+            fill="#04500E" opacity="0.6"/>
+
+      <!-- The ski pole, its dark grip and tan wrist strap at the top. -->
+      <path d="M15.3,29.4 L17.8,37.6" stroke="#181010" stroke-width="0.85" stroke-linecap="round"/>
+      <path d="M15.2,29.2 L15.85,31.4" stroke="#241A14" stroke-width="1.35" stroke-linecap="round"/>
+      <path d="M14.9,29.4 L15.4,31" stroke="#6A5A50" stroke-width="0.3" stroke-linecap="round"/>
+      <ellipse cx="14.5" cy="30.7" rx="0.55" ry="0.75" fill="none" stroke="#8C7052" stroke-width="0.35"
+               transform="rotate(-20,14.5,30.7)"/>
+
+      <!-- The blue jacket: the body, the left arm down to the pole, and
+           the right arm reaching out to the rod. -->
+      <path d="M18,33 C18,31.8 18.9,31 20.1,30.9 H23.3 C24.3,31 24.9,31.5 25.4,32.3 L27.4,33.1 C28.2,33.4 28.4,34.6 27.8,35.2 C27.5,35.6 27,35.7 26.4,35.6 L24.3,35.2 V37.2 H18.1 Z"
+            fill="url(#jacket)"/>
+      <!-- The jacket's collar, and light along the shoulders and arm. -->
+      <path d="M19.3,31.5 C20.6,31 22.4,30.9 24.2,31.4" fill="none" stroke="#72AACA" stroke-width="0.65"
+            stroke-linecap="round"/>
+      <path d="M24.6,32 C25.6,32.4 26.5,32.8 27.3,33.3" fill="none" stroke="#5CD2FF" stroke-width="0.4"
+            stroke-linecap="round"/>
+      <path d="M18.5,32.4 C18.4,33.4 18.4,34.4 18.5,35.4" fill="none" stroke="#40CCFF" stroke-width="0.4"
+            stroke-linecap="round"/>
+      <!-- Folds: the left arm against the body, and under the right arm. -->
+      <path d="M19.45,33.5 C19.3,34.5 19.3,35.6 19.5,36.9" fill="none" stroke="#003576" stroke-width="0.6"
+            stroke-linecap="round"/>
+      <path d="M22.9,33.9 C23.6,34.5 24.5,34.8 25.7,34.9" fill="none" stroke="#002456" stroke-width="0.6"
+            stroke-linecap="round"/>
+      <path d="M23.4,35.4 V37" stroke="#0034A0" stroke-width="0.5"/>
+
+      <!-- The left glove, holding the pole. -->
+      <ellipse cx="18" cy="35.3" rx="0.75" ry="0.85" fill="#0A3A8E"/>
+      <!-- The right glove, its fist closed around the rod. -->
+      <rect x="27" y="33.1" width="3.4" height="2.1" rx="1" fill="url(#glove)"/>
+      <path d="M27.6,33.5 H29.6" stroke="#5C8CE0" stroke-width="0.3" stroke-linecap="round"/>
+
+      <!-- The skier's face: a brown fringe, dark goggles, a tan chin. -->
+      <path d="M20,28.2 H23.1 V30.5 C23.1,31.2 22.5,31.5 21.6,31.5 C20.6,31.5 20,31.1 20,30.4 Z"
+            fill="url(#skin)"/>
+      <path d="M20,28.2 H23.1 V29.1 H20 Z" fill="#9C6424"/>
+      <rect x="19.95" y="28.9" width="3.15" height="1.05" rx="0.35" fill="#2E1606"/>
+      <path d="M20.5,29.2 H21.3" stroke="#7A4628" stroke-width="0.25" stroke-linecap="round"/>
+      <!-- The blue hood over the head and down the right side. -->
+      <path d="M19.9,28.5 C19.9,27.5 20.7,26.9 21.9,26.9 C23.3,26.9 24.1,27.7 24.1,28.9 V30.8 C24.1,31.2 23.8,31.5 23.4,31.5 H22.9 V28.4 H20.3 Z"
+            fill="url(#hood)"/>
+      <path d="M20.6,28 C20.9,27.5 21.4,27.3 22,27.3" fill="none" stroke="#6A78FF" stroke-width="0.3"
+            stroke-linecap="round"/>
+
+      <!-- The lap, the thighs seen end-on above the seat. -->
+      <path d="M18.4,38.2 C18.4,37.3 18.9,36.8 19.8,36.8 H23.3 C24.1,36.8 24.5,37.3 24.5,38.2 Z"
+            fill="url(#lap)"/>
+
+      <!-- The seat slat under the skier, and the dark frame below it. -->
+      <rect x="14" y="37.9" width="14.9" height="2.4" rx="0.8" fill="url(#slat)"/>
+      <rect x="14" y="37.9" width="14.9" height="2.4" rx="0.8" fill="url(#slatEnd)"/>
+      <rect x="14" y="37.9" width="14.9" height="2.4" rx="0.8" fill="url(#slatShade)"/>
+      <path d="M14.9,38.25 H28" stroke="#8AE890" stroke-width="0.3" stroke-linecap="round" opacity="0.8"/>
+      <rect x="14.8" y="40.1" width="14.9" height="1" rx="0.45" fill="#5A4130"/>
+      <path d="M15.3,40.35 H29.2" stroke="#86694E" stroke-width="0.25" stroke-linecap="round"/>
+
+      <!-- The red trouser legs hanging over the seat, with a shadow
+           between them. -->
+      <rect x="19.8" y="38" width="1.4" height="2.3" fill="#064A06" opacity="0.7"/>
+      <path d="M17,38 H20 V42.8 C20,43.2 19.8,43.4 19.5,43.4 H17.4 C17.1,43.4 16.9,43.2 16.9,42.9 Z"
+            fill="url(#leg)"/>
+      <path d="M20.9,38 H23.4 L23.1,43 C23.1,43.2 22.9,43.4 22.6,43.4 H21.3 C21,43.4 20.9,43.2 20.9,42.9 Z"
+            fill="url(#leg)"/>
+      <!-- Light on the knees at the seat's edge. -->
+      <ellipse cx="18" cy="38.6" rx="0.6" ry="0.35" fill="#FF7A50" opacity="0.7"/>
+      <ellipse cx="21.8" cy="38.6" rx="0.5" ry="0.3" fill="#FF7A50" opacity="0.6"/>
+
+      <!-- The blue ski boots, a dark cuff at the top of each. -->
+      <path d="M16.8,43.3 H19.6 C19.9,43.3 20,43.5 20,43.8 V45.5 C20,45.8 19.8,46 19.5,46 H17.2 C16.9,46 16.7,45.8 16.7,45.5 V43.5 Z"
+            fill="url(#boot)"/>
+      <path d="M20.7,43.3 H22.9 C23.2,43.3 23.3,43.5 23.3,43.8 V45.6 C23.3,45.9 23.1,46.1 22.8,46.1 H21.1 C20.8,46.1 20.6,45.9 20.6,45.6 V43.5 Z"
+            fill="url(#boot)"/>
+      <path d="M16.9,43.55 H19.8 M20.8,43.55 H23.1" stroke="#2A1A6A" stroke-width="0.5"/>
+      <path d="M17.3,44.3 V45.3 M21.1,44.3 V45.3" stroke="#6A80F4" stroke-width="0.3" stroke-linecap="round"/>
+
+      <!-- The black skis, pointing off to the left with their tips
+           turned up. -->
+      <path d="M19.2,45.8 H15.8 C15.3,45.8 15,45.6 14.8,45.1 L14.2,45.3 C14.3,46.3 14.9,46.9 15.8,46.9 H19.2 Z"
+            fill="#120E08"/>
+      <path d="M23.1,46 H20.7 C20.3,46 20,45.8 19.8,45.4 L19.3,45.6 C19.4,46.5 19.9,47 20.7,47 H23.1 Z"
+            fill="#120E08"/>
+      <path d="M14.6,45.6 C14.8,46 15.2,46.2 15.7,46.2 M19.6,45.9 C19.8,46.2 20.2,46.4 20.6,46.4"
+            fill="none" stroke="#5A5450" stroke-width="0.25" stroke-linecap="round"/>
+    </g>
+    <g id="icon">
+      <use href="#chairlift" transform="translate(1,1)"/>
+    </g>
+  </defs>
+
+  <use href="#stem"/>
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+  <g id="open" class="state" display="none">
+    <use href="#openLook"/>
+    <use href="#icon"/>
+  </g>
+</svg>

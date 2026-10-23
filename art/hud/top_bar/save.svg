@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 55" width="45" height="55">
+  <!-- Main menu button: vector remake of the original Ski Resort Tycoon
+       sprites LogSave_normal/_rollover/_Depress. One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <!-- The log, shared by every top bar and menu log: a black rimmed
+         disc whose face is shaded inside its rim. -->
+    <circle id="face" cx="23" cy="33" r="18"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="inset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <!-- Lit: a shadow along the lower-right inside of the rim. -->
+    <g id="faceNormal">
+      <use href="#face" fill="#FFFFFF"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#8A8A8E" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="faceRollover">
+      <use href="#face" fill="#FFFF73"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25" cy="35" r="19.4" fill="none" stroke="#FFFFD8" stroke-width="3" filter="url(#inset)"/>
+        <circle cx="20.4" cy="30.6" r="20.6" fill="none" stroke="#9C9C66" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <!-- Pressed in: a shadow along the upper-left inside of the rim. -->
+    <g id="faceDepress">
+      <use href="#face" fill="#C5C5C5"/>
+      <g clip-path="url(#faceClip)">
+        <circle cx="25.4" cy="35.4" r="20.4" fill="none" stroke="#3C3C3C" stroke-width="5" filter="url(#inset)"/>
+      </g>
+    </g>
+    <g id="rim">
+      <circle cx="23" cy="33" r="18" fill="none" stroke="#5A5A5E" stroke-width="0.9" stroke-opacity="0.7"/>
+      <circle cx="23" cy="33" r="19.55" fill="none" stroke="#000000" stroke-width="3"/>
+    </g>
+
+    <!-- The floppy disk: the main menu's (menus/main_menu/load_game.svg),
+         scaled into the face. -->
+    <g id="icon" transform="translate(23,33) scale(0.77) translate(-29,-28)">
+      <!-- a red floppy disk: a grey shutter with its slot at the top,
+           a striped label below -->
+      <path d="M17,16 H38.5 L42,19.5 V39 A1,1 0 0 1 41,40 H17 A1,1 0 0 1 16,39 V17 A1,1 0 0 1 17,16 Z" fill="#E8303A"/>
+      <path d="M17,16 H38.5 L42,19.5 V21 H16 V17 A1,1 0 0 1 17,16 Z" fill="#F45A62"/>
+      <rect x="22" y="16.5" width="12" height="8.5" fill="#C8C8CC"/>
+      <rect x="22" y="16.5" width="12" height="1.5" fill="#E6E6EA"/>
+      <rect x="30" y="18" width="2.6" height="5.6" fill="#E8303A"/>
+      <rect x="20" y="28" width="18" height="12" fill="#FFFFFF"/>
+      <g fill="#F07A80">
+        <rect x="20" y="30" width="18" height="1.4"/>
+        <rect x="20" y="33" width="18" height="1.4"/>
+        <rect x="20" y="36" width="18" height="1.4"/>
+      </g>
+      <rect x="17" y="36.5" width="2" height="2" fill="#9A1018"/>
+      <rect x="39" y="36.5" width="2" height="2" fill="#9A1018"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#faceNormal"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#faceRollover"/>
+    <use href="#rim"/>
+    <use href="#icon"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#faceDepress"/>
+    <use href="#rim"/>
+    <use href="#icon" transform="translate(1,1)"/>
+  </g>
+</svg>

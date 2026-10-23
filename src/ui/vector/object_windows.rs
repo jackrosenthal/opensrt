@@ -1,7 +1,7 @@
 //! The windows for one structure, lift, run marker, guest or employee
 //! (`structure_window`, `lift_window`, `runmarker_window`, `guest_window`
 //! and `staff_window`; the staff window is also the employees list),
-//! drawn from `hud/object_windows/*.svg`: their overview and stats panels,
+//! drawn from `art/windows/objects/`: their overview and stats panels,
 //! picture tabs, open and closed buttons, the buttons of their own, and a
 //! guest's skill sign.
 //!
@@ -12,70 +12,71 @@
 //! claim the elements of a group that are the screen's own art.
 //!
 //! Some pictures here are shared with other windows (the buildings, runs,
-//! jumps and guest tabs in `hud/tabs/`, and the guests window's graph bar
-//! in `hud/widgets/`), so they are public to the other families.
+//! jumps and guest tabs in `art/windows/tabs/`, and the guests window's
+//! graph bar in `art/windows/widgets/`), so they are public to the other
+//! families.
 
 use super::{Drawing, Svg, button, shown, still, widgets};
 use crate::ui::art::{self, ArtFile, Group};
 
 /// Overview panels: a building's (state `priced` with the price box,
 /// `plain` without), a lift's, run's or terrain park's, and a guest's.
-const STRUCTURE_OVERVIEW: Svg = svg!("object_windows/structure_overview");
-const LIFT_OVERVIEW: Svg = svg!("object_windows/lift_overview");
-const GUEST_OVERVIEW: Svg = svg!("object_windows/guest_overview");
+const STRUCTURE_OVERVIEW: Svg = svg!("windows/objects/structure_overview");
+const LIFT_OVERVIEW: Svg = svg!("windows/objects/lift_overview");
+const GUEST_OVERVIEW: Svg = svg!("windows/objects/guest_overview");
 /// Stats panels: label and value boxes in rows.
-const STRUCTURE_STATS: Svg = svg!("object_windows/structure_stats");
-const LIFT_STATS: Svg = svg!("object_windows/lift_stats");
-const GUEST_STATS: Svg = svg!("object_windows/guest_stats");
+const STRUCTURE_STATS: Svg = svg!("windows/objects/structure_stats");
+const LIFT_STATS: Svg = svg!("windows/objects/lift_stats");
+const GUEST_STATS: Svg = svg!("windows/objects/guest_stats");
 /// A building's, lift's or run's open and closed buttons (Bldg_Open,
 /// Bldg_close).
-const OPEN: Svg = svg!("object_windows/open");
-const CLOSED: Svg = svg!("object_windows/closed");
+const OPEN: Svg = svg!("windows/objects/open");
+const CLOSED: Svg = svg!("windows/objects/closed");
 /// A condominium's or hotel's upgrade button.
-const UPGRADE: Svg = svg!("object_windows/upgrade");
+const UPGRADE: Svg = svg!("windows/objects/upgrade");
 /// A radio tower's chosen song (Highlight).
-const HIGHLIGHT: Svg = svg!("object_windows/highlight");
+const HIGHLIGHT: Svg = svg!("windows/objects/highlight");
 /// A guest's skill sign: states `beginner`, `intermediate`, `advanced`
 /// and `expert`.
-const SKILL: Svg = svg!("object_windows/skill");
+const SKILL: Svg = svg!("windows/objects/skill");
 /// Round buttons of these windows' own.
-const HIRE: Svg = svg!("object_windows/hire" on widgets::ROUND);
-const PLAY: Svg = svg!("object_windows/play" on widgets::ROUND);
-const STOP: Svg = svg!("object_windows/stop" on widgets::ROUND);
-const HAND_OF_GOD: Svg = svg!("object_windows/hand_of_god" on widgets::ROUND);
+const HIRE: Svg = svg!("windows/objects/hire" on widgets::ROUND);
+const PLAY: Svg = svg!("windows/objects/play" on widgets::ROUND);
+const STOP: Svg = svg!("windows/objects/stop" on widgets::ROUND);
+const HAND_OF_GOD: Svg = svg!("windows/objects/hand_of_god" on widgets::ROUND);
 /// The employee window's wooden buttons, with the round buttons'
 /// pictures.
-const STAFF_BUTTON: Svg = svg!("object_windows/staff_button");
-const STAFF_RENAME: Svg = svg!("widgets/rename" on STAFF_BUTTON);
-const STAFF_FOCUS: Svg = svg!("widgets/focus" on STAFF_BUTTON);
-const STAFF_PATSEYE: Svg = svg!("widgets/patseye" on STAFF_BUTTON);
-const STAFF_SELL: Svg = svg!("widgets/sell" on STAFF_BUTTON);
+const STAFF_BUTTON: Svg = svg!("windows/objects/staff_button");
+const STAFF_RENAME: Svg = svg!("windows/widgets/rename" on STAFF_BUTTON);
+const STAFF_FOCUS: Svg = svg!("windows/widgets/focus" on STAFF_BUTTON);
+const STAFF_PATSEYE: Svg = svg!("windows/widgets/patseye" on STAFF_BUTTON);
+const STAFF_SELL: Svg = svg!("windows/widgets/sell" on STAFF_BUTTON);
 
 /// Picture tabs shared with other windows: buildings (Tab_Buildings),
 /// runs (Tab_Runs), jumps (Tab_Jumps), a guest group (Tab_GuestGroup), a
 /// guest's or the guests' stats (Tab_GuestStats, Tab_GuestAvg) and a
 /// guest's or one guest's history (Tab_GuestHistory, Tab_GuestIndivid).
-pub(super) const BUILDINGS: Svg = svg!("tabs/buildings" on widgets::ICON_TAB);
-pub(super) const RUNS: Svg = svg!("tabs/runs" on widgets::ICON_TAB);
-pub(super) const JUMPS: Svg = svg!("tabs/jumps" on widgets::ICON_TAB);
-pub(super) const GUEST_GROUP: Svg = svg!("tabs/guest_group" on widgets::ICON_TAB);
-pub(super) const GUEST_STATS_TAB: Svg = svg!("tabs/guest_stats" on widgets::ICON_TAB);
-pub(super) const GUEST_HISTORY: Svg = svg!("tabs/guest_history" on widgets::ICON_TAB);
+pub(super) const BUILDINGS: Svg = svg!("windows/tabs/buildings" on widgets::ICON_TAB);
+pub(super) const RUNS: Svg = svg!("windows/tabs/runs" on widgets::ICON_TAB);
+pub(super) const JUMPS: Svg = svg!("windows/tabs/jumps" on widgets::ICON_TAB);
+pub(super) const GUEST_GROUP: Svg = svg!("windows/tabs/guest_group" on widgets::ICON_TAB);
+pub(super) const GUEST_STATS_TAB: Svg = svg!("windows/tabs/guest_stats" on widgets::ICON_TAB);
+pub(super) const GUEST_HISTORY: Svg = svg!("windows/tabs/guest_history" on widgets::ICON_TAB);
 /// The guests window's graph bar (Graph_Bar).
-pub(super) const GRAPH_BAR: Svg = svg!("widgets/graph_bar");
+pub(super) const GRAPH_BAR: Svg = svg!("windows/widgets/graph_bar");
 /// These windows' own picture tabs.
-const TAB_GUEST: Svg = svg!("object_windows/tab_guest" on widgets::ICON_TAB);
-const TAB_BUILDING_STATS: Svg = svg!("object_windows/tab_building_stats" on widgets::ICON_TAB);
-const TAB_BUILDING_GUESTS: Svg = svg!("object_windows/tab_building_guests" on widgets::ICON_TAB);
-const TAB_BUILDING_STAFF: Svg = svg!("object_windows/tab_building_staff" on widgets::ICON_TAB);
-const TAB_MUSIC: Svg = svg!("object_windows/tab_music" on widgets::ICON_TAB);
-const TAB_SKI_PATROL: Svg = svg!("object_windows/tab_ski_patrol" on widgets::ICON_TAB);
-const TAB_AVALANCHE: Svg = svg!("object_windows/tab_avalanche" on widgets::ICON_TAB);
-const TAB_INSTRUCTOR: Svg = svg!("object_windows/tab_instructor" on widgets::ICON_TAB);
-const TAB_MAINTENANCE: Svg = svg!("object_windows/tab_maintenance" on widgets::ICON_TAB);
-const TAB_CATERING: Svg = svg!("object_windows/tab_catering" on widgets::ICON_TAB);
-const TAB_SANITATION: Svg = svg!("object_windows/tab_sanitation" on widgets::ICON_TAB);
-const TAB_SECURITY: Svg = svg!("object_windows/tab_security" on widgets::ICON_TAB);
+const TAB_GUEST: Svg = svg!("windows/objects/tabs/guest" on widgets::ICON_TAB);
+const TAB_BUILDING_STATS: Svg = svg!("windows/objects/tabs/building_stats" on widgets::ICON_TAB);
+const TAB_BUILDING_GUESTS: Svg = svg!("windows/objects/tabs/building_guests" on widgets::ICON_TAB);
+const TAB_BUILDING_STAFF: Svg = svg!("windows/objects/tabs/building_staff" on widgets::ICON_TAB);
+const TAB_MUSIC: Svg = svg!("windows/objects/tabs/music" on widgets::ICON_TAB);
+const TAB_SKI_PATROL: Svg = svg!("windows/objects/tabs/ski_patrol" on widgets::ICON_TAB);
+const TAB_AVALANCHE: Svg = svg!("windows/objects/tabs/avalanche" on widgets::ICON_TAB);
+const TAB_INSTRUCTOR: Svg = svg!("windows/objects/tabs/instructor" on widgets::ICON_TAB);
+const TAB_MAINTENANCE: Svg = svg!("windows/objects/tabs/maintenance" on widgets::ICON_TAB);
+const TAB_CATERING: Svg = svg!("windows/objects/tabs/catering" on widgets::ICON_TAB);
+const TAB_SANITATION: Svg = svg!("windows/objects/tabs/sanitation" on widgets::ICON_TAB);
+const TAB_SECURITY: Svg = svg!("windows/objects/tabs/security" on widgets::ICON_TAB);
 
 /// The drawing for an element of one of these screen files, if it has
 /// one of its own.

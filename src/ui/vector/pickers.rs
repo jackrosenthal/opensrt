@@ -12,14 +12,14 @@ use super::{Drawing, Svg, button, shown, still, widgets};
 use crate::ui::art::{self, ArtFile, Group};
 
 /// The building and lift pickers' panel (the same art in both).
-const PANEL: Svg = svg!("pickers/background");
+const PANEL: Svg = svg!("windows/pickers/panel");
 /// The question mark over a locked entry: `whole` in the middle box,
 /// `left` and `right` its halves in the side boxes.
-const QUESTION: Svg = svg!("pickers/question");
+const QUESTION: Svg = svg!("windows/pickers/question");
 /// The round Build and Rotate buttons. The original shows them white
 /// under the pointer as at rest, so their rollover is their normal look.
-const BUILD: Svg = svg!("pickers/build" on widgets::ROUND);
-const ROTATE: Svg = svg!("pickers/rotate" on widgets::ROUND);
+const BUILD: Svg = svg!("windows/pickers/build" on widgets::ROUND);
+const ROTATE: Svg = svg!("windows/pickers/rotate" on widgets::ROUND);
 
 /// A picker's round button, white under the pointer as at rest.
 fn white_button(svg: Svg, index: usize) -> Option<Drawing> {
@@ -52,7 +52,7 @@ fn structures_toolbar(group: Group, index: usize) -> Option<Drawing> {
         QUESTION_MARK => shown(QUESTION, "whole"),
         QUESTION_MARK_LEFT => shown(QUESTION, "left"),
         QUESTION_MARK_RIGHT => shown(QUESTION, "right"),
-        HORIZ_SCROLLBAR => still(svg!("pickers/scrollbox")),
+        HORIZ_SCROLLBAR => still(svg!("windows/pickers/scrollbox")),
         BUILD => white_button(self::BUILD, index),
         ROTATE => white_button(self::ROTATE, index),
         _ => None,
@@ -66,7 +66,7 @@ fn lifts_toolbar(group: Group, index: usize) -> Option<Drawing> {
         QUESTION_MARK => shown(QUESTION, "whole"),
         QUESTION_MARK_LEFT => shown(QUESTION, "left"),
         QUESTION_MARK_RIGHT => shown(QUESTION, "right"),
-        HORIZ_SCROLLBAR => still(svg!("pickers/scrollbox_wide")),
+        HORIZ_SCROLLBAR => still(svg!("windows/pickers/scrollbox_wide")),
         LIFT => white_button(BUILD, index),
         _ => None,
     }
@@ -78,23 +78,23 @@ fn fluff_menu(group: Group, index: usize) -> Option<Drawing> {
     // middle box and their left part in the side boxes.
     let sample = |part| {
         let svg = match index {
-            0 => svg!("pickers/eraser"),
-            1 => svg!("pickers/path_rock"),
-            2 => svg!("pickers/path_cobble"),
-            3 => svg!("pickers/path_brick"),
-            _ => svg!("pickers/path_herringbone"),
+            0 => svg!("windows/pickers/eraser"),
+            1 => svg!("windows/pickers/path_rock"),
+            2 => svg!("windows/pickers/path_cobble"),
+            3 => svg!("windows/pickers/path_brick"),
+            _ => svg!("windows/pickers/path_herringbone"),
         };
         shown(svg, part)
     };
     match group {
-        BACKGROUND => still(svg!("pickers/objects_background")),
+        BACKGROUND => still(svg!("windows/pickers/objects_panel")),
         PATH => sample("whole"),
         HALFPATH => sample("half"),
-        HORIZ_SCROLLNUB => still(svg!("pickers/objects_nub")),
+        HORIZ_SCROLLNUB => still(svg!("windows/pickers/objects_nub")),
         ROTATE => white_button(self::ROTATE, index),
         // Not shown by the game here; `highlevel_stats` has the same
         // button.
-        GOTO => button(svg!("widgets/goto"), index),
+        GOTO => button(svg!("windows/widgets/goto"), index),
         _ => None,
     }
 }
@@ -102,9 +102,9 @@ fn fluff_menu(group: Group, index: usize) -> Option<Drawing> {
 fn rename(group: Group, index: usize) -> Option<Drawing> {
     use art::rename::*;
     match group {
-        BACKGROUND => still(svg!("pickers/rename")),
-        OK => button(svg!("pickers/ok" on widgets::ROUND), index),
-        CANCEL => button(svg!("pickers/cancel" on widgets::ROUND), index),
+        BACKGROUND => still(svg!("dialogs/rename/window")),
+        OK => button(svg!("dialogs/rename/ok" on widgets::ROUND), index),
+        CANCEL => button(svg!("dialogs/rename/cancel" on widgets::ROUND), index),
         _ => None,
     }
 }
@@ -112,13 +112,13 @@ fn rename(group: Group, index: usize) -> Option<Drawing> {
 fn gen_map(group: Group, index: usize) -> Option<Drawing> {
     use art::gen_map::*;
     match group {
-        BACKGROUND => still(svg!("pickers/gen_background")),
-        GENERATE_BUTTON => button(svg!("pickers/gen_terrain"), index),
-        GEN_TREES => button(svg!("pickers/gen_trees"), index),
-        RAND_WIREFRAME_BUTTON => button(svg!("pickers/gen_go"), index),
-        ANCHOR_POINT if index == 0 => still(svg!("pickers/gen_anchor")),
-        SCROLL_TAB => still(svg!("pickers/gen_nub")),
-        FLATTEN_ENTRANCE => shown(svg!("pickers/gen_check"), if index == 0 { "off" } else { "on" }),
+        BACKGROUND => still(svg!("dialogs/generate_map/window")),
+        GENERATE_BUTTON => button(svg!("dialogs/generate_map/terrain"), index),
+        GEN_TREES => button(svg!("dialogs/generate_map/trees"), index),
+        RAND_WIREFRAME_BUTTON => button(svg!("dialogs/generate_map/go"), index),
+        ANCHOR_POINT if index == 0 => still(svg!("dialogs/generate_map/anchor")),
+        SCROLL_TAB => still(svg!("dialogs/generate_map/nub")),
+        FLATTEN_ENTRANCE => shown(svg!("dialogs/generate_map/check"), if index == 0 { "off" } else { "on" }),
         _ => None,
     }
 }
@@ -129,10 +129,10 @@ const FRAMES: [&str; 10] = ["f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8"
 fn no_power(group: Group, index: usize) -> Option<Drawing> {
     use art::no_power::*;
     let svg = match group {
-        ZOOM1 => svg!("pickers/no_power1"),
-        ZOOM2 => svg!("pickers/no_power2"),
-        ZOOM3 => svg!("pickers/no_power3"),
-        ZOOM4 => svg!("pickers/no_power4"),
+        ZOOM1 => svg!("dialogs/no_power/zoom1"),
+        ZOOM2 => svg!("dialogs/no_power/zoom2"),
+        ZOOM3 => svg!("dialogs/no_power/zoom3"),
+        ZOOM4 => svg!("dialogs/no_power/zoom4"),
         _ => return None,
     };
     shown(svg, FRAMES[index % 10])
@@ -141,30 +141,30 @@ fn no_power(group: Group, index: usize) -> Option<Drawing> {
 fn thoughts(group: Group) -> Option<Drawing> {
     use art::thoughts::*;
     match group {
-        HUNGER => still(svg!("pickers/thought_hunger")),
-        ANGER => still(svg!("pickers/thought_anger")),
-        COLD => still(svg!("pickers/thought_cold")),
-        PEE => still(svg!("pickers/thought_pee")),
-        HAPPINESS => still(svg!("pickers/thought_happiness")),
-        ALERT => still(svg!("pickers/thought_alert")),
-        THIRSTY => still(svg!("pickers/thought_thirsty")),
-        TIRED => still(svg!("pickers/thought_tired")),
+        HUNGER => still(svg!("hud/thoughts/hunger")),
+        ANGER => still(svg!("hud/thoughts/anger")),
+        COLD => still(svg!("hud/thoughts/cold")),
+        PEE => still(svg!("hud/thoughts/pee")),
+        HAPPINESS => still(svg!("hud/thoughts/happiness")),
+        ALERT => still(svg!("hud/thoughts/alert")),
+        THIRSTY => still(svg!("hud/thoughts/thirsty")),
+        TIRED => still(svg!("hud/thoughts/tired")),
         _ => None,
     }
 }
 
 /// The mini-map's filter buttons' frame.
-const FILTER: Svg = svg!("pickers/filter");
+const FILTER: Svg = svg!("hud/minimap/filter");
 
 fn mini_map(group: Group, index: usize) -> Option<Drawing> {
     use art::mini_map::*;
     match group {
-        BACKGROUND => still(svg!("pickers/minimap")),
-        RANDOM_GEN => button(svg!("pickers/generate_map"), index),
-        FILTER_STRUCTS => button(svg!("pickers/filter_structures" on FILTER), index),
-        FILTER_SKIERS => button(svg!("pickers/filter_skiers" on FILTER), index),
-        FILTER_LIFTS => button(svg!("pickers/filter_lifts" on FILTER), index),
-        FILTER_ALL => button(svg!("pickers/filter_terrain" on FILTER), index),
+        BACKGROUND => still(svg!("hud/minimap/window")),
+        RANDOM_GEN => button(svg!("hud/minimap/generate"), index),
+        FILTER_STRUCTS => button(svg!("hud/minimap/filter_structures" on FILTER), index),
+        FILTER_SKIERS => button(svg!("hud/minimap/filter_skiers" on FILTER), index),
+        FILTER_LIFTS => button(svg!("hud/minimap/filter_lifts" on FILTER), index),
+        FILTER_ALL => button(svg!("hud/minimap/filter_terrain" on FILTER), index),
         _ => None,
     }
 }
@@ -176,9 +176,9 @@ fn escape(group: Group, index: usize) -> Option<Drawing> {
     use art::escape::*;
     use super::front_end::MAIN_BUTTON;
     match group {
-        SAVE_GAME => button(svg!("pickers/escape_save" on MAIN_BUTTON), index),
-        ABORT_GAME => button(svg!("pickers/escape_abort" on MAIN_BUTTON), index),
-        RESUME_GAME => button(svg!("pickers/escape_resume" on MAIN_BUTTON), index),
+        SAVE_GAME => button(svg!("menus/escape_menu/save" on MAIN_BUTTON), index),
+        ABORT_GAME => button(svg!("menus/escape_menu/abort" on MAIN_BUTTON), index),
+        RESUME_GAME => button(svg!("menus/escape_menu/resume" on MAIN_BUTTON), index),
         _ => None,
     }
 }
@@ -189,12 +189,12 @@ fn escape(group: Group, index: usize) -> Option<Drawing> {
 fn bob(group: Group, index: usize) -> Option<Drawing> {
     use art::bob::*;
     match group {
-        BACKGROUND => still(svg!("pickers/bob")),
+        BACKGROUND => still(svg!("dialogs/bob/window")),
         OK => button(widgets::OK, index),
-        BOB_BUTTON => button(svg!("pickers/bob_button"), index),
-        BOB_BUTTON_NORMAL => button(svg!("pickers/bob_button"), index),
-        BOB_BUTTON_ROLLOVER => shown(svg!("pickers/bob_button"), "rollover"),
-        BOB_BUTTON_CLICKED => shown(svg!("pickers/bob_button"), "depress"),
+        BOB_BUTTON => button(svg!("dialogs/bob/button"), index),
+        BOB_BUTTON_NORMAL => button(svg!("dialogs/bob/button"), index),
+        BOB_BUTTON_ROLLOVER => shown(svg!("dialogs/bob/button"), "rollover"),
+        BOB_BUTTON_CLICKED => shown(svg!("dialogs/bob/button"), "depress"),
         _ => None,
     }
 }
@@ -202,11 +202,11 @@ fn bob(group: Group, index: usize) -> Option<Drawing> {
 fn fog(group: Group, index: usize) -> Option<Drawing> {
     use art::fog::*;
     match group {
-        BACKGROUND => still(svg!("pickers/fog")),
-        FOG100 => button(svg!("pickers/fog_dense"), index),
-        FOG250 => button(svg!("pickers/fog_medium"), index),
-        FOG500 => button(svg!("pickers/fog_sparse"), index),
-        NO_FOG => button(svg!("pickers/fog_none"), index),
+        BACKGROUND => still(svg!("dialogs/fog/window")),
+        FOG100 => button(svg!("dialogs/fog/dense"), index),
+        FOG250 => button(svg!("dialogs/fog/medium"), index),
+        FOG500 => button(svg!("dialogs/fog/sparse"), index),
+        NO_FOG => button(svg!("dialogs/fog/none"), index),
         _ => None,
     }
 }

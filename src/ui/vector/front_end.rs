@@ -18,53 +18,53 @@ use super::{Drawing, Svg, button, still, widgets};
 use crate::ui::art::{self, ArtFile, Group};
 
 /// The blue title tab the screens' drawings go over.
-const TITLE: Svg = svg!("front_end/title");
-const INSTANT_ACTION: Svg = svg!("front_end/instant_action" on TITLE);
-const CHALLENGE_SELECT: Svg = svg!("front_end/challenge_select" on TITLE);
-const LEVEL_EDIT: Svg = svg!("front_end/level_edit" on TITLE);
-const LOAD_GAME: Svg = svg!("front_end/load_game" on TITLE);
-const SAVE_GAME: Svg = svg!("front_end/save_game" on TITLE);
-const SETTINGS: Svg = svg!("front_end/settings" on TITLE);
-const CREDITS: Svg = svg!("front_end/credits" on TITLE);
+const TITLE: Svg = svg!("menus/screens/title_tab");
+const INSTANT_ACTION: Svg = svg!("menus/screens/instant_action" on TITLE);
+const CHALLENGE_SELECT: Svg = svg!("menus/screens/challenges" on TITLE);
+const LEVEL_EDIT: Svg = svg!("menus/screens/map_editor" on TITLE);
+const LOAD_GAME: Svg = svg!("menus/screens/load_game" on TITLE);
+const SAVE_GAME: Svg = svg!("menus/screens/save_game" on TITLE);
+const SETTINGS: Svg = svg!("menus/screens/settings" on TITLE);
+const CREDITS: Svg = svg!("menus/screens/credits" on TITLE);
 
 /// The pill buttons, each with its label.
-const START: Svg = svg!("front_end/start");
-const CANCEL: Svg = svg!("front_end/cancel");
-const LOAD: Svg = svg!("front_end/load");
-const LOAD_CANCEL: Svg = svg!("front_end/load_cancel");
-const SAVE: Svg = svg!("front_end/save");
-const SAVE_CANCEL: Svg = svg!("front_end/save_cancel");
-const DELETE: Svg = svg!("front_end/delete");
-const QUIT: Svg = svg!("front_end/quit");
-const SETTINGS_OK: Svg = svg!("front_end/settings_ok");
+const START: Svg = svg!("menus/buttons/start");
+const CANCEL: Svg = svg!("menus/buttons/cancel");
+const LOAD: Svg = svg!("menus/buttons/load");
+const LOAD_CANCEL: Svg = svg!("menus/buttons/load_cancel");
+const SAVE: Svg = svg!("menus/buttons/save");
+const SAVE_CANCEL: Svg = svg!("menus/buttons/save_cancel");
+const DELETE: Svg = svg!("menus/buttons/delete");
+const QUIT: Svg = svg!("menus/buttons/quit");
+const SETTINGS_OK: Svg = svg!("menus/buttons/ok");
 
 /// The Instant Action and Challenges screens' level pictures, in the
 /// order of their `mountain` group: each resort's over the shared frame,
 /// and the words for a level with none (element 1), which have no frame.
-const PREVIEW: Svg = svg!("front_end/preview");
+const PREVIEW: Svg = svg!("menus/previews/frame");
 const PREVIEWS: [Svg; 7] = [
-    svg!("front_end/preview_aspen" on PREVIEW),
-    svg!("front_end/preview_none"),
-    svg!("front_end/preview_whistler" on PREVIEW),
-    svg!("front_end/preview_vail" on PREVIEW),
-    svg!("front_end/preview_jasper" on PREVIEW),
-    svg!("front_end/preview_st_moritz" on PREVIEW),
-    svg!("front_end/preview_kitzbuehel" on PREVIEW),
+    svg!("menus/previews/aspen" on PREVIEW),
+    svg!("menus/previews/none"),
+    svg!("menus/previews/whistler" on PREVIEW),
+    svg!("menus/previews/vail" on PREVIEW),
+    svg!("menus/previews/jasper" on PREVIEW),
+    svg!("menus/previews/st_moritz" on PREVIEW),
+    svg!("menus/previews/kitzbuehel" on PREVIEW),
 ];
 
 
 /// The main menu's logo, laid out on the scene's grid.
-const LOGO: Svg = svg!("front_end/logo");
+const LOGO: Svg = svg!("menus/logo");
 
 /// The main menu's buttons: a picture and label each over the shared
 /// ring and pill, which the escape menu's buttons share too.
-pub(super) const MAIN_BUTTON: Svg = svg!("front_end/main_button");
-const INSTANT_ACTION_BUTTON: Svg = svg!("front_end/main_instant_action" on MAIN_BUTTON);
-const CHALLENGES_BUTTON: Svg = svg!("front_end/main_challenges" on MAIN_BUTTON);
-const LOAD_GAME_BUTTON: Svg = svg!("front_end/main_load" on MAIN_BUTTON);
-const SETTINGS_BUTTON: Svg = svg!("front_end/main_settings" on MAIN_BUTTON);
-const MAP_EDITOR_BUTTON: Svg = svg!("front_end/main_map_editor" on MAIN_BUTTON);
-const CREDITS_BUTTON: Svg = svg!("front_end/main_credits" on MAIN_BUTTON);
+pub(super) const MAIN_BUTTON: Svg = svg!("menus/main_menu/frame");
+const INSTANT_ACTION_BUTTON: Svg = svg!("menus/main_menu/instant_action" on MAIN_BUTTON);
+const CHALLENGES_BUTTON: Svg = svg!("menus/main_menu/challenges" on MAIN_BUTTON);
+const LOAD_GAME_BUTTON: Svg = svg!("menus/main_menu/load_game" on MAIN_BUTTON);
+const SETTINGS_BUTTON: Svg = svg!("menus/main_menu/settings" on MAIN_BUTTON);
+const MAP_EDITOR_BUTTON: Svg = svg!("menus/main_menu/map_editor" on MAIN_BUTTON);
+const CREDITS_BUTTON: Svg = svg!("menus/main_menu/credits" on MAIN_BUTTON);
 
 /// The drawing for an element of one of these screen files, if it has
 /// one of its own.

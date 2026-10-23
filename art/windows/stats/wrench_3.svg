@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 89" width="44" height="44" preserveAspectRatio="none">
+  <!-- Broken building marker, size 3: vector remake of the original Ski
+       Resort Tycoon sprites wrench_3X0000 to wrench_3X0009, shown
+       spinning over a broken down building.  A grey double open-end
+       wrench tumbling inside a red ring.  Laid out on the largest
+       sprite's 90x89 grid and drawn 44x44; windows/stats/wrench_1.svg to windows/stats/wrench_4.svg
+       differ only in that size.  One group per frame; the game shows one
+       with a stylesheet. -->
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF6A6A"/>
+      <stop offset="0.3" stop-color="#F00000"/>
+      <stop offset="1" stop-color="#900000"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="-11" x2="0" y2="11" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D2D2D8"/>
+      <stop offset="0.5" stop-color="#8C8C94"/>
+      <stop offset="1" stop-color="#4A4A52"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+    <!-- The wrench along x, centered: a handle and an open jaw at each
+         end, the jaws' mouths turned opposite ways. -->
+    <path id="wrenchShape" d="M-21,-3.8 H21 V3.8 H-21 Z M30.55,-2.06 A8.6,8.6 0 1 1 26.99,-7.14 L18.78,-1.39 L22.34,3.69 Z M-30.55,2.06 A8.6,8.6 0 1 1 -26.99,7.14 L-18.78,1.39 L-22.34,-3.69 Z"/>
+    <g id="wrench">
+      <use href="#wrenchShape" fill="none" stroke="#2A2A30" stroke-width="2.4" stroke-linejoin="round"/>
+      <use href="#wrenchShape" fill="url(#steel)"/>
+      <path d="M-18,-1.8 H18" stroke="#E6E6EC" stroke-width="1" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <!-- the ring: a red tube, shadowed, lit along its upper left -->
+  <circle cx="45.6" cy="45.1" r="39" fill="none" stroke="#5A0000" stroke-width="10.4" stroke-opacity="0.3" filter="url(#soft)"/>
+  <circle cx="45" cy="44.5" r="39" fill="none" stroke="url(#red)" stroke-width="10.4"/>
+  <circle cx="45" cy="44.5" r="39.6" fill="none" stroke="url(#shine)" stroke-width="2.4" filter="url(#soft)"/>
+
+  <g id="frame0" class="state">
+    <use href="#wrench" transform="translate(45,44.5) rotate(-43) scale(0.983,1)"/>
+  </g>
+  <g id="frame1" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(-44) scale(0.917,1)"/>
+  </g>
+  <g id="frame2" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(-71) scale(0.75,0.864)"/>
+  </g>
+  <g id="frame3" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(69) scale(0.75,0.864)"/>
+  </g>
+  <g id="frame4" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(43) scale(0.917,1)"/>
+  </g>
+  <g id="frame5" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(43) scale(0.983,0.955)"/>
+  </g>
+  <g id="frame6" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(55) scale(1,0.909)"/>
+  </g>
+  <g id="frame7" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(77) scale(1,0.591)"/>
+  </g>
+  <g id="frame8" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(-76) scale(1,0.636)"/>
+  </g>
+  <g id="frame9" class="state" display="none">
+    <use href="#wrench" transform="translate(45,44.5) rotate(-54) scale(0.983,0.909)"/>
+  </g>
+</svg>
