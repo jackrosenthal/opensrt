@@ -525,6 +525,11 @@ impl App {
             }
             TestHook::Minimap => self.ui.show_minimap = true,
             TestHook::Select => g.selection = g.world.structures.first().map(|s| Selection::Structure(s.id)),
+            TestHook::Broken => {
+                if let Some(s) = g.world.structures.first_mut() {
+                    s.broken = true;
+                }
+            }
             TestHook::Surface(n) => {
                 use crate::game::TerrainTool as T;
                 const TOOLS: [T; 8] = [T::Hill, T::Peak, T::Flatten, T::Point, T::Smooth, T::Moguls, T::MakeSnow, T::Groom];

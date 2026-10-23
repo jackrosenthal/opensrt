@@ -23,6 +23,8 @@ pub enum TestHook {
     Minimap,
     /// Selects the entrance.
     Select,
+    /// Breaks the entrance down, so it shows the wrench.
+    Broken,
     /// Strews litter and yellow snow in front of the entrance.
     Dirt,
     /// Builds a snowmobile patrol, a chopper patrol base, a snowmobile
@@ -83,6 +85,7 @@ impl TestHook {
             "night" => TestHook::Night(parts.next() == Some("built")),
             "minimap" => TestHook::Minimap,
             "select" => TestHook::Select,
+            "broken" => TestHook::Broken,
             "dirt" => TestHook::Dirt,
             "paths" => TestHook::Paths,
             "vehicles" => TestHook::Vehicles,

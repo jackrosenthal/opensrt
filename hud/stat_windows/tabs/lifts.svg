@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 34" width="45" height="34">
+  <!-- Lifts tab's picture: vector remake of the original Ski Resort Tycoon
+       sprites Tab_Lifts_Normal/_Depress, the attractions window's lift
+       list, drawn over the icon tab frame.  A skier in a blue jacket and
+       red trousers riding a green chair hung from its cable.  Dimmed on
+       the tabs behind (depress). -->
+  <defs>
+    <filter id="dim" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0.62 0 0 0 0  0 0.62 0 0 0  0 0 0.62 0 0  0 0 0 1 0"/>
+    </filter>
+    <g id="pic">
+      <!-- the hanger, from the cable down round to the chair -->
+      <path d="M22,4.6 V8.4 H30.6 V25 H26" fill="none" stroke="#7A5A34" stroke-width="1" stroke-linejoin="round"/>
+      <path d="M22,4.6 V8.4 H30.6 V25 H26" fill="none" stroke="#D2B48C" stroke-width="0.4" stroke-linejoin="round"/>
+      <!-- the chair's seat -->
+      <path d="M14.4,20.6 H29.6 V23.4 H14.4 Z" fill="#2ACC2A" stroke="#0A5A0A" stroke-width="0.5"/>
+      <!-- the skier: trousers, boots, jacket, arm and pole, cap -->
+      <path d="M19,22 H25 L24.6,29.6 H22.8 L22.2,25 L21.4,29.6 H19.4 Z" fill="#D2201A" stroke="#5A0A0A" stroke-width="0.4" stroke-linejoin="round"/>
+      <path d="M19,29.4 H21.6 V31 H18.4 Z M22.6,29.4 H25 V31 H22.2 Z" fill="#202060"/>
+      <path d="M18.6,15.4 Q22,14 25.4,15.4 L25.6,22.2 H18.4 Z" fill="#2A8AE6" stroke="#0A2A6A" stroke-width="0.4" stroke-linejoin="round"/>
+      <path d="M18.8,16 L16,19.4 L17,20.4 L19.4,18" fill="#2A8AE6" stroke="#0A2A6A" stroke-width="0.4" stroke-linejoin="round"/>
+      <path d="M14.4,13.4 L18,25.4" stroke="#303030" stroke-width="0.6"/>
+      <circle cx="22" cy="12.8" r="1.8" fill="#F6C8A0" stroke="#7A4A2A" stroke-width="0.3"/>
+      <path d="M20.2,12.6 Q20.2,10 22,10 Q23.8,10 23.8,12.6 Z" fill="#1A3AB4"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#pic"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#pic" filter="url(#dim)"/>
+  </g>
+</svg>

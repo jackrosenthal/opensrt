@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 269" width="270" height="269">
+  <!-- All guests panel: vector remake of the original Ski Resort Tycoon
+       sprite all_guests_stats, the guests window's first tab.  A taller
+       window list panel (list_panel.svg) with eight rows of a grey label
+       strip and a yellow plate for the meter. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="263" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#DEDEFF"/>
+      <stop offset="1" stop-color="#9CB0E6"/>
+    </linearGradient>
+    <linearGradient id="rightShade" x1="261" y1="0" x2="265" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A4A5A" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A4A5A" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="footShade" x1="0" y1="257" x2="0" y2="264" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A5A84" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A5A84" stop-opacity="0.9"/>
+    </linearGradient>
+    <!-- a grey shade inside the foot of a box -->
+    <linearGradient id="boxFoot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BDBDBD" stop-opacity="0"/>
+      <stop offset="1" stop-color="#BDBDBD"/>
+    </linearGradient>
+    <path id="inside" d="M4,0 H265 V250 A14,14 0 0 1 251,264 H18 A14,14 0 0 1 4,250 Z"/>
+    <clipPath id="insideClip"><use href="#inside"/></clipPath>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+  </defs>
+
+  <!-- the rim, open along the top -->
+  <path d="M0.8,0 H268.2 V250 A16.6,16.6 0 0 1 251.6,266.6 H17.4 A16.6,16.6 0 0 1 0.8,250 Z" fill="#000000"/>
+  <use href="#inside" fill="url(#sky)"/>
+  <g clip-path="url(#insideClip)">
+    <!-- a pale band down the inside of the left rim, the bevels, and the
+         shade along the foot -->
+    <rect x="5" y="0" width="2" height="269" fill="#FFFFFF" fill-opacity="0.5"/>
+    <rect x="4" y="0" width="1" height="269" fill="#6A6A7B"/>
+    <rect x="261" y="0" width="4" height="269" fill="url(#rightShade)"/>
+    <rect x="0" y="257" width="270" height="7" fill="url(#footShade)"/>
+  </g>
+  <g fill="#BDB4BD">
+    <rect x="15" y="9" width="97" height="18"/>
+    <rect x="15" y="40" width="97" height="18"/>
+    <rect x="15" y="71" width="97" height="18"/>
+    <rect x="15" y="102" width="97" height="18"/>
+    <rect x="15" y="133" width="97" height="18"/>
+    <rect x="15" y="164" width="97" height="18"/>
+    <rect x="15" y="195" width="97" height="18"/>
+    <rect x="15" y="226" width="97" height="18"/>
+  </g>
+  <g fill="#FFF69C">
+    <rect x="117" y="9" width="136" height="18"/>
+    <rect x="117" y="40" width="136" height="18"/>
+    <rect x="117" y="71" width="136" height="18"/>
+    <rect x="117" y="102" width="136" height="18"/>
+    <rect x="117" y="133" width="136" height="18"/>
+    <rect x="117" y="164" width="136" height="18"/>
+    <rect x="117" y="195" width="136" height="18"/>
+    <rect x="117" y="226" width="136" height="18"/>
+  </g>
+</svg>

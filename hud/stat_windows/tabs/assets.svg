@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 34" width="45" height="34">
+  <!-- Assets tab's picture: vector remake of the original Ski Resort
+       Tycoon sprites Tab_Assets_Normal/_Depress, drawn over the icon tab
+       frame.  A log house with a shingled roof, blue windows and a red
+       door, in front of a wall calendar.  Dimmed on the tabs behind
+       (depress). -->
+  <defs>
+    <filter id="dim" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0.62 0 0 0 0  0 0.62 0 0 0  0 0 0.62 0 0  0 0 0 1 0"/>
+    </filter>
+    <linearGradient id="cell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6EEF6"/>
+      <stop offset="1" stop-color="#A4ACB4"/>
+    </linearGradient>
+    <g id="calendar">
+      <!-- the page, edged brown, its corner curling up -->
+      <path d="M9.4,6.6 H36 V24 L33.4,28.6 H9.4 Z" fill="#FFFFFF" stroke="#7A5A3A" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M36,24 L33.4,28.6 L32.6,24.8 Z" fill="#C8A064" stroke="#5A3A20" stroke-width="0.4" stroke-linejoin="round"/>
+      <rect x="10.4" y="10.4" width="25" height="2.6" fill="#1A3AD6"/>
+      <rect x="10.4" y="10.4" width="25" height="0.8" fill="#8CA0FF"/>
+      <rect x="10.4" y="14.6" width="25" height="13.6" fill="#5A6268"/>
+      <path d="M12.4,15.4 h3.8 v2.6 h-3.8 Z M17.1,15.4 h3.8 v2.6 h-3.8 Z M21.8,15.4 h3.8 v2.6 h-3.8 Z M26.5,15.4 h3.8 v2.6 h-3.8 Z M31.2,15.4 h3.8 v2.6 h-3.8 Z M12.4,18.8 h3.8 v2.6 h-3.8 Z M17.1,18.8 h3.8 v2.6 h-3.8 Z M21.8,18.8 h3.8 v2.6 h-3.8 Z M26.5,18.8 h3.8 v2.6 h-3.8 Z M31.2,18.8 h3.8 v2.6 h-3.8 Z M12.4,22.2 h3.8 v2.6 h-3.8 Z M17.1,22.2 h3.8 v2.6 h-3.8 Z M21.8,22.2 h3.8 v2.6 h-3.8 Z M26.5,22.2 h3.8 v2.6 h-3.8 Z M31.2,22.2 h3.8 v2.6 h-3.8 Z M12.4,25.6 h3.8 v2.6 h-3.8 Z M17.1,25.6 h3.8 v2.6 h-3.8 Z M21.8,25.6 h3.8 v2.6 h-3.8 Z M26.5,25.6 h3.8 v2.6 h-3.8 Z M31.2,25.6 h3.8 v2.6 h-3.8 Z" fill="url(#cell)"/>
+      <!-- the rings along its top -->
+      <path d="M12.0,6.0 v1.6 M14.6,6.0 v1.6 M17.2,6.0 v1.6 M19.8,6.0 v1.6 M22.4,6.0 v1.6 M25.0,6.0 v1.6 M27.6,6.0 v1.6 M30.2,6.0 v1.6 M32.8,6.0 v1.6 M35.4,6.0 v1.6" stroke="#5A5A5A" stroke-width="1.2"/>
+    </g>
+    <linearGradient id="logs" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E6A044"/>
+      <stop offset="1" stop-color="#B46A1A"/>
+    </linearGradient>
+    <g id="pic">
+      <use href="#calendar"/>
+      <!-- the walls: the long side with the door, and the gable end -->
+      <path d="M18,19.6 L26,23.6 V30.2 L18,26.2 Z" fill="url(#logs)" stroke="#5A3410" stroke-width="0.5" stroke-linejoin="round"/>
+      <path d="M26,23.6 L35,19 V25.6 L26,30.2 Z" fill="#C88030" stroke="#5A3410" stroke-width="0.5" stroke-linejoin="round"/>
+      <path d="M26,23.6 L30.5,15.4 L35,19" fill="#C88030" stroke="#5A3410" stroke-width="0.5" stroke-linejoin="round"/>
+      <path d="M18,22 L26,26 M18,24.2 L26,28.2 M26,26 L35,21.4 M26,28.2 L35,23.6" fill="none" stroke="#8A5420" stroke-width="0.3"/>
+      <!-- windows and the door -->
+      <path d="M19,21.2 L20.8,22.1 V24.6 L19,23.7 Z M28,24.2 L30.2,23.1 V26 L28,27.1 Z M31.6,22.3 L33.6,21.3 V24.2 L31.6,25.2 Z" fill="#2A4AB4" stroke="#F6E6C8" stroke-width="0.4"/>
+      <path d="M22.4,23.4 L24.4,24.4 V29.4 L22.4,28.4 Z" fill="#D21A1A" stroke="#5A1010" stroke-width="0.3"/>
+      <!-- the shingled roof, its ridge running back from the gable -->
+      <path d="M16.6,19.6 L26,24.4 L30.5,15.4 L22.6,10.8 Z" fill="#6A5A50" stroke="#2A2018" stroke-width="0.5" stroke-linejoin="round"/>
+      <path d="M30.5,15.4 L22.6,10.8 L24,10.4 L31.6,14.6 Z" fill="#9C8C80" stroke="#2A2018" stroke-width="0.4" stroke-linejoin="round"/>
+      <path d="M18.6,17.4 L27,21.8 M20.4,15 L28.2,19.2 M21.6,12.8 L29.4,17" fill="none" stroke="#3A302A" stroke-width="0.5"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#pic"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#pic" filter="url(#dim)"/>
+  </g>
+</svg>
