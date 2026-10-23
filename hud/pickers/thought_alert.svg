@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" width="15" height="15">
+  <!-- Thought icon: vector remake of the original Ski Resort Tycoon
+       sprite attention, shown over a guest who is alert: a black exclamation mark on a white disc, rimmed in
+       black and lit at its top left. -->
+  <defs>
+    <radialGradient id="disc" cx="6" cy="5.4" r="8.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#E6E6E6"/>
+      <stop offset="1" stop-color="#ACACAC"/>
+    </radialGradient>
+  </defs>
+  <circle cx="7.5" cy="7.5" r="6.8" fill="url(#disc)" stroke="#000000" stroke-width="0.8"/>
+  <path d="M6.6,2.6 H8.4 L8,8.8 H7 Z" fill="#000000" stroke="#000000" stroke-width="0.4" stroke-linejoin="round"/>
+  <rect x="6.6" y="10" width="1.8" height="1.8" fill="#000000"/>
+</svg>

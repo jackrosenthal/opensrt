@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87 31" width="87" height="31">
+  <!-- Picker scroller's box: vector remake of the original Ski Resort
+       Tycoon sprite blank_horiz_scrollbox, the plain grey box between
+       the building picker's arrows that the price is written in. -->
+  <rect x="3" y="3" width="81" height="22" fill="#C5C5C5"/>
+</svg>

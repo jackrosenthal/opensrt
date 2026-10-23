@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396 51" width="396" height="51">
+  <!-- Escape menu's Save game button: vector remake of the original Ski
+       Resort Tycoon sprites exit_save_normal/_rollover/_depress.  A
+       black ringed disc with a red floppy disk on it, and beside it a long black
+       rimmed bar with rounded ends, white (letting a little of the
+       scene through), yellow when the pointer is over it, and pressed in
+       grey, lettered Save game at its right end in black over a soft
+       shadow.  The original's sprites carry the scene behind them; here
+       the scene stays the menu's background.  One group per state; the
+       game shows one with a stylesheet. -->
+  <defs>
+    <radialGradient id="disc" cx="22" cy="18.4" r="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#F2F2F8"/>
+      <stop offset="1" stop-color="#A4A4AC"/>
+    </radialGradient>
+    <linearGradient id="red" x1="16" y1="10" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF5A62"/>
+      <stop offset="1" stop-color="#D51018"/>
+    </linearGradient>
+    <linearGradient id="green" x1="20" y1="13" x2="34" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9CF68B"/>
+      <stop offset="0.5" stop-color="#4AB452"/>
+      <stop offset="1" stop-color="#2A8B31"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+    <filter id="shadow" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+    <path id="bar" d="M83.7,4.2 H371.90000000000003 A19.3,19.3 0 0 1 371.90000000000003,42.8 H83.7 A19.3,19.3 0 0 1 83.7,4.2 Z"/>
+    <clipPath id="barClip"><use href="#bar"/></clipPath>
+    <path id="words" d="M236.96 14.05V17.76Q235.52 17.11 234.15 16.79Q232.78 16.46 231.56 16.46Q229.94 16.46 229.17 16.9Q228.39 17.35 228.39 18.29Q228.39 18.99 228.92 19.38Q229.44 19.77 230.81 20.05L232.73 20.44Q235.65 21.03 236.88 22.22Q238.11 23.42 238.11 25.62Q238.11 28.52 236.39 29.93Q234.68 31.34 231.15 31.34Q229.48 31.34 227.81 31.02Q226.13 30.71 224.46 30.09V26.28Q226.13 27.17 227.7 27.62Q229.26 28.07 230.71 28.07Q232.19 28.07 232.98 27.58Q233.76 27.09 233.76 26.17Q233.76 25.35 233.23 24.91Q232.7 24.46 231.1 24.11L229.36 23.72Q226.73 23.16 225.52 21.93Q224.3 20.7 224.3 18.61Q224.3 16 225.99 14.59Q227.68 13.19 230.84 13.19Q232.29 13.19 233.81 13.4Q235.33 13.62 236.96 14.05ZM247.77 25.09Q246.45 25.09 245.79 25.54Q245.13 25.98 245.13 26.85Q245.13 27.65 245.66 28.1Q246.2 28.55 247.14 28.55Q248.33 28.55 249.14 27.7Q249.95 26.85 249.95 25.57V25.09ZM254.18 23.51V31H249.95V29.05Q249.1 30.25 248.05 30.79Q246.99 31.34 245.48 31.34Q243.44 31.34 242.17 30.15Q240.9 28.96 240.9 27.06Q240.9 24.75 242.49 23.68Q244.07 22.6 247.47 22.6H249.95V22.27Q249.95 21.27 249.16 20.81Q248.38 20.35 246.71 20.35Q245.36 20.35 244.2 20.62Q243.04 20.89 242.05 21.43V18.23Q243.39 17.9 244.75 17.73Q246.11 17.56 247.47 17.56Q251.02 17.56 252.6 18.96Q254.18 20.36 254.18 23.51ZM256.43 17.88H260.62L263.89 26.95L267.15 17.88H271.36L266.19 31H261.58ZM286.82 24.4V25.6H277.02Q277.17 27.07 278.08 27.81Q279 28.55 280.64 28.55Q281.96 28.55 283.35 28.16Q284.74 27.77 286.2 26.97V30.2Q284.71 30.77 283.23 31.05Q281.74 31.34 280.25 31.34Q276.69 31.34 274.71 29.53Q272.74 27.72 272.74 24.45Q272.74 21.24 274.68 19.4Q276.62 17.56 280.02 17.56Q283.11 17.56 284.97 19.42Q286.82 21.29 286.82 24.4ZM282.51 23.01Q282.51 21.81 281.81 21.08Q281.12 20.35 279.99 20.35Q278.77 20.35 278.01 21.03Q277.25 21.72 277.06 23.01ZM307.29 28.77Q306.42 29.92 305.38 30.46Q304.33 31 302.96 31Q300.56 31 298.99 29.11Q297.42 27.21 297.42 24.29Q297.42 21.34 298.99 19.46Q300.56 17.58 302.96 17.58Q304.33 17.58 305.38 18.12Q306.42 18.66 307.29 19.82V17.88H311.5V29.68Q311.5 32.84 309.51 34.51Q307.51 36.18 303.71 36.18Q302.48 36.18 301.33 35.99Q300.18 35.8 299.02 35.42V32.15Q300.12 32.78 301.18 33.09Q302.23 33.4 303.3 33.4Q305.36 33.4 306.32 32.5Q307.29 31.6 307.29 29.68ZM304.52 20.61Q303.22 20.61 302.49 21.57Q301.77 22.53 301.77 24.29Q301.77 26.09 302.47 27.02Q303.17 27.95 304.52 27.95Q305.83 27.95 306.56 26.99Q307.29 26.03 307.29 24.29Q307.29 22.53 306.56 21.57Q305.83 20.61 304.52 20.61ZM321.42 25.09Q320.11 25.09 319.44 25.54Q318.78 25.98 318.78 26.85Q318.78 27.65 319.31 28.1Q319.85 28.55 320.8 28.55Q321.98 28.55 322.79 27.7Q323.6 26.85 323.6 25.57V25.09ZM327.83 23.51V31H323.6V29.05Q322.75 30.25 321.7 30.79Q320.64 31.34 319.13 31.34Q317.09 31.34 315.82 30.15Q314.55 28.96 314.55 27.06Q314.55 24.75 316.14 23.68Q317.73 22.6 321.12 22.6H323.6V22.27Q323.6 21.27 322.81 20.81Q322.03 20.35 320.36 20.35Q319.02 20.35 317.86 20.62Q316.7 20.89 315.7 21.43V18.23Q317.05 17.9 318.41 17.73Q319.77 17.56 321.12 17.56Q324.68 17.56 326.25 18.96Q327.83 20.36 327.83 23.51ZM343.89 20.05Q344.69 18.84 345.79 18.2Q346.88 17.56 348.2 17.56Q350.46 17.56 351.64 18.95Q352.82 20.35 352.82 23.01V31H348.61V24.16Q348.62 24 348.62 23.84Q348.63 23.68 348.63 23.37Q348.63 21.98 348.22 21.35Q347.81 20.72 346.89 20.72Q345.7 20.72 345.05 21.71Q344.4 22.69 344.38 24.55V31H340.16V24.16Q340.16 21.98 339.78 21.35Q339.41 20.72 338.45 20.72Q337.24 20.72 336.58 21.71Q335.93 22.7 335.93 24.54V31H331.71V17.88H335.93V19.8Q336.7 18.68 337.7 18.12Q338.7 17.56 339.91 17.56Q341.27 17.56 342.31 18.21Q343.36 18.87 343.89 20.05ZM369.84 24.4V25.6H360.03Q360.18 27.07 361.1 27.81Q362.01 28.55 363.65 28.55Q364.98 28.55 366.37 28.16Q367.75 27.77 369.22 26.97V30.2Q367.73 30.77 366.24 31.05Q364.75 31.34 363.27 31.34Q359.7 31.34 357.73 29.53Q355.75 27.72 355.75 24.45Q355.75 21.24 357.69 19.4Q359.63 17.56 363.03 17.56Q366.12 17.56 367.98 19.42Q369.84 21.29 369.84 24.4ZM365.53 23.01Q365.53 21.81 364.83 21.08Q364.13 20.35 363.01 20.35Q361.79 20.35 361.03 21.03Q360.27 21.72 360.08 23.01Z"/>
+    <g id="disc-icon" transform="translate(0,0.0)">
+      <circle cx="26.3" cy="24.4" r="23.4" fill="url(#disc)" stroke="#000000" stroke-width="4"/>
+    <!-- a red floppy disk: its grey shutter and white label -->
+    <path d="M15.6,10.6 H34.4 L37.4,13.6 V35.4 H15.6 Z" fill="url(#red)" stroke="#8C1010" stroke-width="0.8" stroke-linejoin="round"/>
+    <rect x="20.4" y="10.6" width="11" height="7.6" fill="#B4B4B4" stroke="#8C1010" stroke-width="0.6"/>
+    <rect x="27" y="11.8" width="2.6" height="5.2" fill="#E62929"/>
+    <rect x="18.6" y="22.6" width="15.8" height="12" fill="#FFDEE6"/>
+    <path d="M18.6,25.2 H34.4 M18.6,28.2 H34.4 M18.6,31.2 H34.4" stroke="#FF7383" stroke-width="1.1"/>
+    </g>
+  </defs>
+
+  <use href="#disc-icon"/>
+  <g id="normal" class="state">
+    <use href="#bar" fill="#FFFFFF" fill-opacity="0.85"/>
+    <g clip-path="url(#barClip)">
+      <use href="#bar" transform="translate(-3,-3)" fill="none" stroke="#9C9CA4" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#bar" fill="none" stroke="#000000" stroke-width="4.4"/>
+    <use href="#words" transform="translate(3,3.6)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+    <use href="#words" fill="#000000"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#bar" fill="#FFF673" fill-opacity="0.9"/>
+    <g clip-path="url(#barClip)">
+      <use href="#bar" transform="translate(-3,-3)" fill="none" stroke="#948B41" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#bar" fill="none" stroke="#000000" stroke-width="4.4"/>
+    <use href="#words" transform="translate(3,3.6)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+    <use href="#words" fill="#000000"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#bar" fill="#B4B4C5"/>
+    <g clip-path="url(#barClip)">
+      <use href="#bar" transform="translate(3,3)" fill="none" stroke="#3A3A42" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#bar" fill="none" stroke="#000000" stroke-width="4.4"/>
+    <g transform="translate(1,1)">
+      <use href="#words" transform="translate(3,3.6)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+      <use href="#words" fill="#000000"/>
+    </g>
+  </g>
+</svg>

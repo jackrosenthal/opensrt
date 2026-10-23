@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 93" width="88" height="93">
+  <!-- Path sample: vector remake of the original Ski Resort Tycoon
+       sprite brick1_path as the objects and paths picker crops it, the third paths entry: brown bricks laid in courses with white
+       mortar.
+       The middle box shows it whole (`whole`), a side box, 44 wide, its
+       left part (`half`).  Each piece is lit at its top left and shaded
+       round its foot.  One group per state; the game shows one with a
+       stylesheet. -->
+  <defs>
+    <radialGradient id="shade" cx="0.38" cy="0.32" r="0.75">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.3"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.28"/>
+    </radialGradient>
+    <g id="pieces">
+      <path d="M-4.7,-3.4 H17.5 V5.8 H-4.7 Z" fill="#6D574C"/>
+      <path d="M19.9,-3.4 H47.3 V5.8 H19.9 Z" fill="#7E6556"/>
+      <path d="M49.7,-3.4 H73.1 V5.8 H49.7 Z" fill="#8F7262"/>
+      <path d="M75.5,-3.4 H98.5 V5.8 H75.5 Z" fill="#7E6556"/>
+      <path d="M-5.3,8.2 H12.6 V17.4 H-5.3 Z" fill="#B09684"/>
+      <path d="M15,8.2 H36.2 V17.4 H15 Z" fill="#9A7E6B"/>
+      <path d="M38.6,8.2 H59.8 V17.4 H38.6 Z" fill="#B09684"/>
+      <path d="M62.2,8.2 H88.9 V17.4 H62.2 Z" fill="#A08774"/>
+      <path d="M-14.7,19.8 H12.1 V29 H-14.7 Z" fill="#9A7E6B"/>
+      <path d="M14.5,19.8 H34.5 V29 H14.5 Z" fill="#8F7262"/>
+      <path d="M36.9,19.8 H60.9 V29 H36.9 Z" fill="#8F7262"/>
+      <path d="M63.3,19.8 H80.2 V29 H63.3 Z" fill="#9A7E6B"/>
+      <path d="M82.6,19.8 H97.8 V29 H82.6 Z" fill="#8F7262"/>
+      <path d="M-19.4,31.4 H-1 V40.6 H-19.4 Z" fill="#9A7E6B"/>
+      <path d="M1.4,31.4 H26 V40.6 H1.4 Z" fill="#7E6556"/>
+      <path d="M28.4,31.4 H53 V40.6 H28.4 Z" fill="#7E6556"/>
+      <path d="M55.4,31.4 H75.6 V40.6 H55.4 Z" fill="#9A7E6B"/>
+      <path d="M78,31.4 H98.8 V40.6 H78 Z" fill="#A08774"/>
+      <path d="M-20.8,43 H-4.8 V52.2 H-20.8 Z" fill="#A08774"/>
+      <path d="M-2.4,43 H19.1 V52.2 H-2.4 Z" fill="#6D574C"/>
+      <path d="M21.5,43 H49.6 V52.2 H21.5 Z" fill="#7E6556"/>
+      <path d="M52,43 H77.5 V52.2 H52 Z" fill="#6D574C"/>
+      <path d="M79.9,43 H100.4 V52.2 H79.9 Z" fill="#7E6556"/>
+      <path d="M-13.2,54.6 H8.9 V63.8 H-13.2 Z" fill="#7E6556"/>
+      <path d="M11.3,54.6 H34.1 V63.8 H11.3 Z" fill="#6D574C"/>
+      <path d="M36.5,54.6 H60.7 V63.8 H36.5 Z" fill="#8F7262"/>
+      <path d="M63.1,54.6 H89.6 V63.8 H63.1 Z" fill="#9A7E6B"/>
+      <path d="M-15.6,66.2 H1.3 V75.4 H-15.6 Z" fill="#6D574C"/>
+      <path d="M3.7,66.2 H31.8 V75.4 H3.7 Z" fill="#9A7E6B"/>
+      <path d="M34.2,66.2 H56.8 V75.4 H34.2 Z" fill="#B09684"/>
+      <path d="M59.2,66.2 H83 V75.4 H59.2 Z" fill="#B09684"/>
+      <path d="M85.4,66.2 H111.6 V75.4 H85.4 Z" fill="#9A7E6B"/>
+      <path d="M-5.5,77.8 H10.9 V87 H-5.5 Z" fill="#7E6556"/>
+      <path d="M13.3,77.8 H39.8 V87 H13.3 Z" fill="#7E6556"/>
+      <path d="M42.2,77.8 H58.1 V87 H42.2 Z" fill="#8F7262"/>
+      <path d="M60.5,77.8 H80.8 V87 H60.5 Z" fill="#A08774"/>
+      <path d="M83.2,77.8 H98.1 V87 H83.2 Z" fill="#7E6556"/>
+      <path d="M-18,89.4 H8.8 V98.6 H-18 Z" fill="#8F7262"/>
+      <path d="M11.2,89.4 H34.3 V98.6 H11.2 Z" fill="#8F7262"/>
+      <path d="M36.7,89.4 H56.6 V98.6 H36.7 Z" fill="#9A7E6B"/>
+      <path d="M59,89.4 H78.2 V98.6 H59 Z" fill="#6D574C"/>
+      <path d="M80.6,89.4 H102.3 V98.6 H80.6 Z" fill="#8F7262"/>
+    </g>
+    <g id="shapes">
+      <path d="M-4.7,-3.4 H17.5 V5.8 H-4.7 Z"/>
+      <path d="M19.9,-3.4 H47.3 V5.8 H19.9 Z"/>
+      <path d="M49.7,-3.4 H73.1 V5.8 H49.7 Z"/>
+      <path d="M75.5,-3.4 H98.5 V5.8 H75.5 Z"/>
+      <path d="M-5.3,8.2 H12.6 V17.4 H-5.3 Z"/>
+      <path d="M15,8.2 H36.2 V17.4 H15 Z"/>
+      <path d="M38.6,8.2 H59.8 V17.4 H38.6 Z"/>
+      <path d="M62.2,8.2 H88.9 V17.4 H62.2 Z"/>
+      <path d="M-14.7,19.8 H12.1 V29 H-14.7 Z"/>
+      <path d="M14.5,19.8 H34.5 V29 H14.5 Z"/>
+      <path d="M36.9,19.8 H60.9 V29 H36.9 Z"/>
+      <path d="M63.3,19.8 H80.2 V29 H63.3 Z"/>
+      <path d="M82.6,19.8 H97.8 V29 H82.6 Z"/>
+      <path d="M-19.4,31.4 H-1 V40.6 H-19.4 Z"/>
+      <path d="M1.4,31.4 H26 V40.6 H1.4 Z"/>
+      <path d="M28.4,31.4 H53 V40.6 H28.4 Z"/>
+      <path d="M55.4,31.4 H75.6 V40.6 H55.4 Z"/>
+      <path d="M78,31.4 H98.8 V40.6 H78 Z"/>
+      <path d="M-20.8,43 H-4.8 V52.2 H-20.8 Z"/>
+      <path d="M-2.4,43 H19.1 V52.2 H-2.4 Z"/>
+      <path d="M21.5,43 H49.6 V52.2 H21.5 Z"/>
+      <path d="M52,43 H77.5 V52.2 H52 Z"/>
+      <path d="M79.9,43 H100.4 V52.2 H79.9 Z"/>
+      <path d="M-13.2,54.6 H8.9 V63.8 H-13.2 Z"/>
+      <path d="M11.3,54.6 H34.1 V63.8 H11.3 Z"/>
+      <path d="M36.5,54.6 H60.7 V63.8 H36.5 Z"/>
+      <path d="M63.1,54.6 H89.6 V63.8 H63.1 Z"/>
+      <path d="M-15.6,66.2 H1.3 V75.4 H-15.6 Z"/>
+      <path d="M3.7,66.2 H31.8 V75.4 H3.7 Z"/>
+      <path d="M34.2,66.2 H56.8 V75.4 H34.2 Z"/>
+      <path d="M59.2,66.2 H83 V75.4 H59.2 Z"/>
+      <path d="M85.4,66.2 H111.6 V75.4 H85.4 Z"/>
+      <path d="M-5.5,77.8 H10.9 V87 H-5.5 Z"/>
+      <path d="M13.3,77.8 H39.8 V87 H13.3 Z"/>
+      <path d="M42.2,77.8 H58.1 V87 H42.2 Z"/>
+      <path d="M60.5,77.8 H80.8 V87 H60.5 Z"/>
+      <path d="M83.2,77.8 H98.1 V87 H83.2 Z"/>
+      <path d="M-18,89.4 H8.8 V98.6 H-18 Z"/>
+      <path d="M11.2,89.4 H34.3 V98.6 H11.2 Z"/>
+      <path d="M36.7,89.4 H56.6 V98.6 H36.7 Z"/>
+      <path d="M59,89.4 H78.2 V98.6 H59 Z"/>
+      <path d="M80.6,89.4 H102.3 V98.6 H80.6 Z"/>
+    </g>
+    <g id="sample">
+      <rect x="0" y="0" width="88" height="93" fill="#D2CCCE"/>
+      <use href="#pieces"/>
+      <use href="#shapes" fill="url(#shade)" stroke="#3A2C26" stroke-opacity="0.45" stroke-width="0.6" stroke-linejoin="round"/>
+    </g>
+    <clipPath id="whole88"><rect x="0" y="0" width="88" height="93"/></clipPath>
+    <clipPath id="half44"><rect x="0" y="0" width="44" height="93"/></clipPath>
+  </defs>
+
+  <g id="whole" class="state" clip-path="url(#whole88)">
+    <use href="#sample"/>
+  </g>
+  <g id="half" class="state" display="none" clip-path="url(#half44)">
+    <use href="#sample"/>
+  </g>
+</svg>

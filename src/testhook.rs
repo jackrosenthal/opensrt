@@ -7,7 +7,8 @@ use crate::ui::hud::Nav;
 pub enum TestHook {
     /// `build`, `terrain` or `finances`, optionally `/<tray>`.
     Menu(Nav, Option<usize>),
-    /// `pick/<category>`: the building picker.
+    /// `pick/<category>`: the building picker; 8 to 12 are the lifts,
+    /// jumps, run markers, objects and paths pickers.
     Picker(usize),
     /// `stats/<window>[/<tab>[/weather]]`; `weather` builds a weather
     /// station first.
@@ -50,6 +51,16 @@ pub enum TestHook {
     RunPath(u8),
     Escape,
     Save,
+    /// Opens the rename box for the entrance.
+    Rename,
+    /// Asks for the fog to follow the entrance with.
+    Fog,
+    /// Builds a starter resort, runs it until guests come, gives them
+    /// each a thought in turn, and looks at the nearest.
+    Thoughts,
+    /// `bob/<mood>`: a message from Bob, 0 happy, 1 normal, 2 pointing,
+    /// 3 unhappy.
+    Bob(u8),
     /// Auto-builds a starter resort and selects its first run (`run`),
     /// lift (`lift`) or park, or runs it until a guest arrives and
     /// selects them (`guest`).
@@ -97,6 +108,10 @@ impl TestHook {
             "runpath" => TestHook::RunPath(num(parts.next())? as u8),
             "escape" => TestHook::Escape,
             "save" => TestHook::Save,
+            "rename" => TestHook::Rename,
+            "fog" => TestHook::Fog,
+            "thoughts" => TestHook::Thoughts,
+            "bob" => TestHook::Bob(num(parts.next())? as u8),
             "run" => TestHook::Starter(StarterPick::Run),
             "lift" => TestHook::Starter(StarterPick::Lift),
             "guest" => TestHook::Starter(StarterPick::Guest),

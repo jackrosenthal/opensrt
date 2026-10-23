@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36" width="35" height="36">
+  <!-- Rename box's OK button picture: vector remake of the original Ski
+       Resort Tycoon sprites CheckOK_normal/_rollover/_depress, drawn
+       over the round button frame.  A green tick, its short stroke down
+       to the right and its long one sweeping up, standing out from the
+       button on a tan shadow.  The same in every state. -->
+  <defs>
+    <path id="tick" d="M5.6,22.4 L10,18.4 L14.6,22 L22.6,8 L28.6,8 L17.4,28 L14.4,28 Z" stroke-linejoin="round"/>
+    <linearGradient id="green" x1="8" y1="8" x2="22" y2="29" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73FF73"/>
+      <stop offset="0.45" stop-color="#10D531"/>
+      <stop offset="1" stop-color="#088B18"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+  </defs>
+  <!-- a tan shadow down and to the right -->
+  <use href="#tick" transform="translate(0.9,1.2)" fill="#C89664" fill-opacity="0.85" filter="url(#soft)"/>
+  <use href="#tick" fill="url(#green)" stroke="#067012" stroke-width="0.5"/>
+  <!-- lit along its upper edges -->
+  <path d="M6.8,22.2 L10,19.4 L14.8,23.2 M15.4,22.4 L23.2,8.8" fill="none" stroke="#C5FFC5" stroke-width="0.8" stroke-opacity="0.8" stroke-linecap="round" filter="url(#soft)"/>
+</svg>

@@ -488,7 +488,11 @@ impl App {
         };
         match hook {
             TestHook::Menu(nav, tray) => self.ui.hud.open_menu(nav, tray),
-            TestHook::Picker(k) => self.ui.picker = Some(crate::ui::picker::Picker::new(crate::ui::picker::PickKind::Buildings(k))),
+            TestHook::Picker(k) => {
+                use crate::ui::picker::{PickKind, Picker};
+                let kind = [PickKind::Lifts, PickKind::Jumps, PickKind::Runs, PickKind::Objects, PickKind::Paths].get(k.wrapping_sub(8));
+                self.ui.picker = Some(Picker::new(kind.copied().unwrap_or(PickKind::Buildings(k))));
+            }
             TestHook::Stats { window, tab, weather } => {
                 use crate::ui::statwin::{StatKind, StatWindow};
                 if weather {
@@ -663,6 +667,31 @@ impl App {
                 self.ui.show_menu = true;
                 self.ui.save_open = hook == TestHook::Save;
             }
+            TestHook::Rename => {
+                let entrance = g.world.structures.first().map(|e| (Selection::Structure(e.id), e.name.clone()));
+                self.ui.rename = entrance.map(|(sel, text)| crate::ui::windows::Rename { sel, text });
+            }
+            TestHook::Thoughts => {
+                use crate::game::thought::Thought::*;
+                g.autobuild_starter();
+                let ticks = (g.defs.resort.seconds_per_day / crate::game::sim::TICK) as usize;
+                for _ in 0..ticks / 2 {
+                    crate::game::sim::Sim { defs: &g.defs, w: &mut g.world }.step(crate::game::sim::TICK);
+                }
+                let thoughts = [Hungry, Cold, NeedToWeeWee, Tired, Skiing, Wounded, Bored];
+                for (i, v) in g.world.guests.iter_mut().enumerate() {
+                    v.thought = Some((thoughts[i % thoughts.len()], 1.0e6));
+                }
+                if let Some(at) = g.world.guests.iter().find(|v| v.pos.z > -100.0).map(|v| v.pos) {
+                    g.camera.target = at;
+                }
+            }
+            TestHook::Fog => self.ui.fog_for = g.world.structures.first().map(|e| Selection::Structure(e.id)),
+            TestHook::Bob(mood) => self.ui.bob.push(crate::ui::bob::BobMessage {
+                mood: crate::ui::bob::Mood::from_index(mood),
+                text: "Test message from Bob.".to_string(),
+                step: None,
+            }),
         }
     }
 }

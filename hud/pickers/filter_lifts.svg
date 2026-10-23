@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29" width="32" height="29">
+  <!-- Mini-map lifts filter's picture: vector remake of the original Ski
+       Resort Tycoon sprites filter_lift_*, drawn over the filter button
+       frame.  A skier riding a lift on a patch of green, the lift's
+       tan cable and hanger looping over him and a dark pole at his side.
+       The same in every state. -->
+  <g transform="translate(17,15.4) scale(0.85) translate(-17,-15.4)">
+    <!-- the ground -->
+    <path d="M8.6,17.4 C11,15.4 22,15.2 24.6,17 L24,19 H9.2 Z" fill="#3AD53A"/>
+    <!-- the cable and the hanger -->
+    <path d="M13.2,8.6 C13.4,6.6 20.4,6.2 22.4,8 V16.4 M13.2,8.6 C14.4,10 17.4,10 18,10.6 V12" fill="none" stroke="#B49C6A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12,13.4 V22.6" stroke="#202020" stroke-width="1" stroke-linecap="round"/>
+    <!-- the rider -->
+    <path d="M14.8,15.8 H19 V19.8 L18,22.4 H17.2 L16.8,20.4 L16.4,22.4 H15.6 L14.8,19.8 Z" fill="#E62010"/>
+    <path d="M14.6,12.2 H19.4 L19.6,16 H14.4 Z" fill="#2A8BE6"/>
+    <circle cx="17" cy="11" r="1.5" fill="#5A3A83"/>
+    <path d="M15.4,22.4 H16.6 M17.2,22.4 H18.4" stroke="#1820A4" stroke-width="1.2"/>
+  </g>
+</svg>

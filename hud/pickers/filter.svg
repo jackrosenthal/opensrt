@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29" width="32" height="29">
+  <!-- Mini-map filter button: the frame shared by the original Ski
+       Resort Tycoon's mini-map filter buttons (filter_structure_*,
+       Filter_skiers_*, filter_lift_* and filter_terrain_*), without
+       their pictures.  Each button's picture is its own drawing laid out
+       on this 32x29 grid and drawn over this frame, with the same state
+       shown.  A small grey rimmed disc, white, yellow when the pointer
+       is over it, and pressed in grey.  One group per state; the game
+       shows one with a stylesheet. -->
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+    <circle id="face" cx="16.8" cy="15.2" r="10.8"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <g id="rim">
+      <circle cx="16.8" cy="15.2" r="12" fill="none" stroke="#000000" stroke-opacity="0.25" stroke-width="1.2" filter="url(#soft)"/>
+      <circle cx="16.8" cy="15.2" r="11.4" fill="none" stroke="#5A5A5A" stroke-width="1.2"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#face" fill="#FFFFFF"/>
+    <g clip-path="url(#faceClip)">
+      <circle cx="16.8" cy="14.2" r="11.6" fill="none" stroke="#ACACAC" stroke-width="1.4" filter="url(#soft)"/>
+    </g>
+    <use href="#rim"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#face" fill="#FFF600"/>
+    <g clip-path="url(#faceClip)">
+      <circle cx="16.8" cy="14.2" r="11.6" fill="none" stroke="#A49C00" stroke-width="1.4" filter="url(#soft)"/>
+    </g>
+    <use href="#rim"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#face" fill="#D5D5D5"/>
+    <g clip-path="url(#faceClip)">
+      <circle cx="16.8" cy="16.6" r="11.6" fill="none" stroke="#525252" stroke-opacity="0.7" stroke-width="2.4" filter="url(#soft)"/>
+    </g>
+    <use href="#rim"/>
+  </g>
+</svg>

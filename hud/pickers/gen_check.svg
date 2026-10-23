@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" width="27" height="27">
+  <!-- Flatten Entrance check box: vector remake of the original Ski
+       Resort Tycoon sprites TE_check_off and TE_check_on in the Generate
+       Random Map window.  A white square in a heavy black frame, shaded
+       grey along its top, ticked in black when on.  One group per state;
+       the game shows one with a stylesheet. -->
+  <defs>
+    <g id="box">
+      <rect x="5" y="5" width="16" height="16" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+      <rect x="6" y="6" width="14" height="1.2" fill="#DEDEDE"/>
+      <rect x="6" y="6" width="1.6" height="14" fill="#F2F2F2"/>
+    </g>
+  </defs>
+  <g id="off" class="state">
+    <use href="#box"/>
+  </g>
+  <g id="on" class="state" display="none">
+    <use href="#box"/>
+    <path d="M9.6,12.4 L12.2,15.2 L16.4,9.6" fill="none" stroke="#000000" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

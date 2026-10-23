@@ -16,6 +16,9 @@ use crate::assets::Assets;
 const BOB: ArtFile = art::bob::FILE;
 const SIZE: Vec2 = Vec2::new(570.0, 367.0);
 const TEXT: (f32, f32, f32, f32) = (242.0, 72.0, 526.0, 298.0);
+/// Bob's portrait in the backgrounds (inclusive), the original painting
+/// drawn into the vector window.
+const PORTRAIT: crate::formats::ui::Rect = crate::formats::ui::Rect { x1: 28, y1: 63, x2: 223, y2: 296 };
 
 /// Bob's expression: the four backgrounds.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -77,6 +80,9 @@ pub fn show(m: &BobMessage, ui: &mut egui::Ui, art: &mut Art, assets: &Assets, b
     // The dialog is modal.
     ui.interact(screen, ui.scope_id().with("bob modal"), Sense::click());
     art.draw(ui, assets, cv, BOB, art::bob::BACKGROUND, m.mood as usize, 0.0, 0.0);
+    if let Some((Some(sprite), _)) = art.group_element(assets, BOB, art::bob::BACKGROUND, m.mood as usize) {
+        art.sprite_part(ui, assets, cv, BOB, sprite, Some(PORTRAIT), 0.0, 0.0);
+    }
     let (x1, y1, x2, y2) = TEXT;
     let font = FontId::new(11.0 * s, FontFamily::Name(ARIAL.into()));
     let color = Color32::from_rgb(0x00, 0x00, 0x99);

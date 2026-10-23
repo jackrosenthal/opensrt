@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30">
+  <!-- Go to button: vector remake of the original Ski Resort Tycoon
+       sprites goto_normal/_rollover/_depress (the same art in the
+       objects picker and highlevel_statistics).  A blue
+       square button with rounded corners, bevelled light at its top left
+       and dark at its foot, with four red arrows pointing in at a red
+       dot: the view goes to what the row shows.  Edged in navy, in green
+       when the pointer is over it, and pale cyan when pressed.  One group
+       per state; the game shows one with a stylesheet. -->
+  <defs>
+    <linearGradient id="face" x1="0" y1="2" x2="0" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73C5FF"/>
+      <stop offset="1" stop-color="#5AB4F6"/>
+    </linearGradient>
+    <linearGradient id="pressed" x1="0" y1="2" x2="0" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8BF6FF"/>
+      <stop offset="1" stop-color="#7BEEFF"/>
+    </linearGradient>
+    <rect id="square" x="0.6" y="0.6" width="28.8" height="28.8" rx="2.6"/>
+    <clipPath id="squareClip"><use href="#square"/></clipPath>
+    <!-- The bevels: light along the top and left, dark along the foot
+         and right. -->
+    <g id="bevel" clip-path="url(#squareClip)" fill="none" stroke-width="1.6">
+      <path d="M2.2,28 V3.6 A1.4,1.4 0 0 1 3.6,2.2 H28" stroke="#7BE6FF"/>
+      <path d="M2,27.8 H26.4 A1.4,1.4 0 0 0 27.8,26.4 V2" stroke="#318BEE"/>
+    </g>
+    <!-- One arrow, pointing down at the center from above. -->
+    <path id="arrow" d="M13.6,2.8 H16.4 V6.6 H18.4 L15,10.6 L11.6,6.6 H13.6 Z"/>
+    <g id="arrows">
+      <use href="#arrow"/>
+      <use href="#arrow" transform="rotate(90,15,14.6)"/>
+      <use href="#arrow" transform="rotate(180,15,14.6)"/>
+      <use href="#arrow" transform="rotate(270,15,14.6)"/>
+      <circle cx="15" cy="14.6" r="2.6"/>
+    </g>
+    <linearGradient id="red" x1="10" y1="8" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF4A62"/>
+      <stop offset="0.5" stop-color="#DE0029"/>
+      <stop offset="1" stop-color="#8B0010"/>
+    </linearGradient>
+    <g id="picture">
+      <!-- a dark shadow down and to the right -->
+      <use href="#arrows" transform="translate(0.9,0.9)" fill="#203A6A" fill-opacity="0.45"/>
+      <use href="#arrows" fill="url(#red)" stroke="#6A0008" stroke-width="0.5" stroke-linejoin="round"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#square" fill="url(#face)"/>
+    <use href="#bevel"/>
+    <use href="#square" fill="none" stroke="#202941" stroke-width="1.2"/>
+    <use href="#picture"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#square" fill="url(#face)"/>
+    <use href="#bevel"/>
+    <use href="#square" fill="none" stroke="#00FF41" stroke-width="1.2"/>
+    <use href="#picture"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#square" fill="url(#pressed)"/>
+    <use href="#bevel"/>
+    <use href="#square" fill="none" stroke="#202941" stroke-width="1.2"/>
+    <use href="#picture"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" width="15" height="15">
+  <!-- Thought icon: vector remake of the original Ski Resort Tycoon
+       sprite Tired, shown over a guest who is tired: black zeds of sleep on a white disc, rimmed in
+       black and lit at its top left. -->
+  <defs>
+    <radialGradient id="disc" cx="6" cy="5.4" r="8.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#E6E6E6"/>
+      <stop offset="1" stop-color="#ACACAC"/>
+    </radialGradient>
+  </defs>
+  <circle cx="7.5" cy="7.5" r="6.8" fill="url(#disc)" stroke="#000000" stroke-width="0.8"/>
+  <path d="M7.4,4.6 H11 V5.4 L8.8,7.4 H11 V8.4 H7.4 V7.6 L9.6,5.6 H7.4 Z" fill="#000000"/>
+  <path d="M3.6,8 H6.8 V8.8 L4.8,10.6 H6.8 V11.6 H3.6 V10.8 L5.6,9 H3.6 Z" fill="#000000"/>
+</svg>

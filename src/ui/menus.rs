@@ -492,6 +492,13 @@ impl Ui {
             self.save_screen(&mut art, root, assets, cv, g);
         } else {
             art.background(root, assets, cv, ESCAPE, art::escape::BACKGROUND);
+            // The original paints its buttons into the scene; the credits
+            // background is the same scene without them, so that part of
+            // it goes over them, under the vector buttons.
+            if let Some((Some(sprite), _)) = art.group_element(assets, CREDITS, art::credits::BACKGROUND, 0) {
+                let buttons = crate::formats::ui::Rect { x1: 88, y1: 100, x2: 495, y2: 273 };
+                art.sprite_part(root, assets, cv, CREDITS, sprite, Some(buttons), 0.0, 0.0);
+            }
             if art.button(root, assets, cv, ESCAPE, art::escape::SAVE_GAME, (0.0, 0.0)) {
                 self.save_open = true;
                 if self.save_name.is_empty() {

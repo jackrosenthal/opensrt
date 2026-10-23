@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 33" width="38" height="33">
+  <!-- Randomize Wireframe's GO! button: vector remake of the original
+       Ski Resort Tycoon sprites TE_randomizeWF_normal/_Rollover/_Depress
+       in the Generate Random Map window.  A black rimmed button with
+       rounded ends, white, yellow when the pointer is over it, and
+       pressed in grey, its words in black over soft shadows.  One group
+       per state; the game shows one with a stylesheet. -->
+  <defs>
+    <rect id="face" x="1.7" y="1.7" width="34.6" height="29.6" rx="13"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+    <g id="words">
+      <path d="M14.78 19.85Q13.96 20.26 13.07 20.46Q12.18 20.67 11.23 20.67Q9.1 20.67 7.85 19.45Q6.6 18.23 6.6 16.13Q6.6 14.02 7.87 12.81Q9.14 11.59 11.36 11.59Q12.21 11.59 12.99 11.76Q13.77 11.92 14.47 12.24V14.05Q13.75 13.64 13.04 13.43Q12.34 13.23 11.62 13.23Q10.31 13.23 9.59 13.98Q8.88 14.73 8.88 16.13Q8.88 17.52 9.57 18.28Q10.25 19.04 11.52 19.04Q11.87 19.04 12.16 18.99Q12.46 18.95 12.69 18.85V17.15H11.34V15.64H14.78ZM20.64 13.23Q19.63 13.23 19.07 13.99Q18.52 14.75 18.52 16.13Q18.52 17.51 19.07 18.27Q19.63 19.04 20.64 19.04Q21.65 19.04 22.21 18.27Q22.77 17.51 22.77 16.13Q22.77 14.75 22.21 13.99Q21.65 13.23 20.64 13.23ZM20.64 11.59Q22.7 11.59 23.87 12.8Q25.04 14.01 25.04 16.13Q25.04 18.26 23.87 19.46Q22.7 20.67 20.64 20.67Q18.58 20.67 17.41 19.46Q16.23 18.26 16.23 16.13Q16.23 14.01 17.41 12.8Q18.58 11.59 20.64 11.59ZM27.28 11.75H29.34V15.11L29.05 17.56H27.57L27.28 15.11ZM27.28 18.41H29.34V20.5H27.28Z"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#face" fill="#F6F6FF"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.4,-2.4)" fill="none" stroke="#83838B" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+      <use href="#face" transform="translate(2.4,2.4)" fill="none" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="3" filter="url(#soft)"/>
+    </g>
+    <use href="#face" fill="none" stroke="#000000" stroke-width="2.2"/>
+    <g>
+      <use href="#words" transform="translate(2,2)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+      <use href="#words" fill="#101010"/>
+    </g>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#face" fill="#F6EE6A"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.4,-2.4)" fill="none" stroke="#83838B" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+      <use href="#face" transform="translate(2.4,2.4)" fill="none" stroke="#FFF6C5" stroke-opacity="0.9" stroke-width="3" filter="url(#soft)"/>
+    </g>
+    <use href="#face" fill="none" stroke="#000000" stroke-width="2.2"/>
+    <g>
+      <use href="#words" transform="translate(2,2)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+      <use href="#words" fill="#101010"/>
+    </g>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#face" fill="#B4B4C5"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(2.4,2.4)" fill="none" stroke="#3A3A42" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#face" fill="none" stroke="#000000" stroke-width="2.2"/>
+    <g transform="translate(1,1)">
+      <use href="#words" transform="translate(2,2)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+      <use href="#words" fill="#101010"/>
+    </g>
+  </g>
+</svg>

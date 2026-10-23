@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 93" width="88" height="93">
+  <!-- Path eraser: vector remake of the original Ski Resort Tycoon
+       sprites eraser and eraser_half, the objects and paths picker's
+       first paths entry, which takes paths up.  A yellow pencil's end,
+       its crimped silver ferrule and orange eraser, slanting down to the
+       left.  The middle box shows it whole (`whole`), a side box, 44
+       wide, its left part (`half`).  One group per state; the game shows
+       one with a stylesheet. -->
+  <defs>
+    <linearGradient id="yellow" x1="0" y1="-12" x2="0" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF65A"/>
+      <stop offset="0.3" stop-color="#FFE600"/>
+      <stop offset="0.6" stop-color="#F6D500"/>
+      <stop offset="0.62" stop-color="#E6B400"/>
+      <stop offset="1" stop-color="#C59400"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="-12" x2="0" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9C9C9C"/>
+      <stop offset="0.25" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#7B7B7B"/>
+      <stop offset="1" stop-color="#181818"/>
+    </linearGradient>
+    <radialGradient id="rubber" cx="-2" cy="-5" r="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFB45A"/>
+      <stop offset="0.55" stop-color="#FF7B20"/>
+      <stop offset="1" stop-color="#D54A08"/>
+    </radialGradient>
+    <!-- The pencil along the x axis, its eraser's end at 0, turned into
+         place, and cut off where the original's sprite ends. -->
+    <clipPath id="cut"><rect x="0" y="11" width="78.5" height="82"/></clipPath>
+    <g id="pencil" clip-path="url(#cut)">
+      <g transform="translate(30,62.5) rotate(-42)">
+        <rect x="32" y="-12" width="60" height="24" fill="url(#yellow)"/>
+        <path d="M-5,-12 H11 V12 H-5 C-9.5,12 -11,9.5 -11,5 V-5 C-11,-9.5 -9.5,-12 -5,-12 Z" fill="url(#rubber)"/>
+        <rect x="10" y="-12.4" width="23" height="24.8" fill="url(#silver)"/>
+        <!-- the ferrule's crimps, each a ridge between two grooves -->
+        <g fill="url(#silver)" stroke="#2A2A2A" stroke-width="0.8" stroke-opacity="0.8">
+          <rect x="11.5" y="-12.8" width="4.6" height="25.6" rx="2.3"/>
+          <rect x="17" y="-12.8" width="4.6" height="25.6" rx="2.3"/>
+          <rect x="22.5" y="-12.8" width="4.6" height="25.6" rx="2.3"/>
+          <rect x="28" y="-12.8" width="4.6" height="25.6" rx="2.3"/>
+        </g>
+      </g>
+    </g>
+    <clipPath id="halfClip"><rect x="0" y="0" width="44" height="93"/></clipPath>
+  </defs>
+
+  <g id="whole" class="state">
+    <use href="#pencil"/>
+  </g>
+  <g id="half" class="state" display="none" clip-path="url(#halfClip)">
+    <use href="#pencil" transform="translate(-23,0)"/>
+  </g>
+</svg>

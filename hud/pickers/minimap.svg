@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235 154" width="235" height="154">
+  <!-- Mini-map panel: vector remake of the original Ski Resort Tycoon
+       sprite MAP_background, the panel in the bottom right corner that
+       holds the mini-map.  A slab with a thin black rim, rounded on the
+       left and square on the right where it meets the window's edge,
+       lavender at the top, white below it and shading down to sky blue
+       at the foot, with the black well the map is drawn in.  The
+       original paints its four filter buttons into the panel as well;
+       the buttons are drawn over them, so they are left out here. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="2" x2="0" y2="152" gradientUnits="userSpaceOnUse">
+      <stop offset="0.01" stop-color="#D5DEFF"/>
+      <stop offset="0.07" stop-color="#DEE6FF"/>
+      <stop offset="0.15" stop-color="#FFFFFF"/>
+      <stop offset="0.27" stop-color="#FFFFFF"/>
+      <stop offset="0.35" stop-color="#EEF6FF"/>
+      <stop offset="0.53" stop-color="#DEDEF6"/>
+      <stop offset="0.71" stop-color="#BDCDEE"/>
+      <stop offset="0.89" stop-color="#A4B4EE"/>
+      <stop offset="1" stop-color="#8BA4D5"/>
+    </linearGradient>
+    <linearGradient id="rightShade" x1="229" y1="0" x2="233" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5A6A8B" stop-opacity="0"/>
+      <stop offset="1" stop-color="#3A4252" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="footShade" x1="0" y1="149" x2="0" y2="152.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A5A84" stop-opacity="0"/>
+      <stop offset="1" stop-color="#202031" stop-opacity="0.85"/>
+    </linearGradient>
+    <path id="inside" d="M22.6,2.2 H233 V152.4 H22.6 A19.6,19.6 0 0 1 3,132.8 V21.8 A19.6,19.6 0 0 1 22.6,2.2 Z"/>
+    <clipPath id="insideClip"><use href="#inside"/></clipPath>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+  </defs>
+
+  <!-- the rim and the slab -->
+  <path d="M22,0.6 H235 V154 H22 A21,21 0 0 1 1,133 V21.6 A21,21 0 0 1 22,0.6 Z" fill="#080808"/>
+  <use href="#inside" fill="url(#sky)"/>
+  <g clip-path="url(#insideClip)">
+    <!-- a pale line inside the rim at the top and left, and the shade
+         down the right and along the foot -->
+    <path d="M3.8,152.4 V21.8 A18.8,18.8 0 0 1 22.6,3 H233" fill="none" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="1.4"/>
+    <rect x="229" y="0" width="4" height="154" fill="url(#rightShade)"/>
+    <rect x="0" y="149" width="235" height="3.4" fill="url(#footShade)"/>
+  </g>
+
+  <!-- the map's well, shaded round its top and left -->
+  <rect x="44.2" y="10.4" width="133" height="134" fill="none" stroke="#3A4252" stroke-opacity="0.7" stroke-width="2.4" filter="url(#soft)"/>
+  <rect x="46" y="12" width="131" height="132" fill="#000000"/>
+</svg>

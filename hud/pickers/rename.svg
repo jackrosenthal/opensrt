@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 122" width="200" height="122">
+  <!-- Rename box: vector remake of the original Ski Resort Tycoon
+       sprite rename, the panel of the box a window's rename button
+       opens.  A black rimmed slab with rounded corners, sky blue at the
+       top paling to lavender, then ice white below a sharp line, with
+       the grey field the name is typed in and two snowflakes pressed in
+       behind its right end. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="4" x2="0" y2="117" gradientUnits="userSpaceOnUse">
+      <stop offset="0.04" stop-color="#94ACE6"/>
+      <stop offset="0.15" stop-color="#94ACE6"/>
+      <stop offset="0.38" stop-color="#BDCDF6"/>
+      <stop offset="0.56" stop-color="#DEE6FF"/>
+      <stop offset="0.676" stop-color="#EEEEFF"/>
+      <stop offset="0.677" stop-color="#F6FFFF"/>
+      <stop offset="0.85" stop-color="#E6FFFF"/>
+      <stop offset="1" stop-color="#DEF6FF"/>
+    </linearGradient>
+    <linearGradient id="rightShade" x1="189" y1="0" x2="194" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5A6A8B" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4A525A" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="footShade" x1="0" y1="112" x2="0" y2="117" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A5A84" stop-opacity="0"/>
+      <stop offset="1" stop-color="#313952" stop-opacity="0.8"/>
+    </linearGradient>
+    <path id="inside" d="M15,4 H183 A11,11 0 0 1 194,15 V106 A11,11 0 0 1 183,117 H15 A11,11 0 0 1 4,106 V15 A11,11 0 0 1 15,4 Z"/>
+    <clipPath id="insideClip"><use href="#inside"/></clipPath>
+    <filter id="flakeBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.05"/>
+    </filter>
+    <!-- A snowflake, radius 1: six spokes, each with two pairs of
+         branches. -->
+    <path id="arm" d="M0,0 V-1 M0,-0.45 L-0.28,-0.66 M0,-0.45 L0.28,-0.66 M0,-0.72 L-0.17,-0.86 M0,-0.72 L0.17,-0.86"/>
+    <g id="flake">
+      <use href="#arm"/>
+      <use href="#arm" transform="rotate(60)"/>
+      <use href="#arm" transform="rotate(120)"/>
+      <use href="#arm" transform="rotate(180)"/>
+      <use href="#arm" transform="rotate(240)"/>
+      <use href="#arm" transform="rotate(300)"/>
+    </g>
+  </defs>
+
+  <!-- the rim and the slab -->
+  <rect x="0.4" y="0.4" width="197.2" height="120.4" rx="15" fill="#000000"/>
+  <use href="#inside" fill="url(#sky)"/>
+  <g clip-path="url(#insideClip)">
+    <!-- a pale line inside the rim at the top and left, and the shade
+         down the right and along the foot -->
+    <path d="M4.8,117 V15 A10.2,10.2 0 0 1 15,4.8 H194" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1.6"/>
+    <rect x="189" y="0" width="5" height="122" fill="url(#rightShade)"/>
+    <rect x="0" y="112" width="200" height="5" fill="url(#footShade)"/>
+  </g>
+
+  <!-- two snowflakes, pressed in -->
+  <g fill="none" stroke-linecap="round">
+    <g transform="translate(142.5,72) scale(11)">
+      <use href="#flake" transform="translate(-0.07,-0.07)" stroke="#8B94B4" stroke-opacity="0.5" stroke-width="0.17" filter="url(#flakeBlur)"/>
+      <use href="#flake" stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="0.12"/>
+    </g>
+    <g transform="translate(174,65.5) scale(13)">
+      <use href="#flake" transform="translate(-0.06,-0.06)" stroke="#8B94B4" stroke-opacity="0.5" stroke-width="0.15" filter="url(#flakeBlur)"/>
+      <use href="#flake" stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="0.1"/>
+    </g>
+  </g>
+
+  <!-- the name field -->
+  <rect x="19" y="48" width="161" height="18" fill="#B4B4B4"/>
+</svg>

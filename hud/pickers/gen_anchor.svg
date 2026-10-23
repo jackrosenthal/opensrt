@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" width="8" height="8">
+  <!-- Random map anchor: vector remake of the original Ski Resort
+       Tycoon sprite anchor_point, the yellow square at the foot of each
+       anchor of the Generate Random Map window's wireframe. -->
+  <rect x="0" y="0" width="8" height="8" fill="#FFF641"/>
+</svg>

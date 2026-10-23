@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 124" width="31" height="124">
+  <!-- Mini-map's Generate Map button: vector remake of the original Ski
+       Resort Tycoon sprites GenMap_normal/_Rollover/_Depress_154_11, the
+       map editor's tall button beside the mini-map.  A grey rimmed bar
+       with rounded ends, white, yellow when the pointer is over it, and
+       pressed in grey, with GENERATE MAP down it a letter at a time in
+       navy, each letter over a tan shadow.  One group per state; the
+       game shows one with a stylesheet. -->
+  <defs>
+    <rect id="face" x="5.8" y="6.6" width="21" height="111" rx="10.5"/>
+    <clipPath id="faceClip"><use href="#face"/></clipPath>
+    <filter id="soft" x="-30%" y="-10%" width="160%" height="120%">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+    <g id="letters">
+      <path d="M19.43 18.88Q18.76 19.21 18.03 19.37Q17.3 19.54 16.53 19.54Q14.78 19.54 13.76 18.56Q12.74 17.58 12.74 15.91Q12.74 14.22 13.78 13.25Q14.82 12.27 16.63 12.27Q17.33 12.27 17.97 12.41Q18.61 12.54 19.17 12.8V14.24Q18.59 13.91 18.01 13.75Q17.43 13.58 16.85 13.58Q15.77 13.58 15.19 14.19Q14.6 14.79 14.6 15.91Q14.6 17.02 15.17 17.62Q15.73 18.23 16.76 18.23Q17.05 18.23 17.29 18.19Q17.53 18.16 17.72 18.08V16.72H16.62V15.51H19.43Z"/>
+      <path d="M13.8 21.4H18.67V22.77H15.61V24.07H18.49V25.43H15.61V27.04H18.78V28.4H13.8Z"/>
+      <path d="M13.06 30.4H15.08L17.62 35.2V30.4H19.34V37.4H17.32L14.78 32.6V37.4H13.06Z"/>
+      <path d="M13.8 39.4H18.67V40.77H15.61V42.07H18.49V43.43H15.61V45.04H18.78V46.4H13.8Z"/>
+      <path d="M15.95 51.5Q16.52 51.5 16.76 51.29Q17.01 51.08 17.01 50.6Q17.01 50.12 16.76 49.92Q16.52 49.71 15.95 49.71H15.19V51.5ZM15.19 52.75V55.4H13.39V48.4H16.14Q17.52 48.4 18.17 48.87Q18.81 49.33 18.81 50.33Q18.81 51.03 18.48 51.47Q18.14 51.92 17.47 52.13Q17.84 52.21 18.13 52.51Q18.42 52.81 18.72 53.41L19.7 55.4H17.78L16.93 53.66Q16.67 53.14 16.41 52.94Q16.14 52.75 15.7 52.75Z"/>
+      <path d="M17.61 63.13H14.79L14.35 64.4H12.53L15.12 57.4H17.28L19.87 64.4H18.05ZM15.24 61.83H17.16L16.2 59.04Z"/>
+      <path d="M12.97 66.4H19.42V67.77H17.1V73.4H15.3V67.77H12.97Z"/>
+      <path d="M13.8 75.4H18.67V76.77H15.61V78.07H18.49V79.43H15.61V81.04H18.78V82.4H13.8Z"/>
+      <path d="M12.3 91.4H14.6L16.2 95.15L17.8 91.4H20.09V98.4H18.38V93.28L16.77 97.05H15.63L14.02 93.28V98.4H12.3Z"/>
+      <path d="M17.61 106.12H14.79L14.35 107.4H12.53L15.12 100.4H17.28L19.87 107.4H18.05ZM15.24 104.83H17.16L16.2 102.04Z"/>
+      <path d="M13.56 109.4H16.56Q17.89 109.4 18.61 109.99Q19.32 110.59 19.32 111.68Q19.32 112.79 18.61 113.38Q17.89 113.97 16.56 113.97H15.37V116.4H13.56ZM15.37 110.71V112.66H16.37Q16.89 112.66 17.18 112.41Q17.46 112.15 17.46 111.68Q17.46 111.22 17.18 110.96Q16.89 110.71 16.37 110.71Z"/>
+    </g>
+    <g id="rim">
+      <use href="#face" fill="none" stroke="#000000" stroke-opacity="0.2" stroke-width="3.4" filter="url(#soft)"/>
+      <use href="#face" fill="none" stroke="#9C9CAC" stroke-width="2.2"/>
+    </g>
+  </defs>
+
+  <g id="normal" class="state">
+    <use href="#face" fill="#FFFFFF"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.4,0)" fill="none" stroke="#8B8B94" stroke-opacity="0.8" stroke-width="3" filter="url(#soft)"/>
+    </g>
+    <use href="#rim"/>
+    <use href="#letters" transform="translate(0.8,0.8)" fill="#CDA48B"/>
+    <use href="#letters" fill="#181894"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#face" fill="#FFF641"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(-2.4,0)" fill="none" stroke="#8B8B41" stroke-opacity="0.8" stroke-width="3" filter="url(#soft)"/>
+      <use href="#face" transform="translate(2.4,0)" fill="none" stroke="#FFFFA4" stroke-width="3" filter="url(#soft)"/>
+    </g>
+    <use href="#rim"/>
+    <use href="#letters" transform="translate(0.8,0.8)" fill="#CDA48B"/>
+    <use href="#letters" fill="#181894"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#face" fill="#C5C5C5"/>
+    <g clip-path="url(#faceClip)">
+      <use href="#face" transform="translate(2.6,0)" fill="none" stroke="#181818" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#rim"/>
+    <use href="#letters" fill="#181894"/>
+  </g>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396 55" width="396" height="55">
+  <!-- Escape menu's Abort game button: vector remake of the original Ski
+       Resort Tycoon sprites exit_abort_normal/_rollover/_depress.  A
+       black ringed disc with a red brushed cross on it, and beside it a long black
+       rimmed bar with rounded ends, white (letting a little of the
+       scene through), yellow when the pointer is over it, and pressed in
+       grey, lettered Abort game at its right end in black over a soft
+       shadow.  The original's sprites carry the scene behind them; here
+       the scene stays the menu's background.  One group per state; the
+       game shows one with a stylesheet. -->
+  <defs>
+    <radialGradient id="disc" cx="22" cy="21.6" r="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#F2F2F8"/>
+      <stop offset="1" stop-color="#A4A4AC"/>
+    </radialGradient>
+    <linearGradient id="red" x1="16" y1="10" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF5A62"/>
+      <stop offset="1" stop-color="#D51018"/>
+    </linearGradient>
+    <linearGradient id="green" x1="20" y1="13" x2="34" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9CF68B"/>
+      <stop offset="0.5" stop-color="#4AB452"/>
+      <stop offset="1" stop-color="#2A8B31"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+    <filter id="shadow" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+    <path id="bar" d="M83.7,8.2 H371.90000000000003 A19.3,19.3 0 0 1 371.90000000000003,46.8 H83.7 A19.3,19.3 0 0 1 83.7,8.2 Z"/>
+    <clipPath id="barClip"><use href="#bar"/></clipPath>
+    <path id="words" d="M225.25 31.81H218.2L217.09 35H212.55L219.03 17.5H224.41L230.89 35H226.36ZM219.32 28.57H224.12L221.73 21.61ZM240.01 32.29Q241.36 32.29 242.06 31.31Q242.77 30.32 242.77 28.45Q242.77 26.57 242.06 25.59Q241.36 24.61 240.01 24.61Q238.66 24.61 237.94 25.6Q237.22 26.59 237.22 28.45Q237.22 30.31 237.94 31.3Q238.66 32.29 240.01 32.29ZM237.22 23.8Q238.09 22.65 239.14 22.1Q240.2 21.56 241.57 21.56Q243.99 21.56 245.55 23.49Q247.11 25.41 247.11 28.45Q247.11 31.48 245.55 33.41Q243.99 35.34 241.57 35.34Q240.2 35.34 239.14 34.79Q238.09 34.25 237.22 33.1V35H233.02V16.77H237.22ZM256.45 24.56Q255.05 24.56 254.32 25.56Q253.59 26.56 253.59 28.45Q253.59 30.34 254.32 31.34Q255.05 32.34 256.45 32.34Q257.82 32.34 258.55 31.34Q259.27 30.34 259.27 28.45Q259.27 26.56 258.55 25.56Q257.82 24.56 256.45 24.56ZM256.45 21.56Q259.84 21.56 261.74 23.39Q263.64 25.21 263.64 28.45Q263.64 31.68 261.74 33.51Q259.84 35.34 256.45 35.34Q253.05 35.34 251.13 33.51Q249.22 31.68 249.22 28.45Q249.22 25.21 251.13 23.39Q253.05 21.56 256.45 21.56ZM276.44 25.45Q275.89 25.19 275.35 25.07Q274.8 24.95 274.25 24.95Q272.63 24.95 271.76 25.98Q270.89 27.02 270.89 28.95V35H266.69V21.88H270.89V24.03Q271.7 22.74 272.74 22.15Q273.79 21.56 275.26 21.56Q275.47 21.56 275.71 21.58Q275.96 21.59 276.43 21.65ZM283.11 18.15V21.88H287.43V24.88H283.11V30.44Q283.11 31.36 283.47 31.68Q283.84 32 284.91 32H287.07V35H283.47Q280.99 35 279.95 33.96Q278.91 32.93 278.91 30.44V24.88H276.83V21.88H278.91V18.15ZM307.29 32.77Q306.42 33.92 305.38 34.46Q304.33 35 302.96 35Q300.56 35 298.99 33.11Q297.42 31.21 297.42 28.29Q297.42 25.34 298.99 23.46Q300.56 21.58 302.96 21.58Q304.33 21.58 305.38 22.12Q306.42 22.66 307.29 23.82V21.88H311.5V33.68Q311.5 36.84 309.51 38.51Q307.51 40.18 303.71 40.18Q302.48 40.18 301.33 39.99Q300.18 39.8 299.02 39.42V36.15Q300.12 36.78 301.18 37.09Q302.23 37.4 303.3 37.4Q305.36 37.4 306.32 36.5Q307.29 35.6 307.29 33.68ZM304.52 24.61Q303.22 24.61 302.49 25.57Q301.77 26.53 301.77 28.29Q301.77 30.09 302.47 31.02Q303.17 31.95 304.52 31.95Q305.83 31.95 306.56 30.99Q307.29 30.03 307.29 28.29Q307.29 26.53 306.56 25.57Q305.83 24.61 304.52 24.61ZM321.42 29.09Q320.11 29.09 319.44 29.54Q318.78 29.98 318.78 30.85Q318.78 31.65 319.31 32.1Q319.85 32.55 320.8 32.55Q321.98 32.55 322.79 31.7Q323.6 30.85 323.6 29.57V29.09ZM327.83 27.51V35H323.6V33.05Q322.75 34.25 321.7 34.79Q320.64 35.34 319.13 35.34Q317.09 35.34 315.82 34.15Q314.55 32.96 314.55 31.06Q314.55 28.75 316.14 27.68Q317.73 26.6 321.12 26.6H323.6V26.27Q323.6 25.27 322.81 24.81Q322.03 24.35 320.36 24.35Q319.02 24.35 317.86 24.62Q316.7 24.89 315.7 25.43V22.23Q317.05 21.9 318.41 21.73Q319.77 21.56 321.12 21.56Q324.68 21.56 326.25 22.96Q327.83 24.36 327.83 27.51ZM343.89 24.05Q344.69 22.84 345.79 22.2Q346.88 21.56 348.2 21.56Q350.46 21.56 351.64 22.95Q352.82 24.35 352.82 27.01V35H348.61V28.16Q348.62 28 348.62 27.84Q348.63 27.68 348.63 27.37Q348.63 25.98 348.22 25.35Q347.81 24.72 346.89 24.72Q345.7 24.72 345.05 25.71Q344.4 26.69 344.38 28.55V35H340.16V28.16Q340.16 25.98 339.78 25.35Q339.41 24.72 338.45 24.72Q337.24 24.72 336.58 25.71Q335.93 26.7 335.93 28.54V35H331.71V21.88H335.93V23.8Q336.7 22.68 337.7 22.12Q338.7 21.56 339.91 21.56Q341.27 21.56 342.31 22.21Q343.36 22.87 343.89 24.05ZM369.84 28.4V29.6H360.03Q360.18 31.07 361.1 31.81Q362.01 32.55 363.65 32.55Q364.98 32.55 366.37 32.16Q367.75 31.77 369.22 30.97V34.2Q367.73 34.77 366.24 35.05Q364.75 35.34 363.27 35.34Q359.7 35.34 357.73 33.53Q355.75 31.72 355.75 28.45Q355.75 25.24 357.69 23.4Q359.63 21.56 363.03 21.56Q366.12 21.56 367.98 23.42Q369.84 25.29 369.84 28.4ZM365.53 27.01Q365.53 25.81 364.83 25.08Q364.13 24.35 363.01 24.35Q361.79 24.35 361.03 25.03Q360.27 25.72 360.08 27.01Z"/>
+    <g id="disc-icon" transform="translate(0,3.200000000000003)">
+      <circle cx="26.3" cy="24.4" r="23.4" fill="url(#disc)" stroke="#000000" stroke-width="4"/>
+    <!-- a red cross, brushed -->
+    <g fill="none" stroke-linecap="round">
+      <path d="M17.2,14 C20.4,19.6 25.4,26.8 34.8,34.6 M35.4,14.6 C29.6,18.6 22.8,26 16.2,36.2" transform="translate(0.8,1)" stroke="#000000" stroke-opacity="0.25" stroke-width="4" filter="url(#soft)"/>
+      <path d="M17.2,14 C20.4,19.6 25.4,26.8 34.8,34.6 M35.4,14.6 C29.6,18.6 22.8,26 16.2,36.2" stroke="#E61020" stroke-width="3.6"/>
+      <path d="M16.8,13.4 C20,19 25,26.2 34.4,34 M35,14 C29.2,18 22.4,25.4 15.8,35.6" stroke="#FF8B94" stroke-width="1" stroke-opacity="0.8"/>
+    </g>
+    </g>
+  </defs>
+
+  <use href="#disc-icon"/>
+  <g id="normal" class="state">
+    <use href="#bar" fill="#FFFFFF" fill-opacity="0.85"/>
+    <g clip-path="url(#barClip)">
+      <use href="#bar" transform="translate(-3,-3)" fill="none" stroke="#9C9CA4" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#bar" fill="none" stroke="#000000" stroke-width="4.4"/>
+    <use href="#words" transform="translate(3,3.6)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+    <use href="#words" fill="#000000"/>
+  </g>
+  <g id="rollover" class="state" display="none">
+    <use href="#bar" fill="#FFF673" fill-opacity="0.9"/>
+    <g clip-path="url(#barClip)">
+      <use href="#bar" transform="translate(-3,-3)" fill="none" stroke="#948B41" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#bar" fill="none" stroke="#000000" stroke-width="4.4"/>
+    <use href="#words" transform="translate(3,3.6)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+    <use href="#words" fill="#000000"/>
+  </g>
+  <g id="depress" class="state" display="none">
+    <use href="#bar" fill="#B4B4C5"/>
+    <g clip-path="url(#barClip)">
+      <use href="#bar" transform="translate(3,3)" fill="none" stroke="#3A3A42" stroke-opacity="0.8" stroke-width="4" filter="url(#soft)"/>
+    </g>
+    <use href="#bar" fill="none" stroke="#000000" stroke-width="4.4"/>
+    <g transform="translate(1,1)">
+      <use href="#words" transform="translate(3,3.6)" fill="#3A3A4A" fill-opacity="0.75" filter="url(#shadow)"/>
+      <use href="#words" fill="#000000"/>
+    </g>
+  </g>
+</svg>

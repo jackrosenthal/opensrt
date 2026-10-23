@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" width="15" height="15">
+  <!-- Thought icon: vector remake of the original Ski Resort Tycoon
+       sprite Angry, shown over a guest who is angry: a yellow face with frowning brows and a turned-down mouth, rimmed in
+       black and lit at its top left. -->
+  <defs>
+    <radialGradient id="disc" cx="6" cy="5.4" r="8.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFF9C"/>
+      <stop offset="0.6" stop-color="#F6E641"/>
+      <stop offset="1" stop-color="#C5AC10"/>
+    </radialGradient>
+  </defs>
+  <circle cx="7.5" cy="7.5" r="6.8" fill="url(#disc)" stroke="#000000" stroke-width="0.8"/>
+  <path d="M4.2,4.4 L6.4,5.6 M10.8,4.4 L8.6,5.6" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+  <rect x="5" y="6.2" width="1.2" height="1.6" fill="#000000"/>
+  <rect x="8.8" y="6.2" width="1.2" height="1.6" fill="#000000"/>
+  <path d="M4.6,11.2 C5.6,9.4 9.4,9.4 10.4,11.2" fill="none" stroke="#000000" stroke-width="1.1" stroke-linecap="round"/>
+</svg>

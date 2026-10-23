@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18" width="19" height="18">
+  <!-- Objects picker's scroll nub: vector remake of the original Ski
+       Resort Tycoon sprite Scroll_Tab as the objects and paths picker
+       has it, the black disc that slides along its scroller. -->
+  <circle cx="9.5" cy="8.5" r="7.6" fill="#000000"/>
+</svg>
